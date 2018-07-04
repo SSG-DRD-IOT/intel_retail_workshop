@@ -1,0 +1,32 @@
+{
+  "name": "LABS",
+  "version": "2.4",
+  "authors": [
+    "Damian Dudziak - WebAppLayers"
+  ],
+  "description": "LABS - Responsive Admin Theme",
+  "main": "app/index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "appPath": "app",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "angular": "1.3.7",
+    "angular-ui-router": "~0.2.13",
+    "oclazyload": "latest",
+    "bootstrap": "~3.3.6",
+    "jquery-ui": "~1.11.1",
+    "angular-bootstrap": "~0.12.0",
+    "metisMenu": "~2.0.2",
+    "fontawesome": "~4.3.0",
+    "slimScroll": "https://github.com/rochal/jQuery-slimScroll.git#~1.3.6",
+    "PACE": "https://github.com/HubSpot/pace.git#~1.0.2",
+    "fontello": "^5.3.0",
+    "codemirror": "^5.13.0",
+    "angular-ui-codemirror": "^0.3.0"
+  }
+}

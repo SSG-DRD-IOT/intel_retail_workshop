@@ -1,0 +1,101 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   <div class="col-lg-10">
+      <h2>Intel® AMT</h2>
+      <ol class="breadcrumb">
+         <li><a href="index.html">Home</a></li>
+         <li><a>Labs</a></li>
+         <li><a>Remote Management</a></li>
+         <li class="active">
+            <strong>Intel&reg; Active Management Technology</strong>
+         </li>
+      </ol>
+   </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+<div ibox title="Objectives" >
+   <div content-block name="AMT_init-objectives" message="Read the Objectives">
+      <p>This guide is intended to be a starting point for testing your Intel &reg; vPro&trade; technology systems within your environment.</p>
+      <p>It will guide you through setting up a "Sandbox" test environment using your own network environment so that you can test your specific use cases on Intel&reg; vPro technology that ultimately reduces overall support costs and costly service/truck rolls.</p>
+      <p>
+         The first step in enabling Intel® AMT is to install the Intel® AMT agent. In this lab,
+         <!--we create a USB drive that will install the Intel® AMT agent onto a host system.-->
+         we will manually configure the AMT from BIOS. Then we will verify that the agent is correctly installed by going to a web browser and accessing the Intel® AMT firmware based web configuration console.
+         The Converged Security and Manageability Engine (CSME) powers the Intel AMT system. As a component of the Intel® vPro™ platform, Intel AMT uses a number of elements in the Intel vPro platform architecture.
+      </p>
+   </div>
+</div>
+<div ibox title="Configuring Intel&reg; AMT">
+   <div content-block name="step1" message="Check after completion of this section" image-link="../views/labs/remote-configamt/images/MEBX001.JPG">
+      <labels nuc/>
+      <p>Start by performing these actions on your Intel IoT Gateway.</p>
+      <p>During power up, the Intel AMT platform displays the BIOS startup screen, then it processes the MEBx.
+         During this process, access to the Intel MEBX can be made; however the method is BIOS vendor-dependent. Some methods are discussed here.
+      </p>
+      <ul>
+         <li>Most BIOS vendors add entry into the CSME via the one-time boot menu. Select the appropriate key (Ctrl+P is typical) and follow the prompts.</li>
+         <li>Some OEM platforms prompt you to press &lt;Ctrl+P&gt; after POST. When you press &lt;Ctrl+P&gt;, control passes to the Intel MEBx (CSME) main menu.</li>
+         <li>Some OEMs integrate the CSME configuration inside the BIOS (uncommon).</li>
+         <li>Some OEMs have an option in the BIOS to show/hide the &lt;Ctrl+P&gt; prompt,
+            so if the prompt is not available in the one-time boot menu, check the BIOS to activate the CTRL+P.
+         </li>
+      </ul>
+   </div>
+   <div content-block name="step1" message="Change Password" image-link="../views/labs/remote-configamt/images/MEBX002.JPG">
+     <p>Enter the CSME default password <font color=red>admin</font></p>
+      <p><b>Troubleshoot</b>:- If the NUC is already AMT configured, it may have <font color=red>Intel@1234</font> as password</p>
+      <ul>
+        <li>Change the default password (required to proceed).</li>
+        <li>The new value must be a strong password. </li>
+        <li>It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, 
+          and be at least <u>eight</u> characters.</li>
+        <li>A management console application can change the Intel AMT password without modifying the CSME password.</li>
+     </ul>
+   </div>
+   <div content-block name="step1" message="AMT Configuration" image-link="../views/labs/remote-configamt/images/MEBX003.JPG">
+      <ul>
+         <li>Go back to previous menu using Esc key</li>
+         <li>Select Intel AMT Configuration.</li>
+         <li>  Select/Verify Manageability Feature Selection is Enabled.</li>
+      </ul>
+   </div>
+   <div content-block name="step1" message="Network Configuration" image-link="../views/labs/remote-configamt/images/MEBX004.JPG">
+      <ul>
+         <li>Under the Intel® ME Network Setup menu Select 'TCP/IP Settings' and Press Enter.</li>
+         <li>The Intel Network Setup menu changes to the TCP/IP Settings page</li>
+         <li>Goto Wired LAN IPV4 Configuration Under the TCP/IP Settings, Select 'Wired LAN IPV4 Configuration' and press Enter.</li>
+         <li>Enable DHCP</li>
+        <li>Activate Network Access option by enabling it</li>
+      </ul>
+   </div>
+   <div content-block name="step1" message="Exit">
+      <ul>
+         <li>
+            Press Esc key to go to exit screen
+         </li>
+         <li>
+            Select "Y" to confirm Activating the interface.
+         </li>
+         <li>
+            Exit CSME.
+         </li>
+      </ul>
+   </div>
+  </div>
+   <div ibox title="Use a Web Browser to Connet to the Intel&reg; Active Management Technology web interface">
+      <div content-block message="Use a Web Browser to Connet to the Intel&reg; Active Management Technology web interface">
+         <labels laptop/>
+         <p>To use the Intel&reg; Active Management Technology web interface, open a browser and go to the IP address of the Intel&reg; IoT Gateway. The port number is <font color=red>16992</font></p>
+         <div class="alert alert-warning">
+            <p><b>For this step, you will need to work with the person next to you.</b></p>
+            <p>You will not be able to access the Intel&reg; AMT web interface, if you are using a web browser on the same machine.</p>
+            <p>Try to connect to your neighbor's Intel&reg; IoT Gateway and let them connect to yours. http://x.x.x.x:16992</p>
+         </div>
+      </div>
+      <div content-block image-link="../views/labs/remote-configamt/images/002-Intel-AMT-Web-Browser-Login-Screen.jpg">
+         <p>When prompted for username/password, type <font color=blue>admin</font> for username and <font color=blue>Intel@1234</font> as the password</p>
+      </div>
+      <div content-block image-link="../views/labs/remote-configamt/images/003-Intel-AMT-Web-Browser-Screen.jpg" message="Connect and Explore">
+         <p>You are now connected. Please explore different sections.</p>
+      </div>
+   </div>
+</div>

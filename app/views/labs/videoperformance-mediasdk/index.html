@@ -1,0 +1,160 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Intel&reg; Media Server Studio Samples</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Labs</a>
+            </li>
+            <li>
+                video performance
+            </li>
+            <li class="active">
+                <strong>Explore Intel&reg; Media Server Studio Samples</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+          <div ibox title="Objectives">
+              <div content-block name="xdk-issues" message="Check after completion of Objectives">
+              <b>Introduction</b>
+              <p>Intel&reg; Media Server Studio (Intel MSS) is a set of libraries, tools, header and sample code files that define cross-platform API for developing consumer
+                 and professional grade media applications on Intel platforms. Providing an access to Intel&reg; Quick Sync Video, hardware accelerated codecs
+                 in Intel Graphics Processor, Media Server Studio allows application developer to speed up video playback, encoding, processing and media conversion.
+                 Intel&reg; Media Server Studio for Windows helps to deliver desktop applications, such as video players, editors and video conferencing clients,
+                 while Intel&reg; Media Server Studio for Embedded Linux enables digital security and surveillance and connected car manufacturers to deliver smart cameras
+                 and infotainment or cluster display solutions. Hardware acceleration in Linux is supported by VA-API.</p>
+                 <p>Video Acceleration API (VA API) is a royalty-free API as well as its implementation as free and open-source library (libVA) distributed under the MIT License.
+                   The VA API interface is to be implemented by device drivers to offer end-user software, such as VLC media player or GStreamer, access to available video acceleration hardware,
+                   such as PureVideo (through the libva-vdpau driver, which implements VA API in terms of VDPAU) or Unified Video Decoder. The API enables and provides access to
+                   hardware-accelerated video processing, using hardware such as graphics processing units (GPU) to accelerate video encoding and decoding by offloading processing from the central processing unit (CPU).
+                   The VA API specification was originally designed by Intel for its GMA (Graphics Media Accelerator) series of GPU hardware with the specific purpose of eventually replacing the XvMC standard as the default Unix multi-platform equivalent of Microsoft Windows DirectX Video Acceleration (DxVA) API, but today the API is no longer limited to Intel-specific hardware or GPUs.
+                   Other hardware and manufacturers can freely use this open standard API for hardware accelerated video processing with their own hardware without paying a royalty fee.
+                 </p>
+
+              <b>Exploration</b>
+              <ul>
+              <li>This lab starts with exploring and understanding the Media Server Studio related packages installed in your Intel&reg; NUC.
+                 Then understand the customized applications such as sample decoder and video wall bundled with installation. </li>
+              <li>Understand the performance differences between hardware and software based encoding/decoding</li>
+            </ul>
+              <b>Observation</b>
+                <p>Performance monitoring using system performance monitoring tool. </p>
+                <p>Observe the utilization of GPU and CPU in software and hardware acceleration modes.</p>
+              <b>Learning Outcome</b>
+              <p>By the end of this module, the participant would get basic understanding of Intel&reg; Media Server Studio, installation structure,
+                 hardware acceleration and performance enhancement of selected applications.</p>
+              </div>
+            </div>
+
+          <div ibox title="View the packages installed on your NUC">
+            <div content-block name="xdk-issues" message="Check after viewing the packages installed on your NUC">
+                    <ul>
+                        <li>Media Server Studio installer:
+                            <p>Intel&reg; Media Server Studio by default installs at
+                              <span style="color:#2554C7"> /opt/intel/mediasdk/</span></p>
+                        </li>
+                        <li>Media Sample applications:
+                            <p>Pre built Media Server Studio samples will be available in <span style="color:#2554C7">/opt/intel/mediasdk/samples/ </span>for 64-bit architecture</p>
+                        </li>
+                        <li>Media Server Studio Documentation directory: <span style="color:#2554C7">/opt/intel/mediasdk/doc/</span>
+                        </li>
+                      </ul>
+                          <p><b>Commands:</b></p>
+                          <div class="alert alert-warning">
+                            $ls /opt/intel/mediasdk/
+                          </br>
+                            $ls /opt/intel/mediasdk/samples/
+                          </br>
+                            $ls /opt/intel/mediasdk/doc/
+                          </div>
+            </div>
+          </div>
+            <div ibox title="System Analyzer">
+              <div content-block message="Check after running System Analyzer" image-link="../views/labs/videoperformance-mediasdk/images/SystemAnalyzer.JPG">
+               System Analyzer tool reports back following information about CPU, GPU and Intel &reg; Media Server studio components.</p>
+                <ul>
+                <li>Platform readiness: check if processor has necessary GPU components</li>
+                <li>OS readiness: check if OS can see GPU, and if it has required glibc/gcc level</li>
+                <li>Install checks for Intel(R) Media Server Studio/Intel(R) SDK for OpenCL Applications components</li>
+                <li>Results from runs of small smoke test programs for Media Server Studio and OpenCL</li>
+              </ul>
+
+              <b>Run</b>
+               Download and copy sys_analyzer_linux.py file from <a href="../views/labs/videoperformance-mediasdk/images/sys_analyzer_linux.py">here</a> to /home/intel[machine id]/Documents/workshop folder
+              <div class="alert alert-warning">
+                <p>$cd /home/intel[machine id]/Documents/workshop</p>
+                <p>$python sys_analyzer_linux.py</p>
+                </div>
+            </div>
+          </div>
+
+          <div ibox title="Performance Monitoring">
+          <div content-block name="xdk-issues" message="Check after initiating the Performance Monitoring tools" image-link="../views/labs/videoperformance-mediasdk/images/system_monitor.png">
+                  <p>We would need few performance monitoring tools before we proceed with Media Server Studio sample programs. </p>
+                  <p>Open the Performance monitoring tool as shown in the picture
+                  <p> This tool is used to compare the CPU performance of the below two cases.</p>
+                  <div class="alert alert-info">
+                    Note: If you are running any other programs, their process would be added to the CPU, GPU &amp; memory utilization.
+                    So try closing all other programs. Then observe the Sample_decode process performance from system monitor tool.
+                  </div>
+          </div>
+        </div>
+
+            <div ibox title="Decode a raw video">
+                <div content-block name="xdk-issues" message="Decoding example completed">
+                  <p>Intel&reg; Media Server Studio ships with few basic samples to try various functinalities. Here we are using a console application which performs decoding of elementary compressed video stream to raw frames.</p>
+                  <p>Make sure to review the performance parameters while running these samples. Above said tools can help to understand the difference between software and hardware acceleration modes.</p>
+                  <p>Open new terminal and change the directory</p>
+                  <div class="alert alert-warning">
+                    $cd /opt/intel/mediasdk/samples/
+                  </div>
+                                    <div content-block name="xdk-issues" message="Software implementation" image-link="../views/labs/videoperformance-mediasdk/images/MSDK_SW.png">
+                                      <p>Case 1: Execute the below command for <u>software implementation</u>:</p>
+                                      <p>In this example -sw stands for Software Acceleration, -r is for rendering the output.
+                                    <div class="alert alert-warning">$./sample_decode h264 -i '/home/intel[workshop id]/Documents/workshop/msdk_samples/samples/input.h264' -sw -r</div>
+                                    </div>
+                                    <div content-block name="xdk-issues" message="Hardware implementation" image-link="../views/labs/videoperformance-mediasdk/images/MSDK_HW.png">
+                                      <p>Case 2: Execute the below command for <u>hardware acceleration</u>:</p>
+                                      <p>In this example, we are instructing the application to use vaapi memory type. If you dont specify, then it will take system memory by default. -hw stands for hardware Acceleration.
+                                                  <div class="alert alert-warning">$./sample_decode h264 -i '/home/intel[workshop id]/Documents/workshop/msdk_samples/samples/input.h264' -vaapi -hw -r</div>
+                                                  <p>If you wish to see all the available options for decode, then type ./sample_decode.
+                                                    This will show the help output with variuos decode options:
+                                                      <p> For example: </br>-o : output to file in RAW formats
+                                                      </br>-f : change rendering frame rate
+                                                      </br>-w and –h : changing the resolution
+                                                  </div>
+                </div>
+              </div>
+
+<div ibox title="Encode raw video frames">
+    <div content-block name="xdk-issues" message="Check after completion of Sample Encoder">
+      <p>sample_encode is another console application which performs encoding of raw video frames into elementary compressed stream</p>
+            <p>Case 1: Execute the below command for <u>software implementation</u>:</p>
+            <p>We are passing an input raw video stream and converting it to h264 formatted elementary stream.</p>
+            <p>We specify width, height and framerate for this conversion. You can review all the available switches by typing ./sample_encode at the terminal</p>
+			<div class="alert alert-warning">$./sample_decode h264 -i '/home/intel[machine id]/Documents/workshop/msdk_samples/samples/input.h264' -nv12 -o '/home/intel[machine id]/Documents/workshop/msdk_samples/samples/input.yuv' -vaapi -hw</div>
+                        <div class="alert alert-warning">$./sample_encode h264 -nv12 -i '/home/intel[machine id]/Documents/workshop/msdk_samples/samples/input.yuv' -o '/home/intel[machine id]/Documents/workshop/msdk_samples/samples/sw_out.h264' -w 1920 -h 1080 -f 60 -sw</div>
+                        
+            <p>Observe the CPU utilization from System Monitor as described before</p>
+            <p>Case 2: Execute the below command for <u>hardware acceleration</u>:</p>
+                        <div class="alert alert-warning">$./sample_encode h264 -nv12 -i /home/intel[machine id]/Documents/workshop/msdk_samples/samples/input.yuv -o /home/intel[machine id]/Documents/workshop/msdk_samples/samples/hw_out.h264 -w 1920 -h 1080 -f 60 -hw</div>
+                       
+            <p>To view the converted h264 file, run the decoding sample as follows:</p>
+            <div class="alert alert-warning">$./sample_decode h264 -i /home/intel[machine id]/Documents/workshop/msdk_samples/samples/hw_out.h264 -vaapi -hw -r</div>
+
+    </div>
+</div>
+            <div ibox title="Lessons learnt">
+                <div content-block name="xdk-issues" message="Check after completion of lesson">
+                <ul>
+                <li>Intel&reg; Media Server Studio's libraries, tools and sample code files.</li>
+                <li>Speed up in video decoding and encoding.</li>
+                <li>Performance monitoring</li>
+              </div>
+            </div>
+</div>

@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('./embedded_fonts/fontello.eot');
+    src: url('./embedded_fonts/fontello.eot?#iefix') format('embedded-opentype'),
+    url('./embedded_fonts/fontello.woff') format('woff'),
+    url('./embedded_fonts/fontello.ttf') format('truetype'),
+    url('./embedded_fonts/fontello.svg#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+  font-weight: bold; }
+
+.icon::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
+  background-repeat: no-repeat; }
+
+.folder.icon::before {
+  background-image: url(../img/icon/folder_icon_black.png); }
+
+.file.icon::before {
+  background-image: url(../img/icon/file_icon_black.png); }
+
+.bookmark.icon::before {
+  background-image: url(../img/icon/bookmark_icon_black.png); }
+
+.windows.icon::before {
+  background-image: url(../img/icon/os_icon_windows-black.png); }
+
+.mac.icon::before {
+  background-image: url(../img/icon/os_icon_mac-black.png); }
+
+.linux.icon::before {
+  background-image: url(../img/icon/os_icon_linux-black.png); }
