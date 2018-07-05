@@ -1,0 +1,93 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="dropdown profile-element" dropdown>
+                    <a class="dropdown-toggle" dropdown-toggle href>
+                        <span class="clear">
+                            <!-- <span class="block m-t-xs">
+                                <strong class="font-bold">{{main.userName}}</strong>
+                            </span> -->
+                            <img src="/img/intel_logo.png"/>
+                        </span>
+                    </a>
+                    <!-- <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="">Logout</a></li>
+                    </ul> -->
+                </div>
+                <div class="logo-element">
+                    Intel
+                </div>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.home"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span> </a>
+            </li>
+            <li>
+                <a ui-sref="index.schedule"><i class="fa fa-calendar"></i> <span class="nav-label">Schedule</span></a>
+            </li>
+            <li>
+                <a ui-sref="index.presentations"><i class="fa fa-slideshare"></i> <span class="nav-label">Presentations</span></a>
+            </li>
+
+          <!--  <li>
+                <a ui-sref="index.videos"><i class="fa fa-desktop"></i> <span class="nav-label">Videos</span></a>
+            </li> -->
+
+            <li ng-class="{active: $state.includes('labs')}">
+                <a href=""><i class="fa fa-flask"></i> <span class="nav-label">Labs</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('labs')}">
+                  <!--<li ng-class="{active: $state.includes('labs')}">
+                      <a href=""><span class="nav-label">Setup and deployment</span> <span class="fa arrow"></span></a>
+                      <ul class="nav nav-third-level collapse" ng-class="{in: $state.includes('labs')}">
+                        <li ui-sref-active="active"><a ui-sref="labs.setup-development-environment">setup development environment</a></li>
+                    </ul>
+                  </li>-->
+                    <li ng-class="{active: $state.includes('labs')}">
+                        <a href=""><span class="nav-label">Video Performance</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse" ng-class="{in: $state.includes('labs')}">
+                          <li ui-sref-active="active"><a ui-sref="labs.videoperformance-mediasdk">Explore Intel &reg; Media SDK Samples</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.videoperformance-mediasdksamples">Build Video decode app using Intel &reg; Media SDK Samples</a></li>
+                          <li ui-sref-active="active"><a ui-sref="labs.videoperformance-marsunderstand">Understand Media Acceleration Reference Software</a></li>
+                        </ul>
+                    </li>
+                    <li ng-class="{active: $state.includes('labs')}">
+                        <a href=""> <span class="nav-label">Remote Management</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse" ng-class="{in: $state.includes('labs')}">
+                            <li ui-sref-active="active"><a ui-sref="labs.remote-configamt">Configure AMT</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.remote-configintelmc">Manage remote systems</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.remote-configmeshcentral">Manage remote systems using opensource cloud</a></li>
+                        </ul>
+                    </li>
+                    <li ng-class="{active: $state.includes('labs')}">
+                        <a href=""> <span class="nav-label">Video Analytics</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse" ng-class="{in: $state.includes('labs')}">
+                            <li ui-sref-active="active"><a ui-sref="labs.analytics-opencvinit">A Simple video capture using OpenCV</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.analytics-opencvmotion">Motion detection using OpenCV</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.analytics-opencvface">Face detection with OpenCV</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.analytics-analyse">Analyse face data</a></li>
+                        </ul>
+                    </li>
+                    <!--
+                    <li ng-class="{active: $state.includes('labs')}">
+                        <a href=""> <span class="nav-label">Additional Information</span> <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse" ng-class="{in: $state.includes('labs')}">
+                            <li ui-sref-active="active"><a ui-sref="labs.additional-info-vaapi">Video performance through VA-API on Linux</a></li>
+                            <li ui-sref-active="active"><a ui-sref="labs.additional-info-remote_linux">Managing Linux systems with Intel&reg; AMT and Mesh Central</a></li>
+                        </ul>
+                    </li>
+                    -->
+                </ul>
+            </li>
+            <!--
+            <li>
+                <li ui-sref-active="active"><a ui-sref="labs.solutions"><i class="fa fa-github"></i> <span class="nav-label">Solutions</span></a></li>
+            </li>
+
+            <li ui-sref-active="active"><a ui-sref="index.faq">FAQ</a></li>
+            -->
+        </ul>
+
+    </div>
+</nav>

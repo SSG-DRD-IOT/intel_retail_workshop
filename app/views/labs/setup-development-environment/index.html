@@ -1,0 +1,113 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+<div class="col-lg-10">
+<h2>Setup Development Environment with the Intel&reg; NUC</h2>
+<ol class="breadcrumb">
+<li>
+<a href="index.html">Home</a>
+</li>
+<li>
+<a>Labs</a>
+</li>
+<li class="active">
+<strong>Setup Development Environment with the Intel&reg; NUC</strong>
+</li>
+</ol>
+</div>
+</div>
+
+<div class="wrapper wrapper-content">
+<div class="row">
+<div class="col-lg-12">
+
+<!-- Overview of Labs: What are we doing and where are we going? -->
+<div ibox title="Lab Overview and Objectives">
+<div content-block name="read-objectives" message="Read the Lab Overview and Objectives">
+<h2 class="labHidden">Lab Overview and Objectives</h2>
+
+<labels windows/>
+<p>The labs in the Intel Visual Retail Workshop are organized in a progression that will result in each attendee building their own automated and secured, multi-device IoT network supporting Visual Retail scenarios.</p>
+<p>Start by making sure your computer, is ready for Visual Retail development.</p>
+<p>By the end of this module, you should be able to:</p>
+
+<div class="alert alert-info">
+<ul>
+<li>Unbox and setup your Intel&reg; NUC Hardware</li>
+<li>Connect to your Intel&reg; NUC to power and monitor.</li>
+<li>Install Windows 10 Pro</a></li>
+<li>Install Media Server Studio</li>
+<li>Install OpenCV with Python support</li>
+<li>Copy the required lab exercises</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Login to your Intel NUC -->
+<div ibox title="Setup and deployment">
+<div content-block name="sw-install" message="Software installations">
+
+<p><b>Hardware Requirements</b></p>
+<p>6th Generation Core Processor (Skylake)</p>
+<p>1. Unscrew the NUC kit.</p>
+<p>2. Upgrade 1 DDR3 RAM in provided slot properly.</p>
+<p>3. Insert Solid state drive in the back case.</p>
+<p>4. Screw the NUC kit.</p>
+<p>5. Power on the NUC with Monitor connected.</p>
+</br>
+<p><b>Software Requirements</b></p>
+<p>There are manual and automatic named two ways to configure Windows environment for Visual Retail Workshop</p>
+</br>
+<p><b>Automatic Windows Configuration</b></p>
+<p>1. Automatic method involves the windows image created by Macrium Software and placed in
+<a href="\\10.224.54.1\Raghavendra\workshop-setup\Visual_Retail_Windows_Image\23-03-2018\">\\10.224.54.1\Raghavendra\workshop-setup\Visual_Retail_Windows_Image\23-03-2018\</a>
+<p>Copy the above images in suitable storage device</p>
+<p>2. Prepare a Resuce disk (USB) using the ISO provided in
+<a href="\\10.224.54.1\Raghavendra\workshop-setup\Visual_Retail_Windows_Image\23-03-2018\Rescue.iso">\\10.224.54.1\Raghavendra\workshop-setup\Visual_Retail_Windows_Image\23-03-2018\Rescue.iso</a> according to the instructions given in <a href="https://knowledgebase.macrium.com/display/KNOW7/Creating+rescue+media">Creating rescue media</a></p>
+<p>3. Boot through this rescue disk and restore the above said windows image using the instructions given in
+<a href="https://knowledgebase.macrium.com/display/KNOW7/Restoring+a+system+image">Restoring a system image</a></p>
+<p>4. On Completion of system image restore, it asks to reboot, after which the Windows system will be ready for Visual Retail Workshop</p>
+<p>5. Through elevated command prompt run Desktop > Retail > 01-MARS > filterDlls > regdll.bat, execute to register the dlls required for Mars</p>
+<p>6. Shutdown the system, unplug the cables and stick Intel logo provided in the box, on to the NUC and pack the box.</p>
+<p>Note:- <a href="http://kb.macrium.com/KnowledgebaseArticle50168.aspx">Windows Boot Troubleshoot</a></p>
+</br>
+<p>Note:-If the automatic configuration fails, you can try manual installation as follows</p>
+<p><b>Manual Windows Configuration</b></p>
+<p>1. Power on the Intel NUC</p>
+<p>2. Press F10 and boot from Windows 10 USB prepared using <a href="\\10.224.54.1\Raghavendra\en_windows_10_multiple_editions_version_1607_updated_jul_2016_x64_dvd_9058187.iso">Windows 10 </a></p>
+<p>3. Install Windows 10.</p>
+<p>4. Set Username: intel<NUC Number> and Password: intel123 </p>
+<p>5. Download Workshop contents from <a href="\\10.224.54.1\Raghavendra\Retail_workshop_prep">Workshop folder</a></p>
+<p>6. Open the command prompt in admin mode and navigate to downloaded Workshop folder</p>
+<p>7. Goto 00-Installers, RunMe1.bat to install drivers. Don't restart in between.</p>
+<p>8. Reboot the system after RunMe1.bat finishes.</p>
+<p>9. Execute RunMe2.bat to install WindowsSDK, Directx 11 and <a href="\\10.224.54.1\Raghavendra\en_visual_studio_2010_professional_x86_dvd_509727.iso">Visual Studio 10.</a></p>
+<p>Note:- Directx installation may ask for .NET framework 3.5 for which internet connection is a must.</p>
+<p>10. Execute RunMe3.bat to unmount the VS image, register Mars dlls, install opencv and Mesh commander.</p>
+<p>11. Copy folders 01 - 04 to Desktop > Retail</p>
+<p>12. Through elevated command prompt run Desktop > Retail > 01-MARS > filterDlls > regdll.bat, execute to register the dlls required for Mars</p>
+<p>13. Goto Desktop Retail > 01-Mars > Bin > Right Click on MARS.exe and Send to Desktop (create a link).</p>
+</br>
+
+<p><b>Verification and Validation</b></p>
+<p>1. Run MARS.exe and check if one video is running properly.</p>
+<p>Troubleshoot: Through elevated command prompt run Desktop > Retail > 01-MARS > filterDlls > regdll.bat, execute to register the dlls required for Mars</p>
+<p>2. Run Python idle. Type: import cv2</p>
+<p>3. It should not give any error.</p>
+<p>4. Type: print cv2.__version__ </p>
+<p>5. It should display the cv2 version </p>
+<p>Troubleshoot: If OpenCV python doesn't work, try copying the whole site packages from <a href="\\10.224.54.1\Raghavendra\Retail_workshop_prep\00-Installers\site-packages">\\10.224.54.1\Raghavendra\Retail_workshop_prep\00-Installers\site-packages</a> to C:\Python27\Lib\site-packages </p>
+<p>6. Create System Restore point named "Retail".</p>
+<p>7. Shutdown the system, unplug the cables and stick Intel logo provided in the box, on to the NUC and pack the box.</p>
+</div>
+
+<!-- Lab Conclusion -->
+<div ibox title="Lab Conclusion">
+<div content-block name="Windows-SSH" message="Read about the next lab">
+<h2 class="labHidden">Read about the next lab</h2>
+<p>Congratulations! You have successfully setup your Intel&reg; NUC with Windows for Visual Retail workshop.
+In the next section, you will learn how to enhance the video performance using Intel software.</p>
+</div>
+</div>
+</div>
+</div>
+</div>

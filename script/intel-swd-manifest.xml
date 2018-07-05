@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<intel-swd-manifest>
+<intel-swd-metadata>
+<intelswd-id value="61340e59-23c7-4a54-a777-a3d7b1a03538"/>
+<intelswd-lang value="en"/>
+<intelswd-audience value="Developers"/>
+<intelswd-subjectmatter value="Product Documentation"/>
+<intelswd-subjectmatter value="Tutorials"/>
+<intelswd-publish value="12/31/2020"/>
+<intelswd-author value="dwholmlu"/>
+</intel-swd-metadata>
+<intel-swd-topic weight="1" filename="e688b713-66c4-43c1-804a-1ee6e9736de1.html" id="e688b713-66c4-43c1-804a-1ee6e9736de1" title="Commercial IoT Labs with the Intel&#x00AE; NUC" hierarchy-level="0" parent-id="" hierarchy-path="e688b713-66c4-43c1-804a-1ee6e9736de1"/>
+<intel-swd-topic weight="2" filename="62be717f-9891-4427-a3c6-53c4595e50a3.html" id="62be717f-9891-4427-a3c6-53c4595e50a3" title="Intel&#x00AE; IoT Developer Hub" hierarchy-level="1" parent-id="e688b713-66c4-43c1-804a-1ee6e9736de1" hierarchy-path="e688b713-66c4-43c1-804a-1ee6e9736de1//62be717f-9891-4427-a3c6-53c4595e50a3"/>
+<intel-swd-image>73f86428-1512-452a-86e2-d13e22add962.png</intel-swd-image>
+<intel-swd-image>d7ac94a0-b875-4bf4-b104-5d21b06af2c7.png</intel-swd-image>
+<intel-swd-image>0f48be9a-dd85-46bd-9f4d-b10b93fe70c1.png</intel-swd-image>
+<intel-swd-image>71106b0a-1f92-4c59-ae35-f6fcd9ab4ac1.png</intel-swd-image>
+<intel-swd-image>67e2d9bd-7354-44bd-941d-8766939c9990.png</intel-swd-image>
+<intel-swd-image>0a0dea93-a1a8-4114-b70a-37fcd57ab488.png</intel-swd-image>
+<intel-swd-image>6905756c-2da3-4a0e-9062-034fd8b8e1ca.png</intel-swd-image>
+<intel-swd-image>bf76034e-be83-40a8-b93d-5984676c6373.png</intel-swd-image>
+<intel-swd-image>31115954-80e1-450a-bbe7-f842c83e85c6.png</intel-swd-image>
+<intel-swd-image>e6dbd598-1941-4171-ad2b-9ca9646c4b7d.png</intel-swd-image>
+<intel-swd-image>5bf83afa-2127-4655-9b58-305a970e672a.png</intel-swd-image>
+<intel-swd-image>9fbd3211-f204-4798-ac63-f2f31d50c5c3.png</intel-swd-image>
+<intel-swd-image>427622e2-4c61-4320-abcf-4d6a4e1aeeef.png</intel-swd-image>
+<intel-swd-image>5606b1ca-2b57-45c5-ab31-96c1aa580784.png</intel-swd-image>
+<intel-swd-image>260e4ce2-b52b-4d1f-b760-6f7d1ae33d2d.jpg</intel-swd-image>
+<intel-swd-image>289b5251-df2d-4446-82fa-b76841eef43e.png</intel-swd-image>
+<intel-swd-image>47eb2d09-f802-4f39-88d8-a9b4deec1b53.png</intel-swd-image>
+<intel-swd-image>f64245ff-d22f-44f9-a234-82f43d2b8db4.png</intel-swd-image>
+<intel-swd-image>39569911-373b-45a2-807f-48b905704e16.png</intel-swd-image>
+<intel-swd-image>2d806428-f67b-46eb-a410-4be5932bd88b.png</intel-swd-image>
+<intel-swd-image>84cc47d5-3420-4eaa-8c67-3dd5d4b08f90.png</intel-swd-image>
+<intel-swd-image>5306a2ce-862c-4ff6-957d-0f224fe1cbdf.png</intel-swd-image>
+<intel-swd-image>95b4347a-4448-4629-bd2e-fb58b2b5ace2.png</intel-swd-image>
+<intel-swd-image>9a266aa3-995d-478e-8dc1-b35fe2312836.png</intel-swd-image>
+<intel-swd-image>ed739014-c372-496f-a36d-82a990315fde.png</intel-swd-image>
+<intel-swd-image>dfa244bc-210c-44df-833e-8438e47f35eb.png</intel-swd-image>
+<intel-swd-image>d7e3847a-6dcf-4947-bcaa-18529d0258a6.png</intel-swd-image>
+<intel-swd-image>787347a9-3c8e-4054-b48f-9438ff9bacbb.png</intel-swd-image>
+<intel-swd-image>cbb438cf-6241-4f19-b025-941a0fb91b89.png</intel-swd-image>
+<intel-swd-image>11b7b5e1-69c2-4519-bc60-2e315ad09ed2.png</intel-swd-image>
+<intel-swd-image>d6b78759-c03f-486f-b954-412e949fbcf7.png</intel-swd-image>
+<intel-swd-image>436c6257-411c-46fa-8009-4b832a953a6d.png</intel-swd-image>
+<intel-swd-image>cc1600fe-a39b-4c65-8abf-baf28fc765d9.png</intel-swd-image>
+<intel-swd-image>a247263b-32ed-47de-8763-56283812bddb.png</intel-swd-image>
+<intel-swd-image>6976d040-6a33-473a-8d92-29dc79782d98.png</intel-swd-image>
+<intel-swd-image>a815c111-d965-4871-a865-d034ea51fbb1.png</intel-swd-image>
+<intel-swd-image>5d7c94c2-ba4b-48e8-9b7c-d365ec352e36.png</intel-swd-image>
+<intel-swd-image>a69fe7cd-5b04-4616-b818-063cd45c3c16.png</intel-swd-image>
+<intel-swd-image>87cc0113-30e8-4425-ba1a-b2086da9e612.png</intel-swd-image>
+<intel-swd-image>65d49ea0-a0f7-4932-8b07-a160a9624a45.png</intel-swd-image>
+<intel-swd-image>e32c4354-197e-4bf0-9ca0-1e3c79aa8632.png</intel-swd-image>
+<intel-swd-image>912293a8-9380-4062-98c2-a37b932f2ea1.png</intel-swd-image>
+<intel-swd-image>7d064612-fafc-4083-b61d-1b55ecb010f9.png</intel-swd-image>
+<intel-swd-image>0e2b97b2-424c-4cd5-aa96-d64d7944c201.png</intel-swd-image>
+</intel-swd-manifest>

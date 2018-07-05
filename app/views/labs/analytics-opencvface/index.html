@@ -1,0 +1,161 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Face detection using OpenCV</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a>Labs</a>
+      </li>
+      <li>
+        <strong>Video Analytics</strong>
+      </li>
+      <li class="active">
+        <strong>Face detection using OpenCV</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div ibox title="Objectives">
+        <div content-block name="opencv_motion-objectives" message="Complete Objectives">
+          <h2 class="labHidden"></h2>
+          <h5>Lab Overview</h5>
+          <p>We have done motion detection in our previous module. We will find number of faces associated with that motion
+          </p>
+          <p>We will build upon our motion detection code and add face detection code in this module</p>
+          <p>We will be replacing those two TODOs with following</p>
+          <ul>
+            <li>instantiate a cascade classifier for the face</li>
+            <li>We will identify the faces using Haar cascade method</li>
+            <li>Finally we will count the number of faces in the frame</li>
+            <li>show the video</li>
+            <li>release resources</li>
+          </ul>
+        </div>
+      </div>
+
+      <div ibox title="Overview of the Facial Recogition Sample">
+
+        <div content-block name="opencv_motion-newfile" message="Create a new Python script and load the required modules">
+          <p>The first step is load the Haar-like features classifer cascade file, which is a file create through machine learning to contain the esstential features of a face. In OpenCV, you can detect different types of objects by changing the classifier file.</p>
+
+          <p>Download the haar cascade file, named <a href="../views/labs/analytics-opencvface/downloads/haarcascade_frontalface_default.xml">haarcascade_frontalface_default.xml </a>face, and save it into the same directory as your python script.</p>
+          <p>Create a new Python file named <b>face_detect.py</b></p>
+          <p>Paste the following line</p>
+          <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">import cv2</pre></ui-codemirror>
+        </div>
+
+        <div content-block name="opencv_motion-newfile" message="Load the facial classifier and open a connection to the camera">
+          <p>You will need to open the classifier file and a connection to the video camera.</p>
+          <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;"># Create a Haar-like feature cascade classifier object
+faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+
+# Set the camera to the first camera detected by the NUC
+cap = cv2.VideoCapture(0)</pre></ui-codemirror>
+        </div>
+
+
+<div ibox title="The Facial Detector's main loop">
+  <div content-block name="opencv_motion-vid_display" message="The Facial Detector's main loop">
+
+  <p>This code performs a number of steps:</p>
+  <ol>
+    <li>It captures the current frame</li>
+    <li>Converts it to grayscale for a faster comparison</li>
+    <li>Sends the grayscale frame to the facial recogition detector</li>
+    <li>The detector returns an array of coordinates of a box with a (x,y,w,h)</li>
+    <li>Draws a rectangle around the face</li>
+    <li>Shows the frame</li>
+    <li>If the user hits the 'q' key the program will exit<li>
+  </ol>
+
+  <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # begin face cascade
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.25,
+        minNeighbors=5,
+        minSize=(30, 30),
+    )
+
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # Display the resulting frame
+    cv2.imshow('Video', frame)
+
+    # If the user presses the 'q' key then quit the program
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+       break</pre></ui-codemirror>
+
+       <div class="alert alert-warning">Save the haar cascade file using "Right click > Save Link as" option <a href="./views/labs/analytics-opencvface/downloads/haarcascade_frontalface_default.xml" target="_blank">haar cascade file</a> and keep it at the same place as your face detection python file</div></li><li>Press F5</li></ul></div>
+
+    </div>
+
+    <div ibox title="Here is the final solution">
+      <div content-block name="opencv_motion-newfile" message="Here is the final solution">
+        <h5>Here is the final code base including motion sensing</h5>
+          <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">import cv2
+
+# Create a Haar-like feature cascade classifier object
+faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+
+# Set the camera to the first camera detected by the NUC
+cap = cv2.VideoCapture(0)
+
+while True:
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # begin face cascade
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.25,
+        minNeighbors=5,
+        minSize=(30, 30),
+    )
+
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # Display the resulting frame
+    cv2.imshow('Video', frame)
+
+    # If the user presses the 'q' key then quit the program
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+       break
+
+# When everything is done, release the capture
+cv2.destroyAllWindows()
+</pre></ui-codemirror>
+              </div>
+            </div>
+
+        <div ibox title="References">
+          <ul>
+              <li>
+                  <p><a href="https://github.com/SSG-DRD-IOT/lab-computer-vision/tree/master/opencv/experiments_pretty/faceDetectionRecording" target="_blank">Solution to this lab</a></p></li><li>
+                  <p><a href="http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html" target="_blank">OpenCV-Python Tutorials</a></p></li><li>
+                  <p><a href="https://pythonprogramming.net/loading-images-python-opencv-tutorial/" target="_blank">Opencv with Python</a></p>
+              </li>
+          </ul>
+        </div>
+
+
+      </div>
+  </div>
+
+        </div>
+    </div>
+</div>

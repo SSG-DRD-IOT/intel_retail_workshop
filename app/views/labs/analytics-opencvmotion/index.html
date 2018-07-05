@@ -1,0 +1,260 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Motion detection using OpenCV</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Labs</a>
+            </li>
+            <li>
+                <strong>Video Analytics</strong>
+            </li>
+            <li class="active">
+                <strong>Motion detection using OpenCV</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+      <div class="row">
+        <div class="col-lg-12">
+
+            <div ibox title="Objectives">
+                <div content-block name="opencv_motion-objectives" message="Complete Objectives">
+                    <h2 class="labHidden"></h2>
+                    <h5>Lab Overview</h5>
+                    <p>Our motion detector will observe the difference between consecutive frames; when this difference is high, we can assume that motion was found. In order to prevent false positives, we will observe the standard deviation of the frame. When motion of a suitably sized object is detected, the standard deviation will rise, allowing us to trigger a motion event.
+                    <p>Our program will be laid out as follows:</p>
+                    <ul>
+                        <li>import OpenCV and its dependencies</li>
+                        <li>initialize values</li>
+                        <li>start video loop
+                            <ul><li>calculate distance between frames</li>
+                            <li>shift frames</li>
+                            <li>apply Gaussian blur to distance mapping</li>
+                            <li>apply thresholding</li>
+                            <li>calculate st dev</li>
+                            <li>if motion detected is above threshold, then print a message</li>
+
+                            </ul></li>
+                        <li>show the video</li>
+                        <li>release resources</li>
+                    </ul>
+              </div>
+            </div>
+            <div ibox title="Motion detection using OpenCV">
+
+              <div content-block name="opencv_motion-newfile" message="Create new file" image-link="./views/labs/analytics-opencvinit/images/idle_newfile.png">
+                <h5>Create new file</h5>
+                  <ol>
+                <li>Open IDLE</li>
+                <li>Select File > New Window</li>
+                <li>A blank file opens up</li>
+                <li>Type following two lines</li>
+                <li><pre><code>import numpy as np
+import cv2
+#TODO: Cloud integration 1
+</code></pre></li>
+                      <li>Press CTRL + S to save the file</li>
+
+                       </ol>
+              </div>
+                </div>
+            <div ibox title="Set global variables and functions">
+
+              <div content-block name="opencv_motion-import" message="Set global variables and functions">
+                <h5>We need variables for setting the motion level threshold and display font.</h5>
+                  <ul><li>sdThresh is used for motion level threshold</li>
+                <li>font is used for setting for for text display on video</li></ul>
+                <h5>distMap function gives us the Pythagorean distance between the three BGR layers of 2 frames.</h5>
+
+                <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">
+sdThresh = 10
+font = cv2.FONT_HERSHEY_SIMPLEX
+
+#TODO: Face Detection 1
+def distMap(frame1, frame2):
+    """outputs pythagorean distance between two frames"""
+    frame1_32 = np.float32(frame1)
+    frame2_32 = np.float32(frame2)
+    diff32 = frame1_32 - frame2_32
+    norm32 = np.sqrt(diff32[:,:,0]**2 + diff32[:,:,1]**2 + diff32[:,:,2]**2)/np.sqrt(255**2 + 255**2 + 255**2)
+    dist = np.uint8(norm32*255)
+    return dist
+
+</pre></ui-codemirror> </div>
+                </div>
+
+            <div ibox title="Setup video capture and display">
+
+              <div content-block name="opencv_motion-vid_display" message="Setup video capture and display">
+                <h5>Lets make the necessary setup for displaying our motion image and actual RGB image, then we will start capturing the frames</h5>
+                <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">cv2.namedWindow('frame')
+cv2.namedWindow('dist')
+
+#capture video stream from camera source. 0 refers to first camera, 1 referes to 2nd and so on.
+cap = cv2.VideoCapture(0)
+
+_, frame1 = cap.read()
+_, frame2 = cap.read()
+                     </pre></ui-codemirror> </div>
+                </div>
+
+
+            <div ibox title="Main part of the program">
+
+              <div content-block name="opencv_motion-vid_display" message="Main part of the program">
+                <h5>Begin the main video loop</h5>
+<ul><li><pre><code>while (True):
+    _, frame3 = cap.read()
+</code></pre></li>
+Get frame3's cols and rows matrix.
+<li><pre><code>     rows, cols, _ = np.shape(frame3)</code></pre></li>
+		<li>next, the crucial step in our program is to take the difference between two frames; we do this by using the distMap function we have created:
+			<pre><code>     dist = distMap(frame1, frame3)</code></pre></li>
+		<li>Now that this is done, we can shift our frames:
+<pre><code>     frame1 = frame2
+     frame2 = frame3</code></pre></li>
+		<li>Next, we apply Gaussian smoothing to even out our distance mapping:
+			<pre><code>     mod = cv2.GaussianBlur(dist, (9,9), 0)</code></pre></li>
+		<li>And threshold this result to retrieve a binary mapping of where motion is taking place.
+			<pre><code>     _, thresh = cv2.threshold(mod, 100, 255, 0)</code></pre></li>
+		<li>At this point, we have a binary array that indicates where motion has occurred and where it has not. Now, we will use standard deviation to calculate where the motion is significant enough to trigger an alarm.
+                 </li>
+        <li>Calculate the standard deviation using:
+			<pre><code>     _, stDev = cv2.meanStdDev(mod)</code></pre></li>
+        <li>Lets show what we found after standard deviation and display that value on the video
+            <pre><code>     cv2.imshow('dist', mod)
+       cv2.putText(frame2, "Standard Deviation - {}".format(round(stDev[0][0],0)), (70, 70), font, 1, (255, 0, 255), 1, cv2.LINE_AA)
+                 </code></pre>
+        </li>
+     <li>If standard deviation is more than our threshold, then print a message
+       <pre><code>    if stDev > sdThresh:
+      print("Motion detected.. Do something!!!");   </code></pre></li>
+<li>Show the BGR color video</li>
+    <li>Wait for escape button press to exit</li>
+</ul>
+                  <h5>Here is the complete main program. </h5>
+                  <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">
+facecount = 0
+while(True):
+    _, frame3 = cap.read()
+    rows, cols, _ = np.shape(frame3)
+    cv2.imshow('dist', frame3)
+    dist = distMap(frame1, frame3)
+
+    frame1 = frame2
+    frame2 = frame3
+
+    # apply Gaussian smoothing
+    mod = cv2.GaussianBlur(dist, (9,9), 0)
+
+    # apply thresholding
+    _, thresh = cv2.threshold(mod, 100, 255, 0)
+
+    # calculate st dev test
+    _, stDev = cv2.meanStdDev(mod)
+
+    cv2.imshow('dist', mod)
+    cv2.putText(frame2, "Standard Deviation - {}".format(round(stDev[0][0],0)), (70, 70), font, 1, (255, 0, 255), 1, cv2.LINE_AA)
+
+
+    if stDev > sdThresh:
+            print("Motion detected.. Do something!!!");
+            #TODO: Face Detection 2
+    #TODO: Cloud integration 2
+    cv2.imshow('frame', frame2)
+
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+
+</pre></ui-codemirror> <ul><li>Save the file</li><li>Press F5</li></ul></div>
+                </div>
+
+            <div ibox title="Here is the final solution">
+              <div content-block name="opencv_motion-newfile" message="Here is the final solution">
+                <h5>Here is the final code base</h5>
+                  <h5>Keep those TODO as it is. We will re-use this program during face detection</h5>
+<ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">import numpy as np
+import cv2
+#TODO: Cloud integration 1
+
+sdThresh = 10
+font = cv2.FONT_HERSHEY_SIMPLEX
+#TODO: Face Detection 1
+
+def distMap(frame1, frame2):
+    """outputs pythagorean distance between two frames"""
+    frame1_32 = np.float32(frame1)
+    frame2_32 = np.float32(frame2)
+    diff32 = frame1_32 - frame2_32
+    norm32 = np.sqrt(diff32[:,:,0]**2 + diff32[:,:,1]**2 + diff32[:,:,2]**2)/np.sqrt(255**2 + 255**2 + 255**2)
+    dist = np.uint8(norm32*255)
+    return dist
+
+cv2.namedWindow('frame')
+cv2.namedWindow('dist')
+
+#capture video stream from camera source. 0 refers to first camera, 1 referes to 2nd and so on.
+cap = cv2.VideoCapture(0)
+
+_, frame1 = cap.read()
+_, frame2 = cap.read()
+
+facecount = 0
+while(True):
+    _, frame3 = cap.read()
+    rows, cols, _ = np.shape(frame3)
+    cv2.imshow('dist', frame3)
+    dist = distMap(frame1, frame3)
+
+    frame1 = frame2
+    frame2 = frame3
+
+    # apply Gaussian smoothing
+    mod = cv2.GaussianBlur(dist, (9,9), 0)
+
+    # apply thresholding
+    _, thresh = cv2.threshold(mod, 100, 255, 0)
+
+    # calculate st dev test
+    _, stDev = cv2.meanStdDev(mod)
+
+    cv2.imshow('dist', mod)
+    cv2.putText(frame2, "Standard Deviation - {}".format(round(stDev[0][0],0)), (70, 70), font, 1, (255, 0, 255), 1, cv2.LINE_AA)
+    if stDev > sdThresh:
+            print("Motion detected.. Do something!!!");
+            #TODO: Face Detection 2
+    #TODO: Cloud integration 2
+    cv2.imshow('frame', frame2)
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+</pre></ui-codemirror>
+              </div>
+            </div>
+
+        <div ibox title="References">
+          <ul>
+              <li>
+                  <p><a href="http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html" target="_blank">OpenCV-Python Tutorials</a></p></li><li>
+                  <p><a href="https://pythonprogramming.net/loading-images-python-opencv-tutorial/" target="_blank">Opencv with Python</a></p>
+              </li>
+          </ul>
+        </div>
+
+
+      </div>
+  </div>
+
+        </div>
+    </div>
+</div>

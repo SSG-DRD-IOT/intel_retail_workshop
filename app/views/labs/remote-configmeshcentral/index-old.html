@@ -1,0 +1,731 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Remote System Management with MeshCentral</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Labs</a>
+            </li>
+            <li>
+                <a>Remote Management</a>
+            </li>
+            <li class="active">
+                <strong>MeshCentral</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Objective -->
+            <div ibox title="Meshcentral software requirements and Downloads">
+                <p>Meshcentral is open source and peer-to-peer technology with a wide range of use cases, including web services that enable remote monitoring and management of computers and devices. Users can manage all their devices from a single web site, no matter the location of the computers or if they are behind routers or proxies.</p>
+                <h5>Software Requirements</h5>
+                <ol>
+                    <li>Download .NET 3.5 andSQL Server Express</li>
+                    <li>MeshCentral Full Installer from <a href=" http://info.meshcentral.com/downloads/packages/MeshServerInstallerFull.zip" target="_blank"> http://info.meshcentral.com/downloads/packages/MeshServerInstallerFull.zip</a>
+                    </li>
+                    <li>Mesh Customization Scripts –contact vPro team</li>
+                </ol>
+                <h5>Hardware Requirements</h5>
+                <p>20k Clients : Dual Xeon, 16threads, 24GB RAM, 1GB Storage</p>
+                <p>1k Clients : Dual Core VM, 4GB RAM, 120GB Storage</p>
+            </div>
+        </div>
+    </div>
+
+    <div ibox title="SQL Server Installation">
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 1: Install SQL Express 2014</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/001-install-sqlexpress-2014.jpg" alt="001-install-sqlexpress-2014" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 2: Choose extract folder</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/002-choose-extract-folder.jpg" alt="002-choose-extract-folder" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 3: Extraction</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/003-extraction.jpg" alt="003-extraction" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 4: Select new SQL standalone install</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/004-select-new-sql-standalone-install.jpg" alt="004-select-new-sql-standalone-install" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 5: Accept SQL exiry license agreement</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/005-accept-sql-exp-lic-agreement.jpg" alt="005-accept-sql-exp-lic-agreement" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 6: Select Microsoft Updates</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/006-select-msft-updates.jpg" alt="006-select-msft-updates.jpg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 7: SQL Express Feature Selection</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/007-sql-exp-feature-selection.jpg" alt="007-sql-exp-feature-selection" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 8: SQL Express Instance Configuration</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/008-sql-exp-instance-config.jpg" alt="008-sql-exp-instance-config" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 9: SQL Express Server Configuration</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/009-sql-exp-svc-acct.jpg" alt="009-sql-exp-svc-acct" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 10: Database Engine Configuration : Mixed mode password</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/010-mixed-mode-password.jpg" alt="010-mixed-mode-password" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 11: Installation Progress</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/011-install-progress.jpg" alt="011-install-progress" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 12: SQL Express Installation Complete</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/012-sql-exp-install-complete.jpg" alt="012-sql-exp-install-complete" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div ibox title="Meshcentral Package Installation">
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 1: Select Mesh Server Installer</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/001-select-meshinstaller-zip.jpg" alt="001-select-meshinstaller-zip" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 2: Extract Mesh Installer</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/002-extract-meshinstaller.jpg" alt="002-extract-meshinstaller" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 3: Goto extracted folder and run Mesh Server Installer</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/003-goto-extracted-folder-run-meshserverinstaller.jpg" alt="003-goto-extracted-folder-run-meshserverinstaller" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 4: Wait till ready status.. Select Install Mesh Server (first option)</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/004-wait-till-ready-select-install-mesh-server.jpg" alt="004-wait-till-ready-select-install-mesh-server" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 5: Meshcentral Server Setup Wizard</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/005-mesh-setup-wizard.jpg" alt="005-mesh-setup-wizard" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 6: Select Microsoft Updates</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/006-setup-no-auto-update.jpg" alt="006-setup-no-auto-update" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 7: SQL Express Feature Selection</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/007-sql-exp-feature-selection.jpg" alt="007-sql-exp-feature-selection" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 8: Setup Static IP</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/008-setup-static-ip.jpg" alt="008-setup-static-ip" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 9: Setup Platform Manager Password</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/009-setup-mgmt-admin-password.jpg" alt="009-setup-mgmt-admin-password" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 10: Database Engine Configuration : Mixed mode password</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/010-setup-setting-confirm.jpg" alt="010-setup-setting-confirm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 11: Setup Progress</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/011-setup-progress.jpg" alt="011-setup-progress" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 12: Confirm Platform Manager Installation</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/012-confirm-platform-mgr-install.jpg" alt="012-confirm-platform-mgr-install" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 13: Platform Manager Installation</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/013-platform-mgr-install.jpg" alt="013-platform-mgr-install" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 14: Setup Completed.. Wait till Platform Manager configures.</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/014-complete-wait-till-pm-configure.jpg" alt="014-complete-wait-till-pm-configure" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div ibox title="Platform Manager Configuration">
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 1: Launch Platform Manager</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/001-launch-platform-mgr.jpg" alt="001-launch-platform-mgr" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 2: Platform Manager connection confirmation</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/002-connecting-pm-confirm.jpg" alt="002-connecting-pm-confirm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 3: Platform Manager connected</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/003-pm-connected.jpg" alt="003-pm-connected" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 4: Platfrom Manager - complete auto configuration </h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/004-pm-complete-auto-config.jpg" alt="004-pm-complete-auto-config" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div ibox title="Meshcentral Web">
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 1: Accept invalid certificate</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/001-accept-invalid-cert.jpg" alt="001-accept-invalid-cert" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 2: IIS web error</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/002-iis-web-error.jpg" alt="002-iis-web-error" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 3: Deploy MeshSiteCore</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/003-deploy-MeshSiteCore.jpg" alt="003-deploy-MeshSiteCore" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 4: Create MeshCentral web new login</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/004-new-mesh-web.jpg" alt="004-new-mesh-web" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 5: IMPORTANT: Create admin user</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/005-create-admin-user-IMPORTANT.jpg" alt="005-create-admin-user-IMPORTANT" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 6: Admin Created</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/006-admin-created.jpg" alt="006-admin-created" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 7: Continue to admin</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/007-continue-to-admin.jpg" alt="007-continue-to-admin" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 8: Logout to create a new user</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/008-logout-to-create-new-user.jpg" alt="008-logout-to-create-new-user" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 9: Create a user named vproadmin</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/009-create-user-vproadmin.jpg" alt="009-create-user-vproadmin" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 10: User vproadmin created</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/010-user-vproadmin-created.jpg" alt="010-user-vproadmin-created" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 11: In vprouser account, create an admin mesh</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/011-vprouser-account-create-adminmesh.jpg" alt="011-vprouser-account-create-adminmesh" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 12: MyMesh Creation</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/012-mymesh-creation.jpg" alt="012-mymesh-creation" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 13: MyMesh Created</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/013-mymesh-created.jpg" alt="013-mymesh-created" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 14: MyMesh pre install</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/014-mymesh-pre-install.jpg" alt="014-mymesh-pre-install" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 15: Download Meshagent with name and device architecture selection</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/015-meshagent-arch-select-download.jpg" alt="015-meshagent-arch-select-download" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 16: Run the MeshAgent as Administrator</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/016-meshagent-run-as-admin.jpg" alt="016-meshagent-run-as-admin" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 17: Install Mesh Agent</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/017-meshagent-install.jpg" alt="017-meshagent-install" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 18: Web device refresh</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/018-web-device-refresh.jpg" alt="018-web-device-refresh" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 19: Install Mesh Agent</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/019-web-device-detail.jpg" alt="019-web-device-detail" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Step 20: Web Socket Desktop Loop</h5>
+                            <div ibox-tools></div>
+                        </div>
+                        <div class="ibox-content">
+                            <img src="../views/labs/remote-configamt/images/020-websocket-desktop-loop.jpg" alt="020-websocket-desktop-loop" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

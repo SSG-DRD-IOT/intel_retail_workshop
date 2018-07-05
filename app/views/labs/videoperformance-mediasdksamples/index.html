@@ -1,0 +1,252 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Simple Video Decoder</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Labs</a>
+            </li>
+            <li>
+                MediaSDK Sample
+            </li>
+            <li class="active">
+                <strong>Simple Video Decoder</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+          <div ibox title="Objectives">
+              <div content-block name="xdk-issues" message="Check after completing the Objectives" image-link="./views/labs/videoperformance-mediasdksamples/images/psuedocode.png">
+              <b>Introduction</b>
+              <p>We will build a custom Console application which performs decoding of elementary compressed video stream and renders them on the screen:
+                <ul>
+                  <li>Setup parameter to decode pipeline</li>
+                  <li>Initialize decoder</li>
+                  <li>Decode frame by frame</li>
+              </ul>
+              <b>Exploration</b>
+              <p>In this example we are decoding an AVC (H.264) stream.</p>
+                <ul>
+                  <li>Inclusions</li>
+                  <li>Input Processing</li>
+                  <li>Decoding pipeline</li>
+                  <li>Output Processing</li>
+                  <li>Main decoding loop</li>
+                  <li>Error Handling</li>
+                  <li>Finish decoding</li>
+              </ul>
+              <b>Observation</b>
+                <p>Observe different parameters of "sInputParams"</p>
+              <b>Learning Outcome</b>
+              <p>By the end of this module, the participant is expected to understand the decoding an
+                AVC (H.264) stream using Intel&reg; Media SDK</p>
+              </div>
+          </div>
+
+
+          <div ibox title="Open Media SDK Developer Reference Documentation">
+                <div content-block name="xdk-issues" message="Open the Developer Documentation">
+                    <p>Navigate to c:\Program Files(x86)\IntelSwTolls\Intel(R)_Media_SDK)2016.0.2\doc</p>
+                    <p>You will see the documentation for the Media SDK in PDF format. Use this as a reference to lookup and read about function in the rest of this lab.</p>
+                </div>
+          </div>
+    
+          <div ibox title="Open Visual Studio solution exercise">
+                <div content-block name="xdk-issues" message="Check after opening the Visual Studio solution exercise">
+                  <P>Please open empty solution from </p>
+                  <p><b>Desktop &gt; Retail &gt; 03-MediaSDK &gt; lab_exercise</b> folder</p>
+                  <P>Open the <b>sample_decode.sln</b> file located in sample_decode folder</p>
+                  <p>We have done all the necessary library linking in this solution.</p>
+              </div>
+            </div>
+
+          <div ibox title="Inclusions">
+                <div content-block name="xdk-issues" message="Check after including Header files">
+                  <p>Open <u>sample_decode.cpp</u> file to complete the exercise with the code given in the following steps:</p>
+                  <p> Include the pipeline_decode.h and sstream headers </p>
+                  <pre><code>
+                    #include "pipeline_decode.h"
+                    #include &ltsstream&gt
+                </code></pre>
+              </div>
+            </div>
+
+          <div ibox title="Input Processing">
+                <div content-block name="xdk-issues" message="Check after completing Input processing">
+                  <p>Define a method <b>InputSetup()</b> that accepts the sInputParams array defined from main program.</p>
+                  <p>This method first checks the input array for consistency.</p>
+                  <p>Then sets the video type, memory type, hardware acceleration, asynchronous depth factor, mode, etc.,</p>
+                  <p>It also writes the input h264 file path to parameter list</p>
+                  <p>Finally returns the MFX error status.</p>
+                  <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                    mfxStatus InputSetup(sInputParams* pParams)
+                    {
+                      //Check the pParams pointer
+                      MSDK_CHECK_POINTER(pParams, MFX_ERR_NULL_PTR);
+
+                      //Set the Video type:
+                      //MFX_CODEC_AVC for H264 codec
+                      //MFX_CODEC_JPEG for JPEG codec
+                    	pParams->videoType = MFX_CODEC_AVC;
+
+                    	msdk_opt_read(MSDK_STRING("C:\\input.h264"), pParams->strSrcFile);
+
+                      //Set the memory type:
+                      //D3D11_MEMORY for Directx11
+                      //D3D9_MEMORY for Directx9
+                      //SYSTEM_MEMORY for System Memory
+                    	pParams->memType = D3D11_MEMORY;
+
+                    	//set hardware implementation as default
+                      //Software implementation can be tried by setting this to false.
+                      pParams->bUseHWLib = true;
+
+                      //Depth of asynchronous pipeline, this number can be tuned to achieve better performance.
+                    	pParams->nAsyncDepth = 4;
+
+                      //Set the eWorkMode from:
+                      //MODE_PERFORMANCE,
+                      //MODE_RENDERING,
+                      //MODE_FILE_DUMP
+
+                      pParams->mode = MODE_RENDERING;
+
+                      //Some other parameters which can be explored further are:
+                      /*bool    bIsMVC; // true if Multi-View Codec is in use
+                        bool    bLowLat; // low latency mode
+                        bool    bCalLat; // latency calculation
+                        bool    bUseFullColorRange; //whether to use full color range
+                        mfxU16  nMaxFPS; //rendering limited by certain fps
+                        mfxU32  nWallCell;
+                        mfxU32  nWallW; //number of windows located in each row
+                        mfxU32  nWallH; //number of windows located in each column
+                        mfxU32  nWallMonitor; //monitor id, 0,1,.. etc
+                        bool    bWallNoTitle; //whether to show title for each window with fps value
+
+                        mfxU32  numViews; // number of views for Multi-View Codec
+                        mfxU32  nRotation; // rotation for Motion JPEG Codec
+                        mfxU16  nAsyncDepth; // asyncronous queue
+                        mfxU16  nTimeout; // timeout in seconds
+                        mfxU16  gpuCopy; // GPU Copy mode (three-state option)
+                      */
+
+                      return MFX_ERR_NONE;
+                    }
+                </ui-codemirror>
+              </br><p>Declare the pipeline having input file reader, decoder and output file writer.</p>
+              <p>Then setup the input parameters and perform error checking.</p>
+                <p>Set the following parameters in the main program</p>
+                <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                  // input parameters
+                  sInputParams        Params;
+
+                  // pipeline for decoding, includes input file reader, decoder and output file writer
+                  CDecodingPipeline   Pipeline;
+
+                  // return value check
+                  mfxStatus sts = MFX_ERR_NONE;
+
+                  //Setup your input parameters.
+                  sts = InputSetup(&Params);
+
+                  MSDK_CHECK_PARSE_RESULT(sts, MFX_ERR_NONE, 1);
+                </ui-codemirror>
+              </div>
+            </div>
+
+          <div ibox title="Decoding Pipeline">
+                <div content-block name="xdk-issues" message="Check after completion of Decoding pipeline">
+                  </br><p>Initialise the decoding pipeline and check the error status.</p>
+                    <p>Continue coding in the main program</p>
+                    <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                      //Initialise the Decode pipeline
+
+                      sts = Pipeline.Init(&Params);
+
+                      MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
+                    </ui-codemirror>
+                  </div>
+            </div>
+
+          <div ibox title="Output Processing">
+                <div content-block name="xdk-issues" message="Check after completion of Output processing">
+                </br><p>Print the stream information</p>
+                  <p>Continue coding in the main program</p>
+                  <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                    //print stream info
+                    Pipeline.PrintInfo();
+
+                    msdk_printf(MSDK_STRING("Decoding started\n"));
+                </ui-codemirror>
+              </div>
+            </div>
+
+          <div ibox title="Main Decoding Loop">
+                <div content-block name="xdk-issues" message="Check after completion of Main decoding loop">
+                </br><p>Now let us loop all the frames in the video to decode them using <b>Pipeline.RunDecoding()</b></p>
+                  <p> Error handling for incompatible video parameters, lost device, failed device, etc., </p>
+                  <p>Reset the device using <b>Pipeline.ResetDevice</b> in case of hardaware error.
+                  <p>If there are no errors, it will set the flag to <b>MFX_ERR_NONE</b></p>
+                  <p>Finally clear all decode buffer and move to the next frame using <b>Pipeline.ResetDecoder(&Params);</b></p>
+                  <p>Continue following coding in the main function</p>
+                  <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                    for (;;)
+                    {
+                        //Decode frame by frame
+                        sts = Pipeline.RunDecoding();
+
+                        if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts || MFX_ERR_DEVICE_LOST == sts || MFX_ERR_DEVICE_FAILED == sts)
+                        {
+                            if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts)
+                            {
+                                msdk_printf(MSDK_STRING("\nERROR: Incompatible video parameters detected. Recovering...\n"));
+                            }
+                            else
+                            {
+                                msdk_printf(MSDK_STRING("\nERROR: Hardware device was lost or returned unexpected error. Recovering...\n"));
+
+                                //Reset device in case of hardware error
+                                sts = Pipeline.ResetDevice();
+
+                                MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
+                            }
+
+                            //Clear all decode buffer and move to next frame.
+                            sts = Pipeline.ResetDecoder(&Params);
+                            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
+                            continue;
+                        }
+                        else
+                        {
+                            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
+                            break;
+                        }
+                    }
+
+                    msdk_printf(MSDK_STRING("\nDecoding finished\n"));
+                  </ui-codemirror>
+                </br>
+                </br>
+                <p><b>Build this solution for x64 in debug mode and run to see the output</b></p>
+              </div>
+        </div>
+
+    <div ibox title="Complete Solution">
+                    <div content-block name="xdk-issues" message="Check after Downloading complete Visual Studio solution">
+                      <P>If you have problems in executing your code, you can see the complete Visual Studio solution in</p>
+                      <p><b>Desktop &gt; Retail &gt; 03-MediaSDK &gt;complete_solution</b> folder</p>
+                      <p>We have done all the necessary library linking in this solution.</p>
+                    </div>
+    </div>
+
+    <div ibox title="Lesson learnt">
+        <div content-block name="xdk-issues" message="Check after completion of lesson">
+          <p>Decoding the H.264 stream and exploring supported input parameters from Intel&reg; Media SDK</p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Additional Information</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a>Labs</a>
+      </li>
+      <li>
+          Additional Information
+      </li>
+      <li class="active">
+        <strong>Lab Infrastructure</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+  <div class="row">
+    <div class="col-lg-12">
+      <div ibox title="Requirements">
+        <ol>
+        <li>Unscrew the NUC kit.</li>
+        <li>Upgrade 1 DDR3 RAM in provided slot properly</li>
+        <li>Insert Solid state drive in the back case.</li>
+        <li>Screw the NUC kit.</li>
+        <li>Power on the NUC with Monitor connected.</li>
+        <li>Press F10 and boot from Windows 10 USB.</li>
+        <li>Install Windows 10.</li>
+        <li><p>Set Username: intel&ltNUC Number&gt</p>
+           <p>and Password: intel123</p></li>
+        <li>Open the command prompt in admin mode and navigate to Workshop folder in DATA USB</li>
+        <li>Goto 00-Installers, RunMe1.bat to install drivers.</li>
+        <li>Reboot the system.</li>
+        <li><p>Execute RunMe2.bat to install WindowsSDK, Directx 11 and Visual Studio 10.</p>
+        <p>Note:- Directx installation may ask for .NET framework 3.5 for which internet connection is a must.</p></li>
+        <li>Execute RunMe3.bat to unmount the VS image, register Mars dlls, install opencv and Mesh commander.</li>
+        <li>Copy folders 01 - 04 to Desktop > Retail</li>
+        <li>Through elevated command prompt run Desktop > Retail > 01-MARS > filterDlls > regdll.bat, execute to register the dlls required for Mars</li>
+        <li>Goto Desktop Retail > 01-Mars > Bin > Right Click on MARS.exe and Send to Desktop (create a link).</li>
+        <li>Run MARS.exe and check if one video is running properly.</li>
+        <li>Run Python idle. Type: import cv2
+            <p>It should not give any error.</p>
+            <p>Type: print cv2.__version__</p>
+            <p>It should display the cv2 version. </p> </li>
+        <li>Create System Restore point named "Retail". </li>
+        <li>Shutdown the system, unplug the cables and stick Intel logo provided in the box, on to the NUC and pack the box.</li>
+      </ol>
+      </div>
+    </div>
+  </div>
+</div>

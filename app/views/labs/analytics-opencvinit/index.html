@@ -1,0 +1,159 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>OpenCV Getting Started</h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a>Labs</a>
+      </li>
+      <li>
+        <strong>Video Analytics</strong>
+      </li>
+      <li class="active">
+        <strong>OpenCV Getting Started</strong>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+  <div class="row">
+    <div class="col-lg-12">
+      <div ibox title="Introduction">
+        <div content-block name="opencv_init-objectives" message="Read the Introduction to OpenCV" image-link="./views/labs/analytics-opencvinit/images/opencv-logo.png">
+          <h2 class="labHidden">Complete the McAfee&reg; Embedded Control Exercises</h2>
+          <p>OpenCV (Open Source Computer Vision Library) is released under a BSD license and hence it’s free for both academic and commercial use. It has C++, C, Python and Java interfaces and supports Windows, Linux, Mac OS, iOS and Android. OpenCV was designed for computational efficiency and with a strong focus on real-time applications. Written in optimized C/C++, the library can take advantage of multi-core processing. Enabled with OpenCL, it can take advantage of the hardware acceleration of the underlying heterogeneous compute platform.</p>
+          <p>Take a look at the <a href="http://opencv.org/">OpenCV Homepage</a>.</p>
+        </div>
+        <div content-block name="opencv_init-objectives" message="Read the Objectives">
+          <h2 class="labHidden">Complete the McAfee&reg; Embedded Control Exercises</h2>
+          <p>Learn how to capture video from the a camera using OpenCV and Python.</p>
+          <ul>
+            <li>Make sure you have connected the given Camera to you Intel&reg; NUC
+            </li>
+            <li>Mount camera at some position where you can see your face when we capture video.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div ibox title="Launch IDLE for Python development">
+        <div content-block name="opencv_init-launch" message="Launch IDLE for Python development" image-link="./views/labs/analytics-opencvinit/images/search_idle.png">
+          <p>To create the Python programs in this lab, we will use the Launch <b>IDLE for Python development</b>.</p>
+
+          <p>Open the IDLE for Python development by doing the following:</p>
+          <ol>
+            <li>Press Windows + S</li>
+            <li>Type IDLE</li>
+            <li>Click on IDLE application</li>
+          </ol>
+        </div>
+
+        <div content-block name="opencv_init-newfile" message="Create new file named camera.py" image-link="./views/labs/analytics-opencvinit/images/idle_newfile.png">
+          <p>Create new file and save it as camera.py by following these steps:</p>
+          <ol>
+            <li>Open Python IDLE</li>
+            <li>Select File > New Window</li>
+            <li>A blank file opens up</li>
+            <li>Select File > Save</li>
+            <li>Give the file the name <b>camera.py</b></li>
+          </ol>
+        </div>
+
+        <div content-block name="opencv_init-newfile" message="Create new file named camera.py" image-link="./views/labs/analytics-opencvinit/images/idle_newfile.png">
+            <p>Begin by importing the numpy and opencv packages.</p>
+            <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">import numpy as np
+import cv2
+</pre></ui-codemirror>
+          </ol>
+        </div>
+      </div>
+      <div ibox title="Video Capture and Display">
+
+        <div content-block name="opencv_init-vcapture" message="Video Capture and Display">
+          <h5>Video Capture and Display</h5>
+          <ol>
+            <li>Capture the video using cv2.VideoCapture</li>
+            <li>Video capture method takes one parameter. This parameter is the index number of camera that you want to use. For our workshop, we are using only one camera.. hence It will be 0.</li>
+            <li>Create a namedWindow to show the output</li>
+            <li>Show the output on this namedWindow using imshow method</li>
+            <li>Copy the below code and put it on your file and run your application</li>
+            <li>Press Esc to exit</li>
+            <li>
+              <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">cap = cv2.VideoCapture(0)
+
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    #Set full screen
+    cv2.namedWindow("Target", cv2.WND_PROP_FULLSCREEN)
+    cv2.setWindowProperty("Target",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
+
+    # Display the resulting frame
+    cv2.imshow('Target',frame)
+
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()
+
+</pre></ui-codemirror>
+            </li>
+            <li>Press CTRL + S to save the file</li>
+            <li>Press F5</li>
+          </ol>
+        </div>
+      </div>
+      <div ibox title="Download final solution">
+        <div content-block name="opencv_init-newfile" message="Download final solution">
+          <h5>Copy completed application if you are getting errors</h5>
+          <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">
+import numpy as np
+import cv2
+
+cap = cv2.VideoCapture(0)
+
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+
+    #Set full screen
+    cv2.namedWindow("Target", cv2.WND_PROP_FULLSCREEN)
+    cv2.setWindowProperty("Target",cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
+
+    # Display the resulting frame
+    cv2.imshow('Target',frame)
+
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()
+
+</pre></ui-codemirror>
+        </div>
+      </div>
+
+      <div ibox title="References">
+        <ul>
+          <li>
+            <p><a href="http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html" target="_blank">OpenCV-Python Tutorials</a></p>
+          </li>
+          <li>
+            <p><a href="https://pythonprogramming.net/loading-images-python-opencv-tutorial/" target="_blank">Opencv with Python</a></p>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+</div>
+</div>

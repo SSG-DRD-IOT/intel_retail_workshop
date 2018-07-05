@@ -1,0 +1,182 @@
+<html>
+<head></head>
+<body>
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <!-- Overview of Labs: What are we doing and where are we going? -->
+      <div ibox title="Overview of Labs: What are we doing and where are we going?">
+        <div content-block name="read-objectives" message="Overview of Labs: What are we doing and where are we going?">
+          <h2 class="labHidden">Overview of Labs: What are we doing and where are we going?</h2>
+
+          <labels gateway arduino windows/>
+          <p>The labs in the Intel Commercial IoT Workshop are build in a progression which will result in each attendee building their own automated and secured, multi-device IoT network.</p>
+
+          <p>The set of labs start with a basic introduction to the Intel IoT Gateway.  From there, we will begin to build a complete and deployable IoT architecture based on Intel technology.</p>
+
+          <p>The next steps will include experimenting with <b>sensors and actuators</b> from the Grove IoT Development Kit, setting up a database that will store sensor data on the edge network, install a customized user interface that administrators can use to monitor edge network activity, integrate with the Helix Device Cloud for enterprise manageablity and administration.  We will then use Intel Security tools to lock down the gateway and ready it for deployment.  Finally, we look at integration with 3rd party cloud providers such as Microsoft Azure, GE Predix, Amazon AWS and IBM BlueMix.</p>
+        </div>
+      </div>
+
+
+
+      <!-- Objective -->
+      <div ibox title="Objectives">
+        <div content-block name="read-objectives" message="Read the Objectives">
+          <h2 class="labHidden">Read the Objectives</h2>
+
+          <labels gateway arduino windows/>
+          <p>Get off to a good start by making sure your computer, Arduino* 101, and Intel® IoT Gateway are ready for IoT development.</p>
+
+          <p>By the end of this module, you should be able to:</p>
+
+          <ul>
+            <li>Connect to your Intel® IoT Gateway from your development computer</li>
+            <li>Unbox and setup your Arduino* 101 Hardware</li>
+            <li>Connect to your Arduino* 101 from your development computer using a serial connection.</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+      <!-- Login to your Intel IoT Gateway -->
+      <div ibox title="Getting Started with Grove IoT Commercial Development Kit">
+        <div content-block name="unbox-kit" message="Unbox Your Grove IoT Commercial Developer Kit" image-link="./views/labs/intro-nuc/images/1.png">
+          <h2 class="labHidden">Getting Started with Grove IoT Commercial Development Kit</h2>
+          <img class="labHidden" src="./intro-nuc/images/1.png"></img>
+          <labels gateway/>
+
+          <p>Arduino 101 is not included in Grove IoT Commercial Development Kit and will be given separately.</p>
+        </div>
+
+        <div content-block name="unbox-arduino" message="Unbox Your Ardunio/Genuino 101" image-link="./views/labs/intro-nuc/images/2.png">
+          <h2 class="labHidden">Connect to your Gateway's Wi-Fi Hotspot SSID</h2>
+          <img class="labHidden" src="./intro-nuc/images/2.png"></img>
+
+          <p>Include information about the Arduino 101.</p>
+        </div>
+
+        <div content-block name="connect-base-block" message="Connect Base shield to Arduino 101" image-link="./views/labs/intro-nuc/images/3.png">
+          <h2 class="labHidden">Connect Base shield to Arduino 101</h2>
+          <img class="labHidden" src="./intro-nuc/images/3.png"></img>
+
+          <labels gateway windows/>
+
+          <p>Base shield will be included in the Grove starter kit. Attach Grove base shield with Arduino 101.</p>
+          </div>
+
+        <div content-block name="intro-place-arduino" message="Move Base Shield switch towards 5 Volts" image-link="./views/labs/intro-nuc/images/4.png">
+          <h2 class="labHidden">Move Base Shield switch towards 5 Volts</h2>
+          <img class="labHidden" src="./intro-nuc/images/4.png"></img>
+          <p>Move Base Shield switch towards 5 Volts.</p>
+        </div>
+
+        <div content-block name="intro-press" message="Connect LCD and Rotatry Angle to Arduino 101" image-link="./views/labs/intro-nuc/images/5.png">
+          <h2 class="labHidden">Connect LCD and Rotatry Angle to Arduino 101</h2>
+          <img class="labHidden" src="./intro-nuc/images/5.png"></img>
+          <p>Connect LCD to any I2C pin of base shield and rotary angle to A0 pin of base shield with the help of Grove Cable  as shown in below image.</p>
+        </div>
+
+        <div content-block name="intro-press" message="Now connect Arduino 101 with Intel IoT Gateway via USB A-B cable" image-link="./views/labs/intro-nuc/images/6.png">
+          <h2 class="labHidden">Now connect Arduino 101 with Intel IoT Gateway via USB A-B cable.</h2>
+          <img class="labHidden" src="./intro-nuc/images/6.png"></img>
+
+        </div>
+
+        <div content-block name="intro-press" message="Connect Intel IoT gateway with Ethernet cable and Power adapter" image-link="./views/labs/intro-nuc/images/7.png">
+          <h2 class="labHidden">Connect Intel IoT gateway with Ethernet cable and Power adapter</h2>
+          <img class="labHidden" src="./intro-nuc/images/7.png"></img>
+        </div>
+
+        <div content-block name="intro-press" message="Press Power button to start Gateway" image-link="./views/labs/intro-nuc/images/8.png">
+          <h2 class="labHidden">Press Power button to start Gateway</h2>
+          <img class="labHidden" src="./intro-nuc/images/8.png"></img>
+          <p>Press power button to start gateway. After around 2 minutes, it will display the IP address of Gateway on the LCD. Note Down the IP address.</p>
+        </div>
+
+        <div content-block name="intro-press" message="Access IoT Developer Hub." image-link="./views/labs/intro-nuc/images/9.png">
+          <h2 class="labHidden">Access IoT Developer Hub.</h2>
+          <img class="labHidden" src="./intro-nuc/images/9.png"></img>
+          <ol>
+            <li>Open your browser and go to IP address noted down in last  step to access IoT Developer Hub.</li>
+            <li>Login to the Intel® IoT Gateway Developer Hub using root for both the username and the password.</li>
+            <li>Use the Intel® IoT Gateway Developer Hub to explore and extend the basic capabilities of the Gateway.</li>
+        </div>
+      </div>
+
+
+
+      <!-- SSH to the Intel IoT Gateway for Windows Users -->
+      <div ibox title="SSH to the Intel IoT Gateway for Windows Users">
+        <div content-block name="Windows-SSH" message="Download Putty" image-link="./views/labs/intro-nuc/images/10.png">
+          <h2 class="labHidden">Download Putty</h2>
+          <img class="labHidden" src="./intro-nuc/images/10.png"></img>
+          <labels gateway arduino windows/>
+
+          <ol>
+            <li>Windows does not come with a built-in terminal emulator so download and use the PuTTY client.</li>
+            <li>Visit the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY download page</a>.</li>
+            <li>Under the "For Windows on Intel x86" heading, click on the "putty.exe" link to download the latest release version to your computer.</li>
+          </ol>
+        </div>
+
+        <div content-block name="Windows-SSH" message="Launch Putty and type in Your IP Address to connect" image-link="./views/labs/intro-nuc/images/11.png">
+          <h2 class="labHidden">Launch Putty and type in Your IP Address to connect</h2>
+          <img class="labHidden" src="./intro-nuc/images/11.png"></img>
+
+          <ol>
+            <li>Double-click putty.exe on your computer to launch PuTTY.</li>
+            <li>Enter IP address of the Gateway</li>
+            <li>You can login with the username root and the password root.</li>
+          </ol>
+
+        </div>
+      </div>
+
+
+
+      <!-- SSH to the Intel IoT Gateway for Mac Users -->
+      <div ibox title="SSH to the Intel IoT Gateway for Mac Users">
+        <div content-block name="Windows-SSH" message="Open a Console and use the ssh command to connect" image-link="./views/labs/intro-nuc/images/12.png">
+          <h2 class="labHidden">Open a Console and use the ssh command to connect</h2>
+          <img class="labHidden" src="./intro-nuc/images/12.png"></img>
+
+          <ol>
+            <li>Open Terminal</li>
+            <li>Type $ ssh root@<<IP Address>>. Replace <<IP Address>> to IP address of your gateway. E.g. root@192.168.3.3</li>
+            <li>Enter root as password</li>
+          </ol>
+
+        </div>
+      </div>
+
+
+
+      <!-- Change the password of your Intel IoT Gateway -->
+      <div ibox title="Change the password of your Intel IoT Gateway">
+        <div content-block name="Windows-SSH" message="Change the password of your Intel IoT Gateway">
+          <h2 class="labHidden">Change the password of your Intel IoT Gateway</h2>
+
+          <p>At the console type the follow:</p>
+          <pre><code>passwd</code></pre>
+
+          <p>Follow the prompts at change your password.</p></div>
+      </div>
+
+
+
+      <!-- Lab Conclusion -->
+      <div ibox title="Lab Conclusion">
+        <div content-block name="Windows-SSH" message="Read about the next lab">
+          <h2 class="labHidden">Read about the next lab</h2>
+          <p>Congratulations! You have successfully setup your Intel Iot Gateway and connected it to the Arduino 101.  In the next section, you will learn how build an IoT device from the starter kit and   to develop an IoT application and deploy it to the Intel IoT Gateway.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

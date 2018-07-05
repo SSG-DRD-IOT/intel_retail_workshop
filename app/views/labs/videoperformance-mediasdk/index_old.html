@@ -1,0 +1,157 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Additional Information</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Labs</a>
+            </li>
+            <li>
+                video performance
+            </li>
+            <li class="active">
+                <strong>Intel &reg; Media SDK</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+    <div class="row">
+        <div class="col-lg-12">
+            <div ibox title="Packages installed on your NUC">
+                <div content-block name="xdk-issues" message="Check after completing this section">
+                    <ul>
+                        <li>Media SDK installer</li>
+                        <li style="list-style-type:none">
+                            <ul>
+                                <li>
+                                    <span>Intel_Media_SDK_2016_R2.msi by default installs at</span>
+                                    <span style="color:#A52A2A"> C:\Program Files (x86)\IntelSWTools\ Intel(R)_Media_SDK_2016.0.1</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Media Sample applications</li>
+                        <li style="list-style-type:none">
+                            <ul>
+                                <li>
+                                    <span>Media SDK samples is made available in</span>
+                                    <span style="color:#2554C7">C:\Users\&lt;user name&gt;\Documents\Samples-master.zip</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div ibox title="Understand the packages">
+                <div content-block name="xdk-issues" message="Check after completing this section">
+                    <ol>
+                        <li>
+                            <span>Go to </span>
+                            <span style="color:#A52A2A">C:\Program Files (x86)\IntelSWTools\Intel(R)_Media_SDK_2016.0.2</span>
+                            <span>and understand the Package Contents</span>
+                        </li>
+                        <li>
+                            <span>Go to </span>
+                            <span style="color:#A52A2A">C:\Program Files (x86)\IntelSWTools\Intel(R)_Media_SDK_2016.0.2\tools\mediasdk_sys_analyzer</span>
+                            </br><span>and run the exe to check your platform's capability</span>
+                        </li>
+                        <li>Identify the SW libraries, dispatcher, tools
+                        </br><b>Pop Q:</b> Where is Media SDK HW library?
+                        </li>
+                        <li>
+                            <span>Go to </span>
+                            <span style="color:#2554C7">C:\Users\&lt;user name&gt;\Documents\Intel Media SDK Samples 2016 6.0.0.142\_bin\content</span>
+                        </li>
+                    </ol>
+                    </br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div ibox title="1. Sample Decoder">
+                <div content-block name="xdk-issues" message="Check after completing this section">
+                    <ul>
+                      <li>Navigate to Documents &gt Samples-master</li>
+                      <li>Unzip the Samples-master</li>
+                      <li>Open the solution file in the path:
+                        <p><span style="color:#A52A2A">Documents &gt samples-master &gt samples &gt sample_decode &gt sample_decode.sln</span></p>
+                      <li>
+                        <p>Open the sample_decode Solution in MS Visual Studio 2015, </p>
+                        <p><u>build</u> the solution successfully without any errors
+                      </li>
+                      <li>If there are errors, rectify them. Known rectification methods involve:
+                        <ul>
+                          <li>Right clicking the solution in Visual studio solution explorer and click retarget solution</li>
+                          <li>If warning is treated as error, right click both projects one by one, right click on each project, select properties, click C/C++.
+                             <p>Set "Treat Warnings As Errors" to No(/WX). Then click Apply and OK.</p></li>
+                          <li>Microsoft left a few things out of their MSVT package. If there is a fatal error cannot run 'rc.exe', 'cl.exe', 'ml.exe'</p>
+                          <p>Then copy rc.exe, rcdll.dll, cl.exe, ml.exe from </p>
+                            <p><span style="color:#A52A2A">C:\Program Files (x86)\Windows Kits\8.1\bin\x86</span> to </p>
+                            <p><span style="color:#2554C7">C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin</span></p></li>
+                        </ul>
+                        <li>Goto <b>_build &gt x64 &gt Debug</b> folder and <u>run</u> as follows:
+                      </li>
+                        <li>Open the _build &gt x64 &gt Debug path in command prompt and test Software decode-
+                            <ul>
+                                <li>
+                                    <span style="color:#A52A2A">sample_decode.exe h264 -i C:\input.h264 –r -sw</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Open the _Build &gt x64 path in command prompt and test Hardware decode-
+                            <ul>
+                                <li>
+                                    <span style="color:#A52A2A">sample_decode.exe h264 -i C:\input.h264 –r -hw</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Open the task manager and compare CPU performance in each of the above cases.</li>
+                        <li>Just type sample_decode.exe and explore other command line switches:
+                            </br>-o : output to file in RAW formats
+                            </br>-r: Present
+                            </br>-f : change rendering frame rate
+                            </br>-w and –h : changing the resolution
+                            </br>etc
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div ibox title="2. Video Wall">
+                <div content-block name="xdk-issues" message="Check after completing this section">
+                    <ul>
+                      <li>Open Documents &gt samples-master &gt samples &gt sample_decode &gt sample_decode.sln</li>
+                        <li>Build for x64 & Windows 10 platform set</li>
+                        <li>Copy the <span style="color:#A52A2A">Documents &gt samples-master &gt ssamples &gt sample_decode &gt sample_video_wall.bat</span></li>
+                        <p>to <span style="color:#2554C7">Documents &gt samples-master &gt ssamples &gt sample_decode &gt _build &gt x64 folder</p>
+                        <li>Command line-
+                            <ul>
+                                <li>
+                                    <span style="color:#A52A2A">sample_video_wall.bat C:\input.h264</span>
+                                </li>
+                            </ul>
+                        </li>
+                        </br>Note:
+                        <li>No. of channels (i.e VerticalCells and HorizontalCells) can be edited in sample_video_wall.bat file.</li>
+                        <li>Change MediaSDKImplementation to sw and hw.</li>
+                        <li>Change these variables and notice the difference.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
