@@ -1,0 +1,202 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Intel&reg; OpenVINO&trade; toolkit Samples</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Labs</a>
+            </li>
+            <li>
+                video Analytics
+            </li>
+            <li class="active">
+                <strong>Explore Intel&reg; OpenVINO&trade; toolkit Samples</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
+          <div ibox title="Objectives">
+              <div content-block name="xdk-issues" message="Check after completion of Objectives">
+              <b>Introduction</b>
+              <p> The OpenVINO&trade; toolkit is a comprehensive toolkit for quickly developing applications and  
+					solutions that emulate human vision. Based on Convolutional Neural Networks (CNNs), the  
+						toolkit extends computer vision workloads across Intel hardware, maximizing performance.
+			  </p>
+			  <p>The OpenVINO&trade; toolkit:</p>
+           <ul>
+            <li>	Enables the CNN-based deep learning inference on the edge.
+            </li>
+            <li>	Supports heterogeneous execution across Intel's computer vision accelerators, using a common API for the CPU, Intel&reg; Integrated Graphics, 
+			             Intel&reg; Movidius&trade; Neural Compute Stick, and FPGA.However, we are not covering Intel&reg; Movidius&trade; and FPGA in this lab.
+            </li>
+			 <li>	Speeds time-to-market through an easy-to-use library of computer vision functions and pre-optimized kernels.
+            </li>
+			 <li>	Includes optimized calls for Computer Vision standards, including OpenCV, OpenCL, and OpenVX.
+            </li>
+          </ul>
+          <p>Take a look at the <a href=" https://software.intel.com/en-us/openvino-toolkit"> OpenVINO&trade; Homepage</a>.</p>
+          <b>Pre-requisites</b><b></b>
+		  <ul>
+          <li>System Requirements</li>
+				<ul>
+			      <li> Only the CPU, Intel&reg; Integrated Graphics, and Intel&reg; Movidius&trade; Neural Compute Stick options are supported for the Windows installation.</li>
+                 <li> Linux is required for using the FPGA or Intel&reg; Movidius&trade;, Myriad&trade;2 VPU options </li>
+				</ul>
+			<li>Processors</li>
+				<ul>
+				 <li> 6th - 8th Generation Intel&reg; Core&trade;</li>
+                 <li> Intel&reg; Xeon&trade; v5 family,Intel&reg; Xeon&trade; v5 family</li>
+				 </ul>
+            <li>Operating System</li>
+			<ul>
+			     <li> Microsoft Windows* 10 64-bit</li>
+			</ul>
+ 		  </ul>
+              <b>Exploration</b>
+              <p>This labs starts with exploring and understanding the Intel&reg; OpenVINO&trade; toolkit related packages  
+                 Installed in your device and running the prebuild sample application available with OpenVINO&trade; toolkit. 
+				 Next lab session is to build a customized application using OpenVINO&trade; toolkit.
+ </p>
+              <b>Observation</b>
+                <p>Observe the folder structure available within OpenVINO&trade; toolkit; and the performance difference between <b>CPU</b> and <b>GPU</b>.</p>
+              <b>Learning Outcome</b>
+              <p>By the end of this module, the participant is expected to understand the Intel&reg; OpenVINO&trade; toolkit, installation folder structure and performance   
+                 difference between <b>CPU</b> and <b>GPU</b>
+</p>
+              </div>
+            </div>
+
+          <div ibox title="View the packages installed on your NUC">
+            <div content-block name="xdk-issues" message="Check after viewing the packages installed on your NUC">
+                    <ul>
+                        <li><b>OpenVINO&trade; Toolkit installer</b>
+                            <p>OpenVINO&trade; toolkit by default installs at
+                              <span style="color:#A52A2A"> C:\Intel\computer_vision_sdk_2018.1.265\</span></p>
+                        </li>
+                        <li><b>OpenVINO&trade; Toolkit Samples applications</b>
+                            <p>OpenVINO&trade; samples is made available in
+                              <span style="color:#A52A2A">C:\Intel\computer_vision_sdk_2018.1.265                   \deployment_tools\inferenceengine\samples\build\samples.sln</span>
+                        </li>
+                        <li><b>OpenVINO&trade; Toolkit Documentation directory </b>
+                            <p><span style="color:#A52A2A">C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\documentation</span></p>
+                        </li>
+                        <li><b>OpenVINO&trade; Toolkit pre-trained models </b>
+                            <p><span style="color:#A52A2A">C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models</span></p>
+                        </li>
+						
+                    </ul>
+            </div>
+          </div>
+
+            <div ibox title="Understand the packages">
+                <div class="alert alert-warning">Go to <span style="color:#A52A2A">C:\Intel\computer_vision_sdk_2018.1.265                   \deployment_tools\inferenceengine</span>
+                    <span>to understand the Package Contents</span>
+                </div>
+				
+                  <div content-block name="xdk-issues" message="Check after opening the packages" image-link="../views/labs/analytics-exploreopenvinosamples/images/packages.PNG"></div>
+                  <ul>
+                              <li>
+                                <p><b>bin</b> folder has  64-bit runtime libraries for OpenVINO&trade; toolkit samples</p>
+                                <p>E.g., <i>cLDNN64.dll , cLDNNPlugin.dll</i> etc</p>
+                               
+                              </li>
+                              <li>
+                                <p><b>doc</b> folder has documentation for OpenVINO&trade; samples like classification, object detection, interactive_face_detection and so on.</p>
+                              </li>
+                              <li>
+                                <p><b>include</b> folder has several header files required for developing application using OpenVINO&trade; toolkit</p>
+                              </li>
+                              <li>
+                                <p><b>lib</b> folder has 64-bit plugin library like inference_engine and libiomp5md, are useful for video  applications</p>
+                                <ul>
+								<li><p><i>inferenceengine.dll</i>&nbsp; is the software library used for loading inference engines plugins for CPU,GPU and so on.</p></li>
+                                <li><p><i>libiomp5md.dll</i>&nbsp; is Intel&reg; OMP runtime library used for developing application using OpenMP.</p></li>
+								</ul>
+                              </li>
+                              <!--<li>
+                                
+                                  <!--<p>Usage:</p>
+                                  <img src="../views/labs/videoperformance-mediasdk/images/Tracer.JPG"/>
+                                </br>
+                              </br>
+                                  <p>Press Start at any time to start logging and press Stop to stop logging.
+                                    After logging is stopped, results are appended to the specified file.
+                                    Press Open to view the output log file. Use Delete to delete previous log information prior to capturing new data,
+                                    as to avoid appending the new data to the existing output file.</p> !-->
+                                  
+                                    <!--<p>This tool also has few command line options available:</p>
+                                    <p>-skipPackage : Skip query for installed Media SDK packages.</p>
+                                    <p>-skipDShow   : Skip query for installed DirectShow filters.</p>
+                                    <p>-skipMFT     : Skip query for installed MFTs.</p>
+                                    <p>-skipWait    : Do not wait for user key press on analysis completion.</p> !-->
+                              </li> 
+                            </ul>
+            </div>
+
+            <div ibox title="Running the Sample Programs">
+              
+					<p><b>Security Barrier Camera Sample</b></p>				
+					<p><li><b>Description</b></p>
+					     <p>Showcase Vehicle Detection, followed by Vehicle Attributes and License Plate Recognition are applied on top of Vehicle Detection. The vehicle attributes execution barrier reports the general vehicle attributes, like the vehicle type and colour, whether the type is something like car, van, or bus.</p>
+						 <p>The application reads command line parameters and loads the specified models. The Vehicle/License-Plate Detection model is required, and the others are optional.</p>
+					<li><b>Running the Application</b>	
+						<div content-block name="xdk-issues" message="Check the image for help command" image-link="../views/labs/analytics-exploreopenvinosamples/images/Help.PNG">
+                        <ul>
+                        <p><li>Go to <b>C:\Intel &gt; computer_vision_sdk_2018.1.265  &gt;deployment_tools &gt; inferenceengine &gt; samples&gt;build &gt; security_barrier_camera_sample</b> folder</li></p>
+                        <p><li>Open samples.sln file and build security_barrier_camera_sample.cpp sample. after  successful build security_barrier_camera_sample.exe file will be available inside bin\intel64\Debug folder
+
+                          
+                        </li></p>
+                        <p><li>Running the application with <b>–h</b> option results in the message</li></p>
+						<p><li>Here we are not using all parameters, participants are expected to explore multiple options.</li></p>
+						
+						</ul>
+						</div>
+						<p><li>To run the sample application with CPU, execute the following command.</p>
+                                    <div class="alert alert-warning"><span style="color:#A52A2A">C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inference_engine\bin\intel64\Debug\security_barrier_camera_sample.exe  -i  C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0007\FP32\vehicle-license-plate-detection-barrier-0007.xml -m_va C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0010\FP32\vehicle-attributes-recognition-barrier-0010.xml -d CPU</span></div>
+                                    
+									<p>Output & Performance:</p>
+									<div content-block name="xdk-issues" message="Check the output with CPU acceleration" image-link="../views/labs/analytics-exploreopenvinosamples/images/CPU.PNG">
+									<ul>
+									<li>The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. The inference has been done using pre-trained model on <b>CPU</b></li>
+									<li>Next we will repeat the exercise with <b>GPU</b> and observe the performance.</li>
+									<li>Press <b>ESC</b> button to terminate</li>
+									</div>
+                                   
+                                  </br>
+                                </br>
+                        </li>
+                        <li>Case 2: To run the sample application on <b>GPU</b>. Execute the following command
+                        </br>
+                                </br>
+                                    <div class="alert alert-warning"><span style="color:#A52A2A">C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inference_engine\bin\intel64\Debug\security_barrier_camera_sample.exe  -i  C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0007\FP32\vehicle-license-plate-detection-barrier-0007.xml -m_va C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0010\FP32\vehicle-attributes-recognition-barrier-0010.xml -d GPU</span></div>
+                                    
+									<p>Output & Performance:</p>
+									<div content-block name="xdk-issues" message="Check the output with GPU accelaration" image-link="../views/labs/analytics-exploreopenvinosamples/images/GPU.PNG">
+									<ul>
+									<li>The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.</li>
+									<li>Press <b>ESC</b> button to terminate</li>
+									</ul>
+									</div>
+                                    
+                                  </br>
+                                </br>
+                        </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+            <div ibox title="Lessons learnt">
+                <div content-block name="xdk-issues" message="Check after completion of lesson">
+                <ul>
+                <li>Intel&reg;  OpenVINO&trade; toolkit, libraries, header and sample code files and available model</li>
+                <li>Observed the performance difference in detection time, fps with <b>CPU</b> and <b>GPU</b>.</li>
+              </div>
+            </div>
+</div>

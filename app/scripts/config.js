@@ -312,11 +312,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
   })
 
 
-.state('labs.analytics-opencvinit', {
-    url: "/labs.analytics-opencvinit",
-    templateUrl: "views/labs/analytics-opencvinit/index.html",
+.state('labs.analytics-exploreopenvinosamples', {
+    url: "/labs.analytics-exploreopenvinosamples",
+    templateUrl: "views/labs/analytics-exploreopenvinosamples/index.html",
     data: {
-        pageTitle: 'Simple Video capture using OpenCV'
+        pageTitle: 'Simple Examples using OpenVINO'
     },
     resolve: {
         loadPlugin: function ($ocLazyLoad) {
@@ -337,11 +337,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
 })
 
 
-  .state('labs.analytics-opencvmotion', {
-    url: "/analytics-opencvmotion",
-    templateUrl: "views/labs/analytics-opencvmotion/index.html",
+  .state('labs.analytics-openvinoface', {
+    url: "/analytics-openvinoface",
+    templateUrl: "views/labs/analytics-openvinoface/index.html",
     data: {
-      pageTitle: 'Motion detection using OpenCV'
+      pageTitle: 'Face detection using OpenVINO'
     },
     resolve: {
       loadPlugin: function($ocLazyLoad) {
@@ -360,11 +360,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       }
     }
 })
-.state('labs.analytics-opencvface', {
-  url: "/analytics-opencvface",
-  templateUrl: "views/labs/analytics-opencvface/index.html",
+.state('labs.analytics-openvinoagegenderdetection', {
+  url: "/analytics-openvinoagegenderdetection",
+  templateUrl: "views/labs/analytics-openvinoagegenderdetection/index.html",
   data: {
-    pageTitle: 'Face detection with OpenCV'
+    pageTitle: 'Age and Gender detection with OpenVINO'
   },
   resolve: {
     loadPlugin: function($ocLazyLoad) {

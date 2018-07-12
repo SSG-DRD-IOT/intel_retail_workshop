@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Analyse face data on cloud</h2>
+        <h2>Age and Gender detection using OpenVINO&trade;</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="index.html">Home</a>
@@ -9,119 +9,141 @@
                 <a>Labs</a>
             </li>
             <li>
-                <strong>Video Analytics</strong>
+                OpenVINO&trade; Sample
             </li>
             <li class="active">
-                <strong>Analyse face data on cloud</strong>
+                <strong>Age and Gender detection using OpenVINO&trade;</strong>
             </li>
         </ol>
     </div>
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight" ng-controller="CodeEditorCtrl">
-      <div class="row">
-        <div class="col-lg-12">
-
-            <div ibox title="Objectives">
-                <div content-block name="opencv_motion-objectives" message="Complete Objectives" image-link="../views/labs/analytics-analyse/images/cloudmain.png">
-                    <h2 class="labHidden"></h2>
-                    <h5>Lab Overview</h5>
-                    <p>We have done face, age and gender detection in our previous modules. We have successfully counted number of faces so far.
-                    </p>
-                    <p>In this module we will publish this data to local cloud for analysis</p>
-                    <p>We will include these following  points</p>
-                    <ul>
-                        <li>Declare a device id that will be used for publishing the data to cloud</li>
-						<li>Integrate a python script for publishing the data to cloud</li>
-                        <li>Publish the number of faces after showing the face count</li>
-                        <li>Login to cloud and view charts showing the number of faces</li>
-                    </ul>
+          <div ibox title="Objectives">
+		  <div content-block name="xdk-issues" message="Check after completion of Lab Overview" image-link="../views/labs/analytics-openvinoagegenderdetection/images/ClassDiagram.png">
+             
+              <b>Lab Overview</b>
+              <ul>
+			  <li>We have done face detection in our previous module. Now, we will identify Age and Gender for the identified faces.</li>
+			  <li>We will build upon our face detection code and add Age, Gender identification code in this module.</li>
+			  </ul>
+			  
+			</div>	
+             <div content-block name="xdk-issues" message="Check after understanding task for this Lab" image-link="../views/labs/analytics-openvinoagegenderdetection/images/FlowChart.png">   
+           <p>We will be replacing Age and Gender detection TODOs with the following:</p>
+			<ul>
+			<li>We will include CPU as plugin device for parallel inferencing.</li>
+			<li>Load pre-trained data model for Age and Gender detection</li>
+			<li>Once face is detection result is available, we ill submit inference request for Age and Gender detection</li>
+			<li>We will marked the identified faces inside rectangle and put text on it for Age and Gender</li>
+			<li>Here we will observe age and gender detection in addition to face.</li>
+			</ul>              
+              </div>
+          </div>
+          <div ibox title="Include CPU as plugin device">
+                <div content-block name="xdk-issues" message="Check after including Header files">
+                <p>We need to include CPU as plugin device for inferencing Age and Gender</p>  
+				  <ul>
+					<li>Replace #TODO: Age and Gender detection 2</li>
+					<li>Paste the following lines</li>
+					</ul>
+                    
+				 <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">					
+					plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
+					pluginsForDevices["CPU"] = plugin;
+                    </ui-codemirror>
               </div>
             </div>
-            <div ibox title="Declare the device id">
 
-              <div content-block name="opencv_package-newfile" message="Declare the device id">
-               
-                  <ol>
-                <li>Replace  #TODO: Cloud integration 1</li>
-                <li>Paste the following line and replace the device id “1234” with your device id written on your computer.</li>
-                <li><pre><code>std::string deviceId = “1234”;
-</code></pre></li>
-                       </ol>
+          <div ibox title="Load pre-trained optimize model for Age and Gender inferencing">
+                <div content-block name="xdk-issues" message="Check after loading optimized model on CPU">
+				<p>We need CPU as plugin device for inferencing Age and Gender and load pre retained model for Age and Gender detection on CPU</p>
+				 <ul>
+					<li>Replace #TODO: Age and Gender detection 3</li>
+					<li>Paste the following lines</li>
+					</ul>                  
+                  <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                    FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\  
+                                         intel_models\\age-gender-recognition-retail-0013\\FP32\\ age-gender- 
+                                          recognition-retail-0013.xml";
+					AgeGenderDetection AgeGender;
+					Load(FaceDetection, AgeGender).into(pluginsForDevices["GPU"],pluginsForDevices["CPU"]);
+                </ui-codemirror>
+              
               </div>
-                </div>
+            </div>
 
-                <div ibox title="Publish number of faces to cloud">
-
-                  <div content-block name="opencv_package-cloud" message="Publish number of faces to cloud">
-                    <p>We have counted number of faces successfully.Now, we will publish it to cloud for analysis. </h5>
-                    <p>Note: We are not publishing video stream or pictures of the sceen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.</p>
-                      <ol>
-                    <li>The following content should be present in a python script called as “cloud.py” and copied to the Desktop &gt; Retail &gt; OpenVINO</li>
-                    <li>You need to add below python script (cloud.py) to your system.</li>
-                                       						
-				 
-                     <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
-					import requests
-					import sys
-					id = sys.argv[1]
-					facecount = sys.argv[2]
-					print(id);
-					print(facecount);
-					query = 'id' + '&value=' + str(facecount);
-					print(query);
-					resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
-
-					if resp.status_code != 201:
-						print("Unable to submit the data")
-					else:
-						print("Data Submitted for analysis")
-						
-
- </ui-codemirror>
-				 <li>Replace #TODO: Cloud integration 2</li>
-				 <li>Note that we are sending the data to cloud when there is a change is number of faces identified.</li>
-				 <li>Paste the following line</li>
-				 <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
-	//Submit data to cloud when there is change in face count
-		if (curFaceCount != prevFaceCount && curFaceCount < faceCountThreshold)
-		{
-			prevFaceCount = curFaceCount;
-			
-			//Integrate python module to submit data to cloud
-			std::string cmd = "python C:\\Users\\intel1672\\Desktop\\Retail\\OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount);
-			std::system(cmd.c_str());
-
-			slog::info << "Number of faces in the frame are : " << curFaceCount << slog::endl;
-		}
-
-
-
- </ui-codemirror>
-                           </ol>
-			
+          <div ibox title="Submit Inference Request">
+                <div content-block name="xdk-issues" message="Check after submiting inference request">
+				<p>We have detected face in our previous lab. Here, we will submit inference request identify Age and Gender for the identified face</p>
+				<ul>
+					<li>Replace #TODO: Age and Gender detection 4</li>
+					<li>Paste the following lines</li>
+					</ul>
+                  </br>
+                    <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                   //Submit Inference Request for age and gender detection and wait for result
+	               AgeGender.submitRequest();
+	               AgeGender.wait();
+                    </ui-codemirror>
                   </div>
-				  
-                    </div>
-					 <div ibox title="Visualize Your data">
-                <div content-block name="opencv_analyse-objectives" message="Visualize Your data" image-link="../views/labs/analytics-analyse/images/facecountoncloud.png">
-                    <h2 class="labHidden"></h2>
-                    <h5>Visualizing your data on the cloud</h5>
-                    <ul>
-                        <li>Go to http://&lt;cloud server url>:9002</li>
-                        <li>Example: <a id="href1" target="_blank"></a><script>document.getElementById("href1").innerHTML = window.location.hostname + ":9002";document.getElementById("href1").href = "http://" + window.location.hostname + ":9002";</script></li>
-                        <li>Enter your device ID</li>
-                        <li>Click on plot</li>
-						<li>See the real time face count on cloud</li>
-						
-                    </ul>
-					
+            </div>
+			<div ibox title="Use idenfied face for Age and Gender detection">
+			<p>Clip the identified faces and send inference request for identifying Age and Gender</p>
+			<ul>
+				<li>Replace #TODO: Age and Gender detection 5</li>
+				<li>Paste the following lines</li>
+			</ul>
+                <div content-block name="xdk-issues" message="Check after using identified face for Age and Gender detection">
+                  </br>
+                    <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+                    //Clip the identified face and send Inference Request for age and gender detection
+					for (auto face : FaceDetection.results) {
+						auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
+						auto face = frame(clippedRect);
+						AgeGender.enqueue(face);
+					}
+					// Got the Face, Age and Gender detection result, now customize and print them on window
+					std::ostringstream out;
+					index = 0;
+					curFaceCount = 0;
+                    </ui-codemirror>
+                  </div>
+            </div>
+
+          <div ibox title="Customize the result for display">
+		  <p>Now we got result for face, age and gender detection. We will customize the output and display on screen</p>
+		  <ul>
+			<li>Replace #TODO: Age and Gender detection 6</li>
+			<li>Paste the following lines</li>			
+		</ul>
+                <div content-block name="xdk-issues" message="Check after customizing the result">
+                </br>
+                  <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
+					out.str("");
+					curFaceCount++;
+
+					//Draw rectangle bounding identified face and print Age and Gender
+					out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
+					out << "," << static_cast<int>(AgeGender[index].age);
+
+					cv::putText(frame,
+					out.str(),
+					cv::Point2f(result.location.x, result.location.y - 15),
+					cv::FONT_HERSHEY_COMPLEX_SMALL,
+					0.8,
+					cv::Scalar(0, 0, 255));
+
+					index++;
+                </ui-codemirror>
               </div>
             </div>
-            <div ibox title="Here is the final solution">
-              <div content-block name="opencv_motion-newfile" message="Here is the final solution">
-                <p>For complete solution look into the below code which includes Face, Age and Gender detection using OpenVINO.</p>
-                  <ui-codemirror ui-codemirror-opts="editorOptions"><pre class="brush:jscript;">
+			<div ibox title="Here is the final solution">
+		  <p>Keep the TODOs as it is. We will re-use this program during Cloud Integration.</p>
+		  
+                <div content-block name="xdk-issues" message="Check after completion of Main inferencing loop">
+                </br>
+                  <ui-codemirror ui-codemirror-opts="editorOptions" id="topic-configure">
 #include <gflags/gflags.h>
 #include <functional>
 #include <iostream>
@@ -173,21 +195,9 @@ void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor =
 	}
 }
 
-struct FaceDetectionClass  {
+// -------------------------Generic routines for detection networks-------------------------------------------------
 
-	
-
-	ExecutableNetwork net;
-	InferenceEngine::InferencePlugin * plugin;
-	InferRequest::Ptr request;
-	std::string & commandLineFlag = FLAGS_Face_Model;
-	std::string topoName = "Face Detection";
-	const int maxBatch = 1;
-
-	ExecutableNetwork* operator ->() {
-		return &net;
-	}
-
+struct FaceDetectionClass {
 	std::string input;
 	std::string output;
 	int maxProposalCount;
@@ -197,14 +207,22 @@ struct FaceDetectionClass  {
 	float height = 0;
 	bool resultsFetched = false;
 	std::vector<std::string> labels;
+	
 
+	
+	ExecutableNetwork net;
+	InferenceEngine::InferencePlugin * plugin;
+	InferRequest::Ptr request;
+	std::string & commandLineFlag = FLAGS_Face_Model;
+	std::string topoName = "Face Detection";
+	const int maxBatch = 1;
 
 	struct Result {
 		int label;
 		float confidence;
 		cv::Rect location;
 	};
-		
+
 	std::vector<Result> results;
 
 	void submitRequest()  {
@@ -212,18 +230,19 @@ struct FaceDetectionClass  {
 		enquedFrames = 0;
 		resultsFetched = false;
 		results.clear();
+		
 		request->StartAsync();
 	}
 
 	 void wait() {
-
+		if (!request) return;
 		request->Wait(IInferRequest::WaitMode::RESULT_READY);
 	}
 
 	void enqueue(const cv::Mat &frame) {
+		//if (!enabled()) return;
 
 		if (!request) {
-			
 			request = net.CreateInferRequestPtr();
 		}
 
@@ -237,9 +256,7 @@ struct FaceDetectionClass  {
 		enquedFrames = 1;
 	}
 
-	
 	InferenceEngine::CNNNetwork read()  {
-		
 		InferenceEngine::CNNNetReader netReader;
 		/** Read network model **/
 		netReader.ReadNetwork(FLAGS_Face_Model);
@@ -286,7 +303,6 @@ struct FaceDetectionClass  {
 	}
 
 	void fetchResults() {
-	
 		results.clear();
 		if (resultsFetched) return;
 		resultsFetched = true;
@@ -309,13 +325,7 @@ struct FaceDetectionClass  {
 			if (image_id < 0) {
 				break;
 			}
-			if (FLAGS_r) {
-				std::cout << "[" << i << "," << r.label << "] element, prob = " << r.confidence <<
-					"    (" << r.location.x << "," << r.location.y << ")-(" << r.location.width << ","
-					<< r.location.height << ")"
-					<< ((r.confidence > FLAGS_t) ? " WILL BE RENDERED!" : "") << std::endl;
-			}
-
+	
 			results.push_back(r);
 		}
 	}
@@ -403,7 +413,6 @@ struct AgeGenderDetection {
 	}
 };
 
-
 // ***** For loading xml and bin files
 struct Load {
 	FaceDetectionClass& facedetection;
@@ -421,13 +430,12 @@ struct Load {
 	
 	
 	};
-
 int main(int argc, char *argv[]) {
 	int faceCountThreshold = 100;
 	int curFaceCount = 0;
 	int prevFaceCount = 0;
 	int index = 0;
-	std::string id = "1234";
+	//TODO: Cloud integration 1
 
 	//If there is a single camera connected, just pass 0.
 	cv::VideoCapture cap;
@@ -454,6 +462,7 @@ int main(int argc, char *argv[]) {
 	
 	FaceDetectionClass FaceDetection;
 	
+
 
 	//Load pre trained optimized data model for Age and Gender detection 
 	FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
@@ -522,46 +531,25 @@ Load(FaceDetection, AgeGender).into(pluginsForDevices["GPU"],pluginsForDevices["
 		if (!cap.retrieve(frame)) {
 			break;
 		}
-
-		//Submit data to cloud when there is change in face count
-		if (curFaceCount != prevFaceCount && curFaceCount < faceCountThreshold)
-		{
-			prevFaceCount = curFaceCount;
-			
-			//Integrate python module to submit data to cloud
-			std::string cmd = "python C:\\Users\\intel1672\\Desktop\\Retail\\OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount);
-			std::system(cmd.c_str());
-
-			slog::info << "Number of faces in the frame are : " << curFaceCount << slog::endl;
-		}
+		//TODO: Cloud integration 2
 	}
 	return 0;
 }
 
-
-
-</pre></ui-codemirror>
+                </ui-codemirror>
               </div>
-            </div>
-			 <div ibox title="Lesson learnt">
+            </div>         
+        </div>    
+	 <div ibox title="Build the solution and analyze the output">
+	 <p>Execute the generated exe file to see the face detection output. The user has to use their mobile phones and capture more pictures to detect the faces.</p>
+	 <div class="alert alert-warning">Go to <span style="color:#A52A2A">C:\Users\intel#\Desktop\Retail\OpenVINO\bin\intel64\Debug interactive_face_detection_sample</span></div>                   
+		<img                 src="../views/labs/analytics-openvinoagegenderdetection/images/openvinoface.jpg" />      			
+    </div>
+
+    <div ibox title="Lesson learnt">
         <div content-block name="xdk-issues" message="Check after completion of lesson">
-          <p>Interfacing Intel&reg; OpenVINO™ toolkit with cloud and visualizing data on cloud.</p>
+          <p>In addition to Face, Age and Gender detection using Intel&reg; OpenVINO&trade; toolkit</p>
         </div>
     </div>
-            
-        <div ibox title="References">
-          <ul>
-              <li>
-                  <p><a href="http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html" target="_blank">OpenVINO&trade; Tutorials</a></p></li><li>
-                  <p><a href="https://pythonprogramming.net/loading-images-python-opencv-tutorial/" target="_blank">OpenVINO&trade;</a></p>
-              </li>
-          </ul>
-        </div>
 
-
-      </div>
-  </div>
-
-        </div>
-    </div>
 </div>
