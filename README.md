@@ -16,12 +16,14 @@ Also if you find errors in this workshop material all of our labs are on GitHub.
   - Slide Deck -
   - Video -
   - Lab - [Explore OpenVINO](./Explore_OpenVINO.md)
+  - Lab - Explore OpenVINO™ toolkit
 
 
 * **Face Detection using Intel® OpenVINO™ toolkit**
   - Slide Deck -
   - Video -
   - Lab - [Face Detection](./Face_detection.md)
+  - Lab - Face Detection
 
 
 * **Age and Gender Detection using Intel® OpenVINO™ toolkit**
@@ -34,6 +36,7 @@ Also if you find errors in this workshop material all of our labs are on GitHub.
     - Slide Deck -
     - Video -
     - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
+    - Lab - Analyze face Data
 
 
 ## Hardware Used in this Workshop
