@@ -15,7 +15,7 @@ Also if you find errors in this workshop material all of our labs are on GitHub.
 
   - Slide Deck -
   - Video -
-  - Lab - [Explore OpenVINO](./Explore_Openvino.md)
+  - Lab - [Explore OpenVINO](./Explore_OpenVINO.md)
 
 
 * **Face Detection using Intel® OpenVINO™ toolkit**
