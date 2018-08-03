@@ -15,7 +15,7 @@ Also if you find errors in this workshop material all of our labs are on GitHub.
 
   - Slide Deck -
   - Video -
-  - Lab - [Explore OpenVINO](./Explore_Openvino.md)
+  - Lab - [Explore OpenVINO](./Explore_OpenVINO.md)
 
 
 * **Face Detection using Intel® OpenVINO™ toolkit**
@@ -39,6 +39,17 @@ Also if you find errors in this workshop material all of our labs are on GitHub.
 ## Hardware Used in this Workshop
 Intel offers scalable hardware solutions at different power, performance and price points. During these labs we will be using OPS Device.
 
-**OPS device**
+**OPS device**                                                 
+Intel launched the Open Pluggable Specification (OPS) to standardize the system architecture between displays and media players. OPS allows for more cost-effective design, deployment, and management of digital signage and other display solutions that support advanced functionality and emerging use cases, including interactivity and anonymous audience analytics.
 
-TODO
+
+![](images/opsdevice.jpg)
+
+As OPS has quickly become a standard for creating integrated display solutions, Intel is providing the industry with OPS+, offering future-proofed capabilities targeted at higher resolution content and additional use cases.
+### OPS Key Features
+- 180 mm x 119 mm x 30 mm, fully enclosed.
+- Enhanced thermal design supports broader range of Intel® processors.
+- Enables new and customizable functionality through an additional connector interface that can be enhanced further with Intel® FPGAs.
+- Optimized for interactive white boards (IWBs), commercial digital signage, kiosks, visual data devices, video walls, and more.
+- Ability to customize a protocol and simultaneously support advanced use cases including real-time analytics and video capture performed on the display itself.
+- Features a second high-speed connector and is backward compatible with previous OPS specifications.
