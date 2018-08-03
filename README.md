@@ -43,7 +43,7 @@ Intel offers scalable hardware solutions at different power, performance and pri
 Intel launched the Open Pluggable Specification (OPS) to standardize the system architecture between displays and media players. OPS allows for more cost-effective design, deployment, and management of digital signage and other display solutions that support advanced functionality and emerging use cases, including interactivity and anonymous audience analytics.
 
 
-![](images/opsdevice.jpg)
+![](images/opsdevice.png)
 
 As OPS has quickly become a standard for creating integrated display solutions, Intel is providing the industry with OPS+, offering future-proofed capabilities targeted at higher resolution content and additional use cases.
 ### OPS Key Features
