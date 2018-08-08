@@ -130,10 +130,9 @@ Here, we will define a method that will be used for loading the CNNNetworks that
 
 ```
 void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
-
-		net = plg.LoadNetwork(this->read(), {});
-		plugin = &plg;
-	}
+     net = plg.LoadNetwork(this->read(), {});
+     plugin = &plg;
+}
 ```
 
 ### Populate the Inference Request
@@ -145,12 +144,12 @@ This method is used populate the inference request and push the frames in to a q
 void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
   if (!request) {
-		request = net.CreateInferRequestPtr();
-	}
+    request = net.CreateInferRequestPtr();
+  }
 
-	auto  inputBlob = request->GetBlob(input);
-	matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
-	enquedFaces++;
+  auto  inputBlob = request->GetBlob(input);
+  matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
+  enquedFaces++;
 }
 ```
 
@@ -235,23 +234,23 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
   out.str("");
   curFaceCount++;
 
-	//Draw rectangle bounding identified face and print Age and Gender
-	out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
-	if(AgeGender[index].maleProb > 0.5)
-		malecount++;
-	else
-		femalecount++;
+  //Draw rectangle bounding identified face and print Age and Gender
+  out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
 
-	out << "," << static_cast<int>(AgeGender[index].age);
+  if(AgeGender[index].maleProb > 0.5)
+    malecount++;
+  else
+    femalecount++;
 
-	cv::putText(frame,
-				out.str(),
-				cv::Point2f(result.location.x, result.location.y - 15),
-				cv::FONT_HERSHEY_COMPLEX_SMALL,
-				0.8,
-				cv::Scalar(0, 0, 255));
+  out << "," << static_cast<int>(AgeGender[index].age);
 
-	index++;
+  cv::putText(frame,
+              out.str(),
+              cv::Point2f(result.location.x, result.location.y - 15),
+              cv::FONT_HERSHEY_COMPLEX_SMALL,
+              0.8,
+              cv::Scalar(0, 0, 255));
+  index++;
  ```
 
 ### The Final Solution
