@@ -27,7 +27,19 @@ using namespace InferenceEngine;
 
 // -------------------------Generic routines for detection networks-------------------------------------------------
 
-struct FaceDetectionClass {
+
+
+struct FaceDetectionClass  {
+
+	ExecutableNetwork net;
+	InferenceEngine::InferencePlugin * plugin;
+	InferRequest::Ptr request;
+	std::string & commandLineFlag = FLAGS_Face_Model;
+	std::string topoName = "Face Detection";
+	const int maxBatch = 1;
+	ExecutableNetwork* operator ->() {
+		return &net;
+	}
 	std::string input;
 	std::string output;
 	int maxProposalCount;
@@ -38,15 +50,6 @@ struct FaceDetectionClass {
 	bool resultsFetched = false;
 	std::vector<std::string> labels;
 
-
-
-	ExecutableNetwork net;
-	InferenceEngine::InferencePlugin * plugin;
-	InferRequest::Ptr request;
-	std::string & commandLineFlag = FLAGS_Face_Model;
-	std::string topoName = "Face Detection";
-	const int maxBatch = 1;
-
 	struct Result {
 		int label;
 		float confidence;
@@ -54,22 +57,22 @@ struct FaceDetectionClass {
 	};
 
 	std::vector<Result> results;
+	void submitRequest() ;
+	void wait() ;
+	void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor = 1.0, int batchIndex = 0);
+	void enqueue(const cv::Mat &frame);
+	InferenceEngine::CNNNetwork read();
+	void load(InferenceEngine::InferencePlugin & plg);
+	void fetchResults();
 
-	void submitRequest()  {
-		if (!enquedFrames) return;
-		enquedFrames = 0;
-		resultsFetched = false;
-		results.clear();
+};
 
-		request->StartAsync();
-	}
+void FaceDetectionClass::wait() {
 
-	 void wait() {
-		if (!request) return;
 		request->Wait(IInferRequest::WaitMode::RESULT_READY);
 	}
 
-	void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor = 1.0, int batchIndex = 0) {
+void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
 	const size_t height = blobSize[1];
@@ -93,12 +96,10 @@ struct FaceDetectionClass {
 		}
 	}
 }
-
-
-	void enqueue(const cv::Mat &frame) {
-		//if (!enabled()) return;
+void FaceDetectionClass::enqueue(const cv::Mat &frame) {
 
 		if (!request) {
+
 			request = net.CreateInferRequestPtr();
 		}
 
@@ -111,8 +112,8 @@ struct FaceDetectionClass {
 
 		enquedFrames = 1;
 	}
+InferenceEngine::CNNNetwork FaceDetectionClass::read()  {
 
-	InferenceEngine::CNNNetwork read()  {
 		InferenceEngine::CNNNetReader netReader;
 		/** Read network model **/
 		netReader.ReadNetwork(FLAGS_Face_Model);
@@ -130,13 +131,13 @@ struct FaceDetectionClass {
 			std::back_inserter(labels));
 
 		/** SSD-based network should have one input and one output **/
-		// ---------------------------Check inputs ------------------------------------------------------
+		// ---------------------------Check inputs -------------------------------------------------
 		InferenceEngine::InputsDataMap inputInfo(netReader.getNetwork().getInputsInfo());
 		auto& inputInfoFirst = inputInfo.begin()->second;
 		inputInfoFirst->setPrecision(Precision::U8);
 		inputInfoFirst->getInputData()->setLayout(Layout::NCHW);
 
-		// ---------------------------Check outputs ------------------------------------------------------
+		// ---------------------------Check outputs -------------------------------------------------
 		InferenceEngine::OutputsDataMap outputInfo(netReader.getNetwork().getOutputsInfo());
 
 		auto& _output = outputInfo.begin()->second;
@@ -157,15 +158,22 @@ struct FaceDetectionClass {
 		input = inputInfo.begin()->first;
 		return netReader.getNetwork();
 	}
-
-	void into(InferenceEngine::InferencePlugin & plg)  {
+void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg)  {
 
 			net = plg.LoadNetwork(this->read(), {});
 			plugin = &plg;
 
 	}
+void FaceDetectionClass::submitRequest()  {
+		if (!enquedFrames) return;
+		enquedFrames = 0;
+		resultsFetched = false;
+		results.clear();
+		request->StartAsync();
+	}
 
-	void fetchResults() {
+void FaceDetectionClass::fetchResults() {
+
 		results.clear();
 		if (resultsFetched) return;
 		resultsFetched = true;
@@ -188,19 +196,23 @@ struct FaceDetectionClass {
 			if (image_id < 0) {
 				break;
 			}
+			if (FLAGS_r) {
+				std::cout << "[" << i << "," << r.label << "] element, prob = " << r.confidence <<
+					"    (" << r.location.x << "," << r.location.y << ")-(" << r.location.width << ","
+					<< r.location.height << ")"
+					<< ((r.confidence > FLAGS_t) ? " WILL BE RENDERED!" : "") << std::endl;
+			}
 
 			results.push_back(r);
 		}
 	}
-};
+
 
 struct AgeGenderDetection {
 	std::string input;
 	std::string outputAge;
 	std::string outputGender;
 	int enquedFaces = 0;
-
-
 	ExecutableNetwork net;
 	InferenceEngine::InferencePlugin * plugin;
 	InferRequest::Ptr request;
@@ -208,20 +220,23 @@ struct AgeGenderDetection {
 	std::string topoName = "Age Gender";
 	const int maxBatch = FLAGS_n_ag;
 
+	void submitRequest() ;
+	void wait();
+	void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor = 1.0, int batchIndex = 0);
+	void enqueue(const cv::Mat &face);
+	struct Result { float age; float maleProb; };
+	Result operator[] (int idx) const {
+		auto  genderBlob = request->GetBlob(outputGender);
+		auto  ageBlob = request->GetBlob(outputAge);
 
-
-	void submitRequest()  {
-		if (!enquedFaces) return;
-		request->StartAsync();
-		enquedFaces = 0;
+		return{ ageBlob->buffer().as<float*>()[idx] * 100,
+			genderBlob->buffer().as<float*>()[idx * 2 + 1] };
 	}
+	void load(InferenceEngine::InferencePlugin & plg);
+	CNNNetwork read();
+};
 
-	void wait() {
-		if (!request) return;
-		request->Wait(IInferRequest::WaitMode::RESULT_READY);
-	}
-
-	void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor = 1.0, int batchIndex = 0) {
+void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
 	const size_t height = blobSize[1];
@@ -245,9 +260,20 @@ struct AgeGenderDetection {
 		}
 	}
 }
+void AgeGenderDetection::submitRequest()  {
+		if (!enquedFaces) return;
+		request->StartAsync();
+		enquedFaces = 0;
+	}
+
+void AgeGenderDetection::wait() {
+		if (!request) return;
+		request->Wait(IInferRequest::WaitMode::RESULT_READY);
+	}
 
 
-	void enqueue(const cv::Mat &face) {
+
+void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
 		if (!request) {
 			request = net.CreateInferRequestPtr();
@@ -258,23 +284,14 @@ struct AgeGenderDetection {
 		enquedFaces++;
 	}
 
-	struct Result { float age; float maleProb; };
-	Result operator[] (int idx) const {
-		auto  genderBlob = request->GetBlob(outputGender);
-		auto  ageBlob = request->GetBlob(outputAge);
-
-		return{ ageBlob->buffer().as<float*>()[idx] * 100,
-			genderBlob->buffer().as<float*>()[idx * 2 + 1] };
-	}
-
-	void into(InferenceEngine::InferencePlugin & plg)  {
+void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
 
 			net = plg.LoadNetwork(this->read(), {});
 			plugin = &plg;
 
 	}
 
-	CNNNetwork read()  {
+CNNNetwork AgeGenderDetection::read()  {
 
 		InferenceEngine::CNNNetReader netReader;
 		/** Read network model **/
@@ -306,7 +323,6 @@ struct AgeGenderDetection {
 		outputGender = genderOutput->name;
 		return netReader.getNetwork();
 	}
-};
 
 
 int main(int argc, char *argv[]) {
@@ -342,13 +358,13 @@ int main(int argc, char *argv[]) {
 
 
 	FaceDetectionClass FaceDetection;
-	FaceDetection.into(pluginsForDevices["GPU"]);
+	FaceDetection.load(pluginsForDevices["GPU"]);
 
 
 	//Load pre trained optimized data model for Age and Gender detection
 	FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml";
 	AgeGenderDetection AgeGender;
-	AgeGender.into(pluginsForDevices["CPU"]);
+	AgeGender.load(pluginsForDevices["CPU"]);
 
 
 	// Main inference loop
@@ -420,6 +436,4 @@ int main(int argc, char *argv[]) {
 	}
 	return 0;
 }
-
-
- ```
+```

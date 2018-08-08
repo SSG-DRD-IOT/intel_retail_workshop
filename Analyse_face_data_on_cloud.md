@@ -1,8 +1,9 @@
 # Analyze Face Data on Cloud
 ### Lab Overview
-We have done Face, Age and Gender Detection in our previous modules. We have successfully counted number of faces so far.     
-In this module we will publish this data to local cloud for analysis.   
-### We include the following points
+We have done Face, Age and Gender Detection in our previous modules. Also, we have successfully counted number of faces so far.
+
+In this Lab, we will publish this data to local cloud for analysis.
+### Tasks to do in this lab
 - Declare a device id that will be used for publishing the data to cloud
 - Integrate a python script for publishing the data to cloud
 - Publish the number of faces after showing the face count
@@ -11,15 +12,17 @@ In this module we will publish this data to local cloud for analysis.
 ### Declare the Device Id
 - Replace #TODO: Cloud Integration 1
 - Paste the following line and replace the device id “1234” with your device id written on your computer.
+
 ```
-std::string deviceId = “1234”;
- ```
+std::string deviceId="1234";
+```
 
 ### Publish Number of Faces to Cloud
-We counted the number of faces successfully. Now, we will publish it to cloud for analysis.
+We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
+
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
-- The following content should be present in a python script called as “cloud.py” and copied to the ***Desktop > Retail > OpenVINO***
-- Add the following python script (cloud.py) to your system.
+- The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > OpenVINO***
+- If file is not present, create a "python.py" file and add the following code snippet into that file.
 
 ```
 #import requests
@@ -84,6 +87,6 @@ node server.js
 ![](images/cloudAnalysis.png)
 
 ###  Final Solution
-For complete solution click on following link [Analyse_face_data_on_cloud.cpp](./script/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO.
+For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO.
 ### Lesson Learnt
 Interfacing OpenVINO™ toolkit with cloud and visualizing data on cloud.
