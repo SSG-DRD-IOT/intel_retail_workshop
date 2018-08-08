@@ -2,7 +2,8 @@
 ### Lab Overview
 We have done Face Detection in our previous module. Now, we identify Age and Gender for the identified faces.    
 We  build upon our Face Detection code and add Age, Gender identification code in this module.
-### Class diagram for AgeGender detection
+
+**Class diagram for AgeGender detection**
 ![](images/AgeGender_class.png)
 
 ### Tasks TODO for Age and Gender Detection:
@@ -55,29 +56,30 @@ This is used to process the original image from live feed and populate blob data
 - paste the following code
 
 ```
-void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
-SizeVector blobSize = blob.get()->dims();
-const size_t width = blobSize[0];
-const size_t height = blobSize[1];
-const size_t channels = blobSize[2];
+void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex )
+ {
+    SizeVector blobSize = blob.get()->dims();
+    const size_t width = blobSize[0];
+    const size_t height = blobSize[1];
+    const size_t channels = blobSize[2];
 
-float* blob_data = blob->buffer().as<float*>();
+    float* blob_data = blob->buffer().as<float*>();
 
-cv::Mat resized_image(orig_image);
-if (width != orig_image.size().width || height != orig_image.size().height) {
-	cv::resize(orig_image, resized_image, cv::Size(width, height));
-}
+    cv::Mat resized_image(orig_image);
+    if (width != orig_image.size().width || height != orig_image.size().height) {
+	    cv::resize(orig_image, resized_image, cv::Size(width, height));
+   }
 
-int batchOffset = batchIndex * width * height * channels;
+   int batchOffset = batchIndex * width * height * channels;
 
-for (size_t c = 0; c < channels; c++) {
-	for (size_t h = 0; h < height; h++) {
-		for (size_t w = 0; w < width; w++) {
-			blob_data[batchOffset + c * width * height + h * width + w] =
+   for (size_t c = 0; c < channels; c++) {
+	   for (size_t h = 0; h < height; h++) {
+		   for (size_t w = 0; w < width; w++) {
+			   blob_data[batchOffset + c * width * height + h * width + w] =
 				resized_image.at<cv::Vec3b>(h, w)[c] * scaleFactor;
-		}
-	}
-}
+		   }
+	   }
+   }
 }
 ```
 
@@ -129,9 +131,8 @@ Here, we will define a method that will be used for loading the CNNNetworks that
 ```
 void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
 
-			net = plg.LoadNetwork(this->read(), {});
-			plugin = &plg;
-
+		net = plg.LoadNetwork(this->read(), {});
+		plugin = &plg;
 	}
 ```
 
@@ -143,14 +144,14 @@ This method is used populate the inference request and push the frames in to a q
 ```
 void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
-		if (!request) {
-			request = net.CreateInferRequestPtr();
-		}
-
-		auto  inputBlob = request->GetBlob(input);
-		matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
-		enquedFaces++;
+  if (!request) {
+		request = net.CreateInferRequestPtr();
 	}
+
+	auto  inputBlob = request->GetBlob(input);
+	matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
+	enquedFaces++;
+}
 ```
 
 ### Submit inference request and wait for result
@@ -160,15 +161,16 @@ Here we will define methods to submit inference request and wait for inference r
 
 ```
 void AgeGenderDetection::submitRequest()  {
-		if (!enquedFaces) return;
-		request->StartAsync();
-		enquedFaces = 0;
-	}
+	if (!enquedFaces) return;
+
+	request->StartAsync();
+	enquedFaces = 0;
+}
 
 void AgeGenderDetection::wait() {
-		if (!request) return;
-		request->Wait(IInferRequest::WaitMode::RESULT_READY);
-	}
+  if (!request) return;
+	request->Wait(IInferRequest::WaitMode::RESULT_READY);
+}
 ```
 
 ### Include CPU as Plugin Device
@@ -198,29 +200,30 @@ AgeGender.load(pluginsForDevices["CPU"]);
 - Paste the following lines
 
 ```
-  //Submit Inference Request for age and gender detection and wait for result
-	AgeGender.submitRequest();
-	AgeGender.wait();
+ //Submit Inference Request for age and gender detection and wait for result
+ AgeGender.submitRequest();
+ AgeGender.wait();
 ```
 
-### Use Identified Face for Age and Gender Detection
+### Use identified Face for Age and Gender Detection
 Clip the identified Faces and send inference request for identifying Age and Gender
 - Replace #TODO: Age and Gender Detection 5
 - Paste the following lines
 
 ```
-    //Clipped the identified face and send Inference Request for age and gender detection
-	for (auto face : FaceDetection.results) {
-		auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
-		auto face1 = frame(clippedRect);
-		AgeGender.enqueue(face1);
-	}
-	// Got the Face, Age and Gender detection result, now customize and print them on window
-	std::ostringstream out;
-	index = 0;
-	curFaceCount = 0;
-    malecount=0;
-	femalecount=0;
+//Clipped the identified face and send Inference Request for age and gender detection
+for (auto face : FaceDetection.results) {
+	auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
+	auto face1 = frame(clippedRect);
+	AgeGender.enqueue(face1);
+}
+
+// Got the Face, Age and Gender detection result, now customize and print them on window
+std::ostringstream out;
+index = 0;
+curFaceCount = 0;
+malecount=0;
+femalecount=0;
  ```
 
 ### Customize the Result for Display
@@ -229,30 +232,31 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
 - Paste the following lines
 
 ```
-      out.str("");
-			curFaceCount++;
+  out.str("");
+  curFaceCount++;
 
-			//Draw rectangle bounding identified face and print Age and Gender
-			out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
-			if(AgeGender[index].maleProb > 0.5)
-				malecount++;
-			else
-				femalecount++;
-			out << "," << static_cast<int>(AgeGender[index].age);
+	//Draw rectangle bounding identified face and print Age and Gender
+	out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
+	if(AgeGender[index].maleProb > 0.5)
+		malecount++;
+	else
+		femalecount++;
 
-			cv::putText(frame,
+	out << "," << static_cast<int>(AgeGender[index].age);
+
+	cv::putText(frame,
 				out.str(),
 				cv::Point2f(result.location.x, result.location.y - 15),
 				cv::FONT_HERSHEY_COMPLEX_SMALL,
 				0.8,
 				cv::Scalar(0, 0, 255));
 
-			index++;
+	index++;
  ```
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [age_gender.cpp](./solutions/agegenderdetection.md)
+For complete solution click on following link [face_AgeGender_detection.cpp](./solutions/agegenderdetection.md)
 ### Build the Solution and Observe the Output
 - Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
 - Do  make by following commands   
