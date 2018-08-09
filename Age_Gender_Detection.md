@@ -125,7 +125,7 @@ CNNNetwork AgeGenderDetection::read()  {
 
 ### Load CNNNetwork for AgeGender detection
 Here, we will define a method that will be used for loading the CNNNetworks that will be used for Age and Gender detection.
-- Replace #TODO: AgeGender detection load(...)
+- Replace #TODO: AgeGenderDetection-LoadNetwork
 - Paste the following code
 
 ```

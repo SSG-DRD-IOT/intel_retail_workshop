@@ -17,7 +17,7 @@ The main.cpp file is available in below path of your device:
 
 In this Lab, we will build a Face Detection application which will detect a face from live camera feed. Here, we will be working with TODOs for Face Detection only, keep all other TODOs as it is. We will  use these in our next labs.
 
-** Class diagram for face detection**
+**Class diagram for face detection**
 
 ![](images/faceDetection_class.png)
 

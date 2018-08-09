@@ -70,6 +70,24 @@ else:
 		}
 
 ```
+### Build the Solution and Observe the Output
+- Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
+- Do  make by following commands
+- Make sure environment variables set when you are doing in fresh terminal.
+
+```
+# make
+```
+
+- Executable will be generated at ***~/Desktop/Retail/OpenVINO/samples/build/intel64/Release*** directory.
+- Run the application by using below command. Make sure camera is connected to the device.
+
+```
+# ./interactive_face_detection_sample
+ ```
+
+- On successful execution, Face, Age and Gender will get detected file.json will be created at ***~/Desktop/Retail/OpenVINO***
+
 ### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
