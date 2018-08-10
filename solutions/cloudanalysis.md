@@ -12,7 +12,7 @@
 #include <iterator>
 #include <samples/common.hpp>
 #include <samples/slog.hpp>
-#include <ext_list.hpp>
+#include <../samples/extension/ext_list.hpp>
 #include <sstream>
 #include <map>
 #include <vector>
@@ -348,14 +348,14 @@ int main(int argc, char *argv[]) {
 
 
 	//Load pre trained optimized data model for face detection
-	FLAGS_Face_Model = "/opt/intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/face-detection-adas-0001/FP16/face-detection-adas-0001.xml";
+	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
 
 
 	FaceDetectionClass FaceDetection;
 	FaceDetection.load(pluginsForDevices["GPU"]);
 
 	//Load pre trained optimized data model for Age and Gender detection
-	FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml";
+	FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
 	AgeGenderDetection AgeGender;
 	AgeGender.load(pluginsForDevices["CPU"]);
 
@@ -433,7 +433,7 @@ int main(int argc, char *argv[]) {
 			prevFaceCount = curFaceCount;
 
 			//Integrate python module to submit data to cloud
-			std::string cmd = "python /home/intel/Desktop/Retail/OpenVINO/cloud.py  " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) ;
+			std::string cmd = "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\cloud.py  " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) ;
 			int systemRet = std::system(cmd.c_str());
 			if (systemRet == -1)
 			slog::info << "System fails : " <<slog::endl;

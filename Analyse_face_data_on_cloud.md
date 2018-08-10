@@ -21,7 +21,7 @@ std::string deviceId="1234";
 We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
-- The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > OpenVINO***
+- The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > 05-OpenVINO***
 - If file is not present, create a "python.py" file and add the following code snippet into that file.
 
 ```
@@ -41,7 +41,7 @@ print(facecount);
 query = 'id' + '&value=' + str(facecount);
 print(query);
 
-with open('/home/intel/Desktop/Retail/OpenVINO/file.json', 'w') as file:
+with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
      file.write(json.dumps(count))
 
 resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
@@ -60,7 +60,7 @@ else:
 		{
 			prevFaceCount = curFaceCount;
 			//Integrate python module to submit data to cloud
-			std::string cmd = "python /home/intel/Desktop/Retail/OpenVINO/cloud.py  " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) ;
+			std::string cmd = "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\cloud.py  " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) ;
 			int systemRet = std::system(cmd.c_str());
 			if (systemRet == -1)
 			slog::info << "System fails : " <<slog::endl;
@@ -70,30 +70,12 @@ else:
 		}
 
 ```
-### Build the Solution and Observe the Output
-- Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
-- Do  make by following commands
-- Make sure environment variables set when you are doing in fresh terminal.
-
-```
-# make
-```
-
-- Executable will be generated at ***~/Desktop/Retail/OpenVINO/samples/build/intel64/Release*** directory.
-- Run the application by using below command. Make sure camera is connected to the device.
-
-```
-# ./interactive_face_detection_sample
- ```
-
-- On successful execution, Face, Age and Gender will get detected file.json will be created at ***~/Desktop/Retail/OpenVINO***
-
 ### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
 ```
-cd ~/Desktop/Retail/OpenVINO/lab-8.0-solution-cloud-analytics-retail-workshop
+cd C:\\Users\\Intel\\Desktop\\Retail\\05-OpenVINO\\lab-8.0-solution-cloud-analytics-retail-workshop
 node server.js
  ```
 - Go to http://localhost:9002
@@ -106,5 +88,15 @@ node server.js
 
 ###  Final Solution
 For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO.
+
+- Build the solution in visual studio
+- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug*** directory.
+- Run the application by using below command. Make sure camera is connected to the device.
+
+```
+C:\Users\Intel> cd  Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug
+C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug> interactive_face_detection_sample.exe
+ ```
+- On successful execution, face will get detected and file.json will be created at C:\Users\Intel\Desktop\Retail\05-OpenVINO\.
 ### Lesson Learnt
 Interfacing OpenVINO™ toolkit with cloud and visualizing data on cloud.
