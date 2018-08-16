@@ -105,6 +105,6 @@ node server.js
 ![](images/cloudAnalysis.png)
 
 ###  Final Solution
-For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO.
+For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO™.
 ### Lesson Learnt
 Interfacing OpenVINO™ toolkit with cloud and visualizing data on cloud.

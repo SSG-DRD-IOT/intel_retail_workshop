@@ -96,7 +96,7 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 
 Next, we repeat the exercise with **GPU** and observe the performance.
 
-![](images/CPU.png)
+![](images/cpu.png)
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
