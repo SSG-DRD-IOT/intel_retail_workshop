@@ -75,7 +75,7 @@ Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
 ```
-cd C:\\Users\\Intel\\Desktop\\Retail\\05-OpenVINO\\lab-8.0-solution-cloud-analytics-retail-workshop
+/usr/bin/bash: q: command not found
 node server.js
  ```
 - Go to http://localhost:9002
@@ -87,7 +87,7 @@ node server.js
 ![](images/cloudAnalysis.png)
 
 ###  Final Solution
-For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO.
+For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO™.
 
 - Build the solution in visual studio
 - Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug*** directory.
@@ -97,6 +97,6 @@ For complete solution click on following link [analyse_face_data_on_cloud.cpp](.
 C:\Users\Intel> cd  Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug
 C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug> interactive_face_detection_sample.exe
  ```
-- On successful execution, face will get detected and file.json will be created at C:\Users\Intel\Desktop\Retail\05-OpenVINO\.
+- On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
 ### Lesson Learnt
 Interfacing OpenVINO™ toolkit with cloud and visualizing data on cloud.
