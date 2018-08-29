@@ -275,4 +275,4 @@ For complete solution click on following link [face_AgeGender_detection.cpp](./s
 - On successful execution, Face, Age and Gender will get detected.
 
 ### Lesson Learnt
-In addition to Face, Age and Gender Detection using Intel® OpenVINO™ toolkit.
+In addition to Face, Age and Gender Detection using  OpenVINO™ toolkit.
