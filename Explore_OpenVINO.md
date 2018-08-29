@@ -25,11 +25,11 @@ The OpenVINO™ toolkit is a comprehensive toolkit for quickly developing applic
 Observe the folder structure available within OpenVINO™ toolkit and the performance difference between **CPU** and **GPU**.
 
 ### Learning Outcome
-By the end of this module, the participant is expected to understand the  OpenVINO™ toolkit, installed OpenVINO™ folder structure and performance difference between **CPU** and **GPU**.
+By the end of this module, the participant is expected to understand the  OpenVINO™ toolkit, installed OpenVINO™ toolkit folder structure and performance difference between **CPU** and **GPU**.
 ### To View the Packages installed on your Device
 * **OpenVINO™ toolkit installer**                                                 
  OpenVINO™ toolkit by default installs at C:\Intel\computer_vision_sdk_2018.1.265\
-* **OpenVINO™ toolkit sample applications showing various OpenVINO™ capabilities**
+* **OpenVINO™ toolkit sample applications showing various OpenVINO™ toolkit capabilities**
 OpenVINO™ samples is made available in C:\Intel\computer_vision_sdk_2018.1.265                                 \deployment_tools\inferenceengine\samples\build\samples.sln
 * **OpenVINO™ toolkit Documentation directory**
 C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\documentation
@@ -42,7 +42,7 @@ Go to C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inferenceengine t
 ![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for OpenVINO™ toolkit samples
 For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
-- **doc** folder has documentation for OpenVINO™ samples like classification, object detection, interactive_face_detection and so on.
+- **doc** folder has documentation for OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
 - **include** folder has several header files required for developing application using OpenVINO™ toolkit.
 - **lib** folder has 64-bit plugin library like inference engine and libiomp5md are useful for video applications.
 -  Inferenceengine.dll is the software library for loading inference engine plugins for CPU, GPU and so on.
