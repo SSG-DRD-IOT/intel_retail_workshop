@@ -22,7 +22,7 @@ We counted the number of faces successfully. Now, we will publish it to cloud fo
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
 - The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > OpenVINO***
-- If file is not present, create a "python.py" file and add the following code snippet into that file.
+- If file is not present, create a "cloud.py" file and add the following code snippet into that file.
 
 ```
 #import requests
@@ -76,6 +76,7 @@ else:
 - Make sure environment variables set when you are doing in fresh terminal.
 
 ```
+# source /opt/intel/computer_vision_sdk_2018.1.265/in/setupvars.sh
 # make
 ```
 

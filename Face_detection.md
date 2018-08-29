@@ -1,4 +1,4 @@
-# Face Detection using Intel® OpenVINO™
+# Face Detection using  OpenVINO™
 ### Lab Overview
 In our previous Lab, we have successfully run the prebuilt application using OpenVINO™.
 
@@ -383,4 +383,4 @@ $ sudo -s
  ```
  - On successful execution, face will get detected.
 ### Lesson Learnt
-Face Detection using Intel® OpenVINO™ toolkit.
+Face Detection using  OpenVINO™ toolkit.
