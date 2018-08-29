@@ -1,4 +1,4 @@
-## Explore Intel® OpenVINO™ toolkit Samples
+## Explore  OpenVINO™ toolkit Samples
 ### Introduction
 The OpenVINO™ toolkit is a comprehensive toolkit for quickly developing applications and Solutions that emulate human vision. Based on Convolutional Neural Networks (CNNs), the Toolkit extends computer vision workloads across Intel® hardware, maximizing performance.
 ### The OpenVINO™ toolkit:
@@ -19,13 +19,13 @@ The OpenVINO™ toolkit is a comprehensive toolkit for quickly developing applic
   - Yocto Project* Poky Jethro* v2.0.3, 64-bit (for target only)
 
 ### Exploration
-   This lab starts with exploring and understanding the Intel® OpenVINO™ toolkit related packages installed in your device and running the prebuilt sample applications available with OpenVINO™ toolkit. Next lab session is to build a customized application using OpenVINO™ toolkit.
+   This lab starts with exploring and understanding the  OpenVINO™ toolkit related packages installed in your device and running the prebuilt sample applications available with OpenVINO™ toolkit. Next lab session is to build a customized application using OpenVINO™ toolkit.
 
 ### Observation
 Observe the folder structure available within OpenVINO™ toolkit and the performance difference between **CPU** and **GPU**.
 
 ### Learning Outcome
-By the end of this module, the participant is expected to understand the Intel® OpenVINO™ toolkit, installed OpenVINO™ folder structure and performance difference between **CPU** and **GPU**.
+By the end of this module, the participant is expected to understand the  OpenVINO™ toolkit, installed OpenVINO™ folder structure and performance difference between **CPU** and **GPU**.
 ### To View the Packages installed on your Device
 * **OpenVINO™ toolkit installer**                                                 
  OpenVINO™ toolkit by default installs at C:\Intel\computer_vision_sdk_2018.1.265\

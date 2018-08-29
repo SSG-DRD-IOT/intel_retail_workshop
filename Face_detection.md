@@ -1,4 +1,4 @@
-# Face Detection using Intel® OpenVINO™
+# Face Detection using  OpenVINO™
 ### Lab Overview
 In our previous Lab, we have successfully run the prebuilt application using OpenVINO™.
 
@@ -369,4 +369,4 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\
  - On successful execution, face will get detected.
 
 ### Lesson Learnt
-Face Detection using Intel® OpenVINO™ toolkit.
+Face Detection using  OpenVINO™ toolkit.

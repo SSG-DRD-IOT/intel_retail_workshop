@@ -1,4 +1,4 @@
-# Age and Gender Detection using Intel® OpenVINO™
+# Age and Gender Detection using  OpenVINO™
 ### Lab Overview
 We have done Face Detection in our previous module. Now, we identify Age and Gender for the identified faces.    
 We  build upon our Face Detection code and add Age, Gender identification code in this module.
@@ -271,4 +271,4 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\
 - On successful execution, Face, Age and Gender will get detected.
 
 ### Lesson Learnt
-In addition to Face, Age and Gender Detection using Intel® OpenVINO™ toolkit.
+In addition to Face, Age and Gender Detection using  OpenVINO™ toolkit.
