@@ -6,7 +6,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 ## Workshop Agenda
 * **Setup and deployment**
     - Slide Deck -
-    - Lab - [Setup and deployment](./Setup and deployment.md)
+    - Lab - [Setup and deployment](./Setup_and_deployment.md)
 
 
 * **Video Performance**
