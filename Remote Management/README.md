@@ -4,21 +4,16 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenV
 The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® OpenVINO™ toolkit.
 
 ## Workshop Agenda
-* **Setup and deployment**
+* **Configure AMT**
     - Slide Deck -
-    - Lab - [Setup and deployment](./Setup and deployment.md)
+    - Lab - [Setup and deployment](./Configure AMT.md)
 
 
-* **Video Performance**
+* **Manage Remote Systems**
   - Slide Deck -
-  - Lab - [Video Performance](./Video Analytics/README.md)
+  - Lab - [Video Performance](./Manage Remote Systems.md)
 
 
-* **Remote Management**
+* **Remote Config MeshCentral**
   - Slide Deck -
-  - Lab - [Remote Management](./Video Performance/README.md)
-
-
-* **Video Analytics**
-    - Slide Deck -
-    - Lab - [Video Analytics](./Remote Management/README.md)
+  - Lab - [Remote Management](./Remote Config MeshCentral.md)
