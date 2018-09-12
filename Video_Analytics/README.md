@@ -4,21 +4,21 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenV
 The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® OpenVINO™ toolkit.
 
 ## Workshop Agenda
-* **Setup and deployment**
+* **Exploration to  OpenVINO™ toolkit**
     - Slide Deck -
-    - Lab - [Setup and deployment](./Setup_and_deployment.md)
+    - Lab - [Explore OpenVINO™ toolkit](./Explore_OpenVINO.md)
 
 
-* **Video Performance**
+* **Face Detection using  OpenVINO™ toolkit**
   - Slide Deck -
-  - Lab - [Video Performance](./Video_Performance/README.md)
+  - Lab - [Face Detection](./Face_detection.md)
 
 
-* **Remote Management**
+* **Age and Gender Detection using  OpenVINO™ toolkit**
   - Slide Deck -
-  - Lab - [Remote Management](./Remote_Management/README.md)
+  - Lab - [Age and Gender Detection](./Age_Gender_Detection.md)
 
 
-* **Video Analytics**
+* **Analyze face data on Cloud**
     - Slide Deck -
-    - Lab - [Video Analytics](./Video_Analytics/README.md)
+    - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
