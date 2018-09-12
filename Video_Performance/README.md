@@ -11,7 +11,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 * **Custom Decoder using Intel® Media SDK**
   - Slide Deck -
-  - Lab - [Custom Decoder using Intel® Media SDK ](./Custom_Decoder_using_Intel®_Media_SDK.md)
+  - Lab - [Custom Decoder using Intel® Media SDK ](./Custom_Decoder_using_Intel®_Media_SDK_Samples.md)
 
 
 * **Intel® Media Acceleration Reference Software**
