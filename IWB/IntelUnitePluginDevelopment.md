@@ -32,8 +32,8 @@ Developing a plugin on Intel Unite® and integration with an external widget sol
 
 ## Tasks for the plugin development process
 
-- [Developing and Deploying a sample Intel Unite® plugin. ](./tasks/SamplePluginDevelopment.md)
-- [Enhancing the Intel Unite® Plugin and Integration with external solutions.](./tasks/AdvancedPluginDevelopment.md)
+- [Developing and Deploying a sample Intel Unite® plugin. ](./SamplePluginDevelopment.md)
+- [Enhancing the Intel Unite® Plugin and Integration with external solutions.](./AdvancedPluginDevelopment.md)
 
 In the first task, a sample plugin on Intel Unite® is created and deployed to display simple toast messages on the hub. As a continuation to the this task, the sample plugin is advanced for the integration with external solutions in the second task.
 
