@@ -104,11 +104,11 @@ Call ```FireUIUpdated()``` to notify the Intel Unite® application to update con
 Follow these steps to deploy the Intel Unite® Plugin
 #### Building the plugin
 - Build the code developed to generate AttendeeAnalyticsPlugin.dll file.
-    ![](../images/build_solution.jpg)
+    ![](../images/build_solution.JPG)
 
     The AttendeeAnalyticsPlugin.dll file is generated in the project folder bin\debug
 
-    ![](../images/dll_path.jpg)
+    ![](../images/dll_path.JPG)
 
 
 -	Copy the AttendeeAnalyticsPlugin.dll to the plugin directory within the hub installation directory  ***C:\ProgramFiles(x86)\Intel\Intel Unite\Hub\Plugins***.
@@ -117,7 +117,7 @@ Follow these steps to deploy the Intel Unite® Plugin
 
   This is the folder which contains all the plugins that the hub serves to its clients.
 
-    ![](../images/plugins_folder.jpg)
+    ![](../images/plugins_folder.JPG)
 
 #### Signing the DLL
 -	Adding Digital Signature to plugin:
@@ -134,21 +134,21 @@ Follow these steps to deploy the Intel Unite® Plugin
 - Getting the	Plugin certificate Hash value
   -	Locate the plugin in the Plugins folder, right click on the AttendeeAnalyticsPlugin.dll and select Properties
 
-        ![](../images/dep2_1.jpg)
+        ![](../images/dep2_1.JPG)
 
   -	When the plugin Properties window opens, Locate the Digital Signatures tab. Click OK to open.
 
-        ![](../images/dep2_2.jpg)
+        ![](../images/dep2_2.JPG)
 
   -	Select Signature and click Details.
 
-        ![](../images/dep2_3.jpg)
+        ![](../images/dep2_3.JPG)
 	- In the Digital Signature Details window, click View Certificate. If this window is not found, add the Digital Signature to plugin by following the step 3
 
-        ![](../images/dep2_4.jpg)
+        ![](../images/dep2_4.JPG)
   -	In the Certificate window, select the Details tab and scroll down until the Thumbprint is found.
 
-        ![](../images/dep2_5.jpg)
+        ![](../images/dep2_5.JPG)
 	- Select Thumbprint. After the value is displayed, copy it into a notepad or a text file by clicking Copy to File. Remove the spaces and save it.
 
   -	This key value will be used while creating the Profile for the plugin. The key value can be created and entered after the profile has been created. Continue to next section to know more about it.
@@ -161,12 +161,12 @@ Follow these steps to deploy the Intel Unite® Plugin
       - Username : admin@server.com
       - Password : Admin@1
 
-    ![](../images/dep4_1.jpg)
+    ![](../images/dep4_1.JPG)
    - Under Groups, select Profiles
-    ![](../images/dep4_3.jpg)
+    ![](../images/dep4_3.JPG)
 
    - List of all the properties in the profile are visible here.
-       ![](../images/dep4_4.jpg)
+       ![](../images/dep4_4.JPG)
 
    -	Click Add Profile Property and enter the following details to enable the plugin.:
         - Key: PluginCertificateHash_NameOfThePlugin
@@ -174,12 +174,12 @@ Follow these steps to deploy the Intel Unite® Plugin
         - Unit: Text
         - Value: Enter the key value saved from the thumbprint
 
-            ![](../images/dep4_5.jpg)
+            ![](../images/dep4_5.JPG)
    - Save the property.
    -	Launch the Intel Unite® Hub in the Administrative mode from the command prompt. To view the log, launch the application in debug mode.
    -	Launch the Unite® client application and enter the pin from the hub.
    -	After the connection has been created, the plugin icon is visible at the bottom of the Intel Unite® Client Management window.
-   ![](../images/dep4_5.jpg)
+   ![](../images/dep4_5.JPG)
 
 #### Testing the plugin
 
@@ -187,18 +187,19 @@ Follow these steps to deploy the Intel Unite® Plugin
 
   - When the client connects to the hub, the plugin should be listed in the Intel Unite® client application home UI at the bottom.
 
-       ![](../images/run_1.jpg)
+       ![](../images/run_1.JPG)
 
    - Click on the plugin icon to view the plugin home screen. The plugin elements such as buttons and information that are defined in the plugin UI will be visible here.
 
-        ![](../images/run_2.jpg)
+        ![](../images/run_2.JPG)
 
 
    - The Raise Hand icon here will fire a toast message on hub. Click on it to test the plugin behavior. The Log messages can be referred to see the plugin behavior when the hub is launched in the debug mode.
 
-        ![](../images/run_3.jpg)
+        ![](../images/run_3.JPG.JPG)
 
 ## Final solution
- The complete solution for the sample Intel Unite® plugin is available [here](../solutions/SamplePluginDevelopmant.md).
+ The complete solution for the sample Intel Unite® plugin is available [here](../solutions/SamplePluginSolution.md).
 ## Lesson Learnt
 Building and deploying a sample plugin on Intel Unite®.
+.JPG
