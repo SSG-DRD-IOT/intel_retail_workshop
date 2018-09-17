@@ -22,3 +22,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 * **Video Analytics**
     - Slide Deck -
     - Lab - [Video Analytics](./Video_Analytics/README.md)
+
+* **Intelligent White Board**
+    - Slide Deck -
+    - Lab - [IWB](./IWB/IntelUnitePluginDevelopment.md)

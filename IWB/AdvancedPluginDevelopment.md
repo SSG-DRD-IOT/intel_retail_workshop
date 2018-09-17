@@ -2,6 +2,16 @@
 ## Lab Overview
 In the previous lab a sample Intel Unite® Plugin is developed to display Toast messages on the hub. In this lab, the functionality of sample plugin is enhanced to capture the no. of users connected to and presenting on the Intel Unite®. Also, the integration of the plugin with OpenVINO™ toolkit is covered in this lab.
 
+## Architecture of Advanced Plugin
+
+![](./images/ArchitectureofAdvancedPlugin.png)
+
+## Class Diagram
+
+
+![](./images/ClassDiagramForAdvancedPlugin.PNG)
+
+
 ## Tasks to be done in this lab
 - Enhancing the sample plugin UI for additional functionalities
 - Capturing the Intel Unite® session data using Intel Unite® Plugin SDK
@@ -250,13 +260,13 @@ For controlling the above created external widget solution, events of LAUNCHAPP 
 Build solution and deploy the AttendeeAnalyticsPlugin.dll by following the  previously discussed steps in sample plugin development.
 
 In the client application, click in the Attendee Analytics plugin.
-    ![](../images/integration_1.JPG)
+    ![](./images/integration_1.JPG)
 
  launch Analytics when clicked shows the following widget on the hub.
 
-   ![](../images/widgetoutput.JPG)
+   ![](./images/widgetoutput.JPG)
 
-The code of this solution is available [here](../solutions/AdvancedPluginSolution.md)
+The code of this solution is available [here](./solutions/AdvancedPluginSolution.md)
 
 ## Lesson Learnt
 - Understanding the capabilities of Intel Unite® Plugin

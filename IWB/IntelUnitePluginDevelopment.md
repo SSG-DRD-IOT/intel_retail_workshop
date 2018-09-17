@@ -18,7 +18,7 @@ The Intel Unite® solution consists of three components – an Enterprise Server
 
 
 ### Prerequisites
-There are few software and tools are required for the Intel Unite® setup and plugin development. All these are installed in the hardware supplied as a part of workshop. To know about the Prerequisites, click [here]()
+There are few software and tools are required for the Intel Unite® setup and plugin development. All these are installed in the hardware supplied as a part of workshop. To know about the Prerequisites, click [here](https://www.intel.in/content/www/in/en/support/articles/000017827/software/software-applications.html)
 
 ### Plugins on Intel Unite®
 The Intel Unite® application supports the use of plugins. Plugins are software elements that extend the features and capabilities of the application, implementing user experience modalities.
