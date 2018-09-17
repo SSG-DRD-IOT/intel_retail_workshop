@@ -3,7 +3,7 @@
 ## Lab Overview
 In this lab, a sample plugin on Intel Unite® is created and deployed to display toast messages on the hub.
 
-For simplicity, AttendeeAnalyticsPlugin.cs is already created at ***C:\Intel\Desktop\Retail\06-IWB\samples\AttendeeAnalyticsPlugin***, which includes required header files, overridden methods and TODOs that are to be replaced. The template for the plugin is available [here](./solutions/PluginTemplate)
+For simplicity, AttendeeAnalyticsPlugin.cs is already created at ***C:\Intel\Desktop\Retail\06-IWB\samples\AttendeeAnalyticsPlugin***, which includes required header files, overridden methods and TODOs that are to be replaced. The template for the plugin is available [here](./solutions/PluginTemplate.md)
 - TODO is a small unit of module for code simplification.
 - Replace all the TODOs with corresponding code snippets provided here.
 - Keep all the other TODOs untouched. These will be discussed in the next lab.
@@ -11,11 +11,9 @@ For simplicity, AttendeeAnalyticsPlugin.cs is already created at ***C:\Intel\Des
 In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, TODOs only for sample plugin are dealt and the rest are discussed in the next lab.
 
 ## Architecture of Sample Plugin
-
-![](./images/ArchitectureofSamplePlugin.png)
+  ![](./images/ArchitectureofSimplePlugin.PNG)
 
 ## Class Diagram
-
 
 ![](./images/ClassDiagramForSimplePlugin.PNG)
 
@@ -74,7 +72,7 @@ In the method ```public void SimpleToastPlugin()```, define the Plugin informati
             uiElementGroup.UIElements = new List<PluginUIElement>();
             uiElementGroup.Description = "A sample plugin for Hub toast";
 ```
-#### Adding the elements  
+#### Adding UI elements  
 Add the button element to the ``` PluginUIElementGroup``` in order to display them on the client version of Intel Unite®. Even though the elements are created, they must be added to the UI Element Group to display them on the plugin UI.
 - Replace #TODO: Adding UI elements
 - Paste the following lines
@@ -167,6 +165,7 @@ Follow these steps to deploy the Intel Unite® Plugin
 - Adding Certificate Hash to a plugin in the admin portal
 	 - Login to the admin portal using localhost/admin/#login and credentials.
    If the logging in for the first time, use the following default credentials
+
       - Username : admin@server.com
       - Password : Admin@1
 
@@ -188,7 +187,7 @@ Follow these steps to deploy the Intel Unite® Plugin
    -	Launch the Intel Unite® Hub in the Administrative mode from the command prompt. To view the log, launch the application in debug mode.
    -	Launch the Unite® client application and enter the pin from the hub.
    -	After the connection has been created, the plugin icon is visible at the bottom of the Intel Unite® Client Management window.
-   ![](./images/dep4_5.JPG)
+
 
 #### Testing the plugin
 
@@ -196,16 +195,16 @@ Follow these steps to deploy the Intel Unite® Plugin
 
   - When the client connects to the hub, the plugin should be listed in the Intel Unite® client application home UI at the bottom.
 
-       ![](./images/run_1.jpg)
+       ![](./images/run_1.JPG)
 
    - Click on the plugin icon to view the plugin home screen. The plugin elements such as buttons and information that are defined in the plugin UI will be visible here.
 
-        ![](./images/run_2.jpg)
+        ![](./images/run_2.JPG)
 
 
    - The Raise Hand icon here will fire a toast message on hub. Click on it to test the plugin behavior. The Log messages can be referred to see the plugin behavior when the hub is launched in the debug mode.
 
-        ![](./images/run_3.jpg)
+        ![](./images/run_3.JPG)
 
 ## Final solution
  The complete solution for the sample Intel Unite® plugin is available [here](./solutions/SamplePluginSolution.md).

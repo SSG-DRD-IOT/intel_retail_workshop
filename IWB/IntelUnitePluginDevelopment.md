@@ -1,5 +1,5 @@
 # Intel Unite® Plugin Development
-The Intel Unite® solution powers productive and more secure collaboration. Meetings start fast with easy wireless content sharing to room displays and other devices connected to the corporate network. Intel Unite® Plugin development here is to imbibe external solutions into a featured app on Intel Unite® and is to join Intel’s mission to make meetings more productive.
+The Intel Unite® solution powers productive and more secure collaboration. Meetings start fast with easy wireless content sharing to room displays and other devices connected to the corporate network. Intel Unite® Plugin development here, is to imbibe external solutions into a featured app on Intel Unite® and is to join Intel’s mission to make meetings more productive.
 
 ## Overview of Intel Unite®
 The Intel Unite® solution is modernizing Intel’s conference rooms, transforming them into smart, connected spaces where employees – both inside and outside the room – can collaborate more productively.
@@ -10,7 +10,7 @@ The Intel Unite® solution is modernizing Intel’s conference rooms, transformi
 
 The Intel Unite® solution consists of three components – an Enterprise Server, a Hub, and a Client.
 
-  ![](./images/Unite environment.png)
+   ![](./images/UniteEnvironment.PNG)
 
 - 	The Enterprise Server is the first component to be set up. When the Hub and Client applications are launched, they will use the Enterprise Server to exchange connection information and receive PIN assignments.
 - 	The Hub is the Intel® Core™ vPro™ processor-based mini PC that is typically connected to a display or projector in a conference room.
@@ -40,6 +40,6 @@ In the first task, a sample plugin on Intel Unite® is created and deployed to d
 
 ## Final solution
 
-The final solution of Intel Unite® plugin is available  [here](./solution/AdvancedPluginSolution.md).
+The final solution of Intel Unite® plugin is available  [here](./solutions/AdvancedPluginSolution.md).
 ## Lesson Learnt
 Plugin development on Intel Unite® and integration of plugin with external solutions.
