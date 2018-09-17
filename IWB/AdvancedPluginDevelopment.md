@@ -4,7 +4,7 @@ In the previous lab a sample Intel Unite® Plugin is developed to display Toast 
 
 ## Architecture of Advanced Plugin
 
-  ![](./images/ArchitectureofAdvancedPlugin.PNG)
+  ![](./images/ArchitectureOfAdvancedPlugin.PNG)
 
 ## Class Diagram
 
