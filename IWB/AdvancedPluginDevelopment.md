@@ -4,12 +4,12 @@ In the previous lab a sample Intel Unite® Plugin is developed to display Toast 
 
 ## Architecture of Advanced Plugin
 
-![](./images/ArchitectureofAdvancedPlugin.PNG)
+  ![](./images/ArchitectureofAdvancedPlugin.PNG)
 
 ## Class Diagram
 
 
-![](./images/ClassDiagramForAdvancedPlugin.PNG)
+  ![](./images/ClassDiagramForAdvancedPlugin.PNG)
 
 
 ## Tasks to be done in this lab
@@ -260,11 +260,12 @@ For controlling the above created external widget solution, events of LAUNCHAPP 
 Build solution and deploy the AttendeeAnalyticsPlugin.dll by following the  previously discussed steps in sample plugin development.
 
 In the client application, click in the Attendee Analytics plugin.
-    ![](./images/integration_1.JPG)
+  ![](./images/integration_1.JPG)
 
  launch Analytics when clicked shows the following widget on the hub.
 
-   ![](./images/widgetoutput.JPG)
+  ![](./images/widgetoutput.JPG)
+
 
 The code for this solution is available [here](./solutions/AdvancedPluginSolution.md)
 
