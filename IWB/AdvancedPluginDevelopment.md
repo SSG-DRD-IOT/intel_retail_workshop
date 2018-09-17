@@ -260,9 +260,11 @@ For controlling the above created external widget solution, events of LAUNCHAPP 
 Build solution and deploy the AttendeeAnalyticsPlugin.dll by following the  previously discussed steps in sample plugin development.
 
 In the client application, click in the Attendee Analytics plugin.
+
   ![](./images/integration_1.JPG)
 
- launch Analytics when clicked shows the following widget on the hub.
+
+ Launch Analytics when clicked shows the following widget on the hub.
 
   ![](./images/widgetoutput.JPG)
 

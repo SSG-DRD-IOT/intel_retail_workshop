@@ -170,9 +170,11 @@ Follow these steps to deploy the Intel Unite® Plugin
 
     ![](./images/dep4_1.JPG)
    - Under Groups, select Profiles
+
     ![](./images/dep4_3.JPG)
 
    - List of all the properties in the profile are visible here.
+
     ![](./images/dep4_4.JPG)
 
    -	Click Add Profile Property and enter the following details to enable the plugin.:
@@ -182,6 +184,7 @@ Follow these steps to deploy the Intel Unite® Plugin
         - Value: Enter the key value saved from the thumbprint
 
             ![](./images/dep4_5.JPG)
+
    - Save the property.
    -	Launch the Intel Unite® Hub in the Administrative mode from the command prompt. To view the log, launch the application in debug mode.
    -	Launch the Unite® client application and enter the pin from the hub.
