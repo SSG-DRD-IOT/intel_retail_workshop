@@ -10,8 +10,8 @@ For simplicity, AttendeeAnalyticsPlugin.cs is already created at ***C:\Intel\Des
 
 In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, TODOs only for sample plugin are dealt and the rest are discussed in the next lab.
 
-## Architecture of Sample Plugin
-  ![](./images/ArchitectureofSimplePlugin.PNG)
+
+
 
 ## Class Diagram
 
@@ -19,13 +19,13 @@ In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, 
 
 ## This lab will be laid out as follows
 - Creating a sample plugin on Intel Unite®
-    - Declaring required variables for plugin development
+    - Declaring plugin UI attributes
     - Defining plugin properties
     - Adding the UI elements     
     - Handling User event on plugin
 
 
-- Deployment of Intel Unite® plugin
+- Deploy the Intel Unite® plugin
     - Building the plugin
     - Signing the dll
     - Plugin Configuration in the Admin portal
@@ -33,12 +33,12 @@ In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, 
 
 ### Creating a sample plugin on Intel Unite®
 
-#### Declaring variables for plugin UI
-As class properties, create an object of PluginUI, which contains all details about the exposed UI elements. create an instance of PluginInfo, that holds the details about the plugin. Create UI groups object i.e., PluginUIElementGroup, as a grouping of UI elements which holds attributes such as Description, GroupName, Image ,ImageBytes,e bytes for Graphics with UI Group.
+#### Declaring plugin UI attributes
+As class properties, create an object of PluginUI, which contains all details about the exposed UI elements. Create an instance of PluginInfo, that holds the details about the plugin. Create UI groups object i.e., PluginUIElementGroup, as a grouping of UI elements which holds attributes such as Description, GroupName, Image, ImageBytes, IndicatorCount, UIElements for Graphics with UI Group.
 
 To add an element, every element should have a unique ```Guid```. Declare and define a class variable named ```RAISEHAND```.
 
-- Replace #TODO: Declaring variables for plugin UI
+- Replace #TODO: Declaring attributes for plugin UI
 - Paste the following lines
 
 ```c
@@ -50,7 +50,7 @@ const string RAISEHAND = "00000000-0000-0000-0000-000000000008";
 ```
 
 #### Defining plugin properties
-In the method ```public void SimpleToastPlugin()```, define the Plugin information , define the plugin UI and create UI elements. These properties are to display the details about the plugin such as name of the plugin, description about it, image for the plugin icon and other such details about the plugin.  
+In the method ```public void SimpleToastPlugin()```, define the plugin information, define the plugin UI and create UI elements. These properties are to display the details about the plugin like name of the plugin, description, image for the plugin icon and other details about the plugin.  
 
 - Replace #TODO: Defining plugin properties
 - Paste the following lines
@@ -60,8 +60,6 @@ In the method ```public void SimpleToastPlugin()```, define the Plugin informati
             pluginDetails.Name = "";
             pluginDetails.Id = new Guid("12345678-1234-1234-1234-123456781235");
             pluginDetails.Description = "Attendee Analytics";
-            pluginDetails.Copyright = "";
-            pluginDetails.Company = "";
 
             UI = new PluginUI();
             UI.pluginInfo = pluginDetails;
@@ -83,9 +81,9 @@ uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(RAISEHAND), UIElement
 UI.Groups.Add(uiElementGroup);
   ```
 ####  Handling User event on plugin
-Events on the plugin can be triggered on the hub. Here, a toast message should be displayed whenever the user clicks the button element. The method ```ShowHubToast()``` is used to display messages temporarily on the hub Temporarily display a message. An image is optional. The message will be shown from 1 to 10 seconds, depending on fade time. Toast messages are suppressed during presentations.  
+Events on the plugin can be triggered on the hub. Here, a toast message should be displayed whenever the user clicks on the button element. The method ```ShowHubToast()``` is used to display messages temporarily on the hub. An image is optional. The message will be shown from 1 to 10 seconds, depending on fade time. Toast messages are suppressed during presentations.  
 
-Call ```FireUIUpdated()``` to notify the Intel Unite® application to update connected clients with changes to the UI. Use``` FireHubTextUpdated()``` to notify the Intel Unite® application with updates to the display’s status line.
+Call ```FireUIUpdated()``` to notify the Intel Unite® application to update the connected clients with changes to the UI. Use``` FireHubTextUpdated()``` to notify the Intel Unite® application with updates to the display’s status line.
 - Replace #TODO: Handling User event on plugin
 - Paste the following lines
 
@@ -110,10 +108,10 @@ Call ```FireUIUpdated()``` to notify the Intel Unite® application to update con
 ### Deploying the Intel Unite® Plugin
 Follow these steps to deploy the Intel Unite® Plugin
 #### Building the plugin
-- Build the code developed to generate AttendeeAnalyticsPlugin.dll file.
+- Build the plugin code developed, to generate AttendeeAnalyticsPlugin.dll file.
     ![](./images/build_solution.JPG)
 
-    The AttendeeAnalyticsPlugin.dll file is generated in the project folder bin\debug
+    The AttendeeAnalyticsPlugin.dll file is generated in the project folder bin\Debug
 
     ![](./images/dll_path.JPG)
 
@@ -129,14 +127,14 @@ Follow these steps to deploy the Intel Unite® Plugin
 #### Signing the DLL
 -	Adding Digital Signature to plugin:
     - Open the developer command prompt for Visual Studio in administrative mode.
-    - PluginCertificateHash_NameOfThePlugine the directory to the folder where plugin is located.
+    - Change the directory to the folder where plugin is located.
     - Create a new certificate by following these steps
-    ( *NOTE: Once the first two steps are performed, never repeat them*)
+    ( *NOTE: Once the first two steps are performed to crate the certificate, never repeat them*)
          - makecert -n "CN=UniteDeveloper" -r -pe -ss TestDeveloper UniteCertificate.cer
          - certmgr -add UniteCertificate.cer -s -r localmachine root
          - signtool sign /a /s TestDeveloper AttendeeAnalyticsPlugin.dll
 
-         **Note**: Whenever there is change in the code and the solution is rebuild, perform only the last step i.e., signing the dll.
+         **Note**: Whenever there is change in the code and the solution is rebuilt, perform only the last step i.e., signing the dll.
 
 - Getting the	Plugin certificate Hash value
   -	Locate the plugin in the Plugins folder, right click on the AttendeeAnalyticsPlugin.dll and select Properties
@@ -147,24 +145,24 @@ Follow these steps to deploy the Intel Unite® Plugin
 
   ![](./images/dep2_2.JPG)
 
-  -	Select Signature and click Details.
+  -	Select the signature and click Details.
 
   ![](./images/dep2_3.JPG)
-	- In the Digital Signature Details window, click View Certificate. If this window is not found, add the Digital Signature to plugin by following the step 3
+	- In the Digital Signature Details window, click View Certificate. If this window is not found, add the Digital Signature to plugin by following the first step in this section.
 
   ![](./images/dep2_4.JPG)
   -	In the Certificate window, select the Details tab and scroll down until the Thumbprint is found.
 
   ![](./images/dep2_5.JPG)
-	- Select Thumbprint. After the value is displayed, copy it into a notepad or a text file by clicking Copy to File. Remove the spaces and save it.
+	- Select Thumbprint. After the value is displayed, copy it onto a notepad or a text file by clicking Copy to File. Remove the spaces and save it.
 
-  -	This key value will be used while creating the Profile for the plugin. The key value can be created and entered after the profile has been created. Continue to next section to know more about it.
+  -	This key value will be used while creating the Profile for the plugin. The key value can be created and entered after the profile has been created.
 
 #### Plugin Configuration in the Admin portal
 
 - Adding Certificate Hash to a plugin in the admin portal
 	 - Login to the admin portal using localhost/admin/#login and credentials.
-   If the logging in for the first time, use the following default credentials
+   If logging in for the first time, use the following default credentials
       - Username : admin@server.com
       - Password : Admin@1
 
@@ -177,8 +175,8 @@ Follow these steps to deploy the Intel Unite® Plugin
 
     ![](./images/dep4_4.JPG)
 
-   -	Click Add Profile Property and enter the following details to enable the plugin.:
-        - Key: PluginCertificateHash_NameOfThePlugin
+   -	Click Add Profile Property and enter the following details to enable the plugin.
+        - Key: PluginCertificateHash_AttendeeAnalyticsPlugin
         - Data Type: String
         - Unit: Text
         - Value: Enter the key value saved from the thumbprint
@@ -186,16 +184,14 @@ Follow these steps to deploy the Intel Unite® Plugin
             ![](./images/dep4_5.JPG)
 
    - Save the property.
-   -	Launch the Intel Unite® Hub in the Administrative mode from the command prompt. To view the log, launch the application in debug mode.
-   -	Launch the Unite® client application and enter the pin from the hub.
-   -	After the connection has been created, the plugin icon is visible at the bottom of the Intel Unite® Client Management window.
+   -	Launch the Intel Unite® Hub. To view the log, run the application as administrator from the command prompt in debug mode.
 
 
 #### Testing the plugin
 
   - When the hub is restarted, the Attendee Analytics plugin will be loaded.
-
-  - When the client connects to the hub, the plugin should be listed in the Intel Unite® client application home UI at the bottom.
+  - Launch the Unite® client application and enter the pin displayed on the hub.
+  -	After the connection gets established, the plugin icon will be listed on the Intel Unite® client application home UI at the bottom section.
 
   ![](./images/run_1.JPG)
 
@@ -204,11 +200,11 @@ Follow these steps to deploy the Intel Unite® Plugin
   ![](./images/run_2.JPG)
 
 
-   - The Raise Hand icon here will fire a toast message on hub. Click on it to test the plugin behavior. The Log messages can be referred to see the plugin behavior when the hub is launched in the debug mode.
+   - The Raise Hand icon in this plugin will fire a toast message on hub. Click on it to test the plugin behavior. The Log messages can be referred to see the plugin behavior when the hub is launched in the debug mode.
 
   ![](./images/run_3.JPG)
 
 ## Final solution
  The complete solution for the sample Intel Unite® plugin is available [here](./solutions/SamplePluginSolution.md).
 ## Lesson Learnt
-Building and deploying a sample plugin on Intel Unite®.
+Creating and deploying a sample plugin on Intel Unite®.

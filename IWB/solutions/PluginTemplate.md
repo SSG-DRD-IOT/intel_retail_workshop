@@ -13,8 +13,8 @@ namespace AttendeeAnalyticsPlugin
 {
     public class AttendeeAnalyticsPlugin : CFCPlugin
     {
-      //TODO : Declaring variables for plugin UI
-      //TODO : Declaring variables for advanced plugin
+      //TODO : Declaring attributes for plugin UI
+      //TODO : Declaring attributes for advanced plugin
       public void SimpleToastPlugin()
         {
            //TODO : Defining plugin properties

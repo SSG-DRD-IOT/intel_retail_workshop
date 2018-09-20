@@ -32,9 +32,8 @@ namespace AttendeeAnalyticsPlugin
         {
             pluginDetails.Name = "";
             pluginDetails.Id = new Guid("12345678-1234-1234-1234-123456781235");
-            pluginDetails.Description = "OpenVINO Analytics";
-            pluginDetails.Copyright = "Copyright (C) 2018 Intel Corporation - All Rights Reserved";
-            pluginDetails.Company = "Intel Corporation";
+            pluginDetails.Description = "Attendee Analytics";
+
             UI = new PluginUI();
             UI.pluginInfo = pluginDetails;
             UI.Groups = new List<PluginUIElementGroup>();
