@@ -10,12 +10,13 @@ For simplicity, AttendeeAnalyticsPlugin.cs is already created at ***C:\Intel\Des
 
 In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, TODOs only for sample plugin are dealt and the rest are discussed in the next lab.
 
+## Flow Diagram
 
-
+  ![](./images/FlowDiagramOfSimplePlugin.PNG)
 
 ## Class Diagram
 
-  ![](./images/ClassDiagramForSimplePlugin.PNG)
+  ![](./images/ClassDiagramOfSimplePlugin.PNG)
 
 ## This lab will be laid out as follows
 - Creating a sample plugin on Intel Unite®

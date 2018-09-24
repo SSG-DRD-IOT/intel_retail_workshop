@@ -122,7 +122,7 @@ def updateWindow():
 
 
 event_handler = Handler()
-Timer(0, event_handler.invokeWidget, ()).start()
+Timer(1, event_handler.invokeWidget, ()).start()
 myThreadOb1 = MyThread()
 myThreadOb1.setName('Thread 1')
 myThreadOb1.start()

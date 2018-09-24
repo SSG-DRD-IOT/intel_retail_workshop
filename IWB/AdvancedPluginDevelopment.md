@@ -1,14 +1,17 @@
-# Enhancing the Intel Unite® Plugin and Integrating it with external solutions.
+Of Enhancing the Intel Unite® Plugin and Integrating it with external solutions.
 ## Lab Overview
 In the previous lab a sample Intel Unite® Plugin is developed to display Toast messages on the hub. In this lab, the functionality of sample plugin is enhanced to capture the no. of users connected to and presenting on the Intel Unite® hub. Also, the integration of the plugin with OpenVINO™ toolkit is covered here.
 
 
+## Flow Diagram
+
+  ![](./images/FlowDiagramOfAdvancedPlugin.PNG)
 
 
 ## Class Diagram
 
 
-  ![](./images/ClassDiagramForAdvancedPlugin.PNG)
+  ![](./images/ClassDiagramOfAdvancedPlugin.PNG)
 
 
 ## Tasks to be done
