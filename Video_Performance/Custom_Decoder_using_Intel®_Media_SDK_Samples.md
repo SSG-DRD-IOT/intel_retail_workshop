@@ -141,7 +141,10 @@ Initialise the decoding pipeline and check the error status.
 
 Continue coding in the main program
 
+```
+
 //Initialise the Decode pipeline sts = Pipeline.Init(&Params); MSDK\_CHECK\_RESULT(sts, MFX\_ERR\_NONE, 1);
+```
 
 ## Output Processing
 
