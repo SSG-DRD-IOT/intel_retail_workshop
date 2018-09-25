@@ -41,9 +41,9 @@ Open sample\_decode.cpp file to complete the exercise with the code given in the
 Include the pipeline\_decode.h and sstream headers
 
 ```
-                        #include "pipeline_decode.h"
-                        #include <sstream>
-              ```
+        #include "pipeline_decode.h"
+        #include <sstream>
+  ```
 
 ## Input Processing
 Define a method **InputSetup()** that accepts the sInputParams array defined from main program.
@@ -55,6 +55,7 @@ Then sets the video type, memory type, hardware acceleration, asynchronous depth
 It also writes the input h264 file path to parameter list
 
 Finally returns the MFX error status.
+
 ```
 mfxStatus InputSetup(sInputParams* pParams)
                     {
@@ -117,6 +118,7 @@ Declare the pipeline having input file reader, decoder and output file writer.
 Then setup the input parameters and perform error checking.
 
 Set the following parameters in the main program
+
 ```
                   // input parameters
                   sInputParams        Params;
