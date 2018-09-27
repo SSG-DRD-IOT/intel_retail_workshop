@@ -85,7 +85,7 @@ sample\_decode.exe h264 -i C:\\input.h264 -sw
 
   Output & Performance:
 
-    ![](images/MSDK_SW.jpg)  
+![](images/MSDK_SW.jpg)  
 
 
 *   Case 2: Execute the below command for hardware acceleration:  
@@ -95,7 +95,7 @@ sample\_decode.exe h264 -i C:\\input.h264 -sw
 
     Output & Performance:
 
-    ![](images/MSDK_HW.jpg)  
+![](images/MSDK_HW.jpg)  
 
 
 *   Just type sample\_decode.exe and explore other command line switches:  

@@ -63,6 +63,13 @@ struct FaceDetectionClass  {
 	void fetchResults();
 
 };
+//TODO: Define class for Age & Gender Detection
+//TODO: AgeGender-Blob Detection
+//TODO: AgeGenderDetection-Parse CNNNetworks
+//TODO: AgeGenderDetection-LoadNetwork
+//TODO: AgeGenderDetection-populate Inference Request
+//TODO: AgeGenderDetection-submit Inference Request and wait
+
 
 void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
 	SizeVector blobSize = blob.get()->dims();
@@ -226,7 +233,7 @@ int main(int argc, char *argv[]) {
 	pluginsForDevices["GPU"] = plugin;
 
 	//TODO: Age and Gender Detection 2
-
+	//TODO: HeadPose Detection 2
 
 	//Load pre trained optimized data model for face detection
 	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
@@ -238,7 +245,7 @@ int main(int argc, char *argv[]) {
 
 
 	//TODO: Age and Gender Detection 3
-
+	//TODO: HeadPose Detection 3
 
 	// Main inference loop
 	while (true) {
@@ -251,16 +258,18 @@ int main(int argc, char *argv[]) {
 		FaceDetection.wait();
 
 		//TODO: Age and Gender Detection 4
+		//TODO: HeadPose Detection 4
 
 		FaceDetection.fetchResults();
 
 		//TODO: Age and Gender Detection 5
+		//TODO: HeadPose Detection 5
 
 		for (auto & result : FaceDetection.results) {
 			cv::Rect rect = result.location;
 
 			//TODO: Age and Gender Detection 6
-
+			//TODO: HeadPose Detection 6
 			// Giving same colour to male and female
 			auto rectColor = cv::Scalar(0, 255, 0);
 

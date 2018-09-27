@@ -173,6 +173,20 @@ void AgeGenderDetection::wait() {
 }
 ```
 
+### Initialise the pararameters
+Here initialize the parameters which are required to process the output.
+- Replace #TODO: Age and Gender detection 1
+- Paste the following lines
+```
+int faceCountThreshold = 100;
+	int curFaceCount = 0;
+	int prevFaceCount = 0;
+	int index = 0;
+	int malecount = 0;
+	int femalecount = 0;
+	int attentivityindex = 0;
+	int framecounter = 0;
+	```
 ### Include CPU as Plugin Device
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
 We will use CPU as plugin device for inferencing Age and Gender
@@ -182,6 +196,8 @@ We will use CPU as plugin device for inferencing Age and Gender
 ```
 plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 pluginsForDevices["CPU"] = plugin;
+
+//TODO: HeadPose detection 2
 ```
 
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
@@ -193,6 +209,9 @@ We need CPU as plugin device for inferencing Age and Gender and load pre-retaine
 FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\ age-gender-recognition-retail-0013.xml";
 AgeGenderDetection AgeGender;
 AgeGender.load(pluginsForDevices["CPU"]);
+
+//TODO: HeadPose Detection 3
+//TODO: HeadPose Detection 4
 ```
 
 ### Submit Inference Request
@@ -216,6 +235,7 @@ for (auto face : FaceDetection.results) {
 	auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
 	auto face1 = frame(clippedRect);
 	AgeGender.enqueue(face1);
+	//TODO: HeadPose Detection 5
 }
 
 // Got the Face, Age and Gender detection result, now customize and print them on window
@@ -224,6 +244,7 @@ index = 0;
 curFaceCount = 0;
 malecount=0;
 femalecount=0;
+attentivityindex = 0;
  ```
 
 ### Customize the Result for Display
@@ -251,6 +272,7 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
               cv::FONT_HERSHEY_COMPLEX_SMALL,
               0.8,
               cv::Scalar(0, 0, 255));
+		//TODO: HeadPose Detection 6
   index++;
  ```
 

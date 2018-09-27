@@ -33,13 +33,11 @@ id = sys.argv[1]
 facecount = sys.argv[2]
 malecount = sys.argv[3]
 femalecount = sys.argv[4]
+attentivityindex = sys.argv[5]
 
-count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount}
+count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex}
 
-print(id);
-print(facecount);
 query = 'id' + '&value=' + str(facecount);
-print(query);
 
 with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
      file.write(json.dumps(count))
@@ -55,27 +53,28 @@ else:
 - Replace #TODO: Cloud Integration 2 with below code snippet
 
 ```
-  //Submit data to cloud when there is change in face count
-  if (curFaceCount != prevFaceCount && curFaceCount < faceCountThreshold)
-		{
-			prevFaceCount = curFaceCount;
-			//Integrate python module to submit data to cloud
-			std::string cmd = "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\cloud.py  " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) ;
-			int systemRet = std::system(cmd.c_str());
-			if (systemRet == -1)
-			slog::info << "System fails : " <<slog::endl;
-			slog::info << "Number of faces in the frame are : " << curFaceCount << slog::endl;
-			slog::info << "male count is " << malecount << slog::endl;
-			slog::info << "female count is " << femalecount << slog::endl;
-		}
-
+//Submit data to cloud when there is change in face count
+  if (framecounter == 10)
+  {
+    prevFaceCount = curFaceCount;
+    slog::info << framecounter << slog::endl;
+    //Integrate python module to submit data to cloud
+    std::string cmd = "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
+    int systemRet = std::system(cmd.c_str());
+    if (systemRet == -1)
+      slog::info << "System fails : " << slog::endl;
+    slog::info << "Number of faces in the frame are : " << curFaceCount << slog::endl;
+    slog::info << "male count is " << malecount << slog::endl;
+    slog::info << "female count is " << femalecount << slog::endl;
+    slog::info << "Atentivity index is " << attentivityindex << slog::endl;
+    framecounter = 0;
+  }
 ```
 ### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
 ```
-/usr/bin/bash: q: command not found
 node server.js
  ```
 - Go to http://localhost:9002

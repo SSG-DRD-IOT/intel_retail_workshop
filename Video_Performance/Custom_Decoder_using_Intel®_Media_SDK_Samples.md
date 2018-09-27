@@ -121,9 +121,10 @@ Set the following parameters in the main program
 
 ```
                   // input parameters
-                  sInputParams        Params;
+                  sInputParams     Params;
 
                   // pipeline for decoding, includes input file reader, decoder and output file writer
+
                   CDecodingPipeline   Pipeline;
 
                   // return value check
@@ -143,7 +144,11 @@ Continue coding in the main program
 
 ```
 
-//Initialise the Decode pipeline sts = Pipeline.Init(&Params); MSDK\_CHECK\_RESULT(sts, MFX\_ERR\_NONE, 1);
+         //Initialise the Decode pipeline
+
+         sts = Pipeline.Init(&Params);
+
+         MSDK_CHECK_RESULT(sts,MFX_ERR_NONE, 1);
 ```
 
 ## Output Processing
@@ -152,8 +157,11 @@ Print the stream information
 
 Continue coding in the main program
 ```
-//print stream info Pipeline.PrintInfo();
- msdk\_printf(MSDK\_STRING("Decoding started\\n"));
+    //print stream info
+    Pipeline.PrintInfo();
+
+    msdk_printf(MSDK_STRING("Decoding started\n"));
+
 
 ```
 ## Main Decoding Loop
@@ -170,40 +178,40 @@ Finally clear all decode buffer and move to the next frame using **Pipeline.Rese
 Continue following coding in the main function
 ```
 
-                    for (;;)
+            for (;;)
+              {
+               //Decode frame by frame
+               sts = Pipeline.RunDecoding();
+
+               if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts || MFX_ERR_DEVICE_LOST == sts || MFX_ERR_DEVICE_FAILED == sts)
+                {
+                  if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts)
                     {
-                        //Decode frame by frame
-                        sts = Pipeline.RunDecoding();
+                      msdk_printf(MSDK_STRING("\nERROR: Incompatible video parameters detected. Recovering...\n"));
+                    }
+                   else
+                      {
+                       msdk_printf(MSDK_STRING("\nERROR: Hardware device was lost or returned unexpected error. Recovering...\n"));
 
-                        if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts || MFX_ERR_DEVICE_LOST == sts || MFX_ERR_DEVICE_FAILED == sts)
-                        {
-                            if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts)
-                            {
-                                msdk_printf(MSDK_STRING("\nERROR: Incompatible video parameters detected. Recovering...\n"));
-                            }
-                            else
-                            {
-                                msdk_printf(MSDK_STRING("\nERROR: Hardware device was lost or returned unexpected error. Recovering...\n"));
+                        //Reset device in case of hardware error
+                        sts = Pipeline.ResetDevice();
 
-                                //Reset device in case of hardware error
-                                sts = Pipeline.ResetDevice();
-
-                                MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-                            }
-
-                            //Clear all decode buffer and move to next frame.
-                            sts = Pipeline.ResetDecoder(&Params);
-                            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-                            continue;
+                        MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
                         }
-                        else
-                        {
-                            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-                            break;
+
+                        //Clear all decode buffer and move to next frame.
+                        sts = Pipeline.ResetDecoder(&Params);
+                        MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
+                        continue;
+                        }
+                    else
+                      {
+                        MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
+                        break;
                         }
                     }
 
-                    msdk_printf(MSDK_STRING("\nDecoding finished\n"));
+                  msdk_printf(MSDK_STRING("\nDecoding finished\n"));
 
 ```
 

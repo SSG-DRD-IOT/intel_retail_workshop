@@ -17,6 +17,11 @@ The links below will guide the workshop attendee through slides and labs in the 
 * **Age and Gender Detection using  OpenVINO™ toolkit**
   - Slide Deck -
   - Lab - [Age and Gender Detection](./Age_Gender_Detection.md)
+  
+
+* **HeadPose Detection using  OpenVINO™ toolkit**
+    - Slide Deck -
+    - Lab - [HeadPose Detection](./Headpose_Detection.md)
 
 
 * **Analyze face data on Cloud**
