@@ -19,7 +19,7 @@ namespace AttendeeAnalyticsPlugin
         PluginUIElementGroup uiElementGroup = new PluginUIElementGroup();
         string HubText = "";
         const string RAISEHAND = "00000000-0000-0000-0000-000000000009";
-        //TODO : Declaring attributes for advanced plugin
+        //TODO : Declare attributes for advanced plugin
         public void SimpleTestPlugin()
         {
             pluginDetails.Name = "";
@@ -34,7 +34,7 @@ namespace AttendeeAnalyticsPlugin
             uiElementGroup.UIElements = new List<PluginUIElement>();
             uiElementGroup.Description = "";
             uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(RAISEHAND), UIElementType.Button, "Raise Hand", "", ResourceToBytes(new Uri("/AttendeeAnalytics;component/raisehand.png", System.UriKind.Relative))));
-            //TODO: Adding UI elements for advanced plugin
+            //TODO: Add UI elements for advanced plugin
             UI.Groups.Add(uiElementGroup);
         }
         public override void Load()
@@ -50,7 +50,7 @@ namespace AttendeeAnalyticsPlugin
 
         public override void UserConnected(UserEventArgs e)
         {
-           //TODO: Implementing Overridden method for Advanced plugin
+           //TODO: Implement Overridden method for Advanced plugin
             ShowHubToast(e.TargetUser.Name + " has joined!", new byte[0], 3);
             LogMessage("Plugin User Connect", null);
 
@@ -58,7 +58,7 @@ namespace AttendeeAnalyticsPlugin
 
         public override void UserDisconnected(UserEventArgs e)
         {
-            //TODO: Implementing Overridden method for Advanced plugin
+            //TODO: Implement Overridden method for Advanced plugin
             ShowHubToast(e.TargetUser.Name + " has disconnected!", new byte[0], 3);
             LogMessage("Plugin User Disconnect Loaded", null);
 
@@ -67,7 +67,7 @@ namespace AttendeeAnalyticsPlugin
         public override void UserPresentationStart(UserEventArgs e)
         {
 
-            //TODO: Implementing Overridden method for Advanced plugin
+            //TODO: Implement Overridden method for Advanced plugin
             LogMessage("Plugin Presentation Started", null);
             ShowHubToast("Presentation started by " + e.TargetUser.Name, new byte[0], 5);
 
@@ -75,7 +75,7 @@ namespace AttendeeAnalyticsPlugin
 
         public override void UserPresentationEnd(UserEventArgs e)
         {
-            //TODO: Implementing Overridden method for Advanced plugin
+            //TODO: Implement Overridden method for Advanced plugin
             LogMessage("Plugin Presentation End", null);
             ShowHubToast("Presentation ended by " + e.TargetUser.Name, new byte[0], 5);
 

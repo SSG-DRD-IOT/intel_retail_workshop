@@ -22,7 +22,7 @@ In the previous lab a sample Intel Unite® Plugin is developed to display Toast 
 
 ### Enhancing the sample plugin UI for additional functionalities
 The plugin can be customized using various options provided in the Intel Unite® Plugin SDK.
-- Replace #TODO:  Declaring attributes for advanced plugin
+- Replace #TODO:  Declare attributes for advanced plugin
 - Paste the following lines
 ```c
 const string LAUNCHAPP = "00000000-0000-0000-0000-000000000009";
@@ -31,7 +31,7 @@ String str = null;
 String filepath = @"C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\UniteData.json";
 Process p = null;
 ```
-- Replace #TODO: Adding UI elements for advanced plugin
+- Replace #TODO: Add UI elements for advanced plugin
 - Paste the following lines
 
 ```c
@@ -61,7 +61,7 @@ public int GetNoOfPresenters(UserEventArgs e)
 
 The above captured data are to be saved in JSON format for integration with external widget solution (discussed in the next tasks). This data should be updated when a user connects/disconnects and when a user presentation starts/ends.
 
-- Replace #TODO: Implementing Overridden method for Advanced plugin
+- Replace #TODO: Implement Overridden method for Advanced plugin
 - Paste the following lines
 
 ```c

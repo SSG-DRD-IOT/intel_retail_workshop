@@ -108,7 +108,7 @@ namespace AttendeeAnalyticsPlugin
                     }
                     else
                     {
-                        this.p = Process.Start("C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\Widget.pyw");
+                        this.p = Process.Start("C:\\Users\\intel1672\\Desktop\\Retail\\06-IWB\\Widget.pyw");
                     }
                     break;
                 case RAISEHAND:
