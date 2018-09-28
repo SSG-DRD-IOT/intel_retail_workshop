@@ -288,7 +288,7 @@ void HeadPoseDetection::wait() {
 ### Include CPU as Plugin Device
 Till now, we have defined all the required methods for HeadPose detection. Now we will extend our Face detection application with HeadPose detection.
 We will use CPU as plugin device for inferencing HeadPose
-- Replace #TODO: HeadPose detection 2
+- Replace #TODO: HeadPose detection 1
 - Paste the following lines
 
 ```
@@ -298,7 +298,7 @@ plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU
 
 ### Load Pre-trained Optimized Model for HeadPose Inferencing
 We need CPU as plugin device for inferencing HeadPose and load pre-retained model for HeadPose Detection on CPU
-- Replace #TODO: HeadPose Detection 3
+- Replace #TODO: HeadPose Detection 2
 - Paste the following lines
 
 ```
@@ -308,7 +308,7 @@ FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel
 	```
 
 ### Submit Inference Request
-- Replace #TODO: HeadPose Detection 4
+- Replace #TODO: HeadPose Detection 3
 - Paste the following lines
 
 ```
@@ -319,7 +319,7 @@ FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel
 
 ### Use identified Face for HeadPose Detection
 Clip the identified Faces and send inference request for identifying HeadPose
-- Replace #TODO: HeadPose Detection 5
+- Replace #TODO: HeadPose Detection 4
 - Paste the following lines
 
 ```
@@ -328,7 +328,7 @@ HeadPose.enqueue(face1);
 
 ### Calculate attentivityindex
 Here attentivityindex will be calculated on the basis of Yaw angle.
-- Replace #TODO: HeadPose Detection 6
+- Replace #TODO: HeadPose Detection 5
 - Paste the following lines
 
 ```

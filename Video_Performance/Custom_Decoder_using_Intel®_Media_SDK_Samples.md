@@ -121,10 +121,9 @@ Set the following parameters in the main program
 
 ```
                   // input parameters
-                  sInputParams     Params;
+                  sInputParams        Params;
 
                   // pipeline for decoding, includes input file reader, decoder and output file writer
-
                   CDecodingPipeline   Pipeline;
 
                   // return value check
@@ -144,9 +143,9 @@ Continue coding in the main program
 
 ```
 
-         //Initialise the Decode pipeline
+//Initialise the Decode pipeline
 
-         sts = Pipeline.Init(&Params);
+              sts = Pipeline.Init(&Params);
 
          MSDK_CHECK_RESULT(sts,MFX_ERR_NONE, 1);
 ```
@@ -157,8 +156,8 @@ Print the stream information
 
 Continue coding in the main program
 ```
-    //print stream info
-    Pipeline.PrintInfo();
+//print stream info
+              Pipeline.PrintInfo();
 
     msdk_printf(MSDK_STRING("Decoding started\n"));
 
