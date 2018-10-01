@@ -80,7 +80,7 @@ NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
 
 -  Case 1: Execute the below command for software implementation:  
 ```
-sample\_decode.exe h264 -i C:\\input.h264 -sw
+sample_decode.exe h264 -i C:\\input.h264 -sw
  ```
 
   Output & Performance:
@@ -90,7 +90,7 @@ sample\_decode.exe h264 -i C:\\input.h264 -sw
 
 *   Case 2: Execute the below command for hardware acceleration:  
 ```
-    sample\_decode.exe h264 -i C:\\input.h264 -hw
+    sample_decode.exe h264 -i C:\\input.h264 -hw
   ```
 
     Output & Performance:

@@ -5,7 +5,8 @@ In our previous Lab, we have successfully run the prebuilt application using Ope
 In our next three Labs, we will develop a complete interactive face detection application in three phase.
 - Face detection
 - Age and Gender detection
-- Analyze Face, Gender and Age detection data on cloud
+- HeadPose detection
+- Analyze Face, Age&Gender and HeadPose detection data on cloud
 
 ### Generating solution file
 - Go to ***C:\Intel\Desktop\Retail\05-OpenVINO\samples***

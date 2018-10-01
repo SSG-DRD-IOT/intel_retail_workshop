@@ -5,10 +5,10 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 
 **Class diagram for HeadPose Detection**
 
-![](images/Headpose_class.png)
+![](images/Headpose_class.PNG)
 
 ### Tasks TODO for HeadPose Detection:
--	Include CPU as plugin device for parallel inferencing.
+-	Include CPU as plugin device for headpose detection inference.
 -	Load pre-trained data model for Headpose detection.
 -	Once Face Detection result is available, submit inference request for Headpose Detection
 -	Mark the identified faces inside rectangle and draw Raw ,Yaw and Pitch axis.
@@ -283,6 +283,7 @@ void HeadPoseDetection::wait() {
 	if (!request) return;
 	request->Wait(IInferRequest::WaitMode::RESULT_READY);
 }
+
 ```
 
 ### Include CPU as Plugin Device
@@ -305,7 +306,8 @@ We need CPU as plugin device for inferencing HeadPose and load pre-retained mode
 FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\head-pose-estimation-adas-0001\\FP32\\head-pose-estimation-adas-0001.xml";
 	HeadPoseDetection HeadPose;
 	HeadPose.load(pluginsForDevices["CPU"]);
-	```
+
+```
 
 ### Submit Inference Request
 - Replace #TODO: HeadPose Detection 3
@@ -315,6 +317,7 @@ FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel
 //Submit Inference Request for HeadPose detection and wait for result
 	 HeadPose.submitRequest();
 	 HeadPose.wait();
+
 ```
 
 ### Use identified Face for HeadPose Detection
@@ -324,7 +327,8 @@ Clip the identified Faces and send inference request for identifying HeadPose
 
 ```
 HeadPose.enqueue(face1);
- ```
+
+```
 
 ### Calculate attentivityindex
 Here attentivityindex will be calculated on the basis of Yaw angle.
@@ -342,12 +346,12 @@ if (index < HeadPose.maxBatch) {
 
 			}
 		}
+
  ```
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
 For complete solution click on following link [face_AgeGender_headpose_detection.cpp](./solutions/headpose.md)
-
 - Build the solution in visual studio
 - Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
