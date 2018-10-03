@@ -4,9 +4,9 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenV
 The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® OpenVINO™ toolkit.
 
 ## Workshop Agenda
-* **Setup and deployment**
+<!-- * **Setup and deployment**
     - Slide Deck -
-    - Lab - [Setup and deployment](./Setup_and_deployment.md)
+    - Lab - [Setup and deployment](./Setup_and_deployment.md)-->
 
 
 * **Video Performance**
