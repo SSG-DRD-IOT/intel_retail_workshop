@@ -236,7 +236,7 @@ int main(int argc, char *argv[]) {
 	//TODO: HeadPose Detection 2
 
 	//Load pre trained optimized data model for face detection
-	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.1.265\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
+	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
 
 
 	//Load Face Detection model to target device

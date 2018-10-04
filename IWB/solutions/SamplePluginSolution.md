@@ -20,6 +20,7 @@ namespace AttendeeAnalyticsPlugin
         string HubText = "";
         const string RAISEHAND = "00000000-0000-0000-0000-000000000009";
         //TODO : Declare attributes for advanced plugin
+
         public void SimpleTestPlugin()
         {
             pluginDetails.Name = "";
@@ -43,25 +44,11 @@ namespace AttendeeAnalyticsPlugin
             SimpleTestPlugin();
         }
 
-        public override void UnLoad()
-        {
-            LogMessage("Plugin Unloaded", null);
-        }
-
         public override void UserConnected(UserEventArgs e)
         {
            //TODO: Implement Overridden method for Advanced plugin
             ShowHubToast(e.TargetUser.Name + " has joined!", new byte[0], 3);
             LogMessage("Plugin User Connect", null);
-
-        }
-
-        public override void UserDisconnected(UserEventArgs e)
-        {
-            //TODO: Implement Overridden method for Advanced plugin
-            ShowHubToast(e.TargetUser.Name + " has disconnected!", new byte[0], 3);
-            LogMessage("Plugin User Disconnect Loaded", null);
-
         }
 
         public override void UserPresentationStart(UserEventArgs e)
@@ -69,16 +56,7 @@ namespace AttendeeAnalyticsPlugin
 
             //TODO: Implement Overridden method for Advanced plugin
             LogMessage("Plugin Presentation Started", null);
-            ShowHubToast("Presentation started by " + e.TargetUser.Name, new byte[0], 5);
-
-        }
-
-        public override void UserPresentationEnd(UserEventArgs e)
-        {
-            //TODO: Implement Overridden method for Advanced plugin
-            LogMessage("Plugin Presentation End", null);
-            ShowHubToast("Presentation ended by " + e.TargetUser.Name, new byte[0], 5);
-
+            ShowHubToast("Presentation started by " + e.TargetUser.Name, new byte[0], 5);        
         }
 
         public override void UIElementEvent(UIEventArgs e)
@@ -117,6 +95,25 @@ namespace AttendeeAnalyticsPlugin
         }
 
         //TODO: fetch Intel Unite application data
+
+        public override void UserPresentationEnd(UserEventArgs e)
+        {
+            //TODO: Implement Overridden method for Advanced plugin
+            LogMessage("Plugin Presentation End", null);
+            ShowHubToast("Presentation ended by " + e.TargetUser.Name, new byte[0], 5);
+        }
+
+        public override void UserDisconnected(UserEventArgs e)
+        {
+            //TODO: Implement Overridden method for Advanced plugin
+            ShowHubToast(e.TargetUser.Name + " has disconnected!", new byte[0], 3);
+            LogMessage("Plugin User Disconnect Loaded", null);        
+        }
+
+        public override void UnLoad()
+        {
+            LogMessage("Plugin Unloaded", null);
+        }    
 
     }
 }

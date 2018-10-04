@@ -28,16 +28,16 @@ Observe the folder structure available within OpenVINO™ toolkit and the perfor
 By the end of this module, the participant is expected to understand the  OpenVINO™ toolkit, installed OpenVINO™ toolkit folder structure and performance difference between **CPU** and **GPU**.
 ### To View the Packages installed on your Device
 * **OpenVINO™ toolkit installer**                                                 
- OpenVINO™ toolkit by default installs at C:\Intel\computer_vision_sdk_2018.1.265\
+ OpenVINO™ toolkit by default installs at C:\Intel\computer_vision_sdk_<version>\
 * **OpenVINO™ toolkit sample applications showing various OpenVINO™ toolkit capabilities**
-OpenVINO™ samples is made available in C:\Intel\computer_vision_sdk_2018.1.265                                 \deployment_tools\inferenceengine\samples\build\samples.sln
+OpenVINO™ samples is made available in C:\Intel\computer_vision_sdk_<version>                                 \deployment_tools\inferenceengine\samples\build\samples.sln
 * **OpenVINO™ toolkit Documentation directory**
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\documentation
+C:\Intel\computer_vision_sdk_<version>\deployment_tools\documentation
 * **OpenVINO™ toolkit pre-trained models**
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models
+C:\Intel\computer_vision_sdk_<version>\deployment_tools\intel_models
 
 ### Understanding the Packages
-Go to C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inferenceengine to understand the package contents.
+Go to C:\Intel\computer_vision_sdk_<version>\deployment_tools\inferenceengine to understand the package contents.
 
 ![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for OpenVINO™ toolkit samples
@@ -54,7 +54,7 @@ For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 Showcase Vehicle Detection, followed by Vehicle Attributes and License Plate Recognition are applied on top of Vehicle Detection. The vehicle attributes execution barrier reports the general vehicle attributes, like the vehicle type and colour, whether the type is something like car, van, or bus.
 The application reads command line parameters and loads the specified models. The Vehicle/License-Plate Detection model is required, and the others are optional.
 * **Running the Application**
-- Go to C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\  inferenceengine\samples\build\security_barrier_camera_sample
+- Go to C:\Intel\computer_vision_sdk_<version>\deployment_tools\  inferenceengine\samples\build2017
 
 
 - Open the samples.sln file and build the security_barrier_camera_sample.cpp sample.
@@ -69,10 +69,7 @@ For this document, we are not using all parameters. Participants are expected to
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inference_engine\bin\intel64\Debug\security_barrier_camera_sample.exe  -i  
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\demo\car_1.bmp -m
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0007\FP32\vehicle-license-plate-detection-barrier-0007.xml -m_va
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0010\FP32\vehicle-attributes-recognition-barrier-0010.xml -d CPU
+C:\Intel\computer_vision_sdk_<version>\deployment_tools\inference_engine\bin\intel64\Debug \security_barrier_camera_sample.exe  -i  C:\Intel\computer_vision_sdk_<version>\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk_<version>\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0106\FP16\vehicle-license-plate-detection-barrier-0106.xml -m_va C:\Intel\computer_vision_sdk_<version>\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0039\FP32\vehicle-attributes-recognition-barrier-0039.xml -d CPU
 
 ```
 - **Output and Performance**
@@ -84,13 +81,7 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inference_engine\bin\intel64\Debug \security_barrier_camera_sample.exe  -i  
-
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\demo\car_1.bmp -m
-
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0007\FP16\vehicle-license-plate-detection-barrier-0007.xml -m_va
-
-C:\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0010\FP32\vehicle-attributes-recognition-barrier-0010.xml -d GPU
+C:\Intel\computer_vision_sdk_<version>\deployment_tools\inference_engine\bin\intel64\Debug \security_barrier_camera_sample.exe  -i  C:\Intel\computer_vision_sdk_<version>\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk_<version>\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0106\FP16\vehicle-license-plate-detection-barrier-0106.xml -m_va C:\Intel\computer_vision_sdk_<version>\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0039\FP32\vehicle-attributes-recognition-barrier-0039.xml -d GPU
 
 ```
 - **Output and Performance**

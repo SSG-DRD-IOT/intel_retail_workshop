@@ -303,7 +303,7 @@ We need CPU as plugin device for inferencing HeadPose and load pre-retained mode
 - Paste the following lines
 
 ```
-FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\head-pose-estimation-adas-0001\\FP32\\head-pose-estimation-adas-0001.xml";
+FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_<version>\\deployment_tools\\intel_models\\head-pose-estimation-adas-0001\\FP32\\head-pose-estimation-adas-0001.xml";
 	HeadPoseDetection HeadPose;
 	HeadPose.load(pluginsForDevices["CPU"]);
 
@@ -353,13 +353,12 @@ if (index < HeadPose.maxBatch) {
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
 For complete solution click on following link [face_AgeGender_headpose_detection.cpp](./solutions/headpose.md)
 - Build the solution in visual studio
-- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug*** directory.
+- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
+- Open command prompt and type this command
 
 ```
-C:\Users\Intel> cd  Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug
-C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug> interactive_face_detection_sample.exe
-
+C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\interactive_face_detection_sample.exe
  ```
 
 - On successful execution, Face, Age  Gender and HeadPose will get detected.

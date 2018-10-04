@@ -46,33 +46,11 @@ namespace AttendeeAnalyticsPlugin
             uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(CLOSEAPP), UIElementType.Button, "Close Analytics", "", ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/close.png", System.UriKind.Relative))));
             UI.Groups.Add(uiElementGroup);
         }
+
         public override void Load()
         {
             LogMessage("Plugin Loaded", null);
             SimpleToastPlugin();
-        }
-
-        public override void UnLoad()
-        {
-            LogMessage("Plugin Unloaded", null);
-        }
-
-        public override void UserConnected(UserEventArgs e)
-        {
-            str = "{\"usersConnected\":" + e.CurrentUsers.Count + ",\n\"usersPresenting\":" + GetNoOfPresenters(e) + ",\n\"timestamp\":\"" + DateTime.Now.ToString("h:mm:ss") + "\"}";
-            System.IO.File.WriteAllText(filepath, str);
-            ShowHubToast(e.TargetUser.Name + " has joined!", new byte[0], 3);
-            LogMessage("Plugin User Connect", null);
-
-        }
-
-        public override void UserDisconnected(UserEventArgs e)
-        {
-            str = "{\"usersConnected\":" + e.CurrentUsers.Count + ",\n\"usersPresenting\":" + GetNoOfPresenters(e) + ",\n\"timestamp\":\"" + DateTime.Now.ToString("h:mm:ss") + "\"}";
-            System.IO.File.WriteAllText(filepath, str);
-            ShowHubToast(e.TargetUser.Name + " has disconnected!", new byte[0], 3);
-            LogMessage("Plugin User Disconnect Loaded", null);
-
         }
 
         public override void UserPresentationStart(UserEventArgs e)
@@ -81,15 +59,6 @@ namespace AttendeeAnalyticsPlugin
             System.IO.File.WriteAllText(filepath, str);
             LogMessage("Plugin Presentation Started", null);
             ShowHubToast("Presentation started by " + e.TargetUser.Name, new byte[0], 5);
-
-        }
-
-        public override void UserPresentationEnd(UserEventArgs e)
-        {
-            str = "{\"usersConnected\":" + e.CurrentUsers.Count + ",\n\"usersPresenting\":" + GetNoOfPresenters(e) + ",\n\"timestamp\":\"" + DateTime.Now.ToString("h:mm:ss") + "\"}";
-            System.IO.File.WriteAllText(filepath, str);
-            LogMessage("Plugin Presentation End", null);
-            ShowHubToast("Presentation ended by " + e.TargetUser.Name, new byte[0], 5);
 
         }
 
@@ -150,6 +119,7 @@ namespace AttendeeAnalyticsPlugin
         {
             return HubText;
         }
+
         public int GetNoOfPresenters(UserEventArgs e)
         {
             int i = 0;
@@ -163,6 +133,37 @@ namespace AttendeeAnalyticsPlugin
 
             return i;
         }
+
+        public override void UserPresentationEnd(UserEventArgs e)
+        {
+            str = "{\"usersConnected\":" + e.CurrentUsers.Count + ",\n\"usersPresenting\":" + GetNoOfPresenters(e) + ",\n\"timestamp\":\"" + DateTime.Now.ToString("h:mm:ss") + "\"}";
+            System.IO.File.WriteAllText(filepath, str);
+            LogMessage("Plugin Presentation End", null);
+            ShowHubToast("Presentation ended by " + e.TargetUser.Name, new byte[0], 5);
+
+        }
+
+        public override void UserConnected(UserEventArgs e)
+        {
+            str = "{\"usersConnected\":" + e.CurrentUsers.Count + ",\n\"usersPresenting\":" + GetNoOfPresenters(e) + ",\n\"timestamp\":\"" + DateTime.Now.ToString("h:mm:ss") + "\"}";
+            System.IO.File.WriteAllText(filepath, str);
+            ShowHubToast(e.TargetUser.Name + " has joined!", new byte[0], 3);
+            LogMessage("Plugin User Connect", null);
+
+        }
+
+        public override void UserDisconnected(UserEventArgs e)
+        {
+            str = "{\"usersConnected\":" + e.CurrentUsers.Count + ",\n\"usersPresenting\":" + GetNoOfPresenters(e) + ",\n\"timestamp\":\"" + DateTime.Now.ToString("h:mm:ss") + "\"}";
+            System.IO.File.WriteAllText(filepath, str);
+            ShowHubToast(e.TargetUser.Name + " has disconnected!", new byte[0], 3);
+            LogMessage("Plugin User Disconnect Loaded", null);
+        }
+
+        public override void UnLoad()
+        {
+           LogMessage("Plugin Unloaded", null);
+        }        
 
     }
 }

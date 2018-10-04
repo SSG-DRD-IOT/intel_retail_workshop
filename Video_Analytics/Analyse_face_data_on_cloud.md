@@ -42,18 +42,18 @@ query = 'id' + '&value=' + str(facecount);
 with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
      file.write(json.dumps(count))
 
-resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
+#resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
 
-if resp.status_code != 201:
-  print("Unable to submit the data")
-else:
-  print("Data Submitted for analysis")
+#if resp.status_code != 201:
+  #print("Unable to submit the data")
+#else:
+  #print("Data Submitted for analysis")
  ```
 ### Integrate cloud module
 - Replace #TODO: Cloud Integration 2 with below code snippet
 
 ```
-//Submit data to cloud when there is change in face count
+//Submit data to Intel Unite on framecounter basis
   if (framecounter == 10)
   {
     prevFaceCount = curFaceCount;
@@ -70,7 +70,7 @@ else:
     framecounter = 0;
   }
 ```
-### Visualizing your Data on the Cloud
+<!--### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
@@ -83,18 +83,18 @@ node server.js
 - Click the plot
 - See the real time face count on cloud
 
-![](images/cloudAnalysis.png)
+![](images/cloudAnalysis.png)-->
 
 ###  Final Solution
 For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO™ toolkit.
 
 - Build the solution in visual studio
-- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug*** directory.
+- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
+- Open command prompt and type this command
 
 ```
-C:\Users\Intel> cd  Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug
-C:\Users\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug> interactive_face_detection_sample.exe
+C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\interactive_face_detection_sample.exe
  ```
 - On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
 ### Lesson Learnt
