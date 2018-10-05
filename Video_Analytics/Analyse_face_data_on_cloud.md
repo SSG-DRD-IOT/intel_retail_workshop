@@ -39,7 +39,7 @@ count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount
 
 query = 'id' + '&value=' + str(facecount);
 
-with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json', 'w') as file:
+with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
      file.write(json.dumps(count))
 
 #resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
@@ -96,6 +96,6 @@ For complete solution click on following link [analyse_face_data_on_cloud.cpp](.
 ```
 C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\interactive_face_detection_sample.exe
  ```
-- On successful execution, face will get detected and AttentivityData.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
+- On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
 ### Lesson Learnt
 Interfacing OpenVINO™ toolkit with cloud and visualizing data on cloud.

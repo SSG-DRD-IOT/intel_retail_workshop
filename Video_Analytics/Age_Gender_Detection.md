@@ -49,6 +49,7 @@ struct AgeGenderDetection {
 	void load(InferenceEngine::InferencePlugin & plg);
 	CNNNetwork read();
 };
+
 ```
 
 ### Setup the Blob for Age and Gender detection
@@ -82,6 +83,7 @@ void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 	   }
    }
 }
+
 ```
 
 ### Parse the CNNNetwork from given IR
@@ -177,6 +179,7 @@ void AgeGenderDetection::wait() {
 Here initialize the parameters which are required to process the output.
 - Replace #TODO: Age and Gender detection 1
 - Paste the following lines
+
 ```
 int faceCountThreshold = 100;
 	int curFaceCount = 0;
@@ -187,6 +190,7 @@ int faceCountThreshold = 100;
 	int attentivityindex = 0;
 	int framecounter = 0;
 	```
+
 ### Include CPU as Plugin Device
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
 We will use CPU as plugin device for inferencing Age and Gender
