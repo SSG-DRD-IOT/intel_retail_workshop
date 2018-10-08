@@ -303,7 +303,7 @@ We need CPU as plugin device for inferencing HeadPose and load pre-retained mode
 - Paste the following lines
 
 ```
-FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_<version>\\deployment_tools\\intel_models\\head-pose-estimation-adas-0001\\FP32\\head-pose-estimation-adas-0001.xml";
+FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\head-pose-estimation-adas-0001\\FP32\\head-pose-estimation-adas-0001.xml";
 	HeadPoseDetection HeadPose;
 	HeadPose.load(pluginsForDevices["CPU"]);
 

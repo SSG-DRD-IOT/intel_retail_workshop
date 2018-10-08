@@ -189,7 +189,8 @@ int faceCountThreshold = 100;
 	int femalecount = 0;
 	int attentivityindex = 0;
 	int framecounter = 0;
-	```
+
+```
 
 ### Include CPU as Plugin Device
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
@@ -211,7 +212,7 @@ We need CPU as plugin device for inferencing Age and Gender and load pre-retaine
 - Paste the following lines
 
 ```
-FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_<version>\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\ age-gender-recognition-retail-0013.xml";
+FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\ age-gender-recognition-retail-0013.xml";
 AgeGenderDetection AgeGender;
 AgeGender.load(pluginsForDevices["CPU"]);
 
@@ -229,6 +230,7 @@ AgeGender.load(pluginsForDevices["CPU"]);
  AgeGender.wait();
 
 //TODO: HeadPose Detection 3
+
 ```
 
 ### Use identified Face for Age and Gender Detection
@@ -252,6 +254,7 @@ curFaceCount = 0;
 malecount=0;
 femalecount=0;
 attentivityindex = 0;
+
  ```
 
 ### Customize the Result for Display
@@ -281,6 +284,7 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
               cv::Scalar(0, 0, 255));
   //TODO: HeadPose Detection 5
   index++;
+
  ```
 
 ### The Final Solution
@@ -294,6 +298,7 @@ For complete solution click on following link [face_AgeGender_detection.cpp](./s
 
 ```
 C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\interactive_face_detection_sample.exe
+
  ```
 
 - On successful execution, Face, Age and Gender will get detected.
