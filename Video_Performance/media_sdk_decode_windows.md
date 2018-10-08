@@ -4,7 +4,7 @@ In this tutorial you will learn the basic principles behind decoding a video str
 
 ## Getting Started
 
-- Load the **'msdk_decode'** Visual Studio solution file > **"Retail_Workshop\msdk_decode\msdk_decode.sln"**
+- Load the **'msdk_decode'** Visual Studio solution file > **"Retail\03-MediaSDK\msdk_decode\msdk_decode.sln"**
 
 - Once Visual Studio has loaded expand the **msdk_decode** project in the **Solution Explorer** in the right-hand pane.
 
@@ -34,21 +34,21 @@ The basic flow is outlined below:
 ## Build & Run The Code
 
  - Build the solution: **Build->Build Solution**
- 
+
 ![Build Solution](images/msdk_decode_2.jpg)
  - Make sure the application built successfully by checking the **Output** log in the bottom left pane.
- 
+
 ![Check Build](images/msdk_decode_3.jpg)
  - Run the application using the **Performance Profiler**:
      - Select **Debug->Performance Profiler...**
      - Make sure **CPU Usage** and **GPU Usage** are ticked and click **Start** to begin profiling.
-     
+
 ![Performance Profiler](images/msdk_decode_4.jpg)
  - A console window will load running the application whilst the profiling tool records usage data in the background.
- 
+
 ![Application Running](images/msdk_decode_5.jpg)
  - Wait for the application to finish decoding the video stream and then take note of the **execution time** printed in the console window. You can then **press 'enter' to close the command window** and stop the profiling session.
- 
+
 ![Stop Application](images/msdk_decode_6.jpg)
  - Now go back to Visual Studio and take a look at the **GPU Utilization** and **CPU** graphs. Notice that CPU usage is high and GPU usage is low confirming that CPU based decoding is taking place.
 
@@ -171,11 +171,11 @@ ffplay.exe jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
 > Use the **Esc** key to stop playback at any time.
 
  - You will notice the CPU alone is struggling to decode the high bitrate stream fast enough to render at a smooth 30fps. Go back to your **Visual Studio** window and **Build** the solution ensuring there are no errors. Then once again use the **Performance Profiler** to run the code. Note the **execution time** before closing the console window and check that the GPU was indeed used to decode the stream by checking the **CPU** and **GPU** utilisation graphs. As you can see the GPU decoding performance comfortably fulfills the 30fps requirement for smooth playback.
- 
+
 > If you missed some steps or didn't have time to finish the tutorial the completed code is available in the **msdk_decode_final** directory.
 
 ## Conclusion
 In this tutorial we looked at the Intel(R) Media SDK decoding pipeline and ways to optimise decoding performance on Intel platforms. We explored the performance and power advantages with decoding using the GPU rather than using a software based decoder running on the CPU. We also looked at the advantages of using video memory for our working surfaces instead of system memory to avoid unnecessary memory transfers.
 
-## Next Tutorial
-[Transcoding a video stream using Intel(R) Media SDK](media_sdk_transcode_windows.md)
+<!--## Next Tutorial
+[Transcoding a video stream using Intel(R) Media SDK](media_sdk_transcode_windows.md)-->

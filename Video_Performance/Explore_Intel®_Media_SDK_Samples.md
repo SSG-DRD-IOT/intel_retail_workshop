@@ -18,19 +18,19 @@ By the end of this module, the participant is expected to understand the Intel®
 
 -  **Media SDK installer**
 
-    Intel\_Media\_SDK\_2016\_R2.msi by default installs at C:\\Program Files (x86)\\IntelSWTools\\Intel(R)\_Media\_SDK\_2016.0.2
+    MSDK2018R2.exe by default installs at C:\\Program Files (x86)\\IntelSWTools\\Intel(R) Media SDK 2018 R2
 
 -  **Media Sample applications**
 
-    Media SDK samples is made available in C:\\Users\\<user name>\\Documents\\Samples-master.zip
+    Media SDK samples is made available in C:\\Users\\<user name>\\Documents\\Intel® Media SDK 2018 R2-Media Sampples 8.4.27.378
 NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
 - **Media SDK Documentation directory**
 
-    C:\\Program Files (x86)\\IntelSWTools\\Intel(R)\_Media\_SDK\_2016.0.2\\doc
+    C:\\Program Files (x86)\\IntelSWTools\\Intel(R) Media SDK 2018 R2\\Software Develoment kit\\doc
 
 ## Understand the packages
 
-- Go to C:\\Program Files (x86)\\IntelSWTools\\Intel(R)\_Media\_SDK\_2016.0.2 and understand the Package Contents
+- Go to C:\\Program Files (x86)\\IntelSWTools\\Intel(R) Media SDK 2018 R2\\Software Develoment kit and understand the Package Contents
 ![](images/Packages.JPG)
 *   **bin** folder has 32-bit and 64-bit runtime libraries for audio and media function encode-decode software capabilities.
 
@@ -80,7 +80,8 @@ NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
 
 -  Case 1: Execute the below command for software implementation:  
 ```
-sample_decode.exe h264 -i C:\\input.h264 -sw
+sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -sw
+
  ```
 
   Output & Performance:
@@ -90,7 +91,8 @@ sample_decode.exe h264 -i C:\\input.h264 -sw
 
 *   Case 2: Execute the below command for hardware acceleration:  
 ```
-    sample_decode.exe h264 -i C:\\input.h264 -hw
+    sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -hw
+
   ```
 
     Output & Performance:
@@ -109,13 +111,13 @@ sample_decode.exe h264 -i C:\\input.h264 -sw
 *   Open the command prompt and provide the below command-  
 
 
-    sample\_video\_wall.bat C:\\input.h264
+    sample_video_wall.bat C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 
 
 *   Observe the video projected on the wall divided into channels as specified in the batch file
 
  **Note:**  Open the batch file from the Wordpad and observe the effect of changing the following parameters:
 
-- No. of channels (i.e VerticalCells and HorizontalCells) can be edited in sample\_video\_wall.bat file.
+- No. of channels (i.e VerticalCells and HorizontalCells) can be edited in sample_video_wall.bat file.
 
 - Change MediaSDKImplementation to sw and hw.
 ## Lessons learnt
