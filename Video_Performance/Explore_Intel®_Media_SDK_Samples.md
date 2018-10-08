@@ -5,7 +5,7 @@ Intel® Media SDK is a set of libraries, tools, header and sample code files tha
 
 ## Exploration
 
-This lab starts with exploring and understanding the media sdk related packages installed in your Intel® NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon). Then understand the customized applications such as sample decoder and video wall bundled with installation.
+This lab starts with exploring and understanding the media sdk related packages installed in your Intel® NUC7i7DNHE (Dawson Canyon). Then understand the customized applications such as sample decoder and video wall bundled with installation.
 
 ## Observation
 
@@ -18,19 +18,19 @@ By the end of this module, the participant is expected to understand the Intel®
 
 -  **Media SDK installer**
 
-    MSDK2018R2.exe by default installs at C:\\Program Files (x86)\\IntelSWTools\\Intel(R) Media SDK 2018 R2
+    MSDK2018R2.exe by default installs at C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2
 
 -  **Media Sample applications**
 
-    Media SDK samples is made available in C:\\Users\\<user name>\\Documents\\Intel® Media SDK 2018 R2-Media Sampples 8.4.27.378
+    Media SDK samples is made available in C:\Users\<user name>\Documents\Intel® Media SDK 2018 R2-Media Sampples 8.4.27.378
 NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
 - **Media SDK Documentation directory**
 
-    C:\\Program Files (x86)\\IntelSWTools\\Intel(R) Media SDK 2018 R2\\Software Develoment kit\\doc
+    C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit\doc
 
 ## Understand the packages
 
-- Go to C:\\Program Files (x86)\\IntelSWTools\\Intel(R) Media SDK 2018 R2\\Software Develoment kit and understand the Package Contents
+- Go to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit and understand the Package Contents
 ![](images/Packages.JPG)
 *   **bin** folder has 32-bit and 64-bit runtime libraries for audio and media function encode-decode software capabilities.
 
@@ -76,11 +76,11 @@ NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
   - Go to **Desktop > Retail > 03-MediaSDK >** folder
   -  Open the task manager to compare the CPU performance of the below two cases.
 
-   **Note:** If you are running any other programs, their process will be added to the CPU & memory utilization. So try closing all other programs. Then observe the Sample\_decode.exe process performance from task manager.
+   **Note:** If you are running any other programs, their process will be added to the CPU & memory utilization. So try closing all other programs. Then observe the Sample_decode.exe process performance from task manager.
 
 -  Case 1: Execute the below command for software implementation:  
 ```
-sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -sw
+sample_decode.exe h264 -i C:\Users\intel\Desktop\03-MediaSDK\input.h264 -sw
 
  ```
 
@@ -91,7 +91,7 @@ sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -sw
 
 *   Case 2: Execute the below command for hardware acceleration:  
 ```
-    sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -hw
+    sample_decode.exe h264 -i C:\Users\intel\Desktop\03-MediaSDK\input.h264 -hw
 
   ```
 
@@ -100,7 +100,7 @@ sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -sw
 ![](images/MSDK_HW.jpg)  
 
 
-*   Just type sample\_decode.exe and explore other command line switches:  
+*   Just type sample_decode.exe and explore other command line switches:  
     \-o : output to file in RAW formats  
     \-r: Present  
     \-f : change rendering frame rate  
@@ -111,7 +111,7 @@ sample_decode.exe h264 -i C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 -sw
 *   Open the command prompt and provide the below command-  
 
 
-    sample_video_wall.bat C:\\Users\\intel\\Desktop\\03-MediaSDK\\input.h264 
+    sample_video_wall.bat C:\Users\intel\Desktop\03-MediaSDK\input.h264
 
 *   Observe the video projected on the wall divided into channels as specified in the batch file
 
