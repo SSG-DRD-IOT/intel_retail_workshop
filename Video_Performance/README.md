@@ -5,15 +5,15 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 ## Workshop Agenda
 * **Explore Intel® Media SDK Samples**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [Explore Intel® Media SDK Samples](./Explore_Intel®_Media_SDK_Samples.md)
 
 
 * **Custom Decoder using Intel® Media SDK**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Custom Decoder using Intel® Media SDK ](./media_sdk_decode_windows.md)
 
 
-* **Intel® Media Acceleration Reference Software**
+<!---* **Intel® Media Acceleration Reference Software**
   - Slide Deck -
-  - Lab - [Intel® Media Acceleration Reference Software ](./Intel®_Media_Acceleration_Reference_Software.md)
+  - Lab - [Intel® Media Acceleration Reference Software ](./Intel®_Media_Acceleration_Reference_Software.md)-->

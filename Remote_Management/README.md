@@ -5,15 +5,15 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 ## Workshop Agenda
 * **Configure AMT**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [Configure AMT](./Configure_AMT.md)
 
 
 * **Manage Remote Systems**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Manage Remote Systems](./Manage_Remote_Systems.md)
 
 
 * **Remote Config MeshCentral**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Remote Config MeshCentral](./Remote_Config_MeshCentral.md)

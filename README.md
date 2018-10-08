@@ -10,19 +10,19 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 * **Video Performance**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Video Performance](./Video_Performance/README.md)
 
 
 * **Remote Management**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Remote Management](./Remote_Management/README.md)
 
 
 * **Video Analytics**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [Video Analytics](./Video_Analytics/README.md)
 
 * **Intelligent White Board**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [IWB](./IWB/IntelUnitePluginDevelopment.md)

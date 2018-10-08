@@ -5,25 +5,25 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 ## Workshop Agenda
 * **Exploration to  OpenVINO™ toolkit**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [Explore OpenVINO™ toolkit](./Explore_OpenVINO.md)
 
 
 * **Face Detection using  OpenVINO™ toolkit**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Face Detection](./Face_detection.md)
 
 
 * **Age and Gender Detection using  OpenVINO™ toolkit**
-  - Slide Deck -
+  <!--- Slide Deck --->
   - Lab - [Age and Gender Detection](./Age_Gender_Detection.md)
-  
+
 
 * **HeadPose Detection using  OpenVINO™ toolkit**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [HeadPose Detection](./Headpose_Detection.md)
 
 
 * **Analyze face data on Cloud**
-    - Slide Deck -
+    <!--- Slide Deck --->
     - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
