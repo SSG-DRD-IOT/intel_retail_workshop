@@ -11,7 +11,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 * **Video Performance**
   - Slide Deck -
-  - Lab - [Video Performance](./Video_Performance/README>md)
+  - Lab - [Video Performance](./Video_Performance/README.md)
 
 
 * **Remote Management**
