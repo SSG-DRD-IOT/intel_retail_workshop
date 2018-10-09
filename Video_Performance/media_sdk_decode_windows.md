@@ -164,7 +164,7 @@ The current code uses **system memory** for the working surfaces as this is the 
         }
     }
 ```
- - Before we proceed to test the code let's try playing the sample using the **ffplay** utility using only the CPU. To do so open a **Command Prompt** window and **'cd'** to the **Retail/03-MediaSDK** directory. From there run the following command:
+ - Before we proceed to test the code let's try playing the sample using the **ffplay** utility using only the CPU. To do so open a **Command Prompt** window and **'cd'** to the **Retail\03-MediaSDK** directory. From there run the following command:
 ```
 ffplay.exe jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
 ```
