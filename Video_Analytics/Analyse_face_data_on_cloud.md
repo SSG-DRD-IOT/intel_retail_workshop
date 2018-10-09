@@ -39,7 +39,7 @@ count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount
 
 query = 'id' + '&value=' + str(facecount);
 
-with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
+with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
      file.write(json.dumps(count))
 
 #resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
@@ -59,7 +59,7 @@ with open('C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') 
     prevFaceCount = curFaceCount;
     slog::info << framecounter << slog::endl;
     //Integrate python module to submit data to cloud
-    std::string cmd = "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
+    std::string cmd = "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
     int systemRet = std::system(cmd.c_str());
     if (systemRet == -1)
       slog::info << "System fails : " << slog::endl;

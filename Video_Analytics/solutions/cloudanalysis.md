@@ -686,7 +686,7 @@ int main(int argc, char *argv[]) {
 			prevFaceCount = curFaceCount;
 			//slog::info << framecounter << slog::endl;
 			//Integrate python module to submit data to cloud
-			std::string cmd = "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
+			std::string cmd = "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
 			int systemRet = std::system(cmd.c_str());
 			if (systemRet == -1)
 				slog::info << "System fails : " << slog::endl;
