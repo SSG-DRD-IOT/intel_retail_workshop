@@ -23,7 +23,7 @@ By the end of this module, the participant is expected to understand the Intel®
 -  **Media Sample applications**
 
     Media SDK samples is made available in C:\Users\<user name>\Documents\Intel® Media SDK 2018 R2-Media Sampples 8.4.27.378
-NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
+NUC7i7DNHE (Dawson Canyon)
 - **Media SDK Documentation directory**
 
     C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit\doc
@@ -31,7 +31,9 @@ NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
 ## Understand the packages
 
 - Go to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit and understand the Package Contents
+
 ![](images/Packages.JPG)
+
 *   **bin** folder has 32-bit and 64-bit runtime libraries for audio and media function encode-decode software capabilities.
 
     E.g., _libmfxsw32.dll_ is the software library for IA-32 architecture
@@ -80,7 +82,7 @@ NUC7i7DNHE (Dawson Canyon)7i7DNHE (Dawson Canyon)
 
 -  Case 1: Execute the below command for software implementation:  
 ```
-sample_decode.exe h264 -i C:\Users\intel\Desktop\03-MediaSDK\input.h264 -sw
+sample_decode.exe h264 -i C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264 -sw
 
  ```
 
@@ -91,7 +93,7 @@ sample_decode.exe h264 -i C:\Users\intel\Desktop\03-MediaSDK\input.h264 -sw
 
 *   Case 2: Execute the below command for hardware acceleration:  
 ```
-    sample_decode.exe h264 -i C:\Users\intel\Desktop\03-MediaSDK\input.h264 -hw
+    sample_decode.exe h264 -i C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264 -hw
 
   ```
 
@@ -108,10 +110,12 @@ sample_decode.exe h264 -i C:\Users\intel\Desktop\03-MediaSDK\input.h264 -sw
 
 *   Go to **Desktop > Retail > 03-MediaSDK >** folder
 
-*   Open the command prompt and provide the below command-  
+*   Open the command prompt and provide the below command
 
+```
+sample_video_wall.bat C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264
 
-    sample_video_wall.bat C:\Users\intel\Desktop\03-MediaSDK\input.h264
+```
 
 *   Observe the video projected on the wall divided into channels as specified in the batch file
 

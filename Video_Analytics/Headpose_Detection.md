@@ -49,6 +49,21 @@ struct HeadPoseDetection {
 		float angle_p;
 		float angle_y;
 	};
+	Results operator[] (int idx) const {
+		Blob::Ptr  angleR = request->GetBlob(outputAngleR);
+		Blob::Ptr  angleP = request->GetBlob(outputAngleP);
+		Blob::Ptr  angleY = request->GetBlob(outputAngleY);
+
+		return{ angleR->buffer().as<float*>()[idx],
+			angleP->buffer().as<float*>()[idx],
+			angleY->buffer().as<float*>()[idx] };
+	}
+
+	CNNNetwork read();
+
+	void buildCameraMatrix(int cx, int cy, float focalLength);
+	void drawAxes(cv::Mat& frame, cv::Point3f cpoint, Results headPose, float scale);
+};
 
 ```
 
