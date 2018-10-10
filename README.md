@@ -9,7 +9,7 @@ The links below will guide the workshop attendee through slides and labs in the 
     - Lab - [Setup and deployment](./Setup_and_deployment.md)-->
 
 
-* **Video Performance**
+* **Advanced video processing(4k/8k) with Intel® Integrated Graphics and Intel® Media SDK**
   <!--- Slide Deck --->
   - Lab - [Video Performance](./Video_Performance/README.md)
 
@@ -19,7 +19,7 @@ The links below will guide the workshop attendee through slides and labs in the 
   - Lab - [Remote Management](./Remote_Management/README.md)
 
 
-* **Video Analytics**
+* **Enhanced Video Analytics on edge using deep learning and Intel OpenVINO™ Toolkit**
     <!--- Slide Deck --->
     - Lab - [Video Analytics](./Video_Analytics/README.md)
 
