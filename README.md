@@ -10,7 +10,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 * **Advanced video processing(4k/8k) with Intel® Integrated Graphics and Intel® Media SDK**
-  <!--- Slide Deck --->
+  - Slide Deck - [Video Performance](./Presentations/VideoPerformance.pdf)
   - Lab - [Video Performance](./Video_Performance/README.md)
 
 
@@ -20,7 +20,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 * **Enhanced Video Analytics on edge using deep learning and Intel OpenVINO™ Toolkit**
-    <!--- Slide Deck --->
+    - Slide Deck - [Video Analytics](./Presentations/VideoAnalytics.pdf)
     - Lab - [Video Analytics](./Video_Analytics/README.md)
 
 * **Intelligent White Board**
