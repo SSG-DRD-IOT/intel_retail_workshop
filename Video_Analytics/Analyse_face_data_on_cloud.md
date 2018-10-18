@@ -39,15 +39,15 @@ count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount
 
 query = 'id' + '&value=' + str(facecount);
 
-with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as file:
+with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json', 'w') as file:
      file.write(json.dumps(count))
 
-#resp = requests.get('http://10.138.77.101:9002/analytics/face?'+ query);
+resp = requests.get('http://<ip address>:9002/analytics/face?'+ query);
 
-#if resp.status_code != 201:
-  #print("Unable to submit the data")
-#else:
-  #print("Data Submitted for analysis")
+if resp.status_code != 201:
+  print("Unable to submit the data")
+else:
+  print("Data Submitted for analysis")
  ```
 ### Integrate cloud module
 - Replace #TODO: Cloud Integration 2 with below code snippet
@@ -70,9 +70,10 @@ with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\file.json', 'w') as f
     framecounter = 0;
   }
 ```
-<!--### Visualizing your Data on the Cloud
+### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
+- Go to C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer
 
 ```
 node server.js
@@ -83,7 +84,7 @@ node server.js
 - Click the plot
 - See the real time face count on cloud
 
-![](images/cloudAnalysis.png)-->
+![](images/cloudAnalysis.png)
 
 ###  Final Solution
 For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO™ toolkit.

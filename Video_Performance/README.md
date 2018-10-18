@@ -13,6 +13,9 @@ The links below will guide the workshop attendee through slides and labs in the 
   <!--- Slide Deck --->
   - Lab - [Custom Decoder using Intel® Media SDK ](./media_sdk_decode_windows.md)
 
+* **transcode using Intel® Media SDK**
+- Lab - [transcode using Intel® Media SDK](./media_sdk_transcode_windows.md)
+
 
 <!---* **Intel® Media Acceleration Reference Software**
   - Slide Deck -
