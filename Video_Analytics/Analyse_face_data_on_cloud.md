@@ -5,7 +5,7 @@ We have done Face, Age and Gender Detection in our previous modules. Also, we ha
 In this Lab, we will publish this data to local cloud for analysis.
 ### Tasks to do in this lab
 - Declare a device id that will be used for publishing the data to cloud
-- Integrate a python script for publishing the data to cloud
+- Integrate a Python* script for publishing the data to cloud
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the number of faces
 
@@ -87,7 +87,7 @@ node server.js
 ![](images/cloudAnalysis.png)
 
 ###  Final Solution
-For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO™ toolkit.
+For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 - Build the solution in visual studio
 - Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug*** directory.
@@ -99,4 +99,4 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
  ```
 - On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
 ### Lesson Learnt
-Interfacing OpenVINO™ toolkit with cloud and visualizing data on cloud.
+Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizing data on cloud.
