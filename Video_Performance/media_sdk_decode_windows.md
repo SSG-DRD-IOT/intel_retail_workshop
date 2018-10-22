@@ -4,7 +4,9 @@ In this tutorial you will learn the basic principles behind decoding a video str
 
 ## Getting Started
 
-- Load the **'msdk_decode'** Visual Studio solution file > **"Retail\03-MediaSDK\msdk_decode\msdk_decode.sln"**
+- Load the **'msdk_decode'** Visual Studio solution file into Visual Studio 2017 > **"C:\Users\intel\Desktop\Retail\03-MediaSDK\msdk_decode\msdk_decode.sln"**. **Tip**: You can doubleclick the **smdk_decode.sln** file and select Visual Studio 2017 to open the file. 
+
+- If presentated with a security question select OK
 
 - Once Visual Studio has loaded expand the **msdk_decode** project in the **Solution Explorer** in the right-hand pane.
 
@@ -33,7 +35,7 @@ The basic flow is outlined below:
 
 ## Build & Run The Code
 
- - Build the solution: **Build->Build Solution**
+ - Build the solution: **Build->Build Solution**. **Tip**: You can also hit Ctrl-Shift-B to build a soultion.
 
 ![Build Solution](images/msdk_decode_2.jpg)
  - Make sure the application built successfully by checking the **Output** log in the bottom left pane.
