@@ -100,7 +100,7 @@ The current code uses **system memory** for the working surfaces as this is the 
 
  - We now need to create a variable for the external allocator and pass this into our existing **Initialize** function.
  
- Add the following lines inside int main(){...}:
+ Add the following lines to the end of section *2. Initiazlize Intel Media SDK session*:
  
 ``` cpp
     mfxFrameAllocator mfxAllocator;
