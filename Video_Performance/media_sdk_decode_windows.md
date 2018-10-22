@@ -73,7 +73,7 @@ with
     mfxIMPL impl = MFX_IMPL_AUTO_ANY;
 ```
 
- - Rebuild the project and once again run the **Performance Profiler** as before. Once again take note of the **execution time** before closing the console window. You will now see that **GPU** utilisation is high and **CPU** usage is low (depending on what else is happening on the system).
+ - Build the project and run the **Performance Profiler** as before. Once again take note of the **execution time** before closing the console window. You will now see that **GPU** utilisation is high and **CPU** usage is low (depending on what else is happening on the system).
  - Click on **'View Details'** in the **GPU Usage** window below the graphs to get a better breakdown of GPU engine utilisation (3D and Video Decode).
 
 ![GPU Details](images/msdk_decode_8.jpg)
