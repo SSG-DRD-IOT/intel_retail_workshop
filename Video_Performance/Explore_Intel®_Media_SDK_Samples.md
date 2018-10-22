@@ -90,7 +90,7 @@ NUC7i7DNHE (Dawson Canyon)
 
 -  Case 1: Execute the below command for software implementation:  
 ```
-sample_decode.exe h264 -i C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264 -sw
+sample_decode.exe h264 -i input.h264 -sw
 
  ```
 
@@ -101,7 +101,7 @@ sample_decode.exe h264 -i C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264 -
 
 *   Case 2: Execute the below command for hardware acceleration:  
 ```
-    sample_decode.exe h264 -i C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264 -hw
+    sample_decode.exe h264 -i input.h264 -hw
 
   ```
 
@@ -116,12 +116,11 @@ sample_decode.exe h264 -i C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264 -
     \-f : change rendering frame rate  
     \-w and –h : changing the resolution
 
-*   Go to **Desktop > Retail > 03-MediaSDK >** folder
+*   From the **Desktop > Retail > 03-MediaSDK >** folder run the video wall sample with the following command: 
 
-*   Open the command prompt and provide the below command
 
 ```
-sample_video_wall.bat C:\Users\intel\Desktop\Retail\03-MediaSDK\input.h264
+sample_video_wall.bat input.h264
 
 ```
 
