@@ -99,12 +99,23 @@ The current code uses **system memory** for the working surfaces as this is the 
 ![Modify Definitions](images/msdk_decode_12.jpg)
 
  - We now need to create a variable for the external allocator and pass this into our existing **Initialize** function.
+ 
+ Add the following lines inside int main(){...}:
+ 
 ``` cpp
     mfxFrameAllocator mfxAllocator;
     sts = Initialize(impl, ver, &session, &mfxAllocator);
 ```
  - Next we update the IO pattern specified in the video parameters to tell the decoder we are using video memory instead of system memory.
-```
+ 
+  Change the line:
+ 
+ ```cpp
+ mfxVideoParams.IOPattern = MFX_IOPATTERN_OUT_SYSTEM_MEMORY;
+ ```
+ 
+ to:
+```cpp
     mfxVideoParams.IOPattern = MFX_IOPATTERN_OUT_VIDEO_MEMORY;
 ```
  - We now need to use our new allocator when allocating surface memory for our decoder. Replace **Section 5** with the code below.
@@ -147,7 +158,9 @@ The current code uses **system memory** for the working surfaces as this is the 
 ``` cpp
     char path[] = "..\\jellyfish-60-mbps-4k-uhd-hevc-10bit.h265";
 ```
- - Next we update the codec in our decode video parameters from **MFX_CODEC_AVC** to **MFX_CODEC_HEVC**.
+ - Next we update the codec in our decode video parameters from **MFX_CODEC_AVC** to **MFX_CODEC_HEVC**.:
+ 
+ 
 ``` cpp
     mfxVideoParams.mfx.CodecId = MFX_CODEC_HEVC;
 ```
