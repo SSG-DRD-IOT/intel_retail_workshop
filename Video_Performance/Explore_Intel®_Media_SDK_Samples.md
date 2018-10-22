@@ -4,13 +4,13 @@
 
 ## Introduction
 
-Intel® Media Server Studio (Intel MSS) is a set of libraries, tools, header and sample code files that define cross-platform API for developing consumer and professional grade media applications on Intel platforms. Providing an access to Intel® Quick Sync Video, hardware accelerated codecs in Intel Graphics Processor, Media Server Studio allows application developer to speed up video playback, encoding, processing and media conversion. Intel® Media Server Studio for Windows helps to deliver desktop applications, such as video players, editors and video conferencing clients, while Intel® Media Server Studio for Embedded Linux enables digital security and surveillance and connected car manufacturers to deliver smart cameras and infotainment or cluster display solutions. Hardware acceleration in Linux is supported by VA-API.
+Intel® Media Server Studio (Intel MSS) is a set of libraries, tools, header and sample code files that define cross-platform API for developing consumer and professional grade media applications on Intel platforms. Providing an access to Intel® Quick Sync Video, hardware accelerated codecs in Intel® Processor Graphics, Intel® Media Server Studio allows application developer to speed up video playback, encoding, processing and media conversion. Intel® Media Server Studio for Windows helps to deliver desktop applications, such as video players, editors and video conferencing clients, while Intel® Media Server Studio for Embedded Linux enables digital security and surveillance and connected car manufacturers to deliver smart cameras and infotainment or cluster display solutions. Hardware acceleration in Linux* is supported by VA-API.
 
-Video Acceleration API (VA API) is a royalty-free API as well as its implementation as free and open-source library (libVA) distributed under the MIT License. The VA API interface is to be implemented by device drivers to offer end-user software, such as VLC media player or GStreamer, access to available video acceleration hardware, such as PureVideo (through the libva-vdpau driver, which implements VA API in terms of VDPAU) or Unified Video Decoder. The API enables and provides access to hardware-accelerated video processing, using hardware such as graphics processing units (GPU) to accelerate video encoding and decoding by offloading processing from the central processing unit (CPU). The VA API specification was originally designed by Intel for its GMA (Graphics Media Accelerator) series of GPU hardware with the specific purpose of eventually replacing the XvMC standard as the default Unix multi-platform equivalent of Microsoft Windows DirectX Video Acceleration (DxVA) API, but today the API is no longer limited to Intel-specific hardware or GPUs. Other hardware and manufacturers can freely use this open standard API for hardware accelerated video processing with their own hardware without paying a royalty fee.
+Video Acceleration API (VA API) is a royalty-free API as well as its implementation as free and open-source library (libVA) distributed under the MIT License. The VA API interface is to be implemented by device drivers to offer end-user software, such as VLC media player or GStreamer, access to available video acceleration hardware, such as PureVideo (through the libva-vdpau driver, which implements VA API in terms of VDPAU) or Unified Video Decoder. The API enables and provides access to hardware-accelerated video processing, using hardware such as graphics processing units (GPU) to accelerate video encoding and decoding by offloading processing from the central processing unit (CPU). The VA API specification was originally designed by Intel for its GMA (Graphics Media Accelerator) series of GPU hardware with the specific purpose of eventually replacing the XvMC standard as the default Unix multi-platform equivalent of Microsoft Windows DirectX* Video Acceleration (DxVA) API, but today the API is no longer limited to Intel® hardware or GPUs. Other hardware and manufacturers can freely use this open standard API for hardware accelerated video processing with their own hardware without paying a royalty fee.
 
 ## Exploration
 
-*   This lab starts with exploring and understanding the Media Server Studio related packages installed in your Intel® NUC. Then understand the customized applications such as sample decoder and video wall bundled with installation.
+*   This lab starts with exploring and understanding the Intel® Media Server Studio related packages installed in your Intel® NUC. Then understand the customized applications such as sample decoder and video wall bundled with installation.
 *   Understand the performance differences between hardware and software based encoding/decoding
 
 ## Observation
@@ -31,7 +31,7 @@ By the end of this module, the participant would get basic understanding of Inte
 
 *   Media Sample applications:
 
-    Pre built Media Server Studio samples will be available in /opt/intel/mediasdk/samples/ for 64-bit architecture
+    Pre built Intel® Media Server Studio samples will be available in /opt/intel/mediasdk/samples/ for 64-bit architecture
 
 *   Media Server Studio Documentation directory: /opt/intel/mediasdk/doc/
 
@@ -43,14 +43,14 @@ $ls /opt/intel/mediasdk/doc/
 ```
 ## System Analyzer
 
-System Analyzer tool reports back following information about CPU, GPU and Intel ® Media Server studio components.
+System Analyzer tool reports back following information about CPU, GPU and Intel® Media Server studio components.
 
 ![](images/SystemAnalyzer.JPG)
 
 *   Platform readiness: check if processor has necessary GPU components
 *   OS readiness: check if OS can see GPU, and if it has required glibc/gcc level
-*   Install checks for Intel(R) Media Server Studio/Intel(R) SDK for OpenCL Applications components
-*   Results from runs of small smoke test programs for Media Server Studio and OpenCL
+*   Install checks for Intel® Media Server Studio/Intel® SDK for OpenCL™ applications components
+*   Results from runs of small smoke test programs for Intel® Media Server Studio and OpenCL™
 
 **Run** Download and copy sys\_analyzer\_linux.py file from [here](../views/labs/videoperformance-mediasdk/images/sys_analyzer_linux.py) to /home/intel\[machine id\]/Documents/workshop folder
 ```
@@ -60,7 +60,7 @@ $python sys\_analyzer\_linux.py
 ```
 ## Performance Monitoring
 
-We would need few performance monitoring tools before we proceed with Media Server Studio sample programs.
+We would need few performance monitoring tools before we proceed with Intel® Media Server Studio sample programs.
 
 ![](images/system_monitor.png)
 
@@ -129,6 +129,6 @@ $./sample\_decode h264 -i /home/intel\[machine id\]/Documents/workshop/msdk\_sam
 ```
 ## Lessons learnt
 
-*   Intel® Media Server Studio's libraries, tools and sample code files.
+*   Intel® Media Server Studio libraries, tools and sample code files.
 *   Speed up in video decoding and encoding.
 *   Performance monitoring
