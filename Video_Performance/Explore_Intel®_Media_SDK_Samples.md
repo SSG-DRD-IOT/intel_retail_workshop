@@ -22,7 +22,7 @@ By the end of this module, the participant is expected to understand the Intel®
 
 -  **Media Sample applications**
 
-    Media SDK samples is made available in C:\Users\<user name>\Documents\Intel® Media SDK 2018 R2-Media Sampples 8.4.27.378
+    Media SDK samples is made available in C:\Users\<user name>\Documents\Intel® Media SDK 2018 R2-Media Samples 8.4.27.378
 NUC7i7DNHE (Dawson Canyon)
 - **Media SDK Documentation directory**
 
@@ -62,11 +62,12 @@ NUC7i7DNHE (Dawson Canyon)
 
   This tool utility analyzes the system and reports all Media SDK related capabilities, driver and components status. This tool can also be used to determine setup environment issues. This tool reports back installed graphics adapter, basic system information, installed Media SDK versions, installed DirectShow filters, Media foundation Transforms (MFT) and also tips for solutions in case either software or hardware implementations did not work.
 
-  Please run this tool.
+  Please run this tool located here:
+  **C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development Kit\tools\mediasdk_sys_analyzer\mediasdk_system_analyzer_64.
 
   Usage:
 
-  This tool starts reporting system status immediately, when complete user can exit the tool by pressing any key.
+  This tool starts reporting system status immediately. The tool will show you informationa bout your system and what Media SDK packages are installed. When complete user can exit the tool by pressing any key.
 
   **Note:** For more information please refer to the document (readme-mediasdk-system-analyzer.rtf) to know the system requirements and limitations of the system analyzer.
 
@@ -74,8 +75,15 @@ NUC7i7DNHE (Dawson Canyon)
 
   ![](images/SystemAnalyzer.JPG)
   ## 1. Sample Decoder
-
-  - Go to **Desktop > Retail > 03-MediaSDK >** folder
+  
+  - Open the command prompt. **tip**: Search for *command prompt* in the lower left windows search bar. 
+  
+  - Navigate to the **Desktop > Retail > 03-MediaSDK >** folder:
+  
+  ```
+  cd C:\Users\intel\Desktop\Retail\03-MediaSDK
+  ```
+  
   -  Open the task manager to compare the CPU performance of the below two cases.
 
    **Note:** If you are running any other programs, their process will be added to the CPU & memory utilization. So try closing all other programs. Then observe the Sample_decode.exe process performance from task manager.
