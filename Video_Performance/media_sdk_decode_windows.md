@@ -155,11 +155,31 @@ The current code uses **system memory** for the working surfaces as this is the 
 "What about the latest 4K 10-bit HEVC video streams" I hear you ask? Support for both decode and encode of such streams was introduced with 7th Gen Intel(R) Core(TM) Processors and the Intel(R) Media SDK has full support for both. We will now make the small code modifications necessary to decode a sample 4K 10-bit HEVC stream.
 
  - Firstly we need to update our input source to the 4K 10-bit HEVC sample. This sample has an average bitrate of over 40Mbps, similar to that of a 4K Ultra HD Blu-ray.
+ 
+ Change the input file in section *1. Open input file*
+ 
+from:
+
+```cpp
+char path[] = "..\\bbb_sunflower_2160p_30fps_normal.h264";
+```
+
+to:
+
 ``` cpp
     char path[] = "..\\jellyfish-60-mbps-4k-uhd-hevc-10bit.h265";
 ```
  - Next we update the codec in our decode video parameters from **MFX_CODEC_AVC** to **MFX_CODEC_HEVC**.:
  
+ Change the codec ID in section *3. Set Required video paramaters for decode*
+ 
+ from:
+ 
+ ```cpp
+ mfxVideoParams.mfx.CodecId = MFX_CODEC_AVC;
+ ```
+ 
+ to:
  
 ``` cpp
     mfxVideoParams.mfx.CodecId = MFX_CODEC_HEVC;
