@@ -1,4 +1,4 @@
-# Age and Gender Detection using  OpenVINO™ toolkit
+# Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit
 ### Lab Overview
 We have done Face Detection in our previous module. Now, we identify Age and Gender for the identified faces.    
 We  build upon our Face Detection code and add Age, Gender identification code in this module.
@@ -16,7 +16,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 ![](images/AgeGender_flowchart.png)
 
 ### Define a AgeGenderDetection class
-Here, we will define a class that includes the declaration of data member and member functions that will be used for Age and Gender detection using OpenVINO™ toolkit.
+Here, we will define a class that includes the declaration of data member and member functions that will be used for Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 - Replace #TODO: Define class for Age & Gender Detection
 - Paste the following code
 
@@ -275,4 +275,4 @@ For complete solution click on following link [face_AgeGender_detection.cpp](./s
 - On successful execution, Face, Age and Gender will get detected.
 
 ### Lesson Learnt
-In addition to Face, Age and Gender Detection using  OpenVINO™ toolkit.
+In addition to Face, Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit.
