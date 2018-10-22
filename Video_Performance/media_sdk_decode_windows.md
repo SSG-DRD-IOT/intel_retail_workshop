@@ -94,7 +94,7 @@ The current code uses **system memory** for the working surfaces as this is the 
 
 ![Preprocessor Edit](images/msdk_decode_11.jpg)
 
- - Add **DX_D3D** to the list of definitions and click **OK** to close the window. Click **Apply** and finally **OK** to close the **Properties** window.
+ - If it is not already present add **DX_D3D** to the list of definitions and click **OK** to close the window. Click **Apply** and finally **OK** to close the **Properties** window.
 
 ![Modify Definitions](images/msdk_decode_12.jpg)
 
