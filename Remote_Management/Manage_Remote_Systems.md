@@ -1,11 +1,11 @@
 
 
-# Remote Configuration with Intel® Mesh Commander
+# Remote Configuration with MeshCommander
 
 ## Read the Overview
 
 
-The Mesh Commander is an application that provides an interface for using Intel® Active Management technology. Its project site states that its purpose is to make hardware configuration easy over Internet.
+MeshCommander is an application that provides an interface for using Intel® Active Management Technology (Intel® AMT). Its project site states that its purpose is to make hardware configuration easy over Internet.
 
 MeshCommander is primarily used for 1:1 remote management of devices. Current supported features include:
 
@@ -27,13 +27,13 @@ MeshCommander is primarily used for 1:1 remote management of devices. Current su
 ## Launch the MeshCommander utility
 The MeshCommander utility is already installed on your Intel® IoT Gateway
 
-Go to the Windows launch bar icon in the lower left of your screen and type **Mesh Commander**.
+Go to the Windows* launch bar icon in the lower left of your screen and type **Mesh Commander**.
 
 Be sure to right click on the MeshCommander application and select **Run as Administrator**.
 
 ![](images/launch.png)
-## Add An Inte® AMT enabled Computer to MeshCommander
-The first step to add a system to the Intel AMT mission commander configuration utility is to click on a computer.
+## Add An Intel® Active Management Technology enabled Computer to MeshCommander
+The first step to add a system to the Intel® AMT mission commander configuration utility is to click on a computer.
 
 ![](images/001-Add-AMT-Computer.jpg)
 
@@ -78,7 +78,7 @@ Notice the button labelled **Power Actions**. This button will display a dialog 
 ![](images/007-Power-Actions-Reset-To-BIOS.jpg)
 
 ## BIOS Setup Page
-Intel%reg; AMT works at at a firmware level, that is at a level lower than the operating system. So it is possible to remote view the display even if when viewing the BIOS.
+Intel® AMT works at at a firmware level, that is at a level lower than the operating system. So it is possible to remote view the display even if when viewing the BIOS.
 
 ![](images/008-BIOS-Setup-Page.jpg)
 
@@ -99,9 +99,9 @@ Intel%reg; AMT works at at a firmware level, that is at a level lower than the o
 *   Click Stop IDE-R Session
 *   Goto Power Actions > Reset to complete the session
 
-## Mesh Commander's System Defense panel
+## MeshCommander's System Defense panel
 
-Within Mesh Commander's System Defense panel, you can add to Intel AMT network filters and policies that can be used to match certain type of network traffic. You can use Intel AMT system defense to count, drop or rate limit network traffic that matches certain rules. In this page, we look at how to create advanced filters that use the "Matching Rules" box in the "Add System Defense Filter" dialog box.
+Within MeshCommander's System Defense panel, you can add to Intel® AMT network filters and policies that can be used to match certain type of network traffic. You can use Intel® AMT system defense to count, drop or rate limit network traffic that matches certain rules. In this page, we look at how to create advanced filters that use the "Matching Rules" box in the "Add System Defense Filter" dialog box.
 
 The "Matching Rules" field is a comma separated list of name and values. The names must have exact capitalization and no extra spaces must be added.
 
