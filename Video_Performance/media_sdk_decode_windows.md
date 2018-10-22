@@ -59,7 +59,15 @@ The basic flow is outlined below:
 ## Hardware Decoding
 Where possible we want to use hardware based decoding for improved efficiency and speed. The Intel(R) Media SDK is able to select the best decode implementation based on the platform capabilities, first checking to see if hardware can be used and falling back to software if not.
 
- - Change the Media SDK implementation from **'MFX_IMPL_SOFTWARE'** to **'MFX_IMPL_AUTO_ANY**:
+ - Change the Media SDK implementation from software to hardware:
+ 
+ Replace **line 36** in msdk_decode.cpp from :
+ 
+ ``` cpp
+ mfxIMPL impl = MFX_IMPL_SOFTWARE
+ ```
+
+with 
 
 ``` cpp
     mfxIMPL impl = MFX_IMPL_AUTO_ANY;
