@@ -1,20 +1,20 @@
 # Intel® Retail Workshop Setup Guide
-Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenVINO™ toolkit through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of  OpenVINO™ toolkit and have some working ideas of how to implement them in your video analytics applications.
+Welcome to the retail workshop. In this workshop, we will explore the Intel® Distribution of OpenVINO™ toolkit through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of  OpenVINO™ toolkit and have some working ideas of how to implement it in your video analytics applications.
 ## How Do I Use the Lab Material
-The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using  OpenVINO™ toolkit.
+The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using the Intel® Distribution of OpenVINO™ toolkit.
 
 ## Workshop Agenda
-* **Exploration to  OpenVINO™ toolkit**
+* **Explore the Intel® Distribution of OpenVINO™ toolkit**
     - Slide Deck -
-    - Lab - [Explore OpenVINO™ toolkit](./Explore_OpenVINO.md)
+    - Lab - [Explore Intel® Distribution of OpenVINO™ toolkit](./Explore_OpenVINO.md)
 
 
-* **Face Detection using  OpenVINO™ toolkit**
+* **Face Detection using Intel® Distribution of OpenVINO™ toolkit**
   - Slide Deck -
   - Lab - [Face Detection](./Face_detection.md)
 
 
-* **Age and Gender Detection using  OpenVINO™ toolkit**
+* **Age and Gender Detection using Intel® Distribution of OpenVINO™ toolkit**
   - Slide Deck -
   - Lab - [Age and Gender Detection](./Age_Gender_Detection.md)
 
