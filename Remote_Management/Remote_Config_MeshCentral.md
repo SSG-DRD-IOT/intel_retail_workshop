@@ -12,7 +12,7 @@ In this module we will explore following
 
 ## Step1: Login to local mesh central server
 
-Url: [https://10.224.16.132](https://10.224.16.132)
+Url: **Will be given at start of Workshop**
 
 Username: workshop
 
