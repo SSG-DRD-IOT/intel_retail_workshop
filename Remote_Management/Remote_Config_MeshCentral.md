@@ -16,7 +16,7 @@ Url: **Will be given at start of Workshop**
 
 Username: workshop
 
-Password: intel@123
+Password: Intel@123
 
 ![](images/mesh0.png)
 
