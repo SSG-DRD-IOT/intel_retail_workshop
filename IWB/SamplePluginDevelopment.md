@@ -1,14 +1,14 @@
 # Developing a sample Intel Unite® Plugin
 
 ## Lab Overview
-In this lab, a sample plugin on Intel Unite® is created and deployed to display toast messages on the hub.
+In this lab, a sample plugin on Intel Unite® software is created and deployed to display toast messages on the hub.
 
 For simplicity, AttendeeAnalyticsPlugin.sln is already created at ***C:\Intel\Desktop\Retail\06-IWB\AttendeeAnalyticsPlugin***, which includes required header files and TODOs that are to be replaced. The template for the plugin is available [here](./solutions/PluginTemplate.md)
 - TODO is a small unit of module for code simplification.
 - Replace all the TODOs with corresponding code snippets provided here.
 - Keep all the other TODOs untouched. These will be discussed in the next lab.
 
-In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, TODOs for sample plugin are only dealt and the rest are discussed in the next lab.
+In this Lab, a sample plugin for Intel Unite® software is developed and deployed. Here, TODOs for sample plugin are only dealt and the rest are discussed in the next lab.
 
 ## Flow Diagram
 
@@ -19,7 +19,7 @@ In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, 
   ![](./images/ClassDiagramOfSimplePlugin.PNG)
 
 ## This lab will be laid out as follows
-- Creating a sample plugin on Intel Unite®
+- Creating a sample plugin on Intel Unite® software
     - Declare plugin attributes
     - Initialize the plugin
     - Load the Plugin
@@ -36,7 +36,7 @@ In this Lab, a sample plugin for Intel Unite® is developed and deployed. Here, 
     - Plugin Configuration in the Admin portal
     - Testing the Plugin
 
-### Creating a sample plugin on Intel Unite®
+### Creating a sample plugin on Intel Unite® Software
 
 #### Declaring plugin attributes
 As class properties, create an object of PluginUI, which contains all details about the exposed UI elements. Create an instance of PluginInfo, that holds the details about the plugin. Create UI groups object i.e., PluginUIElementGroup, as a grouping of UI elements which holds attributes such as Description, GroupName, Image, ImageBytes, IndicatorCount, UIElements for Graphics with UI Group.
@@ -58,7 +58,7 @@ const string RAISEHAND = "00000000-0000-0000-0000-000000000008";
 #### Initialize the plugin
 Create method ```public void SimpleToastPlugin()```, define the plugin information, define the plugin UI and create UI elements. These properties are to display the details about the plugin like name of the plugin, description, image for the plugin icon and other details about the plugin.  
 
-Add the button element to the ``` PluginUIElementGroup``` in order to display them on the client version of Intel Unite®. Even though the elements are created, they must be added to the UI Element Group to display them on the plugin UI.
+Add the button element to the ``` PluginUIElementGroup``` in order to display them on the client version of Intel Unite® software. Even though the elements are created, they must be added to the UI Element Group to display them on the plugin UI.
 
 - Replace #TODO: Initialize the plugin
 - Paste the following lines
@@ -224,7 +224,7 @@ public override void UnLoad()
 
 
 ### Deploying the Intel Unite® Plugin
-Follow these steps to deploy the Intel Unite® Plugin
+Follow these steps to deploy the Intel Unite® plugin
 #### Building the plugin
 - Build the plugin code developed, to generate AttendeeAnalyticsPlugin.dll file.
     ![](./images/build_solution.JPG)
@@ -308,8 +308,8 @@ Follow these steps to deploy the Intel Unite® Plugin
 #### Testing the plugin
 
   - When the hub is restarted, the Attendee Analytics plugin will be loaded.
-  - Launch the Unite® client application and enter the pin displayed on the hub.
-  -	After the connection gets established, the plugin icon will be listed on the Intel Unite® client application home UI at the bottom section.
+  - Launch the Intel Unite® client application and enter the pin displayed on the hub.
+  -	After the connection gets established, the plugin icon will be listed on the client Intel Unite® application home UI at the bottom section.
 
   ![](./images/run_1.JPG)
 
@@ -325,4 +325,4 @@ Follow these steps to deploy the Intel Unite® Plugin
 ## Final solution
  The complete solution for the sample Intel Unite® plugin is available [here](./solutions/SamplePluginSolution.md).
 ## Lesson Learnt
-Creating and deploying a sample plugin on Intel Unite®.
+Creating and deploying a sample plugin on Intel Unite® software.
