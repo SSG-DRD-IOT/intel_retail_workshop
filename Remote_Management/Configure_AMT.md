@@ -31,7 +31,7 @@ During power up, the Intel AMT platform displays the BIOS startup screen, then i
 
 *The new value must be a strong password.<br/>
 It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, and be at least eight characters.*
-*   A management console application can change the Intel AMT password without modifying the CSME password.
+**Note**: A management console application can change the Intel AMT password without modifying the CSME password.
 
 ## AMT Configuration
 *   Select Intel AMT Configuration and Press Enter.
@@ -43,7 +43,7 @@ It should contain at least one uppercase letter, one lowercase letter, one digit
 *   Select Wired LAN IPV4 Configuration and Press Enter.
 *   Enable DHCP Mode
 *   Press the Esc key 3 times to navigate to the Intel AMT Configuration menu
-*   Select Activate Network and Press Enter.
+*   Select Activate Network Access and Press Enter.
 *   Select/Enter "Y" to confirm Activating the interface
 
 *This enables network access for AMT by enabling it.
