@@ -66,6 +66,14 @@ To view the screen of the remote computer system, do the following steps:
 
 ![](images/005-Click-Connect-Remote-Desktop.jpg)
 
+* MeshCommander will ask you for a code in order to connect to the remote system. This code will be displayed on the **remote system** once you make a conenction request. 
+
+![](images/amt_consent.jpg)
+
+* Enter this code into MeshCommander in order to connect to the remote machine. 
+
+![](images/AMT_Password_Input.png)
+
 ## Out of band Remote Desktop
 You will now see the screen of the remote system.
 
