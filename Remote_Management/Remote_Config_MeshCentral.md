@@ -20,15 +20,15 @@ Password: Intel@123
 
 ![](images/mesh0.png)
 
-## Step 2: Create Mesh Agent
+## Step 2: Create Devices Group
 
 *   Click the My Devices icon
 *   Click the Add Devices Group button
 *   Enter a name for your group
 
-![](images/mesh1.png)
+![](images/meshcentral_create_group.JPG)
 
-## Step 3: Test & install the created Mesh
+## Step 3: Test & install the created Mesh Agent
 
 *   Click the Add Agent button
 *   Click Windows x64 (.exe)
@@ -39,7 +39,7 @@ Password: Intel@123
 *   Click the Install/Update button
 
 
-![](images/mesh2.png)
+![](images/meshcentral_mesh_agent.JPG)
 
 
 ## Step 4: Web device refresh
@@ -58,7 +58,7 @@ Password: Intel@123
 
 *   Explore the available file system
 
-![](images/mesh3.png)
+![](images/meshcentral_file_browser.JPG)
 
 ## Step 6: Explore Terminal
 
@@ -73,7 +73,7 @@ You will initially be in the C:\Programs Files\Mesh Agent directory.
 *   Type **dir**
 *   Press Enter to see the inputted command and its corresponding output
 
-![](images/mesh4.png)
+![](images/meshcentral_terminal.JPG)
 
 ## Step 7: Web Socket Desktop Loop
 
@@ -84,7 +84,7 @@ It opens another web instance from desktop. This is repeated infinitely
 *   Click the Desktop Tab
 *   Click the Connect button
 
-![](images/020-websocket-desktop-loop.jpg)
+![](images/meshcentral_regression.JPG)
 
 ## Other Actions
 *For this part, select another device other than your own.*
