@@ -85,28 +85,6 @@ Notice the button labelled **Power Actions**. This button will display a dialog 
 
 ![](images/007-Power-Actions-Reset-To-BIOS.jpg)
 
-## BIOS Setup Page
-Intel%reg; AMT works at at a firmware level, that is at a level lower than the operating system. So it is possible to remote view the display even if when viewing the BIOS.
-
-![](images/008-BIOS-Setup-Page.jpg)
-
-## IDE-Redirection
-*   Navigate to Remote Desktop
-*   Click IDE-R, which opens up Storage Redirection
-*   Choose any .iso file and .img file
-*   "IDE-R Session, Connected, 0 in, 0 out" message will be displayed at top
-*   Click Power Actions and select "Reset to IDE-R CDROM"
-*   Now observe the top row showing variation in the message "IDE-R Session, Connected, 0 in, ###### out" showing number of packets going out
-
-![](images/009-IDE-Redirection.jpg)
-
-## IDE-R completed
-*   CDROM Image content will be displayed
-*   A samle DOS image is loaded here
-*   Click the Disconnect button inside the Remote Desktop
-*   Click Stop IDE-R Session
-*   Goto Power Actions > Reset to complete the session
-
 ## Mesh Commander's System Defense panel
 
 Within Mesh Commander's System Defense panel, you can add to Intel AMT network filters and policies that can be used to match certain type of network traffic. You can use Intel AMT system defense to count, drop or rate limit network traffic that matches certain rules. In this page, we look at how to create advanced filters that use the "Matching Rules" box in the "Add System Defense Filter" dialog box.
