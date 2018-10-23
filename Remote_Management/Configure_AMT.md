@@ -30,7 +30,7 @@ During power up, the Intel AMT platform displays the BIOS startup screen, then i
 *   (For first time login) Enter the new password **Intel@1234**.
 
 *The new value must be a strong password.<br/>
-It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, and be at least eight characters.*
+It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, and be at least eight characters.*<br\>
 **Note**: A management console application can change the Intel AMT password without modifying the CSME password.
 
 ## AMT Configuration
