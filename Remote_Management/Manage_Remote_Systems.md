@@ -121,4 +121,5 @@ The first matching rule is the **ProtocolID**, usually TCP (6) or UDP (17). For 
 
 In addition, you can filter based on source address with **SrcAddress** and **SrcMask**. Both must be used at the same time. For example, you can have "ProtocolID=6,SrcAddress=192.168.1.0,SrcMask=255.255.0.0" to match all packets with a source address of 192.168.\*.
 
-* For mor information on AMT System Defense please refer to: https://software.intel.com/en-us/node/632165
+* For more information on AMT System Defense please refer to: https://software.intel.com/en-us/node/632165 
+* For more more detailed information on IP Filtering with AMT please refer to *WS-Management > WS-Management Class Reference > AMT Classes > AMT_IPHeadersFilter* in the AMT SDK Guide: https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm
