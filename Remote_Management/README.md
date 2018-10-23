@@ -1,4 +1,4 @@
-# Intel® Retail Workshop Setup Guide
+# Retail Workshop using Intel® Technologies
 Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenVINO™ toolkit through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of OpenVINO™ toolkit and have some working ideas of how to implement them in your video analytics applications.
 ## How Do I Use the Lab Material
 The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® OpenVINO™ toolkit.
