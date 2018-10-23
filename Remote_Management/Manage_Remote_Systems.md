@@ -25,27 +25,27 @@ MeshCommander is primarily used for 1:1 remote management of devices. Current su
 *   WSMAN browser
 
 ## Launch the MeshCommander utility
-The MeshCommander utility is already installed on your Intel® IoT Gateway
+The MeshCommander utility is already installed on your device.
 
-Go to the Windows launch bar icon in the lower left of your screen and type **Mesh Commander**.
-
-Be sure to right click on the MeshCommander application and select **Run as Administrator**.
+*   Click the Start button in the Taskbar (in the lower left bottom corner of the screen) 
+*   Type **Mesh Commander**.
+*   Right click on the MeshCommander search result and select **Run as Administrator**.
 
 ![](images/launch.png)
-## Add An Inte® AMT enabled Computer to MeshCommander
-The first step to add a system to the Intel AMT mission commander configuration utility is to click on a computer.
+## Add An Intel® AMT enabled Computer to MeshCommander
+The first step is to add a system to the Intel AMT MeshCommander configuration utility. 
+
+*   Click on **Add Computer...**.
 
 ![](images/001-Add-AMT-Computer.jpg)
 
-After that you can specify a **friendly name** which is simply a string that allows you to easily identify the system.
-
-You can **tags** that allow you to put several systems together into recognizable categories.
-
-You'll need to enter either the **host name** or the **IP address** of the computer.
-
-The **authentication** should remain as digest or none.
-
-Lastly, the **username and password** are the same as username and password that you configured during the USB drive lab.
+*   Type a **friendly name** for the device<br/>
+*This is a string that allows you to easily identify the system.*
+*   (Optional) Type comma-separated string(s) to be used **tag(s)**<br/>
+*This allows you to put several systems together into recognizable categories.*
+*   Enter either the **host name** or **IP address** of the device in Hostname text field.
+*   Leave **authentication** as Digest / None.
+*   Enter Enter **admin** as the username and **Intel@1234** as the password.
 
 ## Connect to your Intel® IoT Gateway
 Next to each computer that has been added to the system there is a button labeled connect.
