@@ -16,51 +16,53 @@ Start by performing these actions on your Intel IoT Gateway.
 During power up, the Intel AMT platform displays the BIOS startup screen, then it processes the MEBx. During this process, access to the Intel MEBX can be made; however the method is BIOS vendor-dependent. Some methods are discussed here.
 
 ![](images/AMT010.png)
-*   Most BIOS vendors add entry into the CSME via the one-time boot menu. Select the appropriate key (Ctrl+P is typical) and follow the prompts.
+*   Most BIOS vendors add entry into the CSME via the one-time boot menu. Select the appropriate key (**Ctrl+P** is typical) and follow the prompts.
 *   Some OEM platforms prompt you to press <Ctrl+P> after POST. When you press <Ctrl+P>, control passes to the Intel MEBx (CSME) main menu.
 *   Some OEMs integrate the CSME configuration inside the BIOS (uncommon).
 *   Some OEMs have an option in the BIOS to show/hide the <Ctrl+P> prompt, so if the prompt is not available in the one-time boot menu, check the BIOS to activate the CTRL+P.
 
 ## Change Password
-Enter the CSME default password admin
+* Select MEBx Login and Press Enter.
+* Enter the default password **admin**.
 
-**Troubleshoot**:- If the NUC7i7DNHE (Dawson Canyon) is already AMT configured, it may have Intel@1234 as password
+**Troubleshoot**:- If the NUC7i7DNHE (Dawson Canyon) is already AMT configured, it may have Intel@1234 as the password
 
-*   Change the default password (required to proceed).
-*   The new value must be a strong password.
-*   It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, and be at least eight characters.
+*   (For first time login) Enter the new password **Intel@1234**.
+
+*The new value must be a strong password.<br/>
+It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, and be at least eight characters.*
 *   A management console application can change the Intel AMT password without modifying the CSME password.
 
 ## AMT Configuration
-*   Go back to previous menu using Esc key
-*   Select Intel AMT Configuration.
+*   Select Intel AMT Configuration and Press Enter.
 *   Select/Verify Manageability Feature Selection is Enabled.
 
 ## Network Configuration
-*   Under the Intel® ME Network Setup menu Select 'TCP/IP Settings' and Press Enter.
-*   The Intel Network Setup menu changes to the TCP/IP Settings page
-*   Goto Wired LAN IPV4 Configuration Under the TCP/IP Settings, Select 'Wired LAN IPV4 Configuration' and press Enter.
-*   Enable DHCP
-*   Activate Network Access option by enabling it
+*   Select Network Setup and Press Enter.
+*   Select TCP/IP Settings and Press Enter.
+*   Select Wired LAN IPV4 Configuration and Press Enter.
+*   Enable DHCP Mode
+*   Press the Esc key 3 times to navigate to the Intel AMT Configuration menu
+*   Select Activate Network and Press Enter.
+*   Select/Enter "Y" to confirm Activating the interface
+
+*This enables network access for AMT by enabling it.
 
 ## Exit
-*   Press Esc key to go to exit screen
-*   Select "Y" to confirm Activating the interface.
-*   Exit CSME.
+*   Press the Esc key 2 times to navigate to the Main menu and exit
+*   Select/Enter "Y"
 
-## Use a Web Browser to Connet to the Intel® Active Management Technology web interface
+## Use a Web Browser to Connect to the Intel® Active Management Technology web interface
+**Note**: Access to the Intel® AMT web interface with your machine's IP address is not allowed.<br\>
+For this section, you will need to work with the person next to you.
+The goal is to connect to your neighbor's machine and vice versa.
 
-To use the Intel® Active Management Technology web interface, open a browser and go to the IP address of the Intel® IoT Gateway. The port number is 16992
+*   Launch Command Prompt by entering cmd in the Search box witin the Task bar
+*   Enter *ipconfig* in the Command Prompt window to get your IP Address
+*   Launch a web browser
+*   Type the IP address of your neighbor's machine with the port number 16992. (ex. http://<ip_address>:16992)
 ![](images/002-Intel-AMT-Web-Browser-Login-Screen.jpg)
-
-
-**For this step, you will need to work with the person next to you.**
-
-You will not be able to access the Intel® AMT web interface, if you are using a web browser on the same machine.
-
-Try to connect to your neighbor's Intel® IoT Gateway and let them connect to yours. http://x.x.x.x:16992
-
-When prompted for username/password, type admin for username and Intel@1234 as the password
+*   When prompted for username/password, type **admin** as the username and **Intel@1234** as the password
 
 You are now connected. Please explore different sections.
 ![](images/003-Intel-AMT-Web-Browser-Screen.jpg)
