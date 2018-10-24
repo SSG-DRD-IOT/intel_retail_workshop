@@ -10,6 +10,7 @@ In our next three Labs, we will develop a complete interactive face detection ap
 
 ### Generating solution file
 - Go to ***C:\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\samples\build***
+
 **NOTE: Double check the above path. We are not using the path from the previous lab module**
 - open "samples.sln"
 - click on interactive_face_detection_sample > src > main.cpp in visualstudio.
