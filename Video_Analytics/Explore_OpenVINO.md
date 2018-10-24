@@ -53,13 +53,25 @@ For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 **Description**                           
 Showcase Vehicle Detection, followed by Vehicle Attributes and License Plate Recognition are applied on top of Vehicle Detection. The vehicle attributes execution barrier reports the general vehicle attributes, like the vehicle type and colour, whether the type is something like car, van, or bus.
 The application reads command line parameters and loads the specified models. The Vehicle/License-Plate Detection model is required, and the others are optional.
-* **Running the Application**
-- Go to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\  inferenceengine\samples\build2017
+
+* **Build and Run Sample with CPU**
+- Go to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\demo
+
+- run demo_security_barrier_camera.bat
+
+![](images/run_demo.jpg)
+![](images/run_demo_result.jpg)
+
+- **Output and Performance**
+The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
+
+* **Building All Samples**
+- Go to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build2017
 
 
 - Open the samples.sln file and build the security_barrier_camera_sample.cpp sample.
 
-Upon successful build, a security_barrier_camera_sample.exe file is available inside the bin\intel64\Debug folder.
+Upon successful build, a security_barrier_camera_sample.exe file is available inside the C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\intel64\Debug folder.
 
 Running the application with –h option results with the following information:
 
@@ -85,7 +97,7 @@ C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\in
 
 ```
 - **Output and Performance**
-The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
+The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. 
 
 ![](images/GPU.PNG)
 - Press escape button to terminate
