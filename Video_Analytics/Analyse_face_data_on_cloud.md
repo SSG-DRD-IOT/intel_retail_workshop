@@ -49,6 +49,14 @@ if resp.status_code != 201:
 else:
   print("Data Submitted for analysis")
  ```
+ 
+### Install the Requests module
+**Requests** is a python module that allows applications to send HTTP requests.
+
+- Open a Command prompt window
+- Copy and Paste `python -m pip install requests` into the window
+- Press the Enter key to start installing the module
+ 
 ### Integrate cloud module
 - Replace #TODO: Cloud Integration 2 with below code snippet
 
@@ -70,6 +78,14 @@ else:
     framecounter = 0;
   }
 ```
+### Increment the framecounter
+- Locate the Main Inference while loop
+- Insert `framecounter++;` after the following lines
+```
+// Main inference loop
+while (true) {
+```
+
 ### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
