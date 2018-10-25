@@ -22,7 +22,7 @@ We counted the number of faces successfully. Now, we will publish it to cloud fo
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
 - The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > 05-OpenVINO***
-- If file is not present, create a "python.py" file and add the following code snippet into that file.
+- If file is not present, create a "cloud.py" file and add the following code snippet into that file.
 
 ```
 #import requests
@@ -37,7 +37,7 @@ attentivityindex = sys.argv[5]
 
 count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex}
 
-query = 'id' + '&value=' + str(facecount);
+query = 'id='+ str(id) + '&value=' + str(facecount);
 
 with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json', 'w') as file:
      file.write(json.dumps(count))
