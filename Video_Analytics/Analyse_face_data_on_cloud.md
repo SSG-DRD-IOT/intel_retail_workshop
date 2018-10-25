@@ -94,11 +94,8 @@ Real time visualization of number of people, age and gender on local cloud
 ```
 node server.js
  ```
-- Go to http://localhost:9002
-- Example : 127.0.0.1:9002
-- Enter your device id
-- Click the plot
-- See the real time face count on cloud
+- Open a web browser and paste http://localhost:9002 in the Address bar
+The real time face count will be rendered on the graph.
 
 ![](images/cloudAnalysis.png)
 
