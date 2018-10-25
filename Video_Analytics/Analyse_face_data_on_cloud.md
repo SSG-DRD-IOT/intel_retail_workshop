@@ -14,7 +14,7 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Paste the following line and replace the device id “1234” with your device id written on your computer.
 
 ```
-std::string deviceId="1234";
+std::string id="1234";
 ```
 
 ### Publish Number of Faces to Cloud
