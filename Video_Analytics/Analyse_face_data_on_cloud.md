@@ -25,29 +25,27 @@ We counted the number of faces successfully. Now, we will publish it to cloud fo
 - If file is not present, create a "cloud.py" file and add the following code snippet into that file.
 
 ```
-#import requests
+import requests
 import sys
 import json
+import time
 
 id = sys.argv[1]
-facecount = sys.argv[2]
-malecount = sys.argv[3]
-femalecount = sys.argv[4]
-attentivityindex = sys.argv[5]
+facecount = int(sys.argv[2])
+malecount = int(sys.argv[3])
+femalecount = int(sys.argv[4])
+attentivityindex= int(sys.argv[5])
 
-count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex}
-
-query = 'id='+ str(id) + '&value=' + str(facecount);
-
+count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex, "timestamp":time.strftime('%H:%M:%S')}
+query = 'id=' + str(id) + '&value=' + str(facecount) +'&malecount=' + str(malecount) +'&femalecount=' + str(femalecount);
 with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json', 'w') as file:
      file.write(json.dumps(count))
 
-resp = requests.get('http://<ip address>:9002/analytics/face?'+ query);
-
+resp = requests.get('http://192.168.43.107:9002/analytics/face?'+ query);
 if resp.status_code != 201:
-  print("Unable to submit the data")
+	print("Unable to submit the data")
 else:
-  print("Data Submitted for analysis")
+    print("Data Submitted for analysis")
  ```
 ### Integrate cloud module
 - Replace #TODO: Cloud Integration 2 with below code snippet
