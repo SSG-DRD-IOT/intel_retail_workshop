@@ -1,19 +1,19 @@
 # Intel® Retail Workshop Setup Guide
-Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenVINO™ toolkit through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of OpenVINO™ toolkit and have some working ideas of how to implement them in your video analytics applications.
+Welcome to the Intel® Retail Workshop. In this workshop, we will explore Intel® AMT and related tools through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of Intel® AMT and related tools.
 ## How Do I Use the Lab Material
-The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® OpenVINO™ toolkit.
+The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® AMT.
 
 ## Workshop Agenda
-* **Configure AMT**
+* **Configure Intel® AMT**
     <!--- Slide Deck --->
     - Lab - [Configure AMT](./Configure_AMT.md)
 
 
-* **Manage Remote Systems**
+* **Remote Configuration with Mesh Commander**
   <!--- Slide Deck --->
-  - Lab - [Manage Remote Systems](./Manage_Remote_Systems.md)
+  - Lab - [Remote Configuration](./Manage_Remote_Systems.md)
 
 
-* **Remote Config MeshCentral**
+* **Remote System Management with MeshCentral**
   <!--- Slide Deck --->
-  - Lab - [Remote Config MeshCentral](./Remote_Config_MeshCentral.md)
+  - Lab - [Remote System Management](./Remote_Config_MeshCentral.md)
