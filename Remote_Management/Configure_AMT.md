@@ -4,16 +4,16 @@
 
  ## Intel® Active Management Technology
 
-This guide is intended to be a starting point for testing your Intel ® vPro™ technology systems within your environment.
+This guide is intended to be a starting point for testing your Intel® vPro™ technology systems within your environment.
 
 It will guide you through setting up a "Sandbox" test environment using your own network environment so that you can test your specific use cases on Intel® vPro technology that ultimately reduces overall support costs and costly service/truck rolls.
 
 The first step in enabling Intel® AMT is to install the Intel® AMT agent. In this lab, we will manually configure the AMT from BIOS. Then we will verify that the agent is correctly installed by going to a web browser and accessing the Intel® AMT firmware based web configuration console. The Converged Security and Manageability Engine (CSME) powers the Intel AMT system. As a component of the Intel® vPro™ platform, Intel AMT uses a number of elements in the Intel vPro platform architecture.
 ## Configuring Intel® AMT
 
-Start by performing these actions on your Intel IoT Gateway.
+Start by performing these actions on your Intel NUC.
 
-During power up, the Intel AMT platform displays the BIOS startup screen, then it processes the MEBx. During this process, access to the Intel MEBX can be made; however the method is BIOS vendor-dependent. Some methods are discussed here.
+During power up, the Intel AMT platform displays the BIOS startup screen, then it processes the MEBx. During this process, access to the Intel Management Engine BIOS Extension (MEBX) can be made; however the method is BIOS vendor-dependent. Some methods are discussed here.
 
 ![](images/AMT010.png)
 *   Most BIOS vendors add entry into the CSME via the one-time boot menu. Select the appropriate key (**Ctrl+P** is typical) and follow the prompts.
