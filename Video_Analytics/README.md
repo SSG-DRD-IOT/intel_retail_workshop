@@ -4,9 +4,9 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore  OpenV
 The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® OpenVINO™ toolkit.
 
 ## Workshop Agenda
-* **Exploration to  OpenVINO™ toolkit**
+* **Explore OpenVINO™ toolkit Samples**
     <!--- Slide Deck --->
-    - Lab - [Explore OpenVINO™ toolkit](./Explore_OpenVINO.md)
+    - Lab - [Explore OpenVINO™ toolkit Samples](./Explore_OpenVINO.md)
 
 
 * **Face Detection using  OpenVINO™ toolkit**
