@@ -46,7 +46,7 @@ It should contain at least one uppercase letter, one lowercase letter, one digit
 *   Select Activate Network Access and Press Enter.
 *   Select/Enter "Y" to confirm Activating the interface
 
-*This enables **wired** network access for AMT by enabling it.
+*This enables **wired** network access for AMT.
 
 ## Exit
 *   Press the Esc key 2 times to navigate to the Main menu and exit
