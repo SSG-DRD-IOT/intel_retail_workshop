@@ -22,7 +22,3 @@ The links below will guide the workshop attendee through slides and labs in the 
 * **Enhanced Video Analytics on edge using deep learning and Intel OpenVINO™ Toolkit**
     - Slide Deck - [Video Analytics](./Presentations/VideoAnalytics.pdf)
     - Lab - [Video Analytics](./Video_Analytics/README.md)
-
-* **Intelligent White Board**
-    <!--- Slide Deck --->
-    - Lab - [IWB](./IWB/IntelUnitePluginDevelopment.md)
