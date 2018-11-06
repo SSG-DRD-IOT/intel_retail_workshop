@@ -15,7 +15,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 * **Remote Management**
-  <!--- Slide Deck - -->
+  - Slide Deck - [Remote Management](./Presentations/RemoteManagement.pdf)
   - Lab - [Remote Management](./Remote_Management/README.md)
 
 
