@@ -39,13 +39,15 @@ The first step is to add a system to the Intel AMT MeshCommander configuration u
 
 ![](images/001-Add-AMT-Computer.jpg)
 
-*   Type a **friendly name** for the device<br/>
+*   Enter a **friendly name** for the device (ex. <ip_address>)<br/>
+    * Enter `cmd` in the Search box within the Taskbar. 
+    * Click the Command Prompt result and type `ipconfig` in the window to get your machine's IP address.
 *This is a string that allows you to easily identify the system.*
 *   (Optional) Type comma-separated string(s) to be used **tag(s)**<br/>
 *This allows you to put several systems together into recognizable categories.*
 *   Enter either the **host name** or **IP address** of the device in Hostname text field.
 *   Leave **authentication** as Digest / None.
-*   Enter Enter **admin** as the username and **Intel@1234** as the password.
+*   Enter **admin** as the username and **Intel@1234** as the password.
 
 ## Connect to your Intel® IoT Gateway
 Next to each computer that has been added to the system there is a button labeled connect.
