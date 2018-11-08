@@ -137,6 +137,3 @@ sample_video_wall.bat input.h264
 *   speed up in video playback, encoding, processing and media conversion.
 *   Performance monitoring
 
-## Next Step 
-
-Return to https://github.com/SSG-DRD-IOT/intel_retail_workshop/tree/lab-retail-workshop-windows/Video_Performance and continue with the next lab
