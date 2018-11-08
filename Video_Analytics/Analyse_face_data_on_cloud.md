@@ -50,6 +50,12 @@ else:
   print("Data Submitted for analysis")
  ```
  
+ ### Install Nodejs
+ - Open a web browser
+ - Copy and Paste [https://nodejs.org/en/](https://nodejs.org/en/) into the address bar
+ - Download and install the **10.13.0 LTS** version
+ 
+ 
 ### Install the Requests module
 **Requests** is a python module that allows applications to send HTTP requests.
 
