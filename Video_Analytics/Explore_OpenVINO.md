@@ -104,3 +104,6 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 
 ### Lessons Learned
 - OpenVINO™ toolkit, libraries, header and sample code files and available models
+
+### Next Lab
+[Face Detection](Face_detection.md)
