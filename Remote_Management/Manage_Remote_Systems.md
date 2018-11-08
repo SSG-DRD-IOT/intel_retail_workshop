@@ -41,7 +41,7 @@ The first step is to add a system to the Intel AMT MeshCommander configuration u
 
 *   Enter a **friendly name** for the device (ex. <ip_address>)<br/>
     * Enter `cmd` in the Search box within the Taskbar. 
-    * Click the Command Prompt result and type `ipconfig` in the window to get your machine's IP address.
+    * Click the Command Prompt result and type `ipconfig` in the window to get your machine's IP address.<br/>
 *This is a string that allows you to easily identify the system.*
 *   (Optional) Type comma-separated string(s) to be used **tag(s)**<br/>
 *This allows you to put several systems together into recognizable categories.*
@@ -64,7 +64,9 @@ After connecting to a system, you'll see the system information on the screen, s
 To view the screen of the remote computer system, do the following steps:
 
 *   Click on the **Remote Desktop** link in the left sidebar.
-*   Then click the **Connect** button as shown in the image
+*   Click the **Connect** button as shown in the image<br/>
+
+**Note:** If you are prompted with the "Intel AMT Redirection port or KVM feature is disabled, click here to enable it." message, click it to enable.
 
 ![](images/005-Click-Connect-Remote-Desktop.jpg)
 
