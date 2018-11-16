@@ -1,6 +1,6 @@
-# Head Pose Detection using  OpenVINO™ toolkit
+# Head Pose Detection using the Intel® Distribution of OpenVINO™ toolkit
 ### Lab Overview
-We have done Face and Age,Gender Detection in our previous module. Now, we identify Headpose for the identified faces.    
+We have done Face and Age, Gender Detection in our previous module. Now, we identify Headpose for the identified faces.    
 We  build upon our Face Detection code and add Age ,Gender add HeadPose identification code in this module.
 
 **Class diagram for HeadPose Detection**
@@ -11,13 +11,13 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 -	Include CPU as plugin device for headpose detection inference.
 -	Load pre-trained data model for Headpose detection.
 -	Once Face Detection result is available, submit inference request for Headpose Detection
--	Mark the identified faces inside rectangle and draw Raw ,Yaw and Pitch axis.
+-	Mark the identified faces inside rectangle and draw Raw, Yaw and Pitch axis.
 -	Observe HeadPose Detection in addition to face.
 
 ![](images/Headpose_flowchart.PNG)
 
 ### Define a HeadPose class
-Here, we will define a class that includes the declaration of data member and member functions that will be used for HeadPose detection using OpenVINO™ toolkit.
+Here, we will define a class that includes the declaration of data member and member functions that will be used for HeadPose detection using the Intel® Distribution of OpenVINO™ toolkit.
 - Replace #TODO: Define class for HeadPose Detection
 - Paste the following code
 
@@ -379,4 +379,4 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
 - On successful execution, Face, Age  Gender and HeadPose will get detected.
 
 ### Lesson Learnt
-In addition to Face and AgeGender added HeadPose Detection using  OpenVINO™ toolkit.
+In addition to Face and AgeGender added HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit.

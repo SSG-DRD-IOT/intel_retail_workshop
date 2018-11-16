@@ -1,11 +1,11 @@
 # Explore Intel® Media SDK Samples
 ## Introduction
 
-Intel® Media SDK is a set of libraries, tools, header and sample code files that define cross-platform API for developing consumer and professional grade media applications on Intel platforms. Providing an access to Intel® Quick Sync Video, hardware accelerated codecs in Intel Graphics Processor, Media SDK allows application developer to speed up video playback, encoding, processing and media conversion. Media SDK for Windows helps to deliver desktop applications, such as video players, editors and video conferencing clients, while Media SDK for Embedded Linux enables digital security and surveillance and connected car manufacturers to deliver smart cameras and infotainment or cluster display solutions.
+Intel® Media SDK is a set of libraries, tools, header and sample code files that define cross-platform API for developing consumer and professional grade media applications on Intel® platforms. Providing an access to Intel® Quick Sync Video, hardware accelerated codecs in Intel® Processor Graphics, Intel®Media SDK allows application developer to speed up video playback, encoding, processing and media conversion. Intel® Media SDK for Windows* helps to deliver desktop applications, such as video players, editors and video conferencing clients, while Intel® Media SDK for Embedded Linux* enables digital security and surveillance and connected car manufacturers to deliver smart cameras and infotainment or cluster display solutions.
 
 ## Exploration
 
-This lab starts with exploring and understanding the media sdk related packages installed in your Intel® NUC7i7DNHE (Dawson Canyon). Then understand the customized applications such as sample decoder and video wall bundled with installation.
+This lab starts with exploring and understanding the media sdk related packages installed in your Intel® NUC 7i7DNHE (Dawson Canyon). Then understand the customized applications such as sample decoder and video wall bundled with installation.
 
 ## Observation
 
@@ -14,7 +14,7 @@ Performance monitoring using system performance monitoring tool; before and afte
 ## Learning Outcome
 
 By the end of this module, the participant is expected to understand the Intel® Media SDK, installation structure, hardware acceleration and performance enhancement of selected applications.
-## View the packages installed on your NUC7i7DNHE (Dawson Canyon)
+## View the packages installed on your Intel® NUC 7i7DNHE (Dawson Canyon)
 
 -  **Media SDK installer**
 
@@ -42,11 +42,11 @@ NUC7i7DNHE (Dawson Canyon)
 
 *   **doc** folder has documentation for raw, audio, image, video, etc., media types. It also provide media sdk user manual and developer reference manuals
 
-*   **include** folder has several header files supporting Intel® media sdk program development
+*   **include** folder has several header files supporting Intel® Media SDK program development
 
 *   **lib** folder has 32-bit and 64-bit static library _libmfx.lib_ for media function encoding and decoding
 
-    It also may have _libmfx\_vs2015.lib_ to link Intel® Media SDK with MS® Visual Studio 2015
+    It also may have _libmfx\_vs2015.lib_ to link Intel® Media SDK with Microsoft Visual Studio* 2015
 
 *   **open source** folder has SDK dispatcher. The dispatcher is a layer that lies between applications and SDK implementations. Upon initialization, the dispatcher locates the appropriate platform-specific SDK implementation. If there is none, it will select the software SDK implementation. The dispatcher will redirect subsequent function calls to the same functions in the selected SDK implementation.
 
@@ -133,8 +133,8 @@ sample_video_wall.bat input.h264
 
 - Change MediaSDKImplementation to sw and hw.
 ## Lessons learnt
-*   Intel® Media SDK's libraries, tools, header and sample code files.
-*   speed up in video playback, encoding, processing and media conversion.
+*   Intel® Media SDK libraries, tools, header and sample code files.
+*   Speed up in video playback, encoding, processing and media conversion.
 *   Performance monitoring
 
 ## Next Step 

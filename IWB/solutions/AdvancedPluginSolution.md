@@ -1,7 +1,7 @@
 # Code for Advanced Plugin
 
 
-***Note:*** For external python widget solution, click [here](./WidgetSolution.md)
+***Note:*** For external Python* widget solution, click [here](./WidgetSolution.md)
 ## AttendeeAnalyticsPlugin.cs
 ```c
 using System;
