@@ -5,10 +5,12 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 ## Workshop Agenda
 * **Explore Intel® Media SDK Samples**
-    - Slide Deck -
     - Lab - [Explore Intel® Media SDK Samples](./Explore_Intel®_Media_SDK_Samples.md)
 
 
 * **Custom Decoder using Intel® Media SDK**
-  - Slide Deck -
   - Lab - [Custom Decoder using Intel® Media SDK ](./Custom_Decoder_using_Intel®_Media_SDK.md)
+
+
+* **Transcode using Intel® Media SDK**
+  - Lab - [Transcode using Intel® Media SDK ](./Transcode_using_Intel®_Media_SDK.md)
