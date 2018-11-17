@@ -45,18 +45,18 @@ $ls /opt/intel/mediasdk/doc/
 
 System Analyzer tool reports back following information about CPU, GPU and Intel® Media Server studio components.
 
-![](images/SystemAnalyzer.JPG)
+![](images/SystemAnalyzer.png)
 
 *   Platform readiness: check if processor has necessary GPU components
 *   OS readiness: check if OS can see GPU, and if it has required glibc/gcc level
 *   Install checks for Intel® Media Server Studio/Intel® SDK for OpenCL™ applications components
 *   Results from runs of small smoke test programs for Intel® Media Server Studio and OpenCL™
 
-**Run** Download and copy sys\_analyzer\_linux.py file from [here](../views/labs/videoperformance-mediasdk/images/sys_analyzer_linux.py) to /home/intel\[machine id\]/Documents/workshop folder
+**Run** System Analyzer tool with below commands:
 ```
-$cd /home/intel\[machine id\]/Documents/workshop
+$cd ~/Desktop/Retail/MediaSDK
 
-$python sys\_analyzer\_linux.py
+$python sys_analyzer_linux.py
 ```
 ## Performance Monitoring
 
@@ -78,8 +78,9 @@ Make sure to review the performance parameters while running these samples. Abov
 
 Open new terminal and change the directory
 ```
-$cd /opt/intel/mediasdk/samples/
+$cd /opt/intel/mediasdk/samples/_bin/x64
 ```
+<!--
 Case 1: Execute the below command for software implementation:
 
 In this example -sw stands for Software Acceleration, -r is for rendering the output.
@@ -89,10 +90,12 @@ $./sample\_decode h264 -i '/home/intel\[workshop id\]/Documents/workshop/msdk\_s
 ![](images/MSDK_SW.png)
 
 Case 2: Execute the below command for hardware acceleration:
+-->
+Execute the below command for hardware acceleration:
 
 In this example, we are instructing the application to use vaapi memory type. If you dont specify, then it will take system memory by default. -hw stands for hardware Acceleration.
 ```
-$./sample\_decode h264 -i '/home/intel\[workshop id\]/Documents/workshop/msdk\_samples/samples/input.h264' -vaapi -hw -r
+$./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/input.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
 ```
 ![](images/MSDK_HW.png)
 
@@ -107,6 +110,7 @@ For example:
 
 sample\_encode is another console application which performs encoding of raw video frames into elementary compressed stream
 
+<!--
 Case 1: Execute the below command for software implementation:
 
 We are passing an input raw video stream and converting it to h264 formatted elementary stream.
@@ -120,12 +124,15 @@ $./sample\_encode h264 -nv12 -i '/home/intel\[machine id\]/Documents/workshop/ms
 Observe the CPU utilization from System Monitor as described before
 
 Case 2: Execute the below command for hardware acceleration:
+-->
+Execute the below command for hardware acceleration:
+
 ```
-$./sample\_encode h264 -nv12 -i /home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/input.yuv -o /home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/hw\_out.h264 -w 1920 -h 1080 -f 60 -hw
+$./sample_encode h264 -nv12 -i ../content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
 ```
 To view the converted h264 file, run the decoding sample as follows:
 ```
-$./sample\_decode h264 -i /home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/hw\_out.h264 -vaapi -hw -r
+$./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
 ```
 ## Lessons learnt
 
