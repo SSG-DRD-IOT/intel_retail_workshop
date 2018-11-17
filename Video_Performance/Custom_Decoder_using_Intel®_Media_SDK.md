@@ -1,261 +1,171 @@
-# Build Simple Video Decoder
+# Decoding a video stream using Intel® Media SDK
+In this tutorial you will learn the basic principles behind decoding a video stream using the Intel(R) Media SDK. You will understand how to configure and optimise the Intel(R) Media SDK pipeline to decode a 4K 30fps AVC stream using hardware. We will also look at decoding a 4K 10-bit HEVC stream.
+
+## Getting Started
 
 
+You will need 3 terminal windows to complete the tutorial. One for compiling and running the code, one for monitoring CPU usage and system processes and another to monitor GPU usage.
 
-## Introduction
-
-![](images/psuedocode.png)
-
-We will build a custom Console application which performs decoding of elementary compressed video stream and renders them on the screen:
-
-Video Decoding Process
-
-*   Setup parameter to decode pipeline
-*   Initialize decoder
-*   Decode frame by frame
-
-## Observation
-
-Pass different parameters related to "sInputParams" and observe the difference
-
-## Learning Outcome
-
-By the end of this module, participants would get the basic understanding of building a video decode solution using Intel MSS
-
-## Building new sample
-
-Navigate to workshop/msdk\_samples/samples directory
+Terminal 1:
+``` bash
+htop
 ```
-$cd /home/intel\[workshop id\]/Documents/workshop/msdk\_samples/samples
+Terminal 2:
+``` bash
+sudo intel_gpu_top
 ```
-Delete the sample\_decode.cpp and CMakeLists.txt files in this custom\_decode project(if exists)
-```
-$cd custom\_decode
-
-$cd src
-
-$sudo rm -rf sample\_decode.cpp CMakeLists.txt
-```
-Create new custom\_decode.cpp file to enter your custom decoding program
-```
-$sudo gedit custom\_decode.cpp
-```
-Save this custom\_decode.cpp using Ctrl+s
-
-## Inclusions
-
-Open custom\_decode.cpp file to complete the exercise with the code given in the following steps:
-
-Include the pipeline\_decode.h and sstream headers. pipeline\_decode has CDecodingPipeline class which does all the critical tasks associated with decode process.
-```
-#include "pipeline\_decode.h"
-#include <sstream>
-```
-## Input Processing
-
-Define a method **InputSetup()** that accepts the sInputParams array.
-
-This method first checks the input array for consistency.
-
-Then sets the video type, memory type, hardware acceleration, asynchronous depth factor, mode, etc.,
-
-It also writes the input h264 file path to parameter list
-```
-mfxStatus InputSetup(sInputParams* pParams)
-           {
-           //Check the pParams pointer
-           MSDK_CHECK_POINTER(pParams, MFX_ERR_NULL_PTR);
-           //Set the Video type:
-           //MFX_CODEC_AVC for H264 codec
-           //MFX_CODEC_JPEG for JPEG codec
-           pParams->videoType = MFX_CODEC_AVC;
-           msdk_opt_read(MSDK_STRING("/home/intel[workshop id]/Documents/workshop/msdk_samples/samples/input.h264"), pParams->strSrcFile);
-           //Set the memory type:
-           //D3D11_MEMORY for Directx11
-           //D3D9_MEMORY for Directx9
-           //SYSTEM_MEMORY for System Memory
-           pParams->memType = D3D9_MEMORY;    //For VAAPI
-           //set hardware implementation as default
-           //Software implementation can be tried by setting this to false.
-           pParams->bUseHWLib = true;
-           //Depth of asynchronous pipeline, this number can be tuned to achieve better performance.
-           pParams->nAsyncDepth = 4;
-           //Set the eWorkMode from:
-           //MODE_PERFORMANCE,
-           //MODE_RENDERING,
-           //MODE_FILE_DUMP
-           pParams->mode = MODE_RENDERING;
-           pParams->libvaBackend = MFX_LIBVA_X11;
-           //Some other parameters which can be explored further are:
-           /*bool    bIsMVC; // true if Multi-View Codec is in use
-           bool    bLowLat; // low latency mode
-           bool    bCalLat; // latency calculation
-           bool    bUseFullColorRange; //whether to use full color range
-           mfxU16  nMaxFPS; //rendering limited by certain fps
-           mfxU32  nWallCell;
-           mfxU32  nWallW; //number of windows located in each row
-           mfxU32  nWallH; //number of windows located in each column
-           mfxU32  nWallMonitor; //monitor id, 0,1,.. etc
-           bool    bWallNoTitle; //whether to show title for each window with fps value
-           mfxU32  numViews; // number of views for Multi-View Codec
-           mfxU32  nRotation; // rotation for Motion JPEG Codec
-           mfxU16  nAsyncDepth; // asyncronous queue
-           mfxU16  nTimeout; // timeout in seconds
-           mfxU16  gpuCopy; // GPU Copy mode (three-state option)
-           */
-           return MFX_ERR_NONE;
-           }
-
+Terminal 3:
+``` bash
+export MFX_HOME=/opt/intel/mediasdk
+cd $HOME/Retail_Workshop/msdk_decode
 ```
 
-Declare the pipeline having input file reader, decoder and output file writer.
+![Terminal Windows](images/msdk_global_l_01.png)
 
-Then setup the input parameters and perform error checking.
+Open the **msdk_decode.cpp** source file in your preferred code editor.
+The file is located at the following path: **~/Desktop/Retail/MediaSDK/msdk_decode/src/**
 
-Set the following parameters in the main function
+## Understanding The Code
+Take a look through the existing code using the comments as a guide. This example shows the minimum API usage to decode a H.264 stream.
+
+The basic flow is outlined below:
+
+ 1. Specify input file to decode
+ 2. Initialise a new Media SDK session and decoder
+ 3. Configure basic video parameters (e.g. codec)
+ 4. Create buffers and query parameters
+    - Allocate a bit stream buffer to store encoded data before processing
+    - Read the header from the input file and use this to populate the rest of the video parameters
+    - Run a query to check for the validity and SDK support of these parameters
+ 5. Allocate the surfaces (video frame working memory) required by the decoder
+ 6. Initialise the decoder
+ 7. Start the decoding process:
+    - The first loop runs until the entire stream has been decoded
+    - The second loop drains the decoding pipeline once the end of the stream is reached
+8. Clean-up resources (e.g. buffers, file handles) and end the session.
+
+## Hardware Decoding
+The current code is configured to use software based decoding. The open-source Media SDK doesn't include software decoders so we need to update the code to use hardware based decoding which will also give improved efficiency and speed.
+
+If software based decoders are available the Intel(R) Media SDK is able to select the best decode implementation based on the platform capabilities, first checking to see if hardware can be used and falling back to software if not by using the **'MFX_IMPL_AUTO_ANY'** implementation. In our case software decoders are not available so we will use the **'MFX_IMPL_HARDWARE'** implementation to force hardware based decoding.
+
+> **Intel® Media Server Studio Professional Edition** is required to get optimised software fallback on Linux.
+
+ - Change the Media SDK implementation from **'MFX_IMPL_SOFTWARE'** to **'MFX_IMPL_HARDWARE**:
+
+``` cpp
+    mfxIMPL impl = MFX_IMPL_HARDWARE;
 ```
-int main()
-           {
-           // input parameters
-           sInputParams        Params;
-           // pipeline for decoding, includes input file reader, decoder and output file writer
-           CDecodingPipeline   Pipeline;
-           // return value check
-           mfxStatus sts = MFX_ERR_NONE;
-           //Setup your input parameters.
-           sts = InputSetup(&Params);
-           MSDK_CHECK_PARSE_RESULT(sts, MFX_ERR_NONE, 1);
 
+## Build & Run The Code
 
-```  
-## Decoding Pipeline
-
-Initialise the decoding pipeline and check the error status.
-
-Continue coding in the main function
+ - To build the code run the **make** command in the **msdk_decode** directory:
+``` bash
+make
 ```
-//Initialise the Decode pipeline
-            sts = Pipeline.Init(&Params);
-            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-            //print stream info
-            Pipeline.PrintInfo();
-            msdk_printf(MSDK_STRING("Decoding started\n"));
+> Make sure no errors are reported when running the **make** command
+ - To run the application use the following command:
+``` bash
+../build/msdk_decode
+```
+ - While the decode process is running take a look at the CPU and GPU usage in the terminal windows you setup previously. You will notice some CPU usage as we are using system memory for our working surfaces but the decode process is taking place on the GPU which will be reflected in the GPU utilisation (use the **GAM** task as a reference).
+
+![GPU Usage](images/msdk_decode_l_01.png)
+
+ - Wait for the application to finish decoding the video stream and then take note of the **execution time** printed in the console window. You can then **press 'enter' to stop the application**.
+```
+Frame number: 1800
+Execution time: 19.49 s (92.34 fps)
+Press ENTER to exit...
 ```
 
-## Main Decoding Loop
+## Further Optimisation
+The current code uses **system memory** for the working surfaces as this is the implementation provided by the default allocator when creating an Intel(R) Media SDK session. Allocating surfaces in video memory is highly desirable since this eliminates copying them from the system memory to the video memory when decoding leading to improved performance. To achieve this we have to provide an external allocator which is able to manage video memory using the VA-API.
 
-
-Now let us loop all the frames in the video to decode them using **Pipeline.RunDecoding()**
-
-Every method in MSS returns a status. Based Error handling for incompatible video parameters, lost device, failed device, etc.,
-
-Reset the device using **Pipeline.ResetDevice** in case of hardaware error.
-
-If there are no errors, it will set the flag to **MFX\_ERR\_NONE**
-
-Finally clear all decode buffer and move to the next frame using **Pipeline.ResetDecoder(&Params);**
-
-Continue following coding in the main function
+ - First we need to create a variable for the external allocator and pass this into our existing **Initialize** function.
+``` cpp
+    mfxFrameAllocator mfxAllocator;
+    sts = Initialize(impl, ver, &session, &mfxAllocator);
 ```
-for (;;)
-            {
-            //Decode frame by frame
-            sts = Pipeline.RunDecoding();
-            if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts || MFX_ERR_DEVICE_LOST == sts || MFX_ERR_DEVICE_FAILED == sts)
-            {
-            if (MFX_ERR_INCOMPATIBLE_VIDEO_PARAM == sts)
-            {
-            msdk_printf(MSDK_STRING("\nERROR: Incompatible video parameters detected. Recovering...\n"));
-            }
-            else
-            {
-            msdk_printf(MSDK_STRING("\nERROR: Hardware device was lost or returned unexpected error. Recovering...\n"));
-            //Reset device in case of hardware error
-            sts = Pipeline.ResetDevice();
-            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-            }
-            //Clear all decode buffer and move to next frame.
-            sts = Pipeline.ResetDecoder(&Params);
-            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-            continue;
-            }
-            else
-            {
-            MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, 1);
-            break;
-            }
-            }
-            msdk_printf(MSDK_STRING("\nDecoding finished\n"));
-            return 0;
-            }// End of main
-         ```
+ - Next we update the IO pattern specified in the video parameters to tell the decoder we are using video memory instead of system memory.
+```
+    mfxVideoParams.IOPattern = MFX_IOPATTERN_OUT_VIDEO_MEMORY;
+```
+ - We now need to use our new allocator when allocating surface memory for our decoder. Replace **Section 5** with the code below.
+```
+    //5. Allocate surfaces for decoder
+    mfxFrameAllocResponse mfxResponse;
+    sts = mfxAllocator.Alloc(mfxAllocator.pthis, &Request, &mfxResponse);
+    MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, sts);
 
-Save the file by ctrl+s
+    // Allocate surface headers (mfxFrameSurface1) for decoder
+    mfxFrameSurface1** pmfxSurfaces = new mfxFrameSurface1 *[numSurfaces];
+    MSDK_CHECK_POINTER(pmfxSurfaces, MFX_ERR_MEMORY_ALLOC);
+    for (int i = 0; i < numSurfaces; i++) {
+        pmfxSurfaces[i] = new mfxFrameSurface1;
+        memset(pmfxSurfaces[i], 0, sizeof(mfxFrameSurface1));
+        memcpy(&(pmfxSurfaces[i]->Info), &(mfxVideoParams.mfx.FrameInfo), sizeof(mfxFrameInfo));
+        pmfxSurfaces[i]->Data.MemId = mfxResponse.mids[i];      // MID (memory id) represents one video NV12 surface
+    }
+```
+ - Finally we need to make sure our allocator is destroyed once decoding is finished. Add the following line of code after the surface deletion *for loop* in **section 8**:
+```
+    mfxAllocator.Free(mfxAllocator.pthis, &mfxResponse);
+```
+ - We can also **remove** the following line from our cleanup code as it is no longer required:
+```
+    MSDK_SAFE_DELETE_ARRAY(surfaceBuffers);
+```
+ - **Build** the code using the **make** command as you did previously and again run the application. Take a look at the CPU and GPU utilisation whilst the application is running. You will see the **CPU usage** is now minimal (assuming nothing else is happening on the system) as we are no longer using shared memory for our working surfaces. Also notice the **GPU** is now **better utilised** as it is no longer having to wait for frames to be copied from system memory.
 
-## Configure and generate solution
+- Note the **execution time**, which should now be significantly improved,  before continuing.
 
-Navigate to custom\_decode directory and create CMakeLists file
+## HEVC 4K 10-bit
+"What about the latest 4K 10-bit HEVC video streams" I hear you ask? Support for both decode and encode of such streams was introduced with 7th Gen Intel(R) Core(TM) Processors and the Intel(R) Media SDK has full support for both. We will now make the small code modifications necessary to decode a sample 4K 10-bit HEVC stream.
 
-$cd /home/intel\[workshop id\]/Documents/workshop/msdk\_samples/samples/custom\_decode
+ - Firstly we need to update our input source to the 4K 10-bit HEVC sample. This sample has an average bitrate of over 40Mbps, similar to that of a 4K Ultra HD Blu-ray.
+``` cpp
+    char path[] = "../jellyfish-60-mbps-4k-uhd-hevc-10bit.h265";
+```
+ - Next we update the codec in our decode video parameters from **MFX_CODEC_AVC** to **MFX_CODEC_HEVC**.
+``` cpp
+    mfxVideoParams.mfx.CodecId = MFX_CODEC_HEVC;
+```
+ - HEVC support is provided as a plugin to the Intel(R) Media SDK which needs to be manually loaded at runtime. Add the following code to **section 3** to load the HEVC plugin.
+```
+    // Load the HEVC plugin
+    mfxPluginUID codecUID;
+    bool success = true;
+    codecUID = msdkGetPluginUID(impl, MSDK_VDECODE, mfxVideoParams.mfx.CodecId);
 
-$sudo gedit CMakeLists.txt
+    if (AreGuidsEqual(codecUID, MSDK_PLUGINGUID_NULL)) {
+        printf("Failed to get plugin UID for HEVC.\n");
+        success = false;
+    }
 
-Make sure your CMakeLists.txt file contents matches the below ones:
+    printf("Loading HEVC plugin: %s\n", ConvertGuidToString(codecUID));
 
-include\_directories (
+    // If we successfully got the UID, load the plugin
+    if (success) {
+        sts = MFXVideoUSER_Load(session, &codecUID, ver.Major);
+        if (sts < MFX_ERR_NONE) {
+            printf("Loading HEVC plugin failed!\n");
+            success = false;
+        }
+    }
+```
+ - Before we proceed to test the code let's try playing the sample using the **ffplay** utility using only the CPU. To do so run the following command:
+```
+ffplay ../jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
+```
+> Use the **Esc** key to stop playback at any time.
 
-${CMAKE\_CURRENT\_SOURCE\_DIR}/../sample\_common/include
+ - You will notice the CPU alone is struggling to decode the high bitrate stream fast enough to render at a smooth 30fps.
 
-${CMAKE\_CURRENT\_SOURCE\_DIR}/../sample\_misc/wayland/include
+ - **Build** the code and **run the application** once again. Note the **execution time** before continuing. As you can see the GPU decoding performance comfortably fulfills the 30fps requirement for smooth playback.
 
-${CMAKE\_CURRENT\_SOURCE\_DIR}/include
+> If you missed some steps or didn't have time to finish the tutorial the completed code is available in the **msdk_decode_final** directory.
 
-)
+## Conclusion
+In this tutorial we looked at the Intel(R) Media SDK decoding pipeline and ways to optimise decoding performance on Intel platforms. We explored the performance and power advantages decoding using the GPU rather than the CPU particularly with complex codecs such as HEVC. We also looked at the advantages of using video memory for our working surfaces instead of system memory to avoid unnecessary memory transfers.
 
-list( APPEND LIBS\_VARIANT sample\_common )
-
-set(DEPENDENCIES libmfx dl pthread)
-
-make\_executable( shortname universal "nosafestring" )
-
-install( TARGETS ${target} RUNTIME DESTINATION ${MFX\_SAMPLES\_INSTALL\_BIN\_DIR} )
-
-Generate, clean and build the project using build.pl script as follows:
-
-cd /home/intel\[workshop id\]/Documents/workshop/msdk\_samples/samples/
-
-$perl build.pl --cmake=intel64.make.debug --build --clean
-
-$make -j4 -C \_\_cmake/intel64.make.debug
-
-End result should say **state: ok**
-
-New folder named \_\_cmake will have executables. Navigate to the same as follows:
-
-$cd \_\_cmake/intel64.make.debug/\_\_bin/debug/
-
-Execute the custom\_decode:
-
-$./custom\_decode
-
-It should show the video rendered on the screen with settings enabled in custom decoding
-
-## Complete Solution
-
-If you have problems in executing your code, you can see the complete custom\_decode source code from below link
-
-[custom\_decode.cpp](views/labs/videoperformance-mediasdksamples/downloads/custom_decode.cpp)
-
-Regenerate, clean and rebuild the code using build.pl script as discussed in previous section
-
-## Execution
-
-./custom\_decode
-
-
-
-This example demonstrates hardware based video decoding with output rendered on the screen and details printed in the terminal
-
-## Lesson learnt
-
-Decoding the H.264 stream and exploring supported input parameters from Intel® Media SDK
