@@ -1,5 +1,5 @@
-# Transcoding a video stream using Intel(R) Media SDK (Linux)
-In this tutorial we will look at a simple transcode (decode + encode) pipeline using the Intel(R) Media SDK. We will start with a basic example using system memory for working surfaces before exploring ways of improving the performance of the transcode process using features such as opaque memory and asynchronous operation. We will also look at adding a video frame processing (VPP) resize to the transcode process.
+# Transcoding a video stream using Intel® Media SDK
+In this tutorial we will look at a simple transcode (decode + encode) pipeline using the Intel® Media SDK. We will start with a basic example using system memory for working surfaces before exploring ways of improving the performance of the transcode process using features such as opaque memory and asynchronous operation. We will also look at adding a video frame processing (VPP) resize to the transcode process.
 
 ## Getting Started
 
@@ -30,14 +30,14 @@ Take a look through the existing code using the comments as a guide. This exampl
 The basic flow is outlined below:
 
  1. Specify input file to decode and file to write the encoded data to
- 2. Create the Intel(R) Media SDK session, decoder and encoder
+ 2. Create the Intel® Media SDK session, decoder and encoder
  3. Configure decoder video parameters (e.g. codec)
  4. Create buffers and query parameters
     - Allocate a bit stream buffer to store encoded data before processing
     - Read the header from the input file and use this to populate the rest of the video parameters
  5. Configure encoder video parameters (e.g. codec, bitrate, rate control)
  6. Allocate the surfaces (video frame working memory) required by the decoder and encoder
- 7. Initialise the Intel(R) Media SDK decode and encode components
+ 7. Initialise the Intel® Media SDK decode and encode components
  8. Allocate a bit stream buffer to store the output from the encoder
  9. Start the transcoding process:
     -  The first loop is the main transcoding loop where the input stream is decoded and encoded until the end of the stream is reached
@@ -68,7 +68,7 @@ Press ENTER to exit...
 ```
 
 ## Opaque Memory
-In our current code we are using system memory for the working surfaces used by our decoder and encoder which means frames have to be passed between system memory and video memory multiple times during the transcode pipeline limiting performance. The Intel(R) Media SDK has a feature called **Opaque Memory** which hides surface allocation specifics and allows the SDK to select the best type for execution in hardware or software. This means that if the pipeline allows, surfaces will reside in video memory for best performance. It's worth mentioning that whilst opaque memory is an easy solution for optimised surface allocation in simple situations, if you need to integrate components outside of the Intel(R) Media SDK application-level video memory allocation is required.
+In our current code we are using system memory for the working surfaces used by our decoder and encoder which means frames have to be passed between system memory and video memory multiple times during the transcode pipeline limiting performance. The Intel® Media SDK has a feature called **Opaque Memory** which hides surface allocation specifics and allows the SDK to select the best type for execution in hardware or software. This means that if the pipeline allows, surfaces will reside in video memory for best performance. It's worth mentioning that whilst opaque memory is an easy solution for optimised surface allocation in simple situations, if you need to integrate components outside of the Intel® Media SDK application-level video memory allocation is required.
 
  - We start by updating the IO pattern in our decoder video parameters from **MFX_IOPATTERN_OUT_SYSTEM_MEMORY** to **MFX_IOPATTERN_OUT_OPAQUE_MEMORY**.
 ``` cpp
@@ -317,9 +317,9 @@ with this:
  - Once again **Build** the code and run the application. Note the **execution time** and again take a look at the **GPU Utilisation**. You will notice that performance has increased and the GPU is better utilised now we are performing more asynchronous operations.
 
 ## Video Post Processing (VPP)
-Often the reason for transcoding is because you want to change the input source in some way, be it codec, color space, resolution or filtering. The Intel(R) Media SDK offers several processing modules for this purpose which can be added to the pipeline. We will now look at adding a resize module to our transcode pipeline to lower the 4K input stream to 1080p before encoding. The transcode pipeline will then be as follows: **Decode -> VPP -> Encode**
+Often the reason for transcoding is because you want to change the input source in some way, be it codec, color space, resolution or filtering. The Intel® Media SDK offers several processing modules for this purpose which can be added to the pipeline. We will now look at adding a resize module to our transcode pipeline to lower the 4K input stream to 1080p before encoding. The transcode pipeline will then be as follows: **Decode -> VPP -> Encode**
 
- - We start by creating a VPP instance for our Intel(R) Media SDK session.
+ - We start by creating a VPP instance for our Intel® Media SDK session.
 ``` cpp
     MFXVideoVPP mfxVPP(session);
 ```
@@ -601,7 +601,7 @@ So far we have been working with H.264 video streams but if we want to transcode
 ``` cpp
     mfxEncParams.mfx.CodecId = MFX_CODEC_HEVC;
 ```
- - HEVC support is provided as a plugin to the Intel(R) Media SDK which needs to be manually loaded at runtime. Add the following code to load the HEVC plugin after the code to populate the encoder parameters.
+ - HEVC support is provided as a plugin to the Intel® Media SDK which needs to be manually loaded at runtime. Add the following code to load the HEVC plugin after the code to populate the encoder parameters.
 ``` cpp
     // Load the HEVC plugin
     mfxPluginUID codecUID;
@@ -640,4 +640,4 @@ ffplay ../out.h265
 > If you missed some steps or didn't have time to finish the tutorial the completed code is available in the **msdk_transcode_final** directory.
 
 ## Conclusion
-In this tutorial we looked at the Intel(R) Media SDK transcoding pipeline (Decode -> VPP -> Encode) and ways to optimally utilise the GPU for this task. We used opaque memory, a feature of the Intel(R) Media SDK to optimally manage surface memory allocation for best performance. We also looked at the advantages of implementing an asynchronous pipeline to better utilise the GPU and increase performance. Finally we explored using modern codecs supported by Intel platforms and the Intel(R) Media SDK such as HEVC to reduce the bitrate of video streams for situations where bandwidth or storage is constrained.
+In this tutorial we looked at the Intel® Media SDK transcoding pipeline (Decode -> VPP -> Encode) and ways to optimally utilise the GPU for this task. We used opaque memory, a feature of the Intel® Media SDK to optimally manage surface memory allocation for best performance. We also looked at the advantages of implementing an asynchronous pipeline to better utilise the GPU and increase performance. Finally we explored using modern codecs supported by Intel platforms and the Intel® Media SDK such as HEVC to reduce the bitrate of video streams for situations where bandwidth or storage is constrained.
