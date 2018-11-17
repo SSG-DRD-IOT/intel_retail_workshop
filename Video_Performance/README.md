@@ -15,7 +15,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 * **Transcode using Intel® Media SDK**
-    - Lab - [transcode using Intel® Media SDK](./media_sdk_transcode_windows.md)
+    - Lab - [Transcode using Intel® Media SDK](./media_sdk_transcode_windows.md)
 
 
 <!---* **Intel® Media Acceleration Reference Software**
