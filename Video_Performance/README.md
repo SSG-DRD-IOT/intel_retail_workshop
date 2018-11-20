@@ -1,7 +1,7 @@
 # Retail Workshop using Intel® Technologies
 Welcome to the retail workshop. In this workshop, we will explore the Intel® Distribution of OpenVINO™ toolkit through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of the Intel® Distribution of OpenVINO™ toolkit and have some working ideas of how to implement it in your video analytics applications.
 ## How Do I Use the Lab Material
-The links below will guide the workshop attendee through slides and labs in the visual retail Workshop using the Intel® Distribution of OpenVINO™ toolkit.
+The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® Media SDK.
 
 ## Workshop Agenda
 * **Explore Intel® Media SDK Samples**
