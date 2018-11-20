@@ -248,5 +248,5 @@ ffplay.exe jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
 ## Conclusion
 In this tutorial we looked at the Intel® Media SDK decoding pipeline and ways to optimise decoding performance on Intel® platforms. We explored the performance and power advantages with decoding using the GPU rather than using a software based decoder running on the CPU. We also looked at the advantages of using video memory for our working surfaces instead of system memory to avoid unnecessary memory transfers.
 
-<!--## Next Tutorial
+## Next Lab
 [Transcoding a video stream using Intel® Media SDK](media_sdk_transcode_windows.md)
