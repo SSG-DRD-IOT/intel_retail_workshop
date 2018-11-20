@@ -106,7 +106,7 @@ sample_decode.exe h264 -i input.h264 -sw
 
   ```
 
-    Output & Performance:
+Output & Performance:
 
 ![](images/MSDK_HW.jpg)  
 
