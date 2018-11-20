@@ -4,9 +4,13 @@ In this tutorial we will look at a simple transcode (decode + encode) pipeline u
 
 ## Getting Started
 
-- Load the **'msdk_transcode'** Microsoft Visual Studio* solution file > **"C:\users\intel\Desktop\Retail\03-MediaSDK\msdk_transcode\msdk_transcode.sln"**
+Open the **'msdk_transcode'** Visual Studio* solution file with Visual Studio 2017
 
-- Once Visual Studio has loaded expand the **msdk_transcode** project in the **Solution Explorer** in the right-hand pane.
+- Open the File Explorer and navigate to **"C:\users\intel\Desktop\Retail\03-MediaSDK\msdk_transcode\msdk_transcode.sln"**
+
+- Double click the **mdk_decode.sln** file and select Visual Studio 2017 to open the file.
+
+- Expand the **msdk_transcode** project in the **Solution Explorer** in the right-hand pane.
 
 - Double-click on the **msdk_transcode.cpp** file to load the main application code.
 
@@ -36,46 +40,55 @@ The basic flow is outlined below:
 ## Build & Run The Code
 
  - Build the solution using the keyboard shortcut **CTRL+SHIFT+B** or **Build->Build Solution** in the menu bar.
- - Make sure the application built successfully by checking the **Output** log in the bottom left pane.
+ - Check the **Output** log in the bottom left pane to verify that the application was built successfully.
  ```
  Done building project "msdk_transcode.vcxproj".
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
  - Run the application using the **Performance Profiler**:
      - Select **Debug->Performance Profiler...**
-     - Make sure **CPU Usage** and **GPU Usage** are ticked and click **Start** to begin profiling.
+     - Check the **CPU Usage** and **GPU Usage** checkboxes 
+     - Click **Start** to begin profiling.
 
 ![Performance Profiler](images/msdk_transcode_2.jpg)
 
- - A console window will load running the application whilst the profiling tool records usage data in the background.
+A console window will load running the application whilst the profiling tool records usage data in the background.
 
 ![Application Running](images/msdk_transcode_3.jpg)
 
- - Wait for the application to finish transcoding the video stream and then take note of the **execution time** printed in the console window. You can then **press 'enter' to close the command window** and stop the profiling session.
+ - Take note of the **execution time** printed in the console window. 
+ - Press the **'Enter'** to close the command window and stop the profiling session.
 ```
 Frame number: 1800
 Execution time: 32.84 s (54.81 fps)
 Press ENTER to exit...
 ```
- - Now go back to Visual Studio and take a look at the **GPU Utilization** and **CPU** graphs. You will see there is limited CPU usage (assuming nothing else is happening on the system) and reasonably high GPU usage indicating that the transcode process is taking place on the GPU as expected.
+ - Review the **GPU Utilization** and **CPU** graphs in Visual Studio. 
+
+The CPU usage is low (assuming no other program is consuming processor resources on your system) while the GPU utilization is higher indicating that the transcode process is taking place on the GPU as expected.
 
 ![GPU Usage](images/msdk_transcode_4.jpg)
 
-It's clear from looking at the GPU utilisation in the performance profiler output that there is a bottleneck stopping the GPU from being fully utilised by our current code. In the next section we will begin optimising the code to rectify this.
+There is a bottleneck that stops the GPU from being fully utilized in the current implementation.<br/>
+In the next section, we will optimize the code to rectify this.
 
 ## Opaque Memory
-In our current code we are using system memory for the working surfaces used by our decoder and encoder which means frames have to be passed between system memory and video memory multiple times during the transcode pipeline limiting performance. The Intel® Media SDK has a feature called **Opaque Memory** which hides surface allocation specifics and allows the SDK to select the best type for execution in hardware or software. This means that if the pipeline allows, surfaces will reside in video memory for best performance. It's worth mentioning that whilst opaque memory is an easy solution for optimised surface allocation in simple situations, if you need to integrate components outside of the Intel® Media SDK application-level video memory allocation is required.
+In the current implementation, system memory is used for the working surfaces by our decoder and encoder. This means frames have to be passed between system memory and video memory multiple times during the transcode pipeline limiting performance. The Intel® Media SDK has a feature called **Opaque Memory** which hides surface allocation specifics and allows the SDK to select the best type for execution in hardware or software. This means that if the pipeline allows, surfaces will reside in video memory for best performance. While opaque memory is an easy solution for optimized surface allocation in simple situations, if you need to integrate components outside of the Intel® Media SDK application-level video memory allocation is required.
 
- - We start by updating the IO pattern in our decoder video parameters from **MFX_IOPATTERN_OUT_SYSTEM_MEMORY** to **MFX_IOPATTERN_OUT_OPAQUE_MEMORY**.
+ - Update the IO pattern in our decoder video parameters from **MFX_IOPATTERN_OUT_SYSTEM_MEMORY** to **MFX_IOPATTERN_OUT_OPAQUE_MEMORY**.
 ``` cpp
     mfxDecParams.IOPattern = MFX_IOPATTERN_OUT_OPAQUE_MEMORY;
 ```
- - We make the same change to our encoder video parameters.
+ - Update the encoder video parameters
 ``` cpp
      mfxEncParams.IOPattern = MFX_IOPATTERN_IN_OPAQUE_MEMORY;
 ```
- - We need to update our surface allocation code to use opaque memory allocation. Replace the code in **section 6** with the code below.
-     - Note that we don't allocate buffer memory anymore as for opaque memory this is handled internally by the SDK. We simply create **mfxExtOpaqueSurfaceAlloc** structures to hold a reference to the allocated surfaces and attach these to our decoder and encoder.
+The surface allocation code needs to be updated to use opaque memory allocation.
+
+- Replace the code in **Section 6** with the code below.
+
+Buffer memory isn't allocated anymore as opaque memory handles this internally via the SDK. <br/>
+The creation of **mfxExtOpaqueSurfaceAlloc** structures are needed to hold a reference to the allocated surfaces and attach these to the decoder and encoder.
 ``` cpp
     //6. Initialize shared surfaces for decoder and encoder
     mfxFrameSurface1** pSurfaces = new mfxFrameSurface1 *[nSurfNum];
@@ -113,21 +126,28 @@ In our current code we are using system memory for the working surfaces used by 
     mfxEncParams.NumExtParam = 1;
    ```
 
- - Finally remove the following line from the cleanup code as we no longer manage surface buffers in the application code.
+ - Remove the following line from the cleanup code since the surface buffers no longer need to be managed in the application code.
 ``` cpp
     MSDK_SAFE_DELETE_ARRAY(surfaceBuffers);
 ```
 
- - **Build** the solution as you did previously and again use the **Performance Profiler** to run the application. Take note of the **execution time** before closing the console window. This should be slightly improved since implementing opaque memory allocation, however, if you now look at the **GPU Utilization** graph in the performance profiler you will see the GPU remains underutilised.
+ - **Build** the solution 
+ - Run the **Performance Profiler** on the application. 
+ - Take note of the **execution time** before closing the console window. 
+
+Th execution time should be slightly improved since implementing opaque memory allocation. If you now look at the **GPU Utilization** graph in the performance profiler you will see the GPU remains underutilized.
 
 ## Asynchronous Transcoding
-To better utilise the GPU we can make our transcode pipeline asynchronous so more than one decode and encode operation can run at once. This means for each execution of our transcode loop we submit multiple "tasks" before synchronising the pipeline.
+To better utilize the GPU we can make our transcode pipeline asynchronous so more than one decode and encode operation can run at once. This means for each execution of our transcode loop we submit multiple "tasks" before synchronizing the pipeline.
 
- - First we add a parameter to our decoder parameters in section 3 to tell the decoder how many tasks we want to execute asynchronously. We set this parameter initially to **1** to mimic synchronous operation. We will later increase this to see the effect it has on performance and GPU utilisation.
+ - Add a parameter to the decoder parameters in **Section 3** to tell the decoder how many tasks we want to execute asynchronously. 
+ - Set this parameter to **1** to mimic synchronous operation. We will increase this to see the effect it has on performance and GPU utilization in the future.
 ``` cpp
     mfxDecParams.AsyncDepth = 1;
 ```
- - We also need to add in section 5 our encode parameters in the same way. We use the same value as we used for the decode parameters to keep things aligned.
+ - Set the `AsyncDepth` for the encode parameters to the same value as the decode parameters in **Section 5**. 
+ 
+ This is done to keep things aligned.
 ``` cpp
     mfxEncParams.AsyncDepth = mfxDecParams.AsyncDepth;
 ```
@@ -630,5 +650,5 @@ ffplay.exe out.h265
 ## Conclusion
 In this tutorial we looked at the Intel® Media SDK transcoding pipeline (Decode -> VPP -> Encode) and ways to optimally utilise the GPU for this task. We used opaque memory, a feature of the Intel® Media SDK to optimally manage surface memory allocation for best performance. We also looked at the advantages of implementing an asynchronous pipeline to better utilise the GPU and increase performance. Finally we explored using modern codecs supported by Intel® platforms and the Intel® Media SDK such as HEVC to reduce the bitrate of video streams for situations where bandwidth or storage is constrained.
 
-## Next Tutorial
-[Intel® Media Accelerator Reference Software (M.A.R.S)](media_accelerator_reference_software_windows.md)
+<!--## Next Tutorial
+[Intel® Media Accelerator Reference Software (M.A.R.S)](media_accelerator_reference_software_windows.md)-->
