@@ -65,7 +65,7 @@ Add the button element to the ``` PluginUIElementGroup``` in order to display th
 
 
 ```c
-public void SimpleTestPlugin()
+public void SimpleToastPlugin()
 {
     pluginDetails.Name = "";
     pluginDetails.Id = new Guid("12345678-1234-1234-1234-123456781235");
@@ -75,10 +75,10 @@ public void SimpleTestPlugin()
     UI.pluginInfo = pluginDetails;
     UI.Groups = new List<PluginUIElementGroup>();
     uiElementGroup.GroupName = "Attendee Analytics";
-    uiElementGroup.ImageBytes = ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/anlytics.png", System.UriKind.Relative));
+    uiElementGroup.ImageBytes = ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/Analytics_graph.png", System.UriKind.Relative));
     uiElementGroup.UIElements = new List<PluginUIElement>();
     uiElementGroup.Description = "";
-    uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(RAISEHAND), UIElementType.Button, "Raise Hand", "", ResourceToBytes(new Uri("/AttendeeAnalytics;component/raisehand.png", System.UriKind.Relative))));
+    uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(RAISEHAND), UIElementType.Button, "Raise Hand", "", ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/raisehand.png", System.UriKind.Relative))));
     //TODO: Add UI elements for advanced plugin
     UI.Groups.Add(uiElementGroup);
 }
@@ -247,7 +247,7 @@ Follow these steps to deploy the Intel Unite® plugin
     - Open the developer command prompt for Visual Studio in administrative mode.
     - Change the directory to the folder where plugin is located.
     - Create a new certificate by following these steps
-    ( *NOTE: Once the first two steps are performed to crate the certificate, never repeat them*)
+    ( *NOTE: Once the first two steps are performed to create the certificate, never repeat them*)
          - makecert -n "CN=UniteDeveloper" -r -pe -ss TestDeveloper UniteCertificate.cer
          - certmgr -add UniteCertificate.cer -s -r localmachine root
          - signtool sign /a /s TestDeveloper AttendeeAnalyticsPlugin.dll
