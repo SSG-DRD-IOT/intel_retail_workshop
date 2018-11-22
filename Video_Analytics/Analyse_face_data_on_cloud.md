@@ -99,4 +99,6 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
 ### Lesson Learnt
 Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizing data on cloud.
 
+
+##  
 [Video Analytics Home](./README.md)
