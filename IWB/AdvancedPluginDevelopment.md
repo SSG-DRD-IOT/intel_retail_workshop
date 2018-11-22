@@ -328,3 +328,5 @@ The code for this solution is available [here](./solutions/AdvancedPluginSolutio
 ## Lesson Learnt
 - Understanding the capabilities of Intel Unite® plugin
 - Integration of the plugin with external solution based on Intel® Distribution of OpenVINO™ toolkit
+
+[IWB Home](./IntelUnitePluginDevelopment.md)

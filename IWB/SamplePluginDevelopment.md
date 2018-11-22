@@ -326,3 +326,6 @@ Follow these steps to deploy the Intel Unite® plugin
  The complete solution for the sample Intel Unite® plugin is available [here](./solutions/SamplePluginSolution.md).
 ## Lesson Learnt
 Creating and deploying a sample plugin on Intel Unite® software.
+
+## Next Lab
+[Integrating external application with the sample Intel Unite® Plugin](./AdvancedPluginDevelopment.md)

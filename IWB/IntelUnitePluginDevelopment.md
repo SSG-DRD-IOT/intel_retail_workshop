@@ -30,16 +30,17 @@ The Software Development Kit (SDK) for plugin development by the Intel Unite® s
 ## Lab Overview
 Developing a plugin on Intel Unite® software and integrating it with an external widget solution.
 
-## Tasks for the plugin development process
+In the first lab, a sample plugin on the Intel Unite® solution is created and is deployed to display simple toast messages on the hub. As a continuation to this, the sample plugin is advanced for the integration with external solutions in the second lab.
 
-- [Developing and Deploying a sample Intel Unite® plugin. ](./SamplePluginDevelopment.md)
-- [Enhancing the Intel Unite® Plugin and Integrating it with external solutions.](./AdvancedPluginDevelopment.md)
 
-In the first task, a sample plugin on the Intel Unite® solution is created and is deployed to display simple toast messages on the hub. As a continuation to this task, the sample plugin is advanced for the integration with external solutions in the second task.
+- Lab 1 - [Developing and Deploying a sample Intel Unite® plugin. ](./SamplePluginDevelopment.md)
+- Lab 2 - [Enhancing the Intel Unite® Plugin and Integrating it with external solutions.](./AdvancedPluginDevelopment.md)
 
 
 ## Final solution
 
 The final solution of Intel Unite® plugin is available  [here](./solutions/AdvancedPluginSolution.md).
+
 ## Lesson Learnt
+
 Plugin development on the Intel Unite® solution and integration of plugin with external solutions.
