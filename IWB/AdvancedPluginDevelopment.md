@@ -205,6 +205,7 @@ def plotGraph():
     ax.set_xbound(-1.0 ,5.0)
     plt.xlim((0, 15))
     plt.ylim((0, 100))
+
     print(attentivityvalue[-1])
     frequencies = attentivityvalue
     freq_series = pd.Series(frequencies)
@@ -219,6 +220,7 @@ def plotGraph():
     # For each bar: Place a label
     for rect in rects:
         # Get X and Y placement of label from rect.
+
         y_value = rect.get_height()
         x_value = rect.get_x() + rect.get_width() / 2
 
@@ -283,7 +285,7 @@ For controlling the above created external widget solution, the button events, L
      }
      else
      {
-         this.p = Process.Start("C:\\Users\\Intel\\Desktop\\Retail\\06-IWB\\Widget.pyw");
+         this.p = Process.Start("C:\\Users\\intel\\Desktop\\Retail\\06-IWB\\Widget.pyw");
      }
      break;
 

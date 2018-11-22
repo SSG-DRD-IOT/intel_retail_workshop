@@ -11,7 +11,6 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
-import plotly.plotly as py
 import tkinter as tk
 import pandas as pd
 import math
@@ -38,6 +37,7 @@ ind = [0]
 class Handler(FileSystemEventHandler):
 
     def invokemethod(self):
+        print("in innvoke method")
         plotGraph()
         Timer(60, self.invokemethod, ()).start()
 
@@ -45,9 +45,9 @@ class Handler(FileSystemEventHandler):
         global unite_flag,ov_flag
         print("Inside  change");
         print(event.src_path);
-        if(event.src_path=="C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json"):
+        if(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json"):
                  self.jsonRead_OVData(event.src_path)
-        elif(event.src_path=="C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\UniteData.json"):
+        elif(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json"):
                  self.jsonRead_uniteData(event.src_path)
         if unite_flag==True or ov_flag==True:
             unite_flag=False
@@ -68,10 +68,12 @@ class Handler(FileSystemEventHandler):
         OVData=[]
         try:
             with open(path) as f1:
-                OVData = json.load(f1)          
+                OVData = json.load(f1)
+                print("file open is done")
             if(OVData== None):
                 print("no value read from openvino")
             if(ov_timestamp[-1]!=OVData["timestamp"]):
+                print("value is taken from file")
                 ov_flag=True
                 ov_timestamp.append(OVData["timestamp"])
                 facecount.append(OVData["facecount"])
@@ -88,10 +90,10 @@ class MyThread(Thread):
     def run(self):
         print("in run")
         event_handler=Handler()
-        event_handler.jsonRead_OVData("C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\file.json")
-        event_handler.jsonRead_uniteData("C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO\\UniteData.json")
+        event_handler.jsonRead_OVData("C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json")
+        event_handler.jsonRead_uniteData("C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json")
         observer = Observer()
-        observer.schedule(event_handler, "C:\\Users\\intel1672\\Desktop\\Retail\\05-OpenVINO", recursive=False)
+        observer.schedule(event_handler, "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO", recursive=False)
         observer.start()
         observer.join()
         print("leaving run")
@@ -126,6 +128,7 @@ def plotGraph():
     ax.set_xbound(-1.0 ,5.0)
     plt.xlim((0, 15))
     plt.ylim((0, 100))
+
     print(attentivityvalue[-1])
     frequencies = attentivityvalue
     freq_series = pd.Series(frequencies)
@@ -140,6 +143,7 @@ def plotGraph():
     # For each bar: Place a label
     for rect in rects:
         # Get X and Y placement of label from rect.
+
         y_value = rect.get_height()
         x_value = rect.get_x() + rect.get_width() / 2
 
@@ -160,7 +164,10 @@ def plotGraph():
             color='gray',               # Horizontally center label
             va=va)                      # Vertically align label differently for
                                         # positive and negative values.
-    fig.canvas.draw()
+
+    fig.canvas.draw_idle()
+    print("Graph")
+
 
 event_handler = Handler()
 Timer(1, event_handler.invokemethod, ()).start()  

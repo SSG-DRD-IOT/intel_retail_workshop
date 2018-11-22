@@ -18,10 +18,10 @@ namespace AttendeeAnalyticsPlugin
         PluginInfo pluginDetails = new PluginInfo();
         PluginUIElementGroup uiElementGroup = new PluginUIElementGroup();
         string HubText = "";
-        const string RAISEHAND = "00000000-0000-0000-0000-000000000009";
+        const string RAISEHAND = "00000000-0000-0000-0000-000000000008";
         //TODO : Declare attributes for advanced plugin
 
-        public void SimpleTestPlugin()
+        public void SimpleToastPlugin()
         {
             pluginDetails.Name = "";
             pluginDetails.Id = new Guid("12345678-1234-1234-1234-123456781235");
@@ -31,17 +31,17 @@ namespace AttendeeAnalyticsPlugin
             UI.pluginInfo = pluginDetails;
             UI.Groups = new List<PluginUIElementGroup>();
             uiElementGroup.GroupName = "Attendee Analytics";
-            uiElementGroup.ImageBytes = ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/anlytics.png", System.UriKind.Relative));
+            uiElementGroup.ImageBytes = ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/Analytics_graph.png", System.UriKind.Relative));
             uiElementGroup.UIElements = new List<PluginUIElement>();
             uiElementGroup.Description = "";
-            uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(RAISEHAND), UIElementType.Button, "Raise Hand", "", ResourceToBytes(new Uri("/AttendeeAnalytics;component/raisehand.png", System.UriKind.Relative))));
+            uiElementGroup.UIElements.Add(new PluginUIElement(new Guid(RAISEHAND), UIElementType.Button, "Raise Hand", "", ResourceToBytes(new Uri("/AttendeeAnalyticsPlugin;component/raisehand.png", System.UriKind.Relative))));
             //TODO: Add UI elements for advanced plugin
             UI.Groups.Add(uiElementGroup);
         }
         public override void Load()
         {
             LogMessage("Plugin Loaded", null);
-            SimpleTestPlugin();
+            SimpleToastPlugin();
         }
 
         public override void UserConnected(UserEventArgs e)
