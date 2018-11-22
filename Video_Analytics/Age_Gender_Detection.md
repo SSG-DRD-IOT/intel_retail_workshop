@@ -305,3 +305,6 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
 
 ### Lesson Learnt
 In addition to Face, Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit.
+
+## Next Lab
+[HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Headpose_Detection.md)

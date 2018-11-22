@@ -98,3 +98,5 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
 - On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
 ### Lesson Learnt
 Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizing data on cloud.
+
+[Video Analytics Home](./README.md)

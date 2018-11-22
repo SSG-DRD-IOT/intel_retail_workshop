@@ -103,3 +103,6 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 ### Lessons Learned
 - Intel® Distribution of OpenVINO™ toolkit, libraries, header and sample code files and available models
 - Performance difference in detection time, fps with CPU and GPU
+
+## Next Lab
+[Face Detection using the Intel® Distribution of OpenVINO™ toolkit](./Face_detection.md)
