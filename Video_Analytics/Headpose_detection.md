@@ -5,7 +5,7 @@ We build upon our Face, Age and Gender detection code from previous labs to add 
 
 **Class diagram for Head Pose Detection**
 
-![](images/Headpose_class.PNG)
+![](images/Headpose_class.png)
 
 ### Tasks TODO for Head Pose Detection:
 -	Select CPU as plugin device for head pose detection inference.
@@ -14,7 +14,7 @@ We build upon our Face, Age and Gender detection code from previous labs to add 
 -	Mark the identified faces inside rectangle and draw Raw ,Yaw and Pitch axis.
 -	Observe head pose detection in addition to face, age and gender.
 
-![](images/Headpose_flowchart.PNG)
+![](images/Headpose_flowchart.png)
 
 ### Define a head pose class
 Here, we will define a class that includes the declaration of data member and member functions that will be used for head pose detection using OpenVINO™ toolkit.
