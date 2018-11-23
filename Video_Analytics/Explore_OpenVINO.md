@@ -28,16 +28,16 @@ Observe the folder structure available within the Intel® Distribution of OpenVI
 By the end of this module, the participant is expected to understand the Intel® Distribution of OpenVINO™ toolkit, installed folder structure and performance difference between **CPU** and **GPU**.
 ### To View the Packages installed on your Device
 * **Intel® Distribution of OpenVINO™ toolkit installer**                                                 
- Intel® Distribution of OpenVINO™ toolkit by default installs at opt\Intel\computer_vision_sdk_2018.1.265\
+ Intel® Distribution of OpenVINO™ toolkit by default installs at /opt/intel/computer_vision_sdk
 * **Intel® Distribution of OpenVINO™ toolkit sample applications showing various capabilities**
-Intel® Distribution of OpenVINO™ toolkit samples is made available in opt\Intel\computer_vision_sdk_2018.1.265                         \deployment_tools\inferenceengine\samples\build\
+Intel® Distribution of OpenVINO™ toolkit samples is made available in /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples/build/
 * **Intel® Distribution of OpenVINO™ toolkit Documentation directory**
-opt\Intel\computer_vision_sdk_2018.1.265\deployment_tools\documentation
+Intel® Distribution of OpenVINO™ toolkit Documentation directory is made available in /opt/intel/computer_vision_sdk/deployment_tools/documentation/
 * **Intel® Distribution of OpenVINO™ toolkit pre-trained models**
-opt\Intel\computer_vision_sdk_2018.1.265\deployment_tools\intel_models
+Intel® Distribution of OpenVINO™ toolkit pre-trained models are made available in /opt/intel/computer_vision_sdk/deployment_tools/intel_models
 
 ### Understanding the Packages
-Go to opt\Intel\computer_vision_sdk_2018.1.265\deployment_tools\inferenceengine to understand the package contents.
+Go to /opt/Intel/computer_vision_sdk/deployment_tools/inferenceengine to understand the package contents.
 
 ![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for Intel® Distribution of OpenVINO™ toolkit samples
@@ -57,7 +57,7 @@ The application reads command line parameters and loads the specified models. Th
 - Go to the samples directory using below command.
 
 ```
-$ cd /opt/intel/computer_vision_sdk_2018.1.<version>/deployment_tools/inferenceengine/samples
+$ cd /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples
 ```
 - create build directory using below command
 
@@ -69,7 +69,7 @@ $ sudo mkdir build
 ```
  $ sudo -s
 
- # source /opt/intel/computer_vision_sdk_2018.1.<version>/bin/setupvars.sh
+ # source /opt/intel/computer_vision_sdk/bin/setupvars.sh
  ```
 - build samples using below commands
 
@@ -84,12 +84,12 @@ $ sudo mkdir build
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```
-# cd /opt/intel/computer_vision_sdk_2018.1.<version>/deployment_tools/inferenceengine/samples/build/intel64/Release
+# cd /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples/build/intel64/Release
 
 # ./security_barrier_camera_sample.exe  -i  
-/opt/Intel/computer_vision_sdk_2018.1.265/deployment_tools/demo/car_1.bmp -m
-/opt/Intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va
-opt/Intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -d CPU
+/opt/Intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m
+/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va
+/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -d CPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
@@ -100,12 +100,12 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
-# cd /opt/intel/computer_vision_sdk_2018.2.<version>/deployment_tools/inferenceengine/samples/build/intel64/Release
+# cd /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples/build/intel64/Release
 
 # ./security_barrier_camera_sample.exe  -i  
-/opt/Intel/computer_vision_sdk_2018.1.265/deployment_tools/demo/car_1.bmp -m
-/opt/Intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va
-opt/Intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -d GPU
+/opt/Intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m
+/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va
+/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -d GPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
@@ -117,3 +117,6 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 ### Lessons Learned
 - Intel® Distribution of OpenVINO™ toolkit, libraries, header and sample code files and available models
 - Performance difference in detection time, fps with CPU and GPU
+
+##Next Lab
+[Face Detection using the Intel® Distribution of OpenVINO™ toolkit](./Face_detection.md)

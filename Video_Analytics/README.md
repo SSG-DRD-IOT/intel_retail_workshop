@@ -5,20 +5,26 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 ## Workshop Agenda
 * **Explore the Intel® Distribution of OpenVINO™ toolkit**
-    - Slide Deck -
     - Lab - [Explore Intel® Distribution of OpenVINO™ toolkit](./Explore_OpenVINO.md)
 
 
 * **Face Detection using Intel® Distribution of OpenVINO™ toolkit**
-  - Slide Deck -
   - Lab - [Face Detection](./Face_detection.md)
 
 
 * **Age and Gender Detection using Intel® Distribution of OpenVINO™ toolkit**
-  - Slide Deck -
   - Lab - [Age and Gender Detection](./Age_Gender_Detection.md)
 
 
+* **HeadPose Detection using Intel® Distribution of OpenVINO™ toolkit**
+  - Lab - [HeadPose Detection](./Headpose_detection.md)
+
+
 * **Analyze face data on Cloud**
-    - Slide Deck -
-    - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
+  - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
+
+##
+
+
+
+[Home](../README.md)

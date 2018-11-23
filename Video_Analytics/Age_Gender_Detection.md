@@ -17,8 +17,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 ### Define a AgeGenderDetection class
 Here, we will define a class that includes the declaration of data member and member functions that will be used for Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
-- Replace #TODO: Define class for Age & Gender Detection
-- Paste the following code
+- Replace **#TODO: Define class for Age & Gender Detection** with the following code snippet.
 
 ```
 struct AgeGenderDetection {
@@ -52,8 +51,7 @@ struct AgeGenderDetection {
 
 ### Setup the Blob for Age and Gender detection
 This is used to process the original image from live feed and populate blob data detection data from captured Mat buffer.
-- Replace #TODO: AgeGender-Blob Detection
-- paste the following code
+- Replace **TODO: AgeGender-Blob Detection** with the following code snippet.
 
 ```
 void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex )
@@ -85,8 +83,7 @@ void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 
 ### Parse the CNNNetwork from given IR
 This method is used to parse the intermediate representation format of CNNNetwork models (that is .bin and .xml files).
--  Replace #TODO: AgeGenderDetection-Parse CNNNetworks
-- Paste the following code.
+- Replace **#TODO: AgeGenderDetection-Parse CNNNetworks** with the following code snippet.
 
 ```
 CNNNetwork AgeGenderDetection::read()  {
@@ -125,8 +122,7 @@ CNNNetwork AgeGenderDetection::read()  {
 
 ### Load CNNNetwork for AgeGender detection
 Here, we will define a method that will be used for loading the CNNNetworks that will be used for Age and Gender detection.
-- Replace #TODO: AgeGenderDetection-LoadNetwork
-- Paste the following code
+- Replace **#TODO: AgeGenderDetection-LoadNetwork** with the following code snippet.
 
 ```
 void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
@@ -137,8 +133,7 @@ void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
 
 ### Populate the Inference Request
 This method is used populate the inference request and push the frames in to a queue for further processing.
-- Replace #TODO: AgeGenderDetection-populate Inference Request
-- Paste the following code.
+- Replace **#TODO: AgeGenderDetection-populate Inference Request** with the following code snippet.
 
 ```
 void AgeGenderDetection::enqueue(const cv::Mat &face) {
@@ -155,8 +150,7 @@ void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
 ### Submit inference request and wait for result
 Here we will define methods to submit inference request and wait for inference result.
-- Replace #TODO: AgeGenderDetection-submit Inference Request and wait
-- Paste the following lines
+- Replace **#TODO: AgeGenderDetection-submit Inference Request and wait** with the following code snippet
 
 ```
 void AgeGenderDetection::submitRequest()  {
@@ -175,8 +169,7 @@ void AgeGenderDetection::wait() {
 ### Include CPU as Plugin Device
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
 We will use CPU as plugin device for inferencing Age and Gender
-- Replace #TODO: Age and Gender detection 2
-- Paste the following lines
+- Replace **#TODO: Age and Gender detection 2** with the following lines of code
 
 ```
 plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
@@ -185,18 +178,16 @@ pluginsForDevices["CPU"] = plugin;
 
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
 We need CPU as plugin device for inferencing Age and Gender and load pre-retained model for Age and Gender Detection on CPU
-- Replace #TODO: Age and Gender Detection 3
-- Paste the following lines
+- Replace **#TODO: Age and Gender Detection 3** with the following lines of code
 
 ```
-FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml";
+FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml";
 AgeGenderDetection AgeGender;
 AgeGender.load(pluginsForDevices["CPU"]);
 ```
 
 ### Submit Inference Request
-- Replace #TODO: Age and Gender Detection 4
-- Paste the following lines
+- Replace **#TODO: Age and Gender Detection 4** with the following lines of code
 
 ```
  //Submit Inference Request for age and gender detection and wait for result
@@ -206,8 +197,7 @@ AgeGender.load(pluginsForDevices["CPU"]);
 
 ### Use identified Face for Age and Gender Detection
 Clip the identified Faces and send inference request for identifying Age and Gender
-- Replace #TODO: Age and Gender Detection 5
-- Paste the following lines
+- Replace **#TODO: Age and Gender Detection 5** with the following lines of code
 
 ```
 //Clipped the identified face and send Inference Request for age and gender detection
@@ -227,8 +217,7 @@ femalecount=0;
 
 ### Customize the Result for Display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
-- Replace #TODO: Age and Gender Detection 6
-- Paste the following lines
+- Replace **#TODO: Age and Gender Detection 6** with the following lines of code
 
 ```
   out.str("");
@@ -251,7 +240,7 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
               0.8,
               cv::Scalar(0, 0, 255));
   index++;
- ```
+```
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
@@ -275,4 +264,8 @@ For complete solution click on following link [face_AgeGender_detection.cpp](./s
 - On successful execution, Face, Age and Gender will get detected.
 
 ### Lesson Learnt
-In addition to Face, Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit.
+In addition to Face, detected Age and Gender using the Intel® Distribution of OpenVINO™ toolkit.
+
+##Next Lab
+
+[HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Headpose_detection.md)

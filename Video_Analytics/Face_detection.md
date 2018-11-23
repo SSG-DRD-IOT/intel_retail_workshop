@@ -34,8 +34,7 @@ In this Lab, we will build a Face Detection application which will detect a face
 
 ### Include Required Headers
 First, we will include required header files for inferencing with the Intel® Distribution of OpenVINO™ toolkit.
-- Replace #TODO: Face Detection 1
-- Paste the following lines
+- Replace **#TODO: Face Detection 1** with the following lines of code
 
 ```
 #include <inference_engine.hpp>
@@ -46,8 +45,7 @@ First, we will include required header files for inferencing with the Intel® Di
 
 ### Define A FaceDetection Class
 Next, we will define a class that includes the declaration of data member and member functions that will be used for face detection using the Intel® Distribution of OpenVINO™ toolkit.
-- Replace #TODO: Define class for Face Detection
-- Paste the following lines of code
+- Replace **#TODO: Define class for Face Detection** with the following lines of code
 
 ```
 struct FaceDetectionClass  {
@@ -88,8 +86,7 @@ struct FaceDetectionClass  {
 ```
 ### Setup the Blob for Face detection
 This is used to process the original image from live feed and populate blob data detection data from captured Mat buffer.
-- Replace #TODO: FaceDetection-Blob Detection
-- paste the following code
+- Replace **#TODO: FaceDetection-Blob Detection** with the following code snippet
 
 ```
 void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
@@ -119,8 +116,7 @@ for (size_t c = 0; c < channels; c++) {
 ```
 ### Populate the Inference Request
 This method is used populate the inference request and push the frames in to a queue for further processing.
-- Replace #TODO: FaceDetection-populate Inference Request
-- Paste the following code.
+- Replace **#TODO: FaceDetection-populate Inference Request** with the following code snippet.
 
 ```
 void FaceDetectionClass::enqueue(const cv::Mat &frame) {
@@ -139,8 +135,7 @@ void FaceDetectionClass::enqueue(const cv::Mat &frame) {
   ```
 ### Parse the CNNNetwork from given IR
 This method is used to parse the intermediate representation format of CNNNetwork models (that is .bin and .xml files).
-- Replace #TODO: FaceDetection-Parse CNNNetworks
-- Paste the following code
+- Replace **#TODO: FaceDetection-Parse CNNNetworks** with the following code snippet
 
 ```
 InferenceEngine::CNNNetwork FaceDetectionClass::read()  {
@@ -193,8 +188,7 @@ InferenceEngine::CNNNetwork FaceDetectionClass::read()  {
  ```
 ### Load CNNNetwork for Face detection
 Here, we will define a method that will be used for loading the CNNNetworks that will be used for Face detection.
-- Replace #TODO: FaceDetection-LoadNetwork
-- Paste the following lines
+- Replace **#TODO: FaceDetection-LoadNetwork** with the following code snippet
 
 ```
 void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg)  {
@@ -204,8 +198,7 @@ void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg)  {
 ```
 ### Submit inference request and wait for result
 Here we will define methods to submit inference request and wait for inference result.
-- Replace #TODO: FaceDetection-submit Inference Request and wait
-- Paste the following lines
+- Replace **#TODO: FaceDetection-submit Inference Request and wait** with the following code snippet
 
 ```
 void FaceDetectionClass::submitRequest()  {
@@ -222,8 +215,7 @@ void FaceDetectionClass::wait() {
 ```
 ### Fetch Inference Result
 This method is used for fetching the inference results.
-- Replace #TODO: FaceDetection-fetch inference result
-- Paste the following lines
+- Replace **#TODO: FaceDetection-fetch inference result** with the following code snippet
 
 ```
 void FaceDetectionClass::fetchResults() {
@@ -264,8 +256,7 @@ void FaceDetectionClass::fetchResults() {
 
 ### Capture Video Frames
 Till now, we have defined all the required methods for our application development. Now we will start developing our face detection application. First, we need to capture video frames using OpenCV APIs
-- Replace #TODO: Face Detection 2
-- Paste the following lines
+- Replace **#TODO: Face Detection 2** with the following lines of code
 
 ```
     //If there is a single camera connected, just pass 0.
@@ -277,8 +268,7 @@ Till now, we have defined all the required methods for our application developme
 
 ### Select GPU for Inferencing Face Detection
 Select the plugin device for inference engine where we want to run our inferencing
-- Replace #TODO: Face Detection 3
-- Paste the following lines
+- Replace **#TODO: Face Detection 3** with the following lines of code
 
 ```
     //Select plugins for inference engine
@@ -287,26 +277,24 @@ Select the plugin device for inference engine where we want to run our inferenci
 	//Select GPU as plugin device to load Face Detection pre trained optimized model
 	InferencePlugin plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("GPU");
 	pluginsForDevices["GPU"] = plugin;
-  ```
+```
 
 ### Load Pre-trained Optimized Data Model on GPU
 The pre-trained model XML files have been optimized and generated by the Intel® Distribution of OpenVINO™ toolkit model optimizer from the pre-trained models folder. However, participants are expected to experiment with different pre-trained models available.
-- Replace #TODO: Face Detection 4
-- Paste the following lines
+- Replace **#TODO: Face Detection 4** with the following lines of code
 
 ```
     //Load pre trained optimized data model for face detection
-	FLAGS_Face_Model = "/opt/intel/computer_vision_sdk_2018.1.265/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml";
+	FLAGS_Face_Model = "/opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml";
 
 	//Load Face Detection model to target device
 	FaceDetectionClass FaceDetection;
 	FaceDetection.load(pluginsForDevices["GPU"]);
-  ```
+```
 
 ### Main Loop for Inferencing
 Here we are populating the face detection object for Inference request, and after getting result we draw rectangular box around the face. Also, we use OpenCV APIs for a display window and exit the window.
-- 	Replace #TODO: Face Detection 5
-- Paste the following lines:
+- Replace **#TODO: Face Detection 5** with the following lines of code
 
 ```
     // Main inference loop
@@ -365,7 +353,7 @@ $ sudo mkdir build
 ```
 $ cd build
 $ sudo -s
-# source /opt/intel/computer_vision_sdk_2018.1.265/in/setupvars.sh
+# source /opt/intel/computer_vision_sdk/bin/setupvars.sh
   ```
 
 - Build the application using cmake and make commands as below         
@@ -381,6 +369,10 @@ $ sudo -s
 # cd ~/Desktop/Retail/OpenVINO/samples/build/intel64/Release
 # ./interactive_face_detection_sample
  ```
- - On successful execution, face will get detected.
+ - On successful execution, face will get detected from a live camera feed window.
 ### Lesson Learnt
 Face Detection using the Intel® Distribution of OpenVINO™ toolkit.
+
+
+## Next Lab
+[Age and Gender Detection using Intel® Distribution of OpenVINO™ toolkit](./Age_Gender_Detection.md)
