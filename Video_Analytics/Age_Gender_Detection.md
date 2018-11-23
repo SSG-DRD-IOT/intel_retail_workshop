@@ -266,6 +266,6 @@ For complete solution click on following link [face_AgeGender_detection.cpp](./s
 ### Lesson Learnt
 In addition to Face, detected Age and Gender using the Intel® Distribution of OpenVINO™ toolkit.
 
-##Next Lab
+## Next Lab
 
 [HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Headpose_detection.md)

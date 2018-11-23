@@ -17,11 +17,11 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 * **HeadPose Detection using Intel® Distribution of OpenVINO™ toolkit**
-  - Lab - [HeadPose Detection](./Headpose_detection.md)
+  - Lab - [Head Pose Detection](./Headpose_detection.md)
 
 
-* **Analyze face data on Cloud**
-  - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
+* **Analyze Face, Age, Gender and Head Pose data on Cloud**
+  - Lab - [Analyze Data on Cloud](./Analyse_face_data_on_cloud.md)
 
 ##
 
