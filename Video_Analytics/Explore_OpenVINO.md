@@ -67,7 +67,7 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 
 - **Manually Build Example**
 
-- Navigate to: C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build_2017\security_barrier_camera_sample
+- Navigate to: C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build_2017
 - Open the samples.sln file and build the security_barrier_camera_sample.cpp sample.
 
 Upon successful build, a security_barrier_camera_sample.exe file is available inside the bin\intel64\Debug folder.

@@ -212,7 +212,7 @@ We need CPU as plugin device for inferencing Age and Gender and load pre-retaine
 - Paste the following lines
 
 ```
-FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\ age-gender-recognition-retail-0013.xml";
+FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
 AgeGenderDetection AgeGender;
 AgeGender.load(pluginsForDevices["CPU"]);
 

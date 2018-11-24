@@ -5,7 +5,7 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 
 **Class diagram for HeadPose Detection**
 
-![](images/Headpose_class.PNG)
+![](images/Headpose_Class.PNG)
 
 ### Tasks TODO for HeadPose Detection:
 -	Include CPU as plugin device for headpose detection inference.

@@ -12,19 +12,20 @@
 #include <iterator>
 #include <samples/common.hpp>
 #include <samples/slog.hpp>
-#include <../samples/extension/ext_list.hpp>
+#include <ext_list.hpp>
 #include <sstream>
 #include <map>
 #include <vector>
-#include "mkldnn/mkldnn_extension_ptr.hpp"
 #include <inference_engine.hpp>
 #include "interactive_face_detection.hpp"
+#include "mkldnn/mkldnn_extension_ptr.hpp"
 #include <opencv2/opencv.hpp>
 
 using namespace InferenceEngine;
 
 
-struct FaceDetectionClass  {
+
+struct FaceDetectionClass {
 
 	ExecutableNetwork net;
 	InferenceEngine::InferencePlugin * plugin;
@@ -32,7 +33,7 @@ struct FaceDetectionClass  {
 	std::string & commandLineFlag = FLAGS_Face_Model;
 	std::string topoName = "Face Detection";
 	const int maxBatch = 1;
-	ExecutableNetwork* operator ->() {
+	ExecutableNetwork*  operator ->() {
 		return &net;
 	}
 	std::string input;
@@ -50,24 +51,16 @@ struct FaceDetectionClass  {
 		float confidence;
 		cv::Rect location;
 	};
-
 	std::vector<Result> results;
-	void submitRequest() ;
-	void wait() ;
+	void submitRequest();
+	void wait();
 	void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor = 1.0, int batchIndex = 0);
 	void enqueue(const cv::Mat &frame);
 	InferenceEngine::CNNNetwork read();
 	void load(InferenceEngine::InferencePlugin & plg);
 	void fetchResults();
-
 };
-
-void FaceDetectionClass::wait() {
-
-		request->Wait(IInferRequest::WaitMode::RESULT_READY);
-	}
-
-void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
+void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
 	const size_t height = blobSize[1];
@@ -93,115 +86,112 @@ void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 }
 void FaceDetectionClass::enqueue(const cv::Mat &frame) {
 
-		if (!request) {
-
-			request = net.CreateInferRequestPtr();
-		}
-
-		width = frame.cols;
-		height = frame.rows;
-
-		auto  inputBlob = request->GetBlob(input);
-
-		matU8ToBlob(frame, inputBlob);
-
-		enquedFrames = 1;
-	}
-InferenceEngine::CNNNetwork FaceDetectionClass::read()  {
-
-		InferenceEngine::CNNNetReader netReader;
-		/** Read network model **/
-		netReader.ReadNetwork(FLAGS_Face_Model);
-		/** Set batch size to 1 **/
-		netReader.getNetwork().setBatchSize(maxBatch);
-		/** Extract model name and load it's weights **/
-		std::string binFileName = fileNameNoExt(FLAGS_Face_Model) + ".bin";
-		netReader.ReadWeights(binFileName);
-		/** Read labels (if any)**/
-		std::string labelFileName = fileNameNoExt(FLAGS_Face_Model) + ".labels";
-
-		std::ifstream inputFile(labelFileName);
-		std::copy(std::istream_iterator<std::string>(inputFile),
-			std::istream_iterator<std::string>(),
-			std::back_inserter(labels));
-
-		/** SSD-based network should have one input and one output **/
-		// ---------------------------Check inputs -------------------------------------------------
-		InferenceEngine::InputsDataMap inputInfo(netReader.getNetwork().getInputsInfo());
-		auto& inputInfoFirst = inputInfo.begin()->second;
-		inputInfoFirst->setPrecision(Precision::U8);
-		inputInfoFirst->getInputData()->setLayout(Layout::NCHW);
-
-		// ---------------------------Check outputs -------------------------------------------------
-		InferenceEngine::OutputsDataMap outputInfo(netReader.getNetwork().getOutputsInfo());
-
-		auto& _output = outputInfo.begin()->second;
-		output = outputInfo.begin()->first;
-
-		const auto outputLayer = netReader.getNetwork().getLayerByName(output.c_str());
-
-		const int num_classes = outputLayer->GetParamAsInt("num_classes");
-
-		const InferenceEngine::SizeVector outputDims = _output->dims;
-		maxProposalCount = outputDims[1];
-		objectSize = outputDims[0];
-
-		_output->setPrecision(Precision::FP32);
-		_output->setLayout(Layout::NCHW);
-
-
-		input = inputInfo.begin()->first;
-		return netReader.getNetwork();
-	}
-void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg)  {
-
-			net = plg.LoadNetwork(this->read(), {});
-			plugin = &plg;
-
-	}
-void FaceDetectionClass::submitRequest()  {
-		if (!enquedFrames) return;
-		enquedFrames = 0;
-		resultsFetched = false;
-		results.clear();
-		request->StartAsync();
+	if (!request) {
+		request = net.CreateInferRequestPtr();
 	}
 
+	width = frame.cols;
+	height = frame.rows;
+
+	auto  inputBlob = request->GetBlob(input);
+	matU8ToBlob(frame, inputBlob);
+	enquedFrames = 1;
+}
+InferenceEngine::CNNNetwork FaceDetectionClass::read() {
+
+	InferenceEngine::CNNNetReader netReader;
+	/** Read network model **/
+	netReader.ReadNetwork(FLAGS_Face_Model);
+	/** Set batch size to 1 **/
+	netReader.getNetwork().setBatchSize(maxBatch);
+	/** Extract model name and load it's weights **/
+	std::string binFileName = fileNameNoExt(FLAGS_Face_Model) + ".bin";
+	netReader.ReadWeights(binFileName);
+	/** Read labels (if any)**/
+	std::string labelFileName = fileNameNoExt(FLAGS_Face_Model) + ".labels";
+
+	std::ifstream inputFile(labelFileName);
+	std::copy(std::istream_iterator<std::string>(inputFile),
+		std::istream_iterator<std::string>(),
+		std::back_inserter(labels));
+
+	/** SSD-based network should have one input and one output **/
+	// ---------------------------Check inputs -------------------------------------------------
+	InferenceEngine::InputsDataMap inputInfo(netReader.getNetwork().getInputsInfo());
+	auto& inputInfoFirst = inputInfo.begin()->second;
+	inputInfoFirst->setPrecision(Precision::U8);
+	inputInfoFirst->getInputData()->setLayout(Layout::NCHW);
+
+	// ---------------------------Check outputs -------------------------------------------------
+	InferenceEngine::OutputsDataMap outputInfo(netReader.getNetwork().getOutputsInfo());
+
+	auto& _output = outputInfo.begin()->second;
+	output = outputInfo.begin()->first;
+
+	const auto outputLayer = netReader.getNetwork().getLayerByName(output.c_str());
+
+	const int num_classes = outputLayer->GetParamAsInt("num_classes");
+
+	const InferenceEngine::SizeVector outputDims = _output->dims;
+	maxProposalCount = outputDims[1];
+	objectSize = outputDims[0];
+
+	_output->setPrecision(Precision::FP32);
+	_output->setLayout(Layout::NCHW);
+
+
+	input = inputInfo.begin()->first;
+	return netReader.getNetwork();
+}
+void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg) {
+	net = plg.LoadNetwork(this->read(), {});
+	plugin = &plg;
+}
+void FaceDetectionClass::submitRequest() {
+	if (!enquedFrames) return;
+	enquedFrames = 0;
+	resultsFetched = false;
+	results.clear();
+	request->StartAsync();
+}
+
+void FaceDetectionClass::wait() {
+	request->Wait(IInferRequest::WaitMode::RESULT_READY);
+}
 void FaceDetectionClass::fetchResults() {
 
-		results.clear();
-		if (resultsFetched) return;
-		resultsFetched = true;
-		const float *detections = request->GetBlob(output)->buffer().as<float *>();
+	results.clear();
+	if (resultsFetched) return;
+	resultsFetched = true;
+	const float *detections = request->GetBlob(output)->buffer().as<float *>();
 
-		for (int i = 0; i < maxProposalCount; i++) {
-			float image_id = detections[i * objectSize + 0];
-			Result r;
-			r.label = static_cast<int>(detections[i * objectSize + 1]);
-			r.confidence = detections[i * objectSize + 2];
-			if (r.confidence <= FLAGS_t) {
-				continue;
-			}
-
-			r.location.x = detections[i * objectSize + 3] * width;
-			r.location.y = detections[i * objectSize + 4] * height;
-			r.location.width = detections[i * objectSize + 5] * width - r.location.x;
-			r.location.height = detections[i * objectSize + 6] * height - r.location.y;
-
-			if (image_id < 0) {
-				break;
-			}
-			if (FLAGS_r) {
-				std::cout << "[" << i << "," << r.label << "] element, prob = " << r.confidence <<
-					"    (" << r.location.x << "," << r.location.y << ")-(" << r.location.width << ","
-					<< r.location.height << ")"
-					<< ((r.confidence > FLAGS_t) ? " WILL BE RENDERED!" : "") << std::endl;
-			}
-
-			results.push_back(r);
+	for (int i = 0; i < maxProposalCount; i++) {
+		float image_id = detections[i * objectSize + 0];
+		Result r;
+		r.label = static_cast<int>(detections[i * objectSize + 1]);
+		r.confidence = detections[i * objectSize + 2];
+		if (r.confidence <= FLAGS_t) {
+			continue;
 		}
-	}
 
+		r.location.x = detections[i * objectSize + 3] * width;
+		r.location.y = detections[i * objectSize + 4] * height;
+		r.location.width = detections[i * objectSize + 5] * width - r.location.x;
+		r.location.height = detections[i * objectSize + 6] * height - r.location.y;
+
+		if (image_id < 0) {
+			break;
+		}
+		if (FLAGS_r) {
+			std::cout << "[" << i << "," << r.label << "] element, prob = " << r.confidence <<
+				"    (" << r.location.x << "," << r.location.y << ")-(" << r.location.width << ","
+				<< r.location.height << ")"
+				<< ((r.confidence > FLAGS_t) ? " WILL BE RENDERED!" : "") << std::endl;
+		}
+
+		results.push_back(r);
+	}
+}
 
 struct AgeGenderDetection {
 	std::string input;
@@ -215,7 +205,7 @@ struct AgeGenderDetection {
 	std::string topoName = "Age Gender";
 	const int maxBatch = FLAGS_n_ag;
 
-	void submitRequest() ;
+	void submitRequest();
 	void wait();
 	void matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor = 1.0, int batchIndex = 0);
 	void enqueue(const cv::Mat &face);
@@ -231,7 +221,8 @@ struct AgeGenderDetection {
 	CNNNetwork read();
 };
 
-void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex ) {
+void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex)
+{
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
 	const size_t height = blobSize[1];
@@ -255,69 +246,63 @@ void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 		}
 	}
 }
-void AgeGenderDetection::submitRequest()  {
-		if (!enquedFaces) return;
-		request->StartAsync();
-		enquedFaces = 0;
-	}
+CNNNetwork AgeGenderDetection::read() {
 
-void AgeGenderDetection::wait() {
-		if (!request) return;
-		request->Wait(IInferRequest::WaitMode::RESULT_READY);
-	}
+	InferenceEngine::CNNNetReader netReader;
+	/** Read network model **/
+	netReader.ReadNetwork(FLAGS_Age_Gender_Model);
 
+	//	/** Set batch size to 16
+	netReader.getNetwork().setBatchSize(16);
 
+	/** Extract model name and load it's weights **/
+	std::string binFileName = fileNameNoExt(FLAGS_Age_Gender_Model) + ".bin";
+	netReader.ReadWeights(binFileName);
 
+	/** Age Gender network should have one input two outputs **/
+	InferenceEngine::InputsDataMap inputInfo(netReader.getNetwork().getInputsInfo());
+
+	auto& inputInfoFirst = inputInfo.begin()->second;
+	inputInfoFirst->setPrecision(Precision::FP32);
+	inputInfoFirst->getInputData()->setLayout(Layout::NCHW);
+	input = inputInfo.begin()->first;
+
+	// ---------------------------Check outputs ------------------------------------------------------
+	InferenceEngine::OutputsDataMap outputInfo(netReader.getNetwork().getOutputsInfo());
+
+	auto it = outputInfo.begin();
+	auto ageOutput = (it++)->second;
+	auto genderOutput = (it++)->second;
+
+	outputAge = ageOutput->name;
+	outputGender = genderOutput->name;
+	return netReader.getNetwork();
+}
+void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg) {
+	net = plg.LoadNetwork(this->read(), {});
+	plugin = &plg;
+}
 void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
-		if (!request) {
-			request = net.CreateInferRequestPtr();
-		}
-
-		auto  inputBlob = request->GetBlob(input);
-		matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
-		enquedFaces++;
+	if (!request) {
+		request = net.CreateInferRequestPtr();
 	}
 
-void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
+	auto  inputBlob = request->GetBlob(input);
+	matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
+	enquedFaces++;
+}
+void AgeGenderDetection::submitRequest() {
+	if (!enquedFaces) return;
 
-			net = plg.LoadNetwork(this->read(), {});
-			plugin = &plg;
+	request->StartAsync();
+	enquedFaces = 0;
+}
 
-	}
-
-CNNNetwork AgeGenderDetection::read()  {
-
-		InferenceEngine::CNNNetReader netReader;
-		/** Read network model **/
-		netReader.ReadNetwork(FLAGS_Age_Gender_Model);
-
-		//	/** Set batch size to 16
-		netReader.getNetwork().setBatchSize(16);
-
-		/** Extract model name and load it's weights **/
-		std::string binFileName = fileNameNoExt(FLAGS_Age_Gender_Model) + ".bin";
-		netReader.ReadWeights(binFileName);
-
-		/** Age Gender network should have one input two outputs **/
-		InferenceEngine::InputsDataMap inputInfo(netReader.getNetwork().getInputsInfo());
-
-		auto& inputInfoFirst = inputInfo.begin()->second;
-		inputInfoFirst->setPrecision(Precision::FP32);
-		inputInfoFirst->getInputData()->setLayout(Layout::NCHW);
-		input = inputInfo.begin()->first;
-
-		// ---------------------------Check outputs ------------------------------------------------------
-		InferenceEngine::OutputsDataMap outputInfo(netReader.getNetwork().getOutputsInfo());
-
-		auto it = outputInfo.begin();
-		auto ageOutput = (it++)->second;
-		auto genderOutput = (it++)->second;
-
-		outputAge = ageOutput->name;
-		outputGender = genderOutput->name;
-		return netReader.getNetwork();
-	}
+void AgeGenderDetection::wait() {
+	if (!request) return;
+	request->Wait(IInferRequest::WaitMode::RESULT_READY);
+}
 
 struct HeadPoseDetection {
 
@@ -346,7 +331,6 @@ struct HeadPoseDetection {
 		float angle_p;
 		float angle_y;
 	};
-
 	Results operator[] (int idx) const {
 		Blob::Ptr  angleR = request->GetBlob(outputAngleR);
 		Blob::Ptr  angleP = request->GetBlob(outputAngleP);
@@ -362,16 +346,6 @@ struct HeadPoseDetection {
 	void buildCameraMatrix(int cx, int cy, float focalLength);
 	void drawAxes(cv::Mat& frame, cv::Point3f cpoint, Results headPose, float scale);
 };
-
-void HeadPoseDetection::submitRequest() {
-	if (!enquedFaces) return;
-	request->StartAsync();
-	enquedFaces = 0;
-}
-void HeadPoseDetection::wait() {
-	if (!request) return;
-	request->Wait(IInferRequest::WaitMode::RESULT_READY);
-}
 void HeadPoseDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
@@ -396,25 +370,6 @@ void HeadPoseDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, 
 		}
 	}
 }
-void HeadPoseDetection::load(InferenceEngine::InferencePlugin & plg) {
-
-	net = plg.LoadNetwork(this->read(), {});
-	plugin = &plg;
-
-}
-void HeadPoseDetection::enqueue(const cv::Mat &face) {
-
-	if (!request) {
-		request = net.CreateInferRequestPtr();
-	}
-
-	Blob::Ptr  inputBlob = request->GetBlob(input);
-
-	matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
-
-	enquedFaces++;
-}
-
 CNNNetwork HeadPoseDetection::read() {
 	//slog::info << "Loading network files for Head Pose detection " << slog::endl;
 	CNNNetReader netReader;
@@ -428,8 +383,6 @@ CNNNetwork HeadPoseDetection::read() {
 	std::string binFileName = fileNameNoExt(FLAGS_m_hp) + ".bin";
 	netReader.ReadWeights(binFileName);
 	/** Age Gender network should have one input two outputs **/
-	// ---------------------------Check inputs ------------------------------------------------------
-
 	InputsDataMap inputInfo(netReader.getNetwork().getInputsInfo());
 	if (inputInfo.size() != 1) {
 		throw std::logic_error("Head Pose topology should have only one input");
@@ -478,7 +431,6 @@ void HeadPoseDetection::buildCameraMatrix(int cx, int cy, float focalLength) {
 	cameraMatrix.at<float>(5) = static_cast<float>(cy);
 	cameraMatrix.at<float>(8) = 1;
 }
-
 void HeadPoseDetection::drawAxes(cv::Mat& frame, cv::Point3f cpoint, Results headPose, float scale) {
 	yaw = headPose.angle_y;
 	pitch = headPose.angle_p;
@@ -545,8 +497,39 @@ void HeadPoseDetection::drawAxes(cv::Mat& frame, cv::Point3f cpoint, Results hea
 	cv::line(frame, p1, p2, cv::Scalar(255, 0, 0), 2);
 	cv::circle(frame, p2, 3, cv::Scalar(255, 0, 0), 2);
 }
+void HeadPoseDetection::load(InferenceEngine::InferencePlugin & plg) {
+
+	net = plg.LoadNetwork(this->read(), {});
+	plugin = &plg;
+
+}
+void HeadPoseDetection::enqueue(const cv::Mat &face) {
+
+	if (!request) {
+		request = net.CreateInferRequestPtr();
+	}
+
+	Blob::Ptr  inputBlob = request->GetBlob(input);
+
+	matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
+
+	enquedFaces++;
+}
+void HeadPoseDetection::submitRequest() {
+	if (!enquedFaces) return;
+	request->StartAsync();
+	enquedFaces = 0;
+}
+
+void HeadPoseDetection::wait() {
+	if (!request) return;
+	request->Wait(IInferRequest::WaitMode::RESULT_READY);
+}
+
 
 int main(int argc, char *argv[]) {
+
+	//TODO: Cloud integration 1
 
 	int faceCountThreshold = 100;
 	int curFaceCount = 0;
@@ -556,9 +539,6 @@ int main(int argc, char *argv[]) {
 	int femalecount = 0;
 	int attentivityindex = 0;
 	int framecounter = 0;
-
-	//TODO: Cloud integration 1
-
 	//If there is a single camera connected, just pass 0.
 	cv::VideoCapture cap;
 	cap.open(0);
@@ -572,29 +552,28 @@ int main(int argc, char *argv[]) {
 	//Select GPU as plugin device to load Face Detection pre trained optimized model
 	InferencePlugin plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("GPU");
 	pluginsForDevices["GPU"] = plugin;
-
-	//Select GPU as plugin device to load Age and Gender Detection pre trained optimized model
 	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 	pluginsForDevices["CPU"] = plugin;
-
-	//Select GPU as plugin device to load Head Pose Detection pre trained optimized model
 	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 	pluginsForDevices["CPU"] = plugin;
 
 	//Load pre trained optimized data model for face detection
 	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
+
+	//Load Face Detection model to target device
 	FaceDetectionClass FaceDetection;
 	FaceDetection.load(pluginsForDevices["GPU"]);
-
-	//Load pre trained optimized data model for Age and Gender detection
 	FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
 	AgeGenderDetection AgeGender;
 	AgeGender.load(pluginsForDevices["CPU"]);
 
-	//Head pose
 	FLAGS_m_hp = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\head-pose-estimation-adas-0001\\FP32\\head-pose-estimation-adas-0001.xml";
 	HeadPoseDetection HeadPose;
 	HeadPose.load(pluginsForDevices["CPU"]);
+
+
+
+
 
 	// Main inference loop
 	while (true) {
@@ -616,7 +595,9 @@ int main(int argc, char *argv[]) {
 		HeadPose.submitRequest();
 		HeadPose.wait();
 
+
 		FaceDetection.fetchResults();
+
 		//Clipped the identified face and send Inference Request for age and gender detection
 		for (auto face : FaceDetection.results) {
 			auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
@@ -624,6 +605,7 @@ int main(int argc, char *argv[]) {
 			AgeGender.enqueue(face1);
 			HeadPose.enqueue(face1);
 		}
+
 		// Got the Face, Age and Gender detection result, now customize and print them on window
 		std::ostringstream out;
 		index = 0;
@@ -633,7 +615,6 @@ int main(int argc, char *argv[]) {
 		attentivityindex = 0;
 
 		for (auto & result : FaceDetection.results) {
-
 			cv::Rect rect = result.location;
 
 			out.str("");
@@ -641,6 +622,7 @@ int main(int argc, char *argv[]) {
 
 			//Draw rectangle bounding identified face and print Age and Gender
 			out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
+
 			if (AgeGender[index].maleProb > 0.5)
 				malecount++;
 			else
@@ -665,8 +647,8 @@ int main(int argc, char *argv[]) {
 
 				}
 			}
-
 			index++;
+
 			// Giving same colour to male and female
 			auto rectColor = cv::Scalar(0, 255, 0);
 

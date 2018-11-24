@@ -26,7 +26,6 @@ using namespace InferenceEngine;
 
 
 
-//TODO: Define class for Face Detection
 struct FaceDetectionClass {
 
 	ExecutableNetwork net;
@@ -62,7 +61,6 @@ struct FaceDetectionClass {
 	void load(InferenceEngine::InferencePlugin & plg);
 	void fetchResults();
 };
-//TODO: FaceDetection-Blob Detection
 void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
@@ -87,7 +85,6 @@ void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 		}
 	}
 }
-//TODO: FaceDetection-populate Inference Request
 void FaceDetectionClass::enqueue(const cv::Mat &frame) {
 
 	if (!request) {
@@ -101,7 +98,6 @@ void FaceDetectionClass::enqueue(const cv::Mat &frame) {
 	matU8ToBlob(frame, inputBlob);
 	enquedFrames = 1;
 }
-//TODO: FaceDetection-Parse CNNNetworks
 InferenceEngine::CNNNetwork FaceDetectionClass::read() {
 
 	InferenceEngine::CNNNetReader netReader;
@@ -148,12 +144,10 @@ InferenceEngine::CNNNetwork FaceDetectionClass::read() {
 	input = inputInfo.begin()->first;
 	return netReader.getNetwork();
 }
-//TODO: FaceDetection-LoadNetwork
 void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg) {
 	net = plg.LoadNetwork(this->read(), {});
 	plugin = &plg;
 }
-//TODO: FaceDetection-submit Inference Request and wait
 void FaceDetectionClass::submitRequest() {
 	if (!enquedFrames) return;
 	enquedFrames = 0;
@@ -165,7 +159,6 @@ void FaceDetectionClass::submitRequest() {
 void FaceDetectionClass::wait() {
 	request->Wait(IInferRequest::WaitMode::RESULT_READY);
 }
-//TODO: FaceDetection-fetch inference result
 void FaceDetectionClass::fetchResults() {
 
 	results.clear();
@@ -201,7 +194,6 @@ void FaceDetectionClass::fetchResults() {
 	}
 }
 
-//TODO: Define class for Age & Gender Detection
 struct AgeGenderDetection {
 	std::string input;
 	std::string outputAge;
@@ -230,7 +222,6 @@ struct AgeGenderDetection {
 	CNNNetwork read();
 };
 
-//TODO: AgeGender-Blob Detection
 void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex)
 {
 	SizeVector blobSize = blob.get()->dims();
@@ -256,7 +247,6 @@ void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 		}
 	}
 }
-//TODO: AgeGenderDetection-Parse CNNNetworks
 CNNNetwork AgeGenderDetection::read() {
 
 	InferenceEngine::CNNNetReader netReader;
@@ -289,12 +279,10 @@ CNNNetwork AgeGenderDetection::read() {
 	outputGender = genderOutput->name;
 	return netReader.getNetwork();
 }
-//TODO: AgeGenderDetection-LoadNetwork
 void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg) {
 	net = plg.LoadNetwork(this->read(), {});
 	plugin = &plg;
 }
-//TODO: AgeGenderDetection-populate Inference Request
 void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
 	if (!request) {
@@ -305,7 +293,6 @@ void AgeGenderDetection::enqueue(const cv::Mat &face) {
 	matU8ToBlob(face, inputBlob, 1.0f, enquedFaces);
 	enquedFaces++;
 }
-//TODO: AgeGenderDetection-submit Inference Request and wait
 void AgeGenderDetection::submitRequest() {
 	if (!enquedFaces) return;
 
@@ -332,8 +319,6 @@ int main(int argc, char *argv[]) {
 
 	//TODO: Cloud integration 1
 
-
-
 	int faceCountThreshold = 100;
 	int curFaceCount = 0;
 	int prevFaceCount = 0;
@@ -347,8 +332,6 @@ int main(int argc, char *argv[]) {
 	cap.open(0);
 	cv::Mat frame;
 	cap.read(frame);
-
-
 
 	//Select plugins for inference engine
 	std::map<std::string, InferencePlugin> pluginsForDevices;
@@ -392,37 +375,33 @@ int main(int argc, char *argv[]) {
 		FaceDetection.submitRequest();
 		FaceDetection.wait();
 
-
 		//Submit Inference Request for age and gender detection and wait for result
 		AgeGender.submitRequest();
 		AgeGender.wait();
 
-//TODO: HeadPose Detection 3
+		//TODO: HeadPose Detection 3
 
 
 		FaceDetection.fetchResults();
 
-
 		//Clipped the identified face and send Inference Request for age and gender detection
-		for (auto face : FaceDetection.results)
-		{
+		for (auto face : FaceDetection.results) {
 			auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
 			auto face1 = frame(clippedRect);
 			AgeGender.enqueue(face1);
 			//TODO: HeadPose Detection 4
 		}
 
-// Got the Face, Age and Gender detection result, now customize and print them on window
+		// Got the Face, Age and Gender detection result, now customize and print them on window
 		std::ostringstream out;
 		index = 0;
 		curFaceCount = 0;
-		malecount=0;
-		femalecount=0;
+		malecount = 0;
+		femalecount = 0;
 		attentivityindex = 0;
 
 		for (auto & result : FaceDetection.results) {
 			cv::Rect rect = result.location;
-
 
 			out.str("");
 			curFaceCount++;
@@ -437,8 +416,14 @@ int main(int argc, char *argv[]) {
 
 			out << "," << static_cast<int>(AgeGender[index].age);
 
-			cv::putText(frame, out.str(), cv::Point2f(result.location.x, result.location.y - 15), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, cv::Scalar(0, 0, 255));
-			//TODO: HeadPose Detection 5 index++;
+			cv::putText(frame,
+				out.str(),
+				cv::Point2f(result.location.x, result.location.y - 15),
+				cv::FONT_HERSHEY_COMPLEX_SMALL,
+				0.8,
+				cv::Scalar(0, 0, 255));
+			//TODO: HeadPose Detection 5
+			index++;
 
 			// Giving same colour to male and female
 			auto rectColor = cv::Scalar(0, 255, 0);

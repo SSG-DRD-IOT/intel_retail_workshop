@@ -1,4 +1,4 @@
-# Analyze Face Data on Cloud
+# Analyze Face and Gender Data on Cloud
 ### Lab Overview
 We have done Face, Age and Gender Detection in our previous modules. Also, we have successfully counted number of faces so far.
 
@@ -101,4 +101,5 @@ Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizi
 
 
 ##  
+
 [Video Analytics Home](./README.md)

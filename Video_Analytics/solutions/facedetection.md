@@ -16,7 +16,6 @@
 #include <sstream>
 #include <map>
 #include <vector>
-//TODO: Face Detection 1
 #include <inference_engine.hpp>
 #include "interactive_face_detection.hpp"
 #include "mkldnn/mkldnn_extension_ptr.hpp"
@@ -26,7 +25,6 @@ using namespace InferenceEngine;
 
 
 
-//TODO: Define class for Face Detection
 struct FaceDetectionClass {
 
 	ExecutableNetwork net;
@@ -62,7 +60,6 @@ struct FaceDetectionClass {
 	void load(InferenceEngine::InferencePlugin & plg);
 	void fetchResults();
 };
-//TODO: FaceDetection-Blob Detection
 void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
@@ -87,7 +84,6 @@ void FaceDetectionClass::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 		}
 	}
 }
-//TODO: FaceDetection-populate Inference Request
 void FaceDetectionClass::enqueue(const cv::Mat &frame) {
 
 	if (!request) {
@@ -101,7 +97,6 @@ void FaceDetectionClass::enqueue(const cv::Mat &frame) {
 	matU8ToBlob(frame, inputBlob);
 	enquedFrames = 1;
 }
-//TODO: FaceDetection-Parse CNNNetworks
 InferenceEngine::CNNNetwork FaceDetectionClass::read() {
 
 	InferenceEngine::CNNNetReader netReader;
@@ -148,12 +143,10 @@ InferenceEngine::CNNNetwork FaceDetectionClass::read() {
 	input = inputInfo.begin()->first;
 	return netReader.getNetwork();
 }
-//TODO: FaceDetection-LoadNetwork
 void FaceDetectionClass::load(InferenceEngine::InferencePlugin & plg) {
 	net = plg.LoadNetwork(this->read(), {});
 	plugin = &plg;
 }
-//TODO: FaceDetection-submit Inference Request and wait
 void FaceDetectionClass::submitRequest() {
 	if (!enquedFrames) return;
 	enquedFrames = 0;
@@ -165,7 +158,6 @@ void FaceDetectionClass::submitRequest() {
 void FaceDetectionClass::wait() {
 	request->Wait(IInferRequest::WaitMode::RESULT_READY);
 }
-//TODO: FaceDetection-fetch inference result
 void FaceDetectionClass::fetchResults() {
 
 	results.clear();
@@ -202,7 +194,6 @@ void FaceDetectionClass::fetchResults() {
 }
 
 //TODO: Define class for Age & Gender Detection
-
 //TODO: AgeGender-Blob Detection
 //TODO: AgeGenderDetection-Parse CNNNetworks
 //TODO: AgeGenderDetection-LoadNetwork
@@ -223,7 +214,6 @@ int main(int argc, char *argv[]) {
 
 	//TODO: Cloud integration 1
 
-	//TODO: Face detection 2
 	//TODO: Age and Gender Detection 1
 	//If there is a single camera connected, just pass 0.
 	cv::VideoCapture cap;
@@ -231,7 +221,6 @@ int main(int argc, char *argv[]) {
 	cv::Mat frame;
 	cap.read(frame);
 
-	//TODO: Face detection 3
 	//Select plugins for inference engine
 	std::map<std::string, InferencePlugin> pluginsForDevices;
 
@@ -243,9 +232,7 @@ int main(int argc, char *argv[]) {
 
 
 
-
-	//TODO: Face detection 4
-	 //Load pre trained optimized data model for face detection
+	//Load pre trained optimized data model for face detection
 	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
 
 	//Load Face Detection model to target device
@@ -257,9 +244,7 @@ int main(int argc, char *argv[]) {
 
 
 
-
-	//TODO: Face detection 5
-	 // Main inference loop
+	// Main inference loop
 	while (true) {
 		//Grab the next frame from camera and populate Inference Request
 		cap.grab();
