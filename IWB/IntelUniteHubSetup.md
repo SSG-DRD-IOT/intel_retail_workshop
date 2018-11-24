@@ -35,7 +35,8 @@ Follow the below steps to setup Intel Unite® Hub in your NUC.
 ![](./images/IntelUniteHubSetup07.png)
 
 ## Start the Intel Unite® Hub
-To start the Intel Unite® Hub, double click on the Unite icon available at your desktop. Accept the privacy statement, and proceed.
+To start the Intel Unite® Hub, double click on the Unite icon available at your desktop. Accept the privacy statement and proceed.
+
 ![](./images/IntelUniteHubSetup08.png)
 
 Once the Hub is started successfully a PIN will be visible at top right corner of your monitor. Wait for client to connect.
