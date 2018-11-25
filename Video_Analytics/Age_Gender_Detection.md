@@ -202,7 +202,6 @@ We will use CPU as plugin device for inferencing Age and Gender
 ```cpp
 	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 	pluginsForDevices["CPU"] = plugin;
-	//TODO: HeadPose Detection 1
 ```
 
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
@@ -213,7 +212,7 @@ We need CPU as plugin device for inferencing Age and Gender and load pre-retaine
 	FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml";	
 	AgeGenderDetection AgeGender;
 	AgeGender.load(pluginsForDevices["CPU"]);
-	//TODO: HeadPose Detection 2
+	//TODO: HeadPose Detection 1
 ```
 
 ### Submit Inference Request
@@ -223,7 +222,7 @@ We need CPU as plugin device for inferencing Age and Gender and load pre-retaine
 	//Submit Inference Request for age and gender detection and wait for result
 	AgeGender.submitRequest();
 	AgeGender.wait();
-	//TODO: HeadPose Detection 3
+	//TODO: HeadPose Detection 2
 ```
 
 ### Use identified Face for Age and Gender Detection
@@ -236,7 +235,7 @@ Clip the identified Faces and send inference request for identifying Age and Gen
 		auto clippedRect = face.location & cv::Rect(0, 0, width, height);
 		auto face1 = frame(clippedRect);
 		AgeGender.enqueue(face1);
-		//TODO: HeadPose Detection 4
+		//TODO: HeadPose Detection 3
 	}
 
 	// Got the Face, Age and Gender detection result, now customize and print them on window
@@ -272,7 +271,7 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
 	        	      cv::FONT_HERSHEY_COMPLEX_SMALL,
 		              0.8,
 	        	      cv::Scalar(0, 0, 255));
-	//TODO: HeadPose Detection 5			      
+		//TODO: HeadPose Detection 4			      
 	index++;
 ```
 

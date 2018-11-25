@@ -20,7 +20,7 @@ We build upon our Face, Age and Gender detection code from previous labs to add 
 Here, we will define a class that includes the declaration of data member and member functions that will be used for head pose detection using OpenVINO™ toolkit.
 - Replace **#TODO: Define class for head pose detection** with the following code snippet.
 
-```
+```cpp
 struct HeadPoseDetection {
 
 	ExecutableNetwork net;
@@ -67,10 +67,11 @@ struct HeadPoseDetection {
 ```
 
 ### Setup the blob for head pose detection
+
 This is used to process the original image from live feed and populate blob data detection data from captured Mat buffer.
 - Replace **#TODO: HeadPose-Blob Detection** with the following code snippet.
 
-```
+```cpp
 void HeadPoseDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor, int batchIndex) {
 	SizeVector blobSize = blob.get()->dims();
 	const size_t width = blobSize[0];
@@ -101,7 +102,7 @@ void HeadPoseDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, 
 This method is used to parse the intermediate representation format of CNNNetwork models (that is .bin and .xml files).
 -  Replace **#TODO: HeadPose-Parse CNNNetworks** with the following code snippet.
 
-```
+```cpp
 CNNNetwork HeadPoseDetection::read() {
 	//slog::info << "Loading network files for Head Pose detection " << slog::endl;
 	CNNNetReader netReader;
@@ -154,11 +155,12 @@ CNNNetwork HeadPoseDetection::read() {
 	}
 	return netReader.getNetwork();
 }
+
 ```
 ### Build camera matrix for head pose Detection
 Here, this method takes camera frame rows and columns as input and builds the matrix.
 -  Replace **#TODO: HeadPoseDetection buildCameraMatrix** with the following code snippet.
-```
+```cpp
 void HeadPoseDetection::buildCameraMatrix(int cx, int cy, float focalLength) {
 	if (!cameraMatrix.empty()) return;
 	cameraMatrix = cv::Mat::zeros(3, 3, CV_32F);
@@ -173,7 +175,7 @@ void HeadPoseDetection::buildCameraMatrix(int cx, int cy, float focalLength) {
 ### Drawing Raw, Yaw and Pitch axis
 This is used to process the headpose angle of identified face and draw Raw, Yaw and Pitch axis on the console.
 - Replace **#TODO: HeadPoseDetection-drawAxes** with the following code snippet.
-```
+```cpp
 void HeadPoseDetection::drawAxes(cv::Mat& frame, cv::Point3f cpoint, Results headPose, float scale) {
 	yaw = headPose.angle_y;
 	pitch = headPose.angle_p;
@@ -247,7 +249,7 @@ void HeadPoseDetection::drawAxes(cv::Mat& frame, cv::Point3f cpoint, Results hea
 Here, we will define a method that will be used for loading the CNNNetworks that will be used for head pose detection.
 - Replace **#TODO: HeadPose-LoadNetwork** with the following code snippet.
 
-```
+```cpp
 void HeadPoseDetection::load(InferenceEngine::InferencePlugin & plg) {
 
 	net = plg.LoadNetwork(this->read(), {});
@@ -260,7 +262,7 @@ void HeadPoseDetection::load(InferenceEngine::InferencePlugin & plg) {
 This method is used populate the inference request and push the frames in to a queue for further processing.
 - Replace **#TODO: HeadPose-populate Inference Request** with the following code.
 
-```
+```cpp
 void HeadPoseDetection::enqueue(const cv::Mat &face) {
 
 	if (!request) {
@@ -279,7 +281,7 @@ void HeadPoseDetection::enqueue(const cv::Mat &face) {
 Here we will define methods to submit inference request and wait for inference result.
 - Replace **#TODO: HeadPose-submit Inference Request and wait** with the following code snippets.
 
-```
+```cpp
 void HeadPoseDetection::submitRequest() {
 	if (!enquedFaces) return;
 	request->StartAsync();
@@ -295,19 +297,13 @@ void HeadPoseDetection::wait() {
 
 ### Include CPU as plugin device
 Till now, we have defined all the required methods required for head pose detection. Now we will extend our Face detection application with head pose detection.
-We will use CPU as plugin device for inferencing head pose
-- Replace **#TODO: head pose detection 1** with the following lines of code
-
-```
-plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
-	pluginsForDevices["CPU"] = plugin;
-```
+We will use CPU as plugin device for inferencing head pose which already selected for Age and Gender detection
 
 ### Load pre-trained optimized model for head pose Inferencing
 We need CPU as plugin device for inferencing HeadPose and load pre-retained model for head pose detection on CPU
-- Replace **#TODO: HeadPose Detection 2** with the following lines of code
+- Replace **#TODO: HeadPose Detection 1** with the following lines of code
 
-```
+```cpp
 FLAGS_m_hp = "/opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml";
 	HeadPoseDetection HeadPose;
 	HeadPose.load(pluginsForDevices["CPU"]);
@@ -315,31 +311,30 @@ FLAGS_m_hp = "/opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-
 ```
 
 ### Submit Inference Request
-- Replace **#TODO: HeadPose Detection 3** with the following lines of code
+- Replace **#TODO: HeadPose Detection 2** with the following lines of code
 
-```
-//Submit Inference Request for HeadPose detection and wait for result
-	 HeadPose.submitRequest();
-	 HeadPose.wait();
+```cpp
+	//Submit Inference Request for HeadPose detection and wait for result
+	HeadPose.submitRequest();
+	HeadPose.wait();
 
 ```
 
 ### Use identified face for head pose detection
 Clip the identified Faces and send inference request for identifying head pose
-- Replace **#TODO: HeadPose Detection 4** with the following line of code
+- Replace **#TODO: HeadPose Detection 3** with the following line of code
 
-```
-HeadPose.enqueue(face1);
+```cpp
+	HeadPose.enqueue(face1);
 
 ```
 
 ### Calculate attentivityindex
 Here attentivityindex will be calculated on the basis of Yaw angle.
-- Replace **#TODO: HeadPose Detection 5** with the following lines of code
+- Replace **#TODO: HeadPose Detection 4** with the following lines of code
 
-```
-if (index < HeadPose.maxBatch) {
-
+```cpp
+		if (index < HeadPose.maxBatch) {
 			cv::Point3f center(rect.x + rect.width / 2, rect.y + rect.height / 2, 0);
 			HeadPose.drawAxes(frame, center, HeadPose[index], 50);
 			if (HeadPose.yaw > -0.4 && HeadPose.yaw < -0.001)
@@ -352,22 +347,27 @@ if (index < HeadPose.maxBatch) {
  ```
 
 ### The Final Solution
+
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [face_AgeGender_headpose_detection.cpp](./solutions/Headposedetection.md)
+For complete solution click on following link [headpose_detection.cpp](./solutions/Headposedetection.md)
 
 ### Build the Solution and Observe the Output
+
 - Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
 - Do  make by following commands   
-- Make sure environment variables set when you are doing in fresh terminal.      
+- Make sure environment variables set when you are doing in fresh terminal.
 
-```
+```bash
+
 # make
+
 ```
 
 - Executable will be generated at ***~/Desktop/Retail/OpenVINO/samples/build/intel64/Release*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
 
-```
+```bash
+# cd ~/Desktop/Retail/OpenVINO/samples/build/intel64/Release
 # ./interactive_face_detection_sample
  ```
 
@@ -378,4 +378,4 @@ For complete solution click on following link [face_AgeGender_headpose_detection
 In addition to face, age and gender - added head pose Detection using  OpenVINO™ toolkit.
 
 ## Next Lab
-[Analyze face, age, gender, head pose data on Cloud](./Analyse_face_data_on_cloud.md)
+[Analyze data on Cloud](./Analyse_face_data_on_cloud.md)

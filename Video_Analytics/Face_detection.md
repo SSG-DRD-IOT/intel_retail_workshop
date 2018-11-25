@@ -312,6 +312,7 @@ Here we are populating the face detection object for Inference request, and afte
 ```cpp
     // Main inference loop
 	while (true) {
+	        //TODO: Cloud Integration 2 
 		//Grab the next frame from camera and populate Inference Request
 		cap.grab();
 		FaceDetection.enqueue(frame);
@@ -345,7 +346,7 @@ Here we are populating the face detection object for Inference request, and afte
 		if (!cap.retrieve(frame)) {
 			break;
 		}
-		//TODO: Cloud integration 2
+		//TODO: Cloud integration 3
   }
   ```
 

@@ -12,7 +12,7 @@ In this Lab, we will publish this data to local cloud for analysis.
 ### Declare the device id
 - Replace **#TODO: Cloud Integration 1** with the following line of code.
 
-```
+```cpp
 std::string deviceId="1234";
 ```
 
@@ -23,7 +23,7 @@ We counted the number of faces,number of males and number of females successfull
 - The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > OpenVINO***
 - If file is not present, create a "cloud.py" file and add the following code snippet into that file.
 
-```
+```python
 import requests
 import sys
 import json
@@ -45,43 +45,53 @@ if resp.status_code != 201:
     print("Unable to submit the data")
 else:
     print("Data Submitted for analysis")
-```
-### Integrate cloud module
-- Replace #TODO: Cloud Integration 2 with below code snippet
 
 ```
-//Submit data to cloud when there is change in face count
-  if (framecounter == 10)
-  {
-    prevFaceCount = curFaceCount;
-    //slog::info << framecounter << slog::endl;
-    //Integrate python module to submit data to cloud
-    std::string cmd = "python /home/intel/Desktop/Retail/OpenVINO/cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
-    int systemRet = std::system(cmd.c_str());
-    if (systemRet == -1)
-      slog::info << "System fails : " << slog::endl;
-    slog::info << "Number of faces in the frame are : " << curFaceCount << slog::endl;
-    slog::info << "male count is " << malecount << slog::endl;
-    slog::info << "female count is " << femalecount << slog::endl;
-    slog::info << "Attentivity index is " << attentivityindex << slog::endl;
-    slog::info << "__________________________________________" << slog::endl;
-    framecounter = 0;
-  }
+
+### Increment frame counter
+- Replace #TODO: Cloud Integration 2 with below line of code
+
+```
+	framecounter++;
+```
+### Integrate cloud module
+
+- Replace #TODO: Cloud Integration 3 with below code snippet
+
+```cpp
+	//Submit data to cloud when there is change in face count
+	  if (framecounter == 10)
+	  {
+	    prevFaceCount = curFaceCount;
+	    //slog::info << framecounter << slog::endl;
+	    //Integrate python module to submit data to cloud
+	    std::string cmd = "python /home/intel/Desktop/Retail/OpenVINO/cloud.py " + deviceId + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
+	    int systemRet = std::system(cmd.c_str());
+	    if (systemRet == -1)
+	      slog::info << "System fails : " << slog::endl;
+	    slog::info << "Number of faces in the frame are : " << curFaceCount << slog::endl;
+	    slog::info << "male count is " << malecount << slog::endl;
+	    slog::info << "female count is " << femalecount << slog::endl;
+	    slog::info << "Attentivity index is " << attentivityindex << slog::endl;
+	    slog::info << "__________________________________________" << slog::endl;
+	    framecounter = 0;
+	  }
 ```
 ### Build the Solution and Observe the Output
 - Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
 - Do  make by following commands
 - Make sure environment variables set when you are doing in fresh terminal.
 
-```
-# source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+
+```bash
+# cd ~/Desktop/Retail/OpenVINO/samples/build
 # make
 ```
 
 - Executable will be generated at ***~/Desktop/Retail/OpenVINO/samples/build/intel64/Release*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
 
-```
+```bash
 # ./interactive_face_detection_sample
  ```
 
@@ -91,7 +101,7 @@ else:
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
-```
+```bash
 cd ~/Desktop/Retail/OpenVINO/lab-8.0-solution-cloud-analytics-retail-workshop
 node server.js
  ```
