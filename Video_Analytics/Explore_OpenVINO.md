@@ -56,40 +56,47 @@ The application reads command line parameters and loads the specified models. Th
 * **Running the Application**
 - Go to the samples directory using below command.
 
-```
-$ cd /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples
+```bash
+$ cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples
 ```
 - create build directory using below command
 
-```
+```bash
 $ sudo mkdir build
  ```
 - set environment variables using below commands
 
-```
+```bash
  $ sudo -s
 
  # source /opt/intel/computer_vision_sdk/bin/setupvars.sh
  ```
 - build samples using below commands
 
-```
+```bash
  # cd build
  # cmake ..
  # make
- ```
+
+```
+
+
+- Running the application with below command.
+
+```bash
+# cd intel64/Release
+# ./security_barrier_camera_sample -h
+```
 - Running the application with –h option results with the following information:
+
 ![](images/help.png)
 - For this document, we are not using all parameters. Participants are expected to explore multiple options.
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
-```
-# cd /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples/build/intel64/Release
+```bash
+# cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample.exe  -i  
-/opt/Intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m
-/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va
-/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -d CPU
+# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d CPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
@@ -99,13 +106,10 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 ![](images/cpu.png)
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
-```
-# cd /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples/build/intel64/Release
+```bash
+# cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample.exe  -i  
-/opt/Intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m
-/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0007/FP32/vehicle-license-plate-detection-barrier-0007.xml -m_va
-/opt/Intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0010/FP32/vehicle-attributes-recognition-barrier-0010.xml -d GPU
+# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d GPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
