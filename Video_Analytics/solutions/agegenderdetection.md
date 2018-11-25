@@ -342,7 +342,6 @@ int main(int argc, char *argv[]) {
 
 	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 	pluginsForDevices["CPU"] = plugin;
-	//TODO: HeadPose Detection 1
 
 
 
@@ -360,13 +359,14 @@ int main(int argc, char *argv[]) {
 	AgeGenderDetection AgeGender;
 	AgeGender.load(pluginsForDevices["CPU"]);
 
-	//TODO: HeadPose Detection 2
+	//TODO: HeadPose Detection 1
 
 
 
 
 	// Main inference loop
 	while (true) {
+	         //TODO: Cloud Integration 2
 		//Grab the next frame from camera and populate Inference Request
 		cap.grab();
 		FaceDetection.enqueue(frame);
@@ -379,7 +379,7 @@ int main(int argc, char *argv[]) {
 		AgeGender.submitRequest();
 		AgeGender.wait();
 
-		//TODO: HeadPose Detection 3
+		//TODO: HeadPose Detection 2
 
 
 		FaceDetection.fetchResults();
@@ -389,7 +389,7 @@ int main(int argc, char *argv[]) {
 			auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
 			auto face1 = frame(clippedRect);
 			AgeGender.enqueue(face1);
-			//TODO: HeadPose Detection 4
+			//TODO: HeadPose Detection 3
 		}
 
 		// Got the Face, Age and Gender detection result, now customize and print them on window
@@ -422,7 +422,7 @@ int main(int argc, char *argv[]) {
 				cv::FONT_HERSHEY_COMPLEX_SMALL,
 				0.8,
 				cv::Scalar(0, 0, 255));
-			//TODO: HeadPose Detection 5
+			//TODO: HeadPose Detection 4
 			index++;
 
 			// Giving same colour to male and female
@@ -439,7 +439,7 @@ int main(int argc, char *argv[]) {
 		if (!cap.retrieve(frame)) {
 			break;
 		}
-		//TODO: Cloud integration 2
+		//TODO: Cloud integration 3
 	}
 	return 0;
 }

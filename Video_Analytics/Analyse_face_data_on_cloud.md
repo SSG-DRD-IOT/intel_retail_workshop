@@ -3,9 +3,11 @@
 We have done Face, Age and Gender Detection in our previous modules. Also, we have successfully counted number of faces so far.
 
 In this Lab, we will publish this data to local cloud for analysis.
+
 ### Tasks to do in this lab
+
 - Declare a device id that will be used for publishing the data to cloud
-- Integrate a Python* script for publishing the data to cloud
+- Integrate a Python script for publishing the data to cloud
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the number of faces
 
@@ -13,18 +15,20 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Replace #TODO: Cloud Integration 1
 - Paste the following line and replace the device id “1234” with your device id written on your computer.
 
-```
+```cpp
 std::string deviceId="1234";
 ```
 
 ### Publish Number of Faces to Cloud
+
 We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
 - The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > 05-OpenVINO***
 - If file is not present, create a "cloud.py" file and add the following code snippet into that file.
 
-```
+
+```python
 import requests
 import sys
 import json
@@ -47,17 +51,25 @@ if resp.status_code != 201:
 else:
     print("Data Submitted for analysis")
  ```
-### Integrate cloud module
-- Replace #TODO: Cloud Integration 2 with below code snippet
 
+### Increment frame counter
+- Replace #TODO: Cloud Integration 2 with below line of code
+
+```cpp
+	framecounter++;
 ```
+
+### Integrate cloud module
+- Replace #TODO: Cloud Integration 3 with below code snippet
+
+```cpp
 //Submit data to Intel Unite on framecounter basis
   if (framecounter == 10)
   {
     prevFaceCount = curFaceCount;
     slog::info << framecounter << slog::endl;
     //Integrate python module to submit data to cloud
-    std::string cmd = "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + id + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
+    std::string cmd = "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + deviceId + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
     int systemRet = std::system(cmd.c_str());
     if (systemRet == -1)
       slog::info << "System fails : " << slog::endl;
@@ -85,7 +97,8 @@ node server.js
 ![](images/cloudAnalysis.png)
 
 ###  Final Solution
-For complete solution click on following link [analyse_face_data_on_cloud.cpp](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
+
+For complete solution click on following link [analyse_data_on_cloud](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 - Build the solution in visual studio
 - Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug*** directory.

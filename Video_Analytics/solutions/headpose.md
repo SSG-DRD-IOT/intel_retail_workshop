@@ -554,8 +554,6 @@ int main(int argc, char *argv[]) {
 	pluginsForDevices["GPU"] = plugin;
 	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 	pluginsForDevices["CPU"] = plugin;
-	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
-	pluginsForDevices["CPU"] = plugin;
 
 	//Load pre trained optimized data model for face detection
 	FLAGS_Face_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\face-detection-adas-0001\\FP32\\face-detection-adas-0001.xml";
@@ -577,7 +575,7 @@ int main(int argc, char *argv[]) {
 
 	// Main inference loop
 	while (true) {
-
+		//TODO: Cloud Integration 2
 		//Grab the next frame from camera and populate Inference Request
 		framecounter++;
 		cap.grab();
@@ -664,7 +662,7 @@ int main(int argc, char *argv[]) {
 			break;
 		}
 
-		//TODO: Cloud integration 2
+		//TODO: Cloud integration 3
 	}
 	return 0;
 }

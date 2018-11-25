@@ -21,7 +21,7 @@ Here, we will define a class that includes the declaration of data member and me
 - Replace #TODO: Define class for Age & Gender Detection
 - Paste the following code
 
-```
+```cpp
 struct AgeGenderDetection {
 	std::string input;
 	std::string outputAge;
@@ -57,7 +57,7 @@ This is used to process the original image from live feed and populate blob data
 - Replace #TODO: AgeGender-Blob Detection
 - paste the following code
 
-```
+```cpp
 void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob, float scaleFactor , int batchIndex )
  {
     SizeVector blobSize = blob.get()->dims();
@@ -91,7 +91,7 @@ This method is used to parse the intermediate representation format of CNNNetwor
 -  Replace #TODO: AgeGenderDetection-Parse CNNNetworks
 - Paste the following code.
 
-```
+```cpp
 CNNNetwork AgeGenderDetection::read()  {
 
 	InferenceEngine::CNNNetReader netReader;
@@ -131,7 +131,7 @@ Here, we will define a method that will be used for loading the CNNNetworks that
 - Replace #TODO: AgeGenderDetection-LoadNetwork
 - Paste the following code
 
-```
+```cpp
 void AgeGenderDetection::load(InferenceEngine::InferencePlugin & plg)  {
      net = plg.LoadNetwork(this->read(), {});
      plugin = &plg;
@@ -143,7 +143,7 @@ This method is used populate the inference request and push the frames in to a q
 - Replace #TODO: AgeGenderDetection-populate Inference Request
 - Paste the following code.
 
-```
+```cpp
 void AgeGenderDetection::enqueue(const cv::Mat &face) {
 
   if (!request) {
@@ -161,7 +161,7 @@ Here we will define methods to submit inference request and wait for inference r
 - Replace #TODO: AgeGenderDetection-submit Inference Request and wait
 - Paste the following lines
 
-```
+```cpp
 void AgeGenderDetection::submitRequest()  {
 	if (!enquedFaces) return;
 
@@ -180,8 +180,8 @@ Here initialize the parameters which are required to process the output.
 - Replace #TODO: Age and Gender detection 1
 - Paste the following lines
 
-```
-int faceCountThreshold = 100;
+```cpp
+	int faceCountThreshold = 100;
 	int curFaceCount = 0;
 	int prevFaceCount = 0;
 	int index = 0;
@@ -193,30 +193,33 @@ int faceCountThreshold = 100;
 ```
 
 ### Include CPU as Plugin Device
+
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
+
 We will use CPU as plugin device for inferencing Age and Gender
 - Replace #TODO: Age and Gender detection 2
 - Paste the following lines
 
-```
+```cpp
 plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 pluginsForDevices["CPU"] = plugin;
-//TODO: HeadPose Detection 1
 
 
 ```
 
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
+
 We need CPU as plugin device for inferencing Age and Gender and load pre-retained model for Age and Gender Detection on CPU
+
 - Replace #TODO: Age and Gender Detection 3
 - Paste the following lines
 
-```
+```cpp
 FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk_2018.3.343\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
 AgeGenderDetection AgeGender;
 AgeGender.load(pluginsForDevices["CPU"]);
 
-//TODO: HeadPose Detection 2
+//TODO: HeadPose Detection 1
 
 ```
 
@@ -224,12 +227,12 @@ AgeGender.load(pluginsForDevices["CPU"]);
 - Replace #TODO: Age and Gender Detection 4
 - Paste the following lines
 
-```
+```cpp
  //Submit Inference Request for age and gender detection and wait for result
  AgeGender.submitRequest();
  AgeGender.wait();
 
-//TODO: HeadPose Detection 3
+//TODO: HeadPose Detection 2
 
 ```
 
@@ -238,13 +241,13 @@ Clip the identified Faces and send inference request for identifying Age and Gen
 - Replace #TODO: Age and Gender Detection 5
 - Paste the following lines
 
-```
+```cpp
 //Clipped the identified face and send Inference Request for age and gender detection
 for (auto face : FaceDetection.results) {
 	auto clippedRect = face.location & cv::Rect(0, 0, 640, 480);
 	auto face1 = frame(clippedRect);
 	AgeGender.enqueue(face1);
-	//TODO: HeadPose Detection 4
+	//TODO: HeadPose Detection 3
 }
 
 // Got the Face, Age and Gender detection result, now customize and print them on window
@@ -262,34 +265,34 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
 - Replace #TODO: Age and Gender Detection 6
 - Paste the following lines
 
-```
-  out.str("");
-  curFaceCount++;
+```cpp
+	out.str("");
+	curFaceCount++;
 
-  //Draw rectangle bounding identified face and print Age and Gender
-  out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
+	//Draw rectangle bounding identified face and print Age and Gender
+	out << (AgeGender[index].maleProb > 0.5 ? "M" : "F");
 
-  if(AgeGender[index].maleProb > 0.5)
-    malecount++;
-  else
-    femalecount++;
+	if(AgeGender[index].maleProb > 0.5)
+	  malecount++;
+	else
+	  femalecount++;
 
-  out << "," << static_cast<int>(AgeGender[index].age);
+	out << "," << static_cast<int>(AgeGender[index].age);
 
-  cv::putText(frame,
-              out.str(),
-              cv::Point2f(result.location.x, result.location.y - 15),
-              cv::FONT_HERSHEY_COMPLEX_SMALL,
-              0.8,
-              cv::Scalar(0, 0, 255));
-  //TODO: HeadPose Detection 5
-  index++;
+	cv::putText(frame,
+	            out.str(),
+	            cv::Point2f(result.location.x, result.location.y - 15),
+	            cv::FONT_HERSHEY_COMPLEX_SMALL,
+        	    0.8,
+	            cv::Scalar(0, 0, 255));
+	//TODO: HeadPose Detection 4
+	index++;
 
  ```
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [face_AgeGender_detection.cpp](./solutions/agegenderdetection.md)
+For complete solution click on following link [age_gender_detection](./solutions/agegenderdetection.md)
 
 - Build the solution in visual studio
 - Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug*** directory.

@@ -246,6 +246,7 @@ int main(int argc, char *argv[]) {
 
 	// Main inference loop
 	while (true) {
+		//TODO: Cloud Integration 2
 		//Grab the next frame from camera and populate Inference Request
 		cap.grab();
 		FaceDetection.enqueue(frame);
@@ -280,7 +281,7 @@ int main(int argc, char *argv[]) {
 		if (!cap.retrieve(frame)) {
 			break;
 		}
-		//TODO: Cloud integration 2
+		//TODO: Cloud integration 3
 	}
 	return 0;
 }

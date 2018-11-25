@@ -554,8 +554,6 @@ int main(int argc, char *argv[]) {
 	pluginsForDevices["GPU"] = plugin;
 	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
 	pluginsForDevices["CPU"] = plugin;
-	plugin = PluginDispatcher({ "../../../lib/intel64", "" }).getPluginByDevice("CPU");
-	pluginsForDevices["CPU"] = plugin;
 
 
 
