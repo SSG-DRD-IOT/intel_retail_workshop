@@ -352,7 +352,7 @@ Here we are populating the face detection object for Inference request, and afte
 
 ### The Final Solution
 Keep the TODO as it is. We will re-use this program during Age and Gender detection.                 
-For complete solution, see [face_detection.cpp](./solutions/facedetection.md)
+For complete solution, see [face_detection](./solutions/facedetection.md)
 
 
 ### Build the Solution and Observe the Output

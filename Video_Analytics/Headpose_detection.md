@@ -349,7 +349,7 @@ Here attentivityindex will be calculated on the basis of Yaw angle.
 ### The Final Solution
 
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [headpose_detection.cpp](./solutions/Headposedetection.md)
+For complete solution click on following link [headpose_detection](./solutions/Headposedetection.md)
 
 ### Build the Solution and Observe the Output
 

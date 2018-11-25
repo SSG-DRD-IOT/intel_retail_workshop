@@ -84,6 +84,7 @@ void AgeGenderDetection::matU8ToBlob(const cv::Mat& orig_image, Blob::Ptr& blob,
 ```
 
 ### Parse the CNNNetwork from given IR
+
 This method is used to parse the intermediate representation format of CNNNetwork models (that is .bin and .xml files).
 
 - Replace **#TODO: AgeGenderDetection-Parse CNNNetworks** with the following code snippet.
@@ -248,7 +249,9 @@ Clip the identified Faces and send inference request for identifying Age and Gen
  ```
 
 ### Customize the Result for Display
+
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
+
 - Replace **#TODO: Age and Gender Detection 7** with the following lines of code
 
 ```cpp
@@ -277,7 +280,7 @@ Now we got result for Face, Age and Gender detection. We can customize the outpu
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [face_AgeGender_detection.cpp](./solutions/agegenderdetection.md)
+For complete solution click on following link [age_gender_detection](./solutions/agegenderdetection.md)
 ### Build the Solution and Observe the Output
 - Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
 - Do  make by following commands   
