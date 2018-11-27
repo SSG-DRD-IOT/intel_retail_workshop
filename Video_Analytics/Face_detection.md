@@ -9,7 +9,7 @@ In our next three Labs, we will develop a complete interactive face detection ap
 - Analyze Face, Age&Gender and HeadPose detection data on cloud
 
 ### Generating solution file
-- Go to ***C:\Intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\samples\build***
+- Go to ***C:\Intel\Desktop\Retail\05-OpenVINO\inference_engine\samples\build***
 - open "samples.sln"
 - click on interactive_face_detection_sample > src > main.cpp in visualstudio.
 - The main.cpp file will be available here

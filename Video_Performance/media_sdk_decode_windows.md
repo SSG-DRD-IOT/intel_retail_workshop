@@ -82,6 +82,7 @@ with
  - Build the project and run the **Performance Profiler** as before. 
  - Note the **execution time**. In this scenario, the **GPU** utilisation is high while **CPU** usage is low (depending on what else is happening on the system).
  - Close the console window.
+ <!--
  - Click on **'View Details'** in the **GPU Usage** window below the graphs to get a better breakdown of GPU engine utilisation (3D and Video Decode).
 
 ![GPU Details](images/msdk_decode_8.jpg)
@@ -89,6 +90,7 @@ with
  - Note the heavy utilization of the **GPU VIDEO_DECODE** engine.
 
 ![GPU Details](images/msdk_decode_9.jpg)
+-->
 
 ## Further Optimization
 The current code uses **system memory** for the working surfaces as this is the implementation provided by the default allocator when creating an Intel® Media SDK session. Allocating surfaces in video memory is highly desirable since this eliminates copying them from the system memory to the video memory when decoding leading to improved performance. To achieve this we have to provide an external allocator which is able to manage video memory using Microsoft DirectX*.
@@ -168,9 +170,11 @@ Destroy our allocator once decoding is completed.
 
 ![GPU Usage](images/msdk_decode_13.jpg)
 
+<!--
  - Click on **View Details** in the **GPU Usage** window as you did previously. Note that the **GPU VIDEO_DECODE** engine graph is now a much more constant line indicating that we are getting maximum performance from the hardware.
 
 ![Optimised GPU Decode](images/msdk_decode_14.jpg)
+-->
 
 ## HEVC 4K 10-bit
 "What about the latest 4K 10-bit HEVC video streams" I hear you ask? Support for both decode and encode of such streams was introduced with 7th Gen Intel® Core™ processor family and the Intel® Media SDK has full support for both. We will now make the small code modifications necessary to decode a sample 4K 10-bit HEVC stream.

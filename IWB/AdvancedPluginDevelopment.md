@@ -71,7 +71,7 @@ System.IO.File.WriteAllText(filepath, str);
 ### Developing an external widget solution based on Intel® Distribution of OpenVINO™ toolkit
 The external widget solution that is being developed will fetch data from the two different applications, Intel® Distribution of OpenVINO™ toolkit application and the Intel Unite® plugin application.
 
-On the hub, run interactive_face_detection_sample.exe which is at the path, ***C:\Users\intel\Desktop\Retail\05-OpenVINO\deployment_tools\inference_engine\bin\intel64\Debug***
+On the hub, run interactive_face_detection_sample.exe which is at the path, ***C:\Users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug***
 
 For simplicity, an external python application, Widget.pyw is already created at the path ***C:\Users\intel\Desktop\Retail\06-IWB***.
 

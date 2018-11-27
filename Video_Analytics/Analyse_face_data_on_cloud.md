@@ -45,12 +45,14 @@ query = 'id=' + str(id) + '&value=' + str(facecount) +'&malecount=' + str(maleco
 with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json', 'w') as file:
      file.write(json.dumps(count))
 
-resp = requests.get('http://192.168.43.107:9002/analytics/face?'+ query);
+resp = requests.get('http://<ip_address>:9002/analytics/face?'+ query);
 if resp.status_code != 201:
 	print("Unable to submit the data")
 else:
     print("Data Submitted for analysis")
  ```
+**NOTE** : IP address to be updated with your NUC IP Address
+
 
 ### Increment frame counter
 - Replace #TODO: Cloud Integration 2 with below line of code
