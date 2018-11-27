@@ -24,9 +24,9 @@ The links below will guide the workshop attendee through slides and labs in the 
     - Lab - [HeadPose Detection](./Headpose_Detection.md)
 
 
-* **Analyze face data on Cloud**
+* **Analyze Data on Cloud**
     <!--- Slide Deck --->
-    - Lab - [Analyze face Data](./Analyse_face_data_on_cloud.md)
+    - Lab - [Analyze Data on Cloud](./Analyse_face_data_on_cloud.md)
 ##  
 
 [Home](../README.md)    
