@@ -24,5 +24,4 @@ The links below will guide the workshop attendee through slides and labs in the 
     - Lab - [Video Analytics](./Video_Analytics/README.md)
 
 * **Intel Unite®(IWB)**
-    - Slide Deck - [Intel Unite®](./Presentations/IntelUnite.pdf)
     - Lab - [Intel Unite®](./IWB/IntelUnitePluginDevelopment.md)
