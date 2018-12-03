@@ -1,9 +1,9 @@
-# Intel® Retail Workshop Setup Guide
+# Smart Retail Workshop Setup Guide
 Welcome to this retail workshop offering from Intel, which explores the topic of video analytics. In this workshop, we will build a solution using the Intel® Distribution of OpenVINO™ toolkit, and demonstrate concepts through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of the Intel® Distribution of OpenVINO™ toolkit, and have some working ideas of how to implement it in your video analytics applications.
 ## How Do I Use the Lab Material
 The links below will guide the workshop attendee through slides and labs in the visual retail workshop using the Intel® Distribution of OpenVINO™ toolkit.
-- [Intel® Retail Workshop Linux](https://github.com/SSG-DRD-IOT/intel_retail_workshop/tree/lab-retail-workshop-linux/README.md)
--  [Intel® Retail Workshop Windows](https://github.com/SSG-DRD-IOT/intel_retail_workshop/tree/lab-retail-workshop-windows/README.md)
+- [Smart Retail Workshop for Linux*](https://github.com/SSG-DRD-IOT/intel_retail_workshop/tree/lab-retail-workshop-linux/README.md)
+-  [Smart Retail Workshop for Windows*](https://github.com/SSG-DRD-IOT/intel_retail_workshop/tree/lab-retail-workshop-windows/README.md)
 
 ## Hardware Used in this Workshop
 Intel offers scalable hardware solutions at different power, performance and price points. During these labs we will be using Dawson Canyon NUC and an Open Pluggable Specification (OPS) Device.
