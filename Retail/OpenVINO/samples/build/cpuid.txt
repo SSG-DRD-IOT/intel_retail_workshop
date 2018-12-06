@@ -1,0 +1,51 @@
+3DNOW not supported
+3DNOWEXT not supported
+ABM not supported
+ADX supported
+AES supported
+AVX supported
+AVX2 supported
+AVX512CD not supported
+AVX512F not supported
+AVX512ER not supported
+AVX512PF not supported
+BMI1 supported
+BMI2 supported
+CLFSH supported
+CMPXCHG16B supported
+CX8 supported
+ERMS supported
+F16C supported
+FMA supported
+FSGSBASE supported
+FXSR supported
+HLE supported
+INVPCID supported
+LAHF supported
+LZCNT supported
+MMX supported
+MMXEXT not supported
+MONITOR supported
+MOVBE supported
+MSR supported
+OSXSAVE supported
+PCLMULQDQ supported
+POPCNT supported
+PREFETCHWT1 not supported
+RDRAND supported
+RDSEED supported
+RDTSCP supported
+RTM supported
+SEP supported
+SHA not supported
+SSE supported
+SSE2 supported
+SSE3 supported
+SSE4.1 supported
+SSE4.2 supported
+SSE4a not supported
+SSSE3 supported
+SYSCALL supported
+TBM not supported
+XOP not supported
+XSAVE supported

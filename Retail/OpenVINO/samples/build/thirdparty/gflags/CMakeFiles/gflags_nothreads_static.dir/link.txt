@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../intel64/Release/lib/libgflags_nothreads.a  CMakeFiles/gflags_nothreads_static.dir/src/gflags.cc.o CMakeFiles/gflags_nothreads_static.dir/src/gflags_reporting.cc.o CMakeFiles/gflags_nothreads_static.dir/src/gflags_completions.cc.o
+/usr/bin/ranlib ../../intel64/Release/lib/libgflags_nothreads.a
