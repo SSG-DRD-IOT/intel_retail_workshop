@@ -6,14 +6,12 @@ In order to use this workshop content, you will need to setup your hardware and 
 
 - [Setup and deployment Guide](SetupAndDeployment.md)
 
+Once the Setup is done, download the [Retail](https://github.com/SSG-DRD-IOT/intel_retail_workshop/tree/retail-workshop-linux) folder and place it in your Desktop.
 
 ## How Do I Use the Lab Material
 The links below will guide the workshop attendee through slides and labs in the Visual Retail Workshop using Intel® Distribution of OpenVINO™ toolkit.
 
 ## Workshop Agenda
-<!--* **Setup and deployment**
-    - Slide Deck -
-    - Lab - [Setup and deployment](./Setup_and_deployment.md)-->
 
 
 * **Video Performance**
