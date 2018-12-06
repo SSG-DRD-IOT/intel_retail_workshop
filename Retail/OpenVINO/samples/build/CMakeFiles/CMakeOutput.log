@@ -1,0 +1,1009 @@
+The system is: Linux - 4.15.0-29-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5edc8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5edc8.dir/build.make CMakeFiles/cmTC_5edc8.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5edc8.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_5edc8.dir/testCCompiler.c.o   -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_5edc8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5edc8.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5edc8.dir/testCCompiler.c.o  -o cmTC_5edc8 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0af0e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0af0e.dir/build.make CMakeFiles/cmTC_0af0e.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_0af0e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0af0e.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o  -o cmTC_0af0e -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.10' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0af0e' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLUqJzS.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_0af0e /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0af0e/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0af0e.dir/build.make CMakeFiles/cmTC_0af0e.dir/build]
+  ignore line: [make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_0af0e]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0af0e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o  -o cmTC_0af0e -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.10' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0af0e' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLUqJzS.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_0af0e /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccLUqJzS.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_0af0e] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
+    arg [CMakeFiles/cmTC_0af0e.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5] ==> [/usr/lib/gcc/x86_64-linux-gnu/5]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> [/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/5;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1ac29/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1ac29.dir/build.make CMakeFiles/cmTC_1ac29.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1ac29.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_1ac29.dir/feature_tests.c.o   -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_1ac29
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ac29.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_1ac29.dir/feature_tests.c.o  -o cmTC_1ac29 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2d79f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2d79f.dir/build.make CMakeFiles/cmTC_2d79f.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2d79f.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_2d79f.dir/feature_tests.c.o   -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2d79f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d79f.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_2d79f.dir/feature_tests.c.o  -o cmTC_2d79f -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_91178/fast"
+/usr/bin/make -f CMakeFiles/cmTC_91178.dir/build.make CMakeFiles/cmTC_91178.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91178.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_91178.dir/feature_tests.c.o   -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_91178
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91178.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_91178.dir/feature_tests.c.o  -o cmTC_91178 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1ca98/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1ca98.dir/build.make CMakeFiles/cmTC_1ca98.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1ca98.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_1ca98.dir/testCXXCompiler.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_1ca98
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1ca98.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_1ca98.dir/testCXXCompiler.cxx.o  -o cmTC_1ca98 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_542e6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_542e6.dir/build.make CMakeFiles/cmTC_542e6.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_542e6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_542e6.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_542e6 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.10' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_542e6' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKAPVOg.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_542e6 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_542e6/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_542e6.dir/build.make CMakeFiles/cmTC_542e6.dir/build]
+  ignore line: [make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_542e6]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_542e6.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_542e6 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
+  ignore line: [Target: x86_64-linux-gnu]
+  ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 5.4.0-6ubuntu1~16.04.10' --with-bugurl=file:///usr/share/doc/gcc-5/README.Bugs --enable-languages=c,ada,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-5 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-5-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-5-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-5-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_542e6' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKAPVOg.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_542e6 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccKAPVOg.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [--as-needed] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-zrelro] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_542e6] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib]
+    arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
+    arg [CMakeFiles/cmTC_542e6.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtend.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5] ==> [/usr/lib/gcc/x86_64-linux-gnu/5]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/5;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d58f3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d58f3.dir/build.make CMakeFiles/cmTC_d58f3.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d58f3.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_d58f3.dir/feature_tests.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d58f3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d58f3.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_d58f3.dir/feature_tests.cxx.o  -o cmTC_d58f3 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d8aba/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d8aba.dir/build.make CMakeFiles/cmTC_d8aba.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d8aba.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_d8aba.dir/feature_tests.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d8aba
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8aba.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_d8aba.dir/feature_tests.cxx.o  -o cmTC_d8aba -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_26e8d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_26e8d.dir/build.make CMakeFiles/cmTC_26e8d.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_26e8d.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_26e8d.dir/feature_tests.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_26e8d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26e8d.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_26e8d.dir/feature_tests.cxx.o  -o cmTC_26e8d -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Performing C++ SOURCE FILE Test HAVE_CPUID_INFO succeeded with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c393a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c393a.dir/build.make CMakeFiles/cmTC_c393a.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c393a.dir/src.cxx.o
+/usr/bin/c++     -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -DHAVE_CPUID_INFO -std=c++11   -o CMakeFiles/cmTC_c393a.dir/src.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c393a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c393a.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -DHAVE_CPUID_INFO -std=c++11    CMakeFiles/cmTC_c393a.dir/src.cxx.o  -o cmTC_c393a -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+Return value: 1
+Source file was:
+
+// InstructionSet.cpp
+// Compile by using: cl /EHsc /W4 InstructionSet.cpp
+// processor: x86, x64
+// Uses the __cpuid intrinsic to get information about
+// CPU extended instruction set support.
+//
+// source origin:
+// https://msdn.microsoft.com/en-us/library/hskdteyh.aspx
+// https://gcc.gnu.org/git/?p=gcc.git;a=blob_plain;f=gcc/config/i386/driver-i386.c
+
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <bitset>
+#include <array>
+#include <string>
+#ifdef WIN32
+#include <intrin.h>
+#else
+#include <cpuid.h>
+#include <string.h>
+#endif
+
+class InstructionSet
+{
+    // forward declarations
+    class InstructionSet_Internal;
+
+public:
+    // getters
+    static std::string Vendor(void) { return CPU_Rep.vendor_; }
+    static std::string Brand(void) { return CPU_Rep.brand_; }
+
+    static bool SSE3(void) { return CPU_Rep.f_1_ECX_[0]; }
+    static bool PCLMULQDQ(void) { return CPU_Rep.f_1_ECX_[1]; }
+    static bool MONITOR(void) { return CPU_Rep.f_1_ECX_[3]; }
+    static bool SSSE3(void) { return CPU_Rep.f_1_ECX_[9]; }
+    static bool FMA(void) { return CPU_Rep.f_1_ECX_[12]; }
+    static bool CMPXCHG16B(void) { return CPU_Rep.f_1_ECX_[13]; }
+    static bool SSE41(void) { return CPU_Rep.f_1_ECX_[19]; }
+    static bool SSE42(void) { return CPU_Rep.f_1_ECX_[20]; }
+    static bool MOVBE(void) { return CPU_Rep.f_1_ECX_[22]; }
+    static bool POPCNT(void) { return CPU_Rep.f_1_ECX_[23]; }
+    static bool AES(void) { return CPU_Rep.f_1_ECX_[25]; }
+    static bool XSAVE(void) { return CPU_Rep.f_1_ECX_[26]; }
+    static bool OSXSAVE(void) { return CPU_Rep.f_1_ECX_[27]; }
+    static bool AVX(void) { return CPU_Rep.f_1_ECX_[28]; }
+    static bool F16C(void) { return CPU_Rep.f_1_ECX_[29]; }
+    static bool RDRAND(void) { return CPU_Rep.f_1_ECX_[30]; }
+
+    static bool MSR(void) { return CPU_Rep.f_1_EDX_[5]; }
+    static bool CX8(void) { return CPU_Rep.f_1_EDX_[8]; }
+    static bool SEP(void) { return CPU_Rep.f_1_EDX_[11]; }
+    static bool CMOV(void) { return CPU_Rep.f_1_EDX_[15]; }
+    static bool CLFSH(void) { return CPU_Rep.f_1_EDX_[19]; }
+    static bool MMX(void) { return CPU_Rep.f_1_EDX_[23]; }
+    static bool FXSR(void) { return CPU_Rep.f_1_EDX_[24]; }
+    static bool SSE(void) { return CPU_Rep.f_1_EDX_[25]; }
+    static bool SSE2(void) { return CPU_Rep.f_1_EDX_[26]; }
+
+    static bool FSGSBASE(void) { return CPU_Rep.f_7_EBX_[0]; }
+    static bool BMI1(void) { return CPU_Rep.f_7_EBX_[3]; }
+    static bool HLE(void) { return CPU_Rep.isIntel_ && CPU_Rep.f_7_EBX_[4]; }
+    static bool AVX2(void) { return CPU_Rep.f_7_EBX_[5]; }
+    static bool BMI2(void) { return CPU_Rep.f_7_EBX_[8]; }
+    static bool ERMS(void) { return CPU_Rep.f_7_EBX_[9]; }
+    static bool INVPCID(void) { return CPU_Rep.f_7_EBX_[10]; }
+    static bool RTM(void) { return CPU_Rep.isIntel_ && CPU_Rep.f_7_EBX_[11]; }
+    static bool AVX512F(void) { return CPU_Rep.f_7_EBX_[16]; }
+    static bool RDSEED(void) { return CPU_Rep.f_7_EBX_[18]; }
+    static bool ADX(void) { return CPU_Rep.f_7_EBX_[19]; }
+    static bool AVX512PF(void) { return CPU_Rep.f_7_EBX_[26]; }
+    static bool AVX512ER(void) { return CPU_Rep.f_7_EBX_[27]; }
+    static bool AVX512CD(void) { return CPU_Rep.f_7_EBX_[28]; }
+    static bool SHA(void) { return CPU_Rep.f_7_EBX_[29]; }
+
+    static bool PREFETCHWT1(void) { return CPU_Rep.f_7_ECX_[0]; }
+
+    static bool LAHF(void) { return CPU_Rep.f_81_ECX_[0]; }
+    static bool LZCNT(void) { return CPU_Rep.isIntel_ && CPU_Rep.f_81_ECX_[5]; }
+    static bool ABM(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_ECX_[5]; }
+    static bool SSE4a(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_ECX_[6]; }
+    static bool XOP(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_ECX_[11]; }
+    static bool TBM(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_ECX_[21]; }
+
+    static bool SYSCALL(void) { return CPU_Rep.isIntel_ && CPU_Rep.f_81_EDX_[11]; }
+    static bool MMXEXT(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_EDX_[22]; }
+    static bool RDTSCP(void) { return CPU_Rep.isIntel_ && CPU_Rep.f_81_EDX_[27]; }
+    static bool _3DNOWEXT(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_EDX_[30]; }
+    static bool _3DNOW(void) { return CPU_Rep.isAMD_ && CPU_Rep.f_81_EDX_[31]; }
+
+private:
+    static const InstructionSet_Internal CPU_Rep;
+
+    class InstructionSet_Internal
+    {
+    public:
+        InstructionSet_Internal()
+            : nIds_{ 0 },
+            nExIds_{ 0 },
+            isIntel_{ false },
+            isAMD_{ false },
+            f_1_ECX_{ 0 },
+            f_1_EDX_{ 0 },
+            f_7_EBX_{ 0 },
+            f_7_ECX_{ 0 },
+            f_81_ECX_{ 0 },
+            f_81_EDX_{ 0 },
+            data_{},
+            extdata_{}
+        {
+#ifdef WIN32
+            std::array<int, 4> cpui;
+#else
+            std::array<unsigned int, 4> cpui;
+#endif
+
+            // Calling __cpuid with 0x0 as the function_id argument
+            // gets the number of the highest valid function ID.
+#ifdef WIN32
+            __cpuid(cpui.data(), 0);
+#else
+            cpui[0] = __get_cpuid_max(0, &cpui[1]);
+#endif
+            nIds_ = cpui[0];
+
+            for (int i = 0; i <= nIds_; ++i)
+            {
+#ifdef WIN32
+                __cpuidex(cpui.data(), i, 0);
+#else
+                __cpuid_count(i, 0, cpui[0], cpui[1], cpui[2], cpui[3]);
+#endif
+
+                data_.push_back(cpui);
+            }
+
+            // Capture vendor string
+            char vendor[0x20];
+            memset(vendor, 0, sizeof(vendor));
+            *reinterpret_cast<int*>(vendor + 0) = data_[0][1];
+            *reinterpret_cast<int*>(vendor + 4) = data_[0][3];
+            *reinterpret_cast<int*>(vendor + 8) = data_[0][2];
+            vendor_ = vendor;
+            if (vendor_ == "GenuineIntel")
+            {
+                isIntel_ = true;
+            }
+            else if (vendor_ == "AuthenticAMD")
+            {
+                isAMD_ = true;
+            }
+
+            // load bitset with flags for function 0x00000001
+            if (nIds_ >= 1)
+            {
+                f_1_ECX_ = data_[1][2];
+                f_1_EDX_ = data_[1][3];
+            }
+
+            // load bitset with flags for function 0x00000007
+            if (nIds_ >= 7)
+            {
+                f_7_EBX_ = data_[7][1];
+                f_7_ECX_ = data_[7][2];
+            }
+
+            // Calling __cpuid with 0x80000000 as the function_id argument
+            // gets the number of the highest valid extended ID.
+#ifdef WIN32
+            __cpuid(cpui.data(), 0x80000000);
+#else
+            __cpuid(0x80000000, cpui[0], cpui[1], cpui[2], cpui[3]);
+#endif
+            nExIds_ = cpui[0];
+
+            char brand[0x40];
+            memset(brand, 0, sizeof(brand));
+
+            for (int i = 0x80000000; i <= nExIds_; ++i)
+            {
+#ifdef WIN32
+                __cpuidex(cpui.data(), i, 0);
+#else
+                __cpuid_count(i, 0, cpui[0], cpui[1], cpui[2], cpui[3]);
+#endif
+                extdata_.push_back(cpui);
+            }
+
+            // load bitset with flags for function 0x80000001
+            if (nExIds_ >= 0x80000001)
+            {
+                f_81_ECX_ = extdata_[1][2];
+                f_81_EDX_ = extdata_[1][3];
+            }
+
+            // Interpret CPU brand string if reported
+            if (nExIds_ >= 0x80000004)
+            {
+                memcpy(brand +  0, extdata_[2].data(), sizeof(cpui));
+                memcpy(brand + 16, extdata_[3].data(), sizeof(cpui));
+                memcpy(brand + 32, extdata_[4].data(), sizeof(cpui));
+                brand_ = brand;
+            }
+        };
+
+        int nIds_;
+        int nExIds_;
+        std::string vendor_;
+        std::string brand_;
+        bool isIntel_;
+        bool isAMD_;
+        std::bitset<32> f_1_ECX_;
+        std::bitset<32> f_1_EDX_;
+        std::bitset<32> f_7_EBX_;
+        std::bitset<32> f_7_ECX_;
+        std::bitset<32> f_81_ECX_;
+        std::bitset<32> f_81_EDX_;
+#ifdef WIN32
+        std::vector<std::array<int, 4>> data_;
+        std::vector<std::array<int, 4>> extdata_;
+#else
+        std::vector<std::array<unsigned int, 4>> data_;
+        std::vector<std::array<unsigned int, 4>> extdata_;
+#endif
+    };
+};
+
+// Initialize static member data
+const InstructionSet::InstructionSet_Internal InstructionSet::CPU_Rep;
+
+// Print out supported instruction set extensions
+int main()
+{
+    std::ofstream fo("cpuid.txt");
+    auto& outstream = fo;//std::cout;
+
+    auto support_message = [&outstream](std::string isa_feature, bool is_supported) {
+        outstream << isa_feature << (is_supported ? " supported" : " not supported") << std::endl;
+    };
+
+    std::cout << InstructionSet::Vendor() << std::endl;
+    std::cout << InstructionSet::Brand() << std::endl;
+
+    support_message("3DNOW",       InstructionSet::_3DNOW());
+    support_message("3DNOWEXT",    InstructionSet::_3DNOWEXT());
+    support_message("ABM",         InstructionSet::ABM());
+    support_message("ADX",         InstructionSet::ADX());
+    support_message("AES",         InstructionSet::AES());
+    support_message("AVX",         InstructionSet::AVX());
+    support_message("AVX2",        InstructionSet::AVX2());
+    support_message("AVX512CD",    InstructionSet::AVX512CD());
+    support_message("AVX512F",     InstructionSet::AVX512F());
+    support_message("AVX512ER",    InstructionSet::AVX512ER());
+    support_message("AVX512PF",    InstructionSet::AVX512PF());
+    support_message("BMI1",        InstructionSet::BMI1());
+    support_message("BMI2",        InstructionSet::BMI2());
+    support_message("CLFSH",       InstructionSet::CLFSH());
+    support_message("CMPXCHG16B",  InstructionSet::CMPXCHG16B());
+    support_message("CX8",         InstructionSet::CX8());
+    support_message("ERMS",        InstructionSet::ERMS());
+    support_message("F16C",        InstructionSet::F16C());
+    support_message("FMA",         InstructionSet::FMA());
+    support_message("FSGSBASE",    InstructionSet::FSGSBASE());
+    support_message("FXSR",        InstructionSet::FXSR());
+    support_message("HLE",         InstructionSet::HLE());
+    support_message("INVPCID",     InstructionSet::INVPCID());
+    support_message("LAHF",        InstructionSet::LAHF());
+    support_message("LZCNT",       InstructionSet::LZCNT());
+    support_message("MMX",         InstructionSet::MMX());
+    support_message("MMXEXT",      InstructionSet::MMXEXT());
+    support_message("MONITOR",     InstructionSet::MONITOR());
+    support_message("MOVBE",       InstructionSet::MOVBE());
+    support_message("MSR",         InstructionSet::MSR());
+    support_message("OSXSAVE",     InstructionSet::OSXSAVE());
+    support_message("PCLMULQDQ",   InstructionSet::PCLMULQDQ());
+    support_message("POPCNT",      InstructionSet::POPCNT());
+    support_message("PREFETCHWT1", InstructionSet::PREFETCHWT1());
+    support_message("RDRAND",      InstructionSet::RDRAND());
+    support_message("RDSEED",      InstructionSet::RDSEED());
+    support_message("RDTSCP",      InstructionSet::RDTSCP());
+    support_message("RTM",         InstructionSet::RTM());
+    support_message("SEP",         InstructionSet::SEP());
+    support_message("SHA",         InstructionSet::SHA());
+    support_message("SSE",         InstructionSet::SSE());
+    support_message("SSE2",        InstructionSet::SSE2());
+    support_message("SSE3",        InstructionSet::SSE3());
+    support_message("SSE4.1",      InstructionSet::SSE41());
+    support_message("SSE4.2",      InstructionSet::SSE42());
+    support_message("SSE4a",       InstructionSet::SSE4a());
+    support_message("SSSE3",       InstructionSet::SSSE3());
+    support_message("SYSCALL",     InstructionSet::SYSCALL());
+    support_message("TBM",         InstructionSet::TBM());
+    support_message("XOP",         InstructionSet::XOP());
+    support_message("XSAVE",       InstructionSet::XSAVE());
+    return 0;
+}
+
+Determining if the include file unistd.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2e472/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2e472.dir/build.make CMakeFiles/cmTC_2e472.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2e472.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_2e472.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_2e472
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e472.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_2e472.dir/CheckIncludeFile.cxx.o  -o cmTC_2e472 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7d106/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7d106.dir/build.make CMakeFiles/cmTC_7d106.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7d106.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_7d106.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_7d106
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d106.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_7d106.dir/CheckIncludeFile.cxx.o  -o cmTC_7d106 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file inttypes.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f5a06/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f5a06.dir/build.make CMakeFiles/cmTC_f5a06.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f5a06.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_f5a06.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_f5a06
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f5a06.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_f5a06.dir/CheckIncludeFile.cxx.o  -o cmTC_f5a06 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a4705/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a4705.dir/build.make CMakeFiles/cmTC_a4705.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a4705.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_a4705.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_a4705
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4705.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_a4705.dir/CheckIncludeFile.cxx.o  -o cmTC_a4705 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/stat.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f399b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f399b.dir/build.make CMakeFiles/cmTC_f399b.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f399b.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_f399b.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_f399b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f399b.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_f399b.dir/CheckIncludeFile.cxx.o  -o cmTC_f399b -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file fnmatch.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_97a7c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_97a7c.dir/build.make CMakeFiles/cmTC_97a7c.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_97a7c.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_97a7c.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_97a7c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97a7c.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_97a7c.dir/CheckIncludeFile.cxx.o  -o cmTC_97a7c -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ff10e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ff10e.dir/build.make CMakeFiles/cmTC_ff10e.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ff10e.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_ff10e.dir/CheckIncludeFile.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_ff10e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff10e.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_ff10e.dir/CheckIncludeFile.cxx.o  -o cmTC_ff10e -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint32_t passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ca265/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ca265.dir/build.make CMakeFiles/cmTC_ca265.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ca265.dir/uint32_t.cpp.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_ca265.dir/uint32_t.cpp.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CheckTypeSize/uint32_t.cpp
+Linking CXX executable cmTC_ca265
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca265.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_ca265.dir/uint32_t.cpp.o  -o cmTC_ca265 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the strtoll exist passed with the following output:
+Change Dir: /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ec4a1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec4a1.dir/build.make CMakeFiles/cmTC_ec4a1.dir/build
+make[1]: Entering directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ec4a1.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11   -o CMakeFiles/cmTC_ec4a1.dir/CheckSymbolExists.cxx.o -c /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_ec4a1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec4a1.dir/link.txt --verbose=1
+/usr/bin/c++   -std=c++11 -std=c++11  -Werror -Werror=return-type  -Wuninitialized -Winit-self -Wmaybe-uninitialized -std=c++11    CMakeFiles/cmTC_ec4a1.dir/CheckSymbolExists.cxx.o  -o cmTC_ec4a1 -rdynamic 
+make[1]: Leaving directory '/home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp'
+
+File /home/intel/Desktop/Retail/OpenVINO/samples/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strtoll
+  return ((int*)(&strtoll))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
