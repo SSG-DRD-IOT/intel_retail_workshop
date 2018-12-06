@@ -2,9 +2,9 @@
 Welcome to the retail workshop. In this workshop, we will explore the Intel® Distribution of OpenVINO™ toolkit through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of the Intel® Distribution of OpenVINO™ toolkit and have some working ideas of how to implement it in your video analytics applications.
 
 ## How to Get Started
-In order to use this workshop content, you will need to setup your hardware and install the Intel® Distribution of OpenVINO™ toolkit and Intel® Media SDK for infering your computer vision application.
+In order to use this workshop content, you will need to setup your hardware and install the Intel® Distribution of OpenVINO™ toolkit and Intel® Media SDK for inferencing your computer vision application.
 
-    - [Setup and deployment](./SetupAndDeployment.md)
+- [Setup and deployment Guide](SetupAndDeployment.md)
 
 
 ## How Do I Use the Lab Material
