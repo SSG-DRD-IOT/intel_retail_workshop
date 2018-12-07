@@ -1,18 +1,18 @@
 # Setup Development Environment with the Intel® NUC 7i7DNHE (Dawson Canyon)
 
-# a) Install Ubuntu 16.04
+## a) Install Ubuntu 16.04
 Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.14.x or higher**.
 
-# b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
+## b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux) to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples.
 
-# c) Install the required packages for System Analyzer Tool
+## c) Install the required packages for System Analyzer Tool
 ``` bash
 sudo apt install ocl-icd-opencl-dev
 sudo apt-get install libva-dev
 ```
 
-# d) Install Intel® Media SDK
+## d) Install Intel® Media SDK
 There are several components which need to be installed in order to use the Media SDK on Linux:
  - [libVA API](https://github.com/intel/libva)
  - [Intel® Graphics Memory Management Library](https://github.com/intel/gmmlib)
@@ -119,5 +119,12 @@ sudo apt install ffmpeg intel-gpu-tools htop
 Here are some of the frequently occurring issues while setting up the Intel® Media SDK.
 - **Unsupported Feature/Library Load Error**
 
+  Make sure that you are using Dawson and Canyon device while running the media SDK samples otherwise will get library load error for media SDK decode samples as listed below
+
+  ![Unsupported feature](./Video_Performance/images/unsupported_feature_library.png)
+
 - **Fatal Error**
-When you are using fresh terminal to run the Media SDK samples, make sure to export the required Environment variables.
+
+  When you are using fresh terminal to run the Media SDK samples, make sure to export the required Environment variables. Otherwise, you will get the error as listed below.
+
+  ![Fatal error](./Video_Performance/images/fatal_error.png)
