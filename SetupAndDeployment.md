@@ -37,31 +37,6 @@ By the end of this module, you should be able to:
 
 ## Software Requirements
 
-There are manual and automatic named two ways to configure Windows environment for Visual Retail Workshop
-
-
-
-## Automatic Windows Configuration
-
-1\. Automatic method involves the windows image created by Macrium Software and placed in [Visual Retail Windows Image](\\10.224.54.1\Raghavendra\Visual_Retail_Windows_Image)
-
-Copy the above images in suitable storage device
-
-2\. Prepare a Resuce disk (USB) using the ISO provided in [Rescue ISO](\\10.224.54.1\Raghavendra\Rescue.iso) according to the instructions given in [Creating rescue media](https://knowledgebase.macrium.com/display/KNOW7/Creating+rescue+media)
-
-3\. Boot through this rescue disk and restore the above said windows image using the instructions given in [Restoring a system image](https://knowledgebase.macrium.com/display/KNOW7/Restoring+a+system+image)
-
-4\. On Completion of system image restore, it asks to reboot, after which the Windows system will be ready for Visual Retail Workshop
-
-5\. Through elevated command prompt run Desktop > Retail > 01-MARS > filterDlls > regdll.bat, execute to register the dlls required for Mars
-
-6\. Shutdown the system, unplug the cables and stick Intel logo provided in the box, on to the NUC7i7DNHE (Dawson Canyon) and pack the box.
-
-Note:- [Windows Boot Troubleshoot](http://kb.macrium.com/KnowledgebaseArticle50168.aspx)
-
-
-
-Note:-If the automatic configuration fails, you can try manual installation as follows
 
 ## Manual Windows Configuration
 
