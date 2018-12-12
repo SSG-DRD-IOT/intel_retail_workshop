@@ -162,6 +162,11 @@ namespace AttendeeAnalyticsPlugin
 
         public override void UnLoad()
         {
+	   if (this.p != null)
+           {
+               this.p.Kill();
+               this.p = null;
+           }
            LogMessage("Plugin Unloaded", null);
         }        
 

@@ -217,7 +217,8 @@ When Intel Unite® software is closed, each plugin will first receive this notif
 
 ```c
 public override void UnLoad()
-{
+{ 
+  //TODO: Unload the Plugin
   LogMessage("Plugin Unloaded", null);
 }
 ```

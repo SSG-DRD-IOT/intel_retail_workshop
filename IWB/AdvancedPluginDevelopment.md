@@ -272,6 +272,7 @@ root.mainloop()
 ```
 
 ### Intel Unite® Plugin integration with the external widget solution
+
 For controlling the above created external widget solution, the button events, LAUNCHAPP and CLOSEAPP should be handled.
 - Replace #TODO: Handling more events
 - Paste the following lines
@@ -303,6 +304,18 @@ For controlling the above created external widget solution, the button events, L
      }
      break;
  ```
+
+### Unload the Plugin
+- Replace #TODO: Unload the Plugin
+- Paste the following lines
+
+```c
+	if (this.p != null)
+	{
+	   this.p.Kill();
+	   this.p = null;
+	}
+```
 
 ## Final Solution
 Build solution and deploy the AttendeeAnalyticsPlugin.dll by following the steps discussed previously in sample plugin development.
