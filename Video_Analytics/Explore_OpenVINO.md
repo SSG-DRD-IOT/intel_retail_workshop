@@ -37,7 +37,7 @@ Intel® Distribution of OpenVINO™ toolkit Documentation directory is made avai
 Intel® Distribution of OpenVINO™ toolkit pre-trained models are made available in /opt/intel/computer_vision_sdk/deployment_tools/intel_models
 
 ### Understanding the Packages
-Go to /opt/Intel/computer_vision_sdk/deployment_tools/inferenceengine to understand the package contents.
+Go to /opt/intel/computer_vision_sdk/deployment_tools/inference_engine to understand the package contents.
 
 ![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for Intel® Distribution of OpenVINO™ toolkit samples

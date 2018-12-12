@@ -128,11 +128,15 @@ Case 2: Execute the below command for hardware acceleration:
 Execute the below command for hardware acceleration:
 
 ```
-$./sample_encode h264 -nv12 -i ../content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
+$sudo -s
+#export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+#export LIBVA_DRIVER_NAME=iHD
+#export MFX_HOME=/opt/intel/mediasdk/
+#./sample_encode h264 -nv12 -i ../content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
 ```
 To view the converted h264 file, run the decoding sample as follows:
 ```
-$./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
+#./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw -r
 ```
 ## Lessons learnt
 

@@ -89,11 +89,6 @@ else:
 ```
 
 - Executable will be generated at ***~/Desktop/Retail/OpenVINO/samples/build/intel64/Release*** directory.
-- Run the application by using below command. Make sure camera is connected to the device.
-
-```bash
-# ./interactive_face_detection_sample
- ```
 
 - On successful execution, face, age and gender will get detected file.json will be created at ***~/Desktop/Retail/OpenVINO***
 
@@ -102,8 +97,14 @@ Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
 ```bash
-cd ~/Desktop/Retail/OpenVINO/lab-8.0-solution-cloud-analytics-retail-workshop
+cd ~/Desktop/Retail/OpenVINO/CloudAnalyticsServer
 node server.js
+ ```
+
+- Run the application by using below command. Make sure camera is connected to the device.
+
+```bash
+# ./interactive_face_detection_sample
  ```
 - Go to http://localhost:9002
 - Example : 127.0.0.1:9002

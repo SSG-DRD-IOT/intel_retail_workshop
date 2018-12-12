@@ -110,6 +110,8 @@ vainfo: Driver version: Intel iHD driver - 2.0.0
 Run the below command to install some additional packages required to complete the tutorials:
 ``` bash
 sudo apt install ffmpeg intel-gpu-tools htop
+sudo apt install nodejs-legacy
+pip install requests
 ```
 > You will also need to install your preferred **text editor** (e.g. Brackets, vim)
 
@@ -128,3 +130,16 @@ Here are some of the frequently occurring issues while setting up the Intel® Me
   When you are using fresh terminal to run the Media SDK samples, make sure to export the required Environment variables. Otherwise, you will get the error as listed below.
 
   ![Fatal error](./Video_Performance/images/fatal_error.png)
+
+- **libva error**
+
+  In case facing below libva error, Make sure required paths are exported as below.
+
+  ![libva error](./Video_Performance/images/libva-error.png)
+
+```bash
+export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+export LIBVA_DRIVER_NAME=iHD
+export MFX_HOME=/opt/intel/mediasdk/
+```
+  
