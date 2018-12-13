@@ -6,7 +6,7 @@ Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rol
 ## b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux) to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples.
 
-**Warning ** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (l_openvino_toolkit_p_2018.3.343)
+**Warning:** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (l_openvino_toolkit_p_2018.3.343)
 
 ## c) Install the required packages for System Analyzer Tool
 ``` bash
@@ -108,11 +108,18 @@ libva info: va_openDriver() returns 0
 vainfo: VA-API version: 1.1 (libva 2.1.1.pre1)
 vainfo: Driver version: Intel iHD driver - 2.0.0
 ```
+## Mesh Commander Installation
+
+```bash
+$ sudo apt install npm
+$ npm install meshcommander
+$ sudo apt install nodejs-legacy
+```
+
 ## Additional Tools
 Run the below command to install some additional packages required to complete the tutorials:
 ``` bash
 sudo apt install ffmpeg intel-gpu-tools htop
-sudo apt install nodejs-legacy
 pip install requests
 ```
 > You will also need to install your preferred **text editor** (e.g. Brackets, vim)
@@ -144,4 +151,3 @@ export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
 export LIBVA_DRIVER_NAME=iHD
 export MFX_HOME=/opt/intel/mediasdk/
 ```
-  

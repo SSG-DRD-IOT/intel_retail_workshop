@@ -26,10 +26,13 @@ MeshCommander is primarily used for 1:1 remote management of devices. Current su
 
 ## Launch the Mesh Commander utility
 The Mesh Commander utility is already installed on your Intel® IoT Gateway.
+To launch execuet the below command
 
-Go to the Windows* launch bar icon in the lower left of your screen and type **Mesh Commander**.
+```bash
+# cd ~/node_modules/meshcommander
+# node meshcommander.js
+```
 
-Be sure to right click on the Mesh Commander application and select **Run as Administrator**.
 
 ![](images/launch.png)
 ## Add An Intel® Active Management Technology Enabled Computer to Mesh Commander
