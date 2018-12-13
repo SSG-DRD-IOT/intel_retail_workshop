@@ -5,6 +5,7 @@ Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rol
 
 ## b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux) to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples.
+**Warning ** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (l_openvino_toolkit_p_2018.3.343)
 
 ## c) Install the required packages for System Analyzer Tool
 ``` bash
