@@ -218,7 +218,7 @@ When Intel Unite® software is closed, each plugin will first receive this notif
 ```c
 public override void UnLoad()
 { 
-  //TODO: Unload the Plugin
+  //TODO: Unload the Widget
   LogMessage("Plugin Unloaded", null);
 }
 ```
@@ -260,7 +260,7 @@ Follow these steps to deploy the Intel Unite® plugin
 
   ![](./images/dep2_1.JPG)
 
-  -	When the plugin Properties window opens, Locate the Digital Signatures tab. Click OK to open.
+  -	When the plugin Properties window opens, Locate the Digital Signatures tab.
 
   ![](./images/dep2_2.JPG)
 
@@ -273,7 +273,7 @@ Follow these steps to deploy the Intel Unite® plugin
   -	In the Certificate window, select the Details tab and scroll down until the Thumbprint is found.
 
   ![](./images/dep2_5.JPG)
-	- Select Thumbprint. After the value is displayed, copy it onto a notepad or a text file by clicking Copy to File. Remove the spaces and save it.
+	- Select Thumbprint. After the value is displayed, copy it onto a notepad or a text file. Remove the spaces and save it.
 
   -	This key value will be used while creating the Profile for the plugin. The key value can be created and entered after the profile has been created.
 

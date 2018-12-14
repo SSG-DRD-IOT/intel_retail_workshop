@@ -112,7 +112,7 @@ namespace AttendeeAnalyticsPlugin
 
         public override void UnLoad()
         {   
-	    //TODO: Unload the Plugin
+	    //TODO: Unload the Widget
             LogMessage("Plugin Unloaded", null);
         }    
 
