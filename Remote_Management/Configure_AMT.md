@@ -15,7 +15,7 @@ Start by performing these actions on your Intel® IoT Gateway.
 
 During power up, the Intel® AMT platform displays the BIOS startup screen, then it processes the Intel® Management Engine BIOS Extension  (Intel® MEBX). During this process, access to the Intel® MEBX can be made; however the method is BIOS vendor-dependent. Some methods are discussed here.
 
-![](images/AMT010.png)
+![](images/MEBX001.JPG)
 *   Most BIOS vendors add entry into the CSME via the one-time boot menu. Select the appropriate key (Ctrl+P is typical) and follow the prompts.
 *   Some OEM platforms prompt you to press <Ctrl+P> after POST. When you press <Ctrl+P>, control passes to the Intel® MEBX (CSME) main menu.
 *   Some OEMs integrate the CSME configuration inside the BIOS (uncommon).
@@ -31,10 +31,15 @@ Enter the CSME default password admin
 *   It should contain at least one uppercase letter, one lowercase letter, one digit, and one special character, and be at least eight characters.
 *   A management console application can change the Intel® AMT password without modifying the CSME password.
 
+![](images/MEBX002.JPG)
+
+
 ## AMT Configuration
 *   Go back to previous menu using Esc key
 *   Select Intel® AMT Configuration.
 *   Select/Verify Manageability Feature Selection is Enabled.
+
+![](images/MEBX003.JPG)
 
 ## Network Configuration
 *   Under the Network Setup menu Select 'TCP/IP Settings' and Press Enter.
@@ -42,6 +47,8 @@ Enter the CSME default password admin
 *   Goto Wired LAN IPV4 Configuration Under the TCP/IP Settings, Select 'Wired LAN IPV4 Configuration' and press Enter.
 *   Enable DHCP
 *   Activate Network Access option by enabling it
+
+![](images/MEBX004.JPG)
 
 ## Exit
 *   Press Esc key to go to exit screen
