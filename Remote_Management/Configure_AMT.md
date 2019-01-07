@@ -48,6 +48,7 @@ Enter the CSME default password admin
 *   Goto Wired LAN IPV4 Configuration Under the TCP/IP Settings, Select 'Wired LAN IPV4 Configuration' and press Enter.
 *   Enable DHCP
 *   Activate Network Access option by enabling it
+
 ![](images/MEBX004.JPG)
 
 ## Exit
