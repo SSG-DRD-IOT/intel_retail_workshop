@@ -147,6 +147,7 @@ Here are some of the frequently occurring issues while setting up the Intel® Me
   ![libva error](./Video_Performance/images/libva-error.png)
 
 ```bash
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
 export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
 export LIBVA_DRIVER_NAME=iHD
 export MFX_HOME=/opt/intel/mediasdk/
