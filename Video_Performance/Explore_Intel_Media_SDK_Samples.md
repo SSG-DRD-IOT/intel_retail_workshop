@@ -64,7 +64,7 @@ We would need few performance monitoring tools before we proceed with Intel® Me
 
 ![](images/system_monitor.png)
 
-Open the Performance monitoring tool as shown in the picture
+Open the System Monitor, performance monitoring tool as shown in the picture
 
 This tool is used to compare the CPU performance of the below two cases.
 
