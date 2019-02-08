@@ -408,7 +408,7 @@ Currently we use a single array of frame surfaces shared between the decoder and
     mfxU16 nSurfNum = DecRequest.NumFrameSuggested + VPPRequest[0].NumFrameSuggested + VPPParams.AsyncDepth;
     mfxU16 nSurfNum2 = EncRequest.NumFrameSuggested + VPPRequest[1].NumFrameSuggested + VPPParams.AsyncDepth;
 ````
- - Add the code to initialize our second surface array:
+ - Add the following code to initialize our second surface array in **section 6** after the **nSurfNum** for loop:
 ``` cpp
     mfxFrameSurface1** pSurfaces2 = new mfxFrameSurface1 *[nSurfNum2];
     MSDK_CHECK_POINTER(pSurfaces2, MFX_ERR_MEMORY_ALLOC);
