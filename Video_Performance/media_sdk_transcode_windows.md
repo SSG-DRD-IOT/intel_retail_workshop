@@ -453,7 +453,7 @@ Currently we use a single array of frame surfaces shared between the decoder and
     mfxEncParams.NumExtParam = 1;
 ```
 
- - Initialize a VPP module in the same way we initialized the decoder and encoder:
+ - Initialize a VPP module in the same way we initialized the decoder and encoder in **section 7**:
 ``` cpp
     // Initialize Media SDK VPP
     sts = mfxVPP.Init(&VPPParams);
@@ -462,7 +462,7 @@ Currently we use a single array of frame surfaces shared between the decoder and
 ```
 
 We are now ready to modify our main transcoding loops to incorporate VPP. 
-- Add another **mfxSyncPoint** for VPP:
+- Add another **mfxSyncPoint** for VPP in **section 9**:
 ``` cpp
     mfxSyncPoint syncpD, syncpE, syncpV;
 ```
