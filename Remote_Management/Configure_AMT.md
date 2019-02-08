@@ -57,7 +57,7 @@ Enter the CSME default password admin
 
 ## Use a Web Browser to Connet to the Intel® Active Management Technology web interface
 
-To use the Intel® Active Management Technology web interface, open a browser and go to the IP address of the Intel® IoT Gateway. The port number is 16992
+To use the Intel® Active Management Technology web interface, open a browser and input the IP address of another Intel® vPro/AMT enabled device. The port number is 16992.
 ![](images/002-Intel-AMT-Web-Browser-Login-Screen.jpg)
 
 
