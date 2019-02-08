@@ -246,7 +246,8 @@ The main transcoding loop **(Stage 1)** should now look like this:
 ```
 
 **Stage 2** should be the same as **stage 1** with the exception that we pass **NULL** to the **DecodeFrameAsync** call in order to drain the decoding pipeline. 
- - Update **stage 2** with the code above and then make the required modification using the code below as a reference.
+ - Replace **stage 2** code with the code above 
+ - Replace the variable initialization `sts = mfxDEC.DecodeFrameAsync(&mfxBS, pSurfaces[nIndex], &pmfxOutSurface, &syncpD);` with:
 ``` cpp
 sts = mfxDEC.DecodeFrameAsync(NULL, pSurfaces[nIndex], &pmfxOutSurface, &syncpD);
 ```
