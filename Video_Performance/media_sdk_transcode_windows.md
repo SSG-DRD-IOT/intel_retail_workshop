@@ -431,7 +431,7 @@ Currently we use a single array of frame surfaces shared between the decoder and
  
  That means **pSurfaces** needs to be attached to the **decoder** and **VPP In**
  **pSurfaces2** needs to be attached to **VPP Out** and the **encoder**. 
- - Replace the current with surface attachment code with the following:
+ - Replace the current surface attachment code with the following:
 ``` cpp
     //Attached the surfaces to the decoder output and the VPP input
     extOpaqueAllocDec.Out.Surfaces = pSurfaces;
