@@ -252,7 +252,7 @@ The main transcoding loop **(Stage 1)** should now look like this:
 sts = mfxDEC.DecodeFrameAsync(NULL, pSurfaces[nIndex], &pmfxOutSurface, &syncpD);
 ```
 
- - **Stage 3** of the transcoding process should now look like this:
+ - **Stage 3** of the transcoding process (while loop **only**) should now look like this:
 ``` cpp
     //
     // Stage 3: Retrieve the buffered encoded frames
