@@ -107,10 +107,11 @@ First we need to modify the preprocessor definitions to tell the build system we
 
 ![Preprocessor Edit](images/msdk_decode_11.jpg)
 
+![Modify Definitions](images/msdk_decode_12.jpg)
+
  - Type **DX_D3D** into the list of definitions and click **OK** to close the window. 
  - Click **Apply** and finally **OK** to close the **Properties** window.
 
-![Modify Definitions](images/msdk_decode_12.jpg)
 
 Create a variable for the external allocator and pass this into our existing **Initialize** function.
  
