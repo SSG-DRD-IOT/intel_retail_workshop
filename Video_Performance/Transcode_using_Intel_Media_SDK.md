@@ -129,11 +129,11 @@ In our current code we are using system memory for the working surfaces used by 
 ## Asynchronous Transcoding
 To better utilise the GPU we can make our transcode pipeline asynchronous so more than one decode and encode operation can run at once. This means for each execution of our transcode loop we submit multiple "tasks" before synchronising the pipeline.
 
- - First we add a parameter to our decoder parameters to tell the decoder how many tasks we want to execute asynchronously. We set this parameter initially to **1** to mimic synchronous operation. We will later increase this to see the effect it has on performance and GPU utilisation.
+ - First we add a parameter to our decoder parameters to tell the decoder how many tasks we want to execute asynchronously in **section 3**. We set this parameter initially to **1** to mimic synchronous operation. We will later increase this to see the effect it has on performance and GPU utilisation.
 ``` cpp
     mfxDecParams.AsyncDepth = 1;
 ```
- - We also need to update our encode parameters in the same way. We use the same value as we used for the decode parameters to keep things aligned.
+ - We also need to update our encode parameters in the same way. We use the same value as we used for the decode parameters to keep things aligned in **section 5**.
 ``` cpp
     mfxEncParams.AsyncDepth = mfxDecParams.AsyncDepth;
 ```
