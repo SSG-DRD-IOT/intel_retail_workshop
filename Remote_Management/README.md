@@ -7,14 +7,14 @@ The links below will guide you through hands on lab sessions on how to configure
 ## Workshop Agenda
 * **Configure Intel® Active Management Technology**
     <!--- Slide Deck --->
-    - Lab - [Configure Intel® Active Management Technology](./Configure_AMT.md)
+    - Lab - [Configure Intel® Active Management Technology](./ConfigureAMT.md)
 
 
 * **Remote Configuration**
   <!--- Slide Deck --->
-  - Lab - [Remote Configuration Using MeshCommander](./Manage_Remote_Systems.md)
+  - Lab - [Remote Configuration Using MeshCommander](./RemoteConfigUsingMeshCommander.md)
 
 
 * **Remote System Management**
   <!--- Slide Deck --->
-  - Lab - [Remote System Management with MeshCentral](./Remote_Config_MeshCentral.md)
+  - Lab - [Remote System Management with MeshCentral](./RemoteMgmtWithMeshCentral.md)

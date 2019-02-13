@@ -74,4 +74,6 @@ It opens another web instance from desktop. This is repeated infinitely
 
 ![](images/020-websocket-desktop-loop.jpg)
 
-.
+##
+
+[AMT Home](README.md)

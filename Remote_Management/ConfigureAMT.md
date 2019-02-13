@@ -2,7 +2,7 @@
 
 
 
- ## Intel® Active Management Technology
+## Intel® Active Management Technology
 
 This guide is intended to be a starting point for testing your Intel® vPro™ technology systems within your environment.
 
@@ -92,3 +92,6 @@ This step allows you to enable wireless access to a remote machine using AMT.
 11. Log into the AMT web interface
 
 You should now be able to connect to the machines wirelessly with the AMT web interface, Mesh Commander and Mesh Central.
+
+## Next Lab
+[Remote Configuration Using MeshCommander](RemoteConfigUsingMeshCommander.md)
