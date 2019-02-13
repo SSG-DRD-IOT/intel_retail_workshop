@@ -83,6 +83,7 @@ C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer> node server.js
 ```c
 cd C:\users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\
 C:\users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug>interactive_face_detection_sample.exe
+```
 
 For simplicity, an external python application, Widget.pyw is already created at the path ***C:\Users\intel\Desktop\Retail\06-IWB***.
 
