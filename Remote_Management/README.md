@@ -1,4 +1,4 @@
-# Remote Management Intel® AMT Technologies
+# Remote Management using Intel® AMT Technologies
 Welcome to the retail workshop. In this workshop, we will explore Intel® Active Management Technology through lectures and hands on labs. By the end of the workshop, you should have a solid understanding of Intel® Active Management Technology and have some working ideas of how to implement it in your retail remote management applications.
 
 ## How Do I Use the Lab Material
