@@ -71,3 +71,24 @@ When prompted for username/password, type admin for username and Intel@1234 as t
 
 You are now connected. Please explore different sections.
 ![](images/003-Intel-AMT-Web-Browser-Screen.jpg)
+
+
+## [Optional] Wireless AMT Configuration
+
+This step allows you to enable wireless access to a remote machine using AMT.
+
+**Note:** A second AMT configured machine (#2) is required with a wired connection to a network device (ex. router) and powered ON.
+
+1.  Connect your AMT configured machine (#1) to the network device mentioned above via a wired connection
+2.  Disable WiFi at this time
+3.  Open a web browser on machine #1 and type machine #2's IP address and port 16992 into the address field (ex. <IP_Address>:16992)
+4.  Once you are logged into the AMT web interface, Click Wireless Settings in the left side bar.
+5.  Enable the S0, Sx/AC option
+6.  Click Submit
+7.  Repeat the steps above for machine #2
+8.  Disconnect ethernet cables from both machines
+9.  Enable WiFi for both machines
+10. Open a web browser on machine #1 and type machine #2's IP address and port 16992 into the address field (ex. <IP_Address>:16992)
+11. Log into the AMT web interface
+
+You should now be able to connect to the machines wirelessly with the AMT web interface, Mesh Commander and Mesh Central.

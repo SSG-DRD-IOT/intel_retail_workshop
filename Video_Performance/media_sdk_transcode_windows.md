@@ -620,7 +620,7 @@ As we have added VPP to our pipeline we need to add a new stage to our transcodi
  You should also see that overall execution time is much faster as we are now encoding a 1080p stream instead of 4K.
 
 To view the encoded output you can use the provided **ffplay** utility. 
-- Open a **Command Prompt** window and **'cd'** to the **Retail_Workshop** directory. From there run the following command:
+- Open a **Command Prompt** window and **'cd'** to the **Desktop\Retail\03-MediaSDK** directory. From there run the following command:
 ```
 ffplay.exe out.h264
 ```
@@ -669,7 +669,7 @@ Next we need to update our encoder parameters to use HEVC. We are only working w
 ```
  - **Build** the solution and use the **Performance Profiler** to run the code. 
  - Take note that the **execution time** is longer and **GPU Utilization** is higher when encoding with the more complex HEVC codec.
- - Open **File Explorer** and navigate to the **Retail_Workshop** directory. Note the size of the **out.h264** and **out.h265** files. You will notice that the file encoded using HEVC is less than half the size of the H.264 encoded file.
+ - Open **File Explorer** and navigate to the **Desktop\Retail\03-MediaSDK** directory. Note the size of the **out.h264** and **out.h265** files. You will notice that the file encoded using HEVC is less than half the size of the H.264 encoded file.
 
 ![HEVC](images/msdk_transcode_5.jpg)
 

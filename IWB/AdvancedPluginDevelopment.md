@@ -73,12 +73,16 @@ The external widget solution that is being developed will fetch data from the tw
 
 - On the hub, Run local server by using below command
 
-```
+```c
 cd C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer
 C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer> node server.js
 ```
 
-- run interactive_face_detection_sample.exe which is at the path, ***C:\Users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug***
+- In order to run the interactive_face_detection_sample.exe for the Advanced Plugin, open the command prompt and perform the following.
+
+```c
+cd C:\users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\
+C:\users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug>interactive_face_detection_sample.exe
 
 For simplicity, an external python application, Widget.pyw is already created at the path ***C:\Users\intel\Desktop\Retail\06-IWB***.
 
