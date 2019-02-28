@@ -12,7 +12,7 @@ In this module we will explore following
 
 ## Step1: Login to local mesh central server
 
-Url: [https://10.224.16.132](https://10.224.16.132)
+Url: [http://www.meshcentral.com](http://www.meshcentral.com)
 
 Username: workshop
 
@@ -36,10 +36,9 @@ Goto MyAccount tab and click the newly created mesh.
 Have a look on Web Authorizations.
 
 Click on Install
+Select Linux/x86-64 (Ubuntu)
+Run the commands given there in a linux terminal to install the Mesh Agent. **Make sure to run the commands under "su"**
 
-Download **Window Mesh Agent** and **Mesh Policy File**
-
-Run the downloaded Mesh Agent as Administrator to install it.
 
 ![](images/mesh2.png)
 
