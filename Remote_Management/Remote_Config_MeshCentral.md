@@ -22,22 +22,24 @@ Password: intel@123
 
 ## Step 2: Create Mesh Agent
 
-Goto MyAccount tab > Administrative Meshes > New
+Goto MyAccount tab > Device Groups > New
 
-In the Create new mesh popup, provide mesh name and password
+In the Create new device group popup, provide name and type.
 
-Check mark all the options and click create mesh
+Choose the "Manage using a software agent" option for type.
+
+Provide description if needed and click OK.
 
 ![](images/mesh1.png)
 
 ## Step 3: Test & install the created Mesh
-Goto MyAccount tab and click the newly created mesh.
+Goto MyAccount tab and click the newly created device group.
 
 Have a look on Web Authorizations.
 
-Click on Install
-Select Linux/x86-64 (Ubuntu)
-Run the commands given there in a linux terminal to install the Mesh Agent. **Make sure to run the commands under "su"**
+Click on Install. Select Linux. Run the commands given there in a linux
+terminal to install the Mesh Agent.
+Run the commands given there in a linux terminal to install the Mesh Agent.
 
 
 ![](images/mesh2.png)
@@ -45,7 +47,7 @@ Run the commands given there in a linux terminal to install the Mesh Agent. **Ma
 
 ## Step 4: Web device refresh
 
-Goto MyAccount tab and click the newly created mesh.
+Goto MyDevices tab and click the newly created device group.
 
 This is the method to see the connected devices through web interface.
 
@@ -61,7 +63,8 @@ File operations can be performed to check the level of control
 
 ## Step 6: Explore Terminal
 
-This method gives access to terminal through which system supported commands can be run.
+This method gives access to terminal through which system supported
+commands can be run.
 
 ![](images/mesh4.png)
 
@@ -69,8 +72,8 @@ This method gives access to terminal through which system supported commands can
 
 This method accessess the client desktop by web sockets.
 
-It opens another web instance from desktop. This is repeated infinitely
+It opens another web instance from desktop. This is repeated infnitely
 
-![](images/020-websocket-desktop-loop.jpg)
+![](images/020-websocket-desktop-loop.png)
 
 .
