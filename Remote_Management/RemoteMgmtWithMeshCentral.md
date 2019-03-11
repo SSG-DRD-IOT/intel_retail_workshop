@@ -22,22 +22,23 @@ Password: intel@123
 
 ## Step 2: Create Mesh Agent
 
-Goto MyAccount tab > Administrative Meshes > New
+Goto MyAccount tab > Device Groups > New
 
-In the Create new mesh popup, provide mesh name and password
+In the Create new device group popup, provide name and type.
+Choose the "Manage using a software agent" option for type.
 
-Check mark all the options and click create mesh
+Provide description if needed and click OK.
 
 ![](images/mesh1.png)
 
 ## Step 3: Test & install the created Mesh
-Goto MyAccount tab and click the newly created mesh.
+Goto MyAccount tab and click the newly created device group.
 
 Have a look on Web Authorizations.
 
-Click on Install
+Click on Install.
 
-Download **Window Mesh Agent** and **Mesh Policy File**
+Download Window Mesh Agent according to the OS specifcations of your system.
 
 Run the downloaded Mesh Agent as Administrator to install it.
 
@@ -46,23 +47,24 @@ Run the downloaded Mesh Agent as Administrator to install it.
 
 ## Step 4: Web device refresh
 
-Goto MyAccount tab and click the newly created mesh.
+Go to MyDevices tab and click the newly created device group.
 
 This is the method to see the connected devices through web interface.
 
-![](images/018-web-device-refresh.jpg)
+![](images/018-web-device-refresh.png)
 
 ## Step 5: Explore file system
 
-This method gives access to the client file system.
+This method gives access to the client fle system.
 
-File operations can be performed to check the level of control
+File operations can be performed to check the level of control.
 
 ![](images/mesh3.png)
 
 ## Step 6: Explore Terminal
 
-This method gives access to terminal through which system supported commands can be run.
+This method gives access to terminal through which system supported commands
+can be run.
 
 ![](images/mesh4.png)
 
@@ -70,9 +72,9 @@ This method gives access to terminal through which system supported commands can
 
 This method accessess the client desktop by web sockets.
 
-It opens another web instance from desktop. This is repeated infinitely
+It opens another web instance from desktop. This is repeated infnitely
 
-![](images/020-websocket-desktop-loop.jpg)
+![](images/020-websocket-desktop-loop.png)
 
 ##
 
