@@ -109,7 +109,7 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 ```bash
 # cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d GPU
+# ./security_barrier_camera_demo  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d GPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.

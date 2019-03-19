@@ -104,7 +104,7 @@ node server.js
 - Run the application by using below command. Make sure camera is connected to the device.
 
 ```bash
-# ./interactive_face_detection_sample
+# ./interactive_face_detection_demo
  ```
 - Go to http://localhost:9002
 - Example : 127.0.0.1:9002
