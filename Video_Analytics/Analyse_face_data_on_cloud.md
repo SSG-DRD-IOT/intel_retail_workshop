@@ -42,7 +42,7 @@ attentivityindex= int(sys.argv[5])
 
 count = {"facecount":facecount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex, "timestamp":time.strftime('%H:%M:%S')}
 query = 'id=' + str(id) + '&value=' + str(facecount) +'&malecount=' + str(malecount) +'&femalecount=' + str(femalecount);
-with open('C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json', 'w') as file:
+with open('C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json', 'w') as file:
      file.write(json.dumps(count))
 
 resp = requests.get('http://<ip_address>:9002/analytics/face?'+ query);
@@ -71,7 +71,7 @@ else:
     prevFaceCount = curFaceCount;
     slog::info << framecounter << slog::endl;
     //Integrate python module to submit data to cloud
-    std::string cmd = "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\cloud.py " + deviceId + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
+    std::string cmd = "C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\cloud.py " + deviceId + " " + std::to_string(curFaceCount) + " " + std::to_string(malecount) + " " + std::to_string(femalecount) + " " + std::to_string(attentivityindex);
     int systemRet = std::system(cmd.c_str());
     if (systemRet == -1)
       slog::info << "System fails : " << slog::endl;
@@ -85,7 +85,7 @@ else:
 ### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
-- Go to C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer
+- Go to C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer
 
 ```
 node server.js
@@ -103,14 +103,14 @@ node server.js
 For complete solution click on following link [analyse_data_on_cloud](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 - Build the solution in visual studio
-- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug*** directory.
+- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
 - Open command prompt and type this command
 
 ```
-C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\interactive_face_detection_sample.exe
+C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
  ```
-- On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\05-OpenVINO\.***
+- On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\OpenVINO\.***
 ### Lesson Learnt
 Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizing data on cloud.
 
