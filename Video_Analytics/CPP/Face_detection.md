@@ -27,7 +27,6 @@ In this Lab, we will build a Face Detection application which will detect a face
 
 ### This lab will be laid out as follows:
 -	Include the required header files.
-- 	Define class and required methods for our application development.
 -	Capture video frames using OpenCV API.
 -	Load in inference engine plugins.
 -	Load in pre-trained optimized Face Detection model.
@@ -51,7 +50,8 @@ First, we will include required header files for inferencing with the Intel® Di
 ```
 - Class declarations and definitions are available in detectors.hpp and detectors.cpp
 ### Capture Video Frames
- We have defined all the required methods for our application development. Now we will start developing our face detection application. First, we need to capture video frames using OpenCV APIs
+ We have defined all the required methods for our application development in detector.hpp and detector.cpp. Now we will start developing our face detection application step by step.
+ First step is to capture video frames using OpenCV APIs
 - Replace #TODO: Face Detection 2
 - Paste the following lines
 

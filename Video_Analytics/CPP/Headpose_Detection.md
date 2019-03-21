@@ -72,12 +72,12 @@ attentivityindex++;
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
 For complete solution click on following link [headpose_detection](./solutions/headpose.md)
 - Build the solution in visual studio
-- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\OpenVINO\inference_engine\samples\build\intel64\Debug*** directory.
+- Executable will be generated at ***C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug*** directory.
 - Run the application by using below command. Make sure camera is connected to the device.
 - Open command prompt and type this command
 
 ```
-C:\Users\Intel\Desktop\Retail\OpenVINO\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
+C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
  ```
 
 - On successful execution, Face, Age  Gender and HeadPose will get detected.

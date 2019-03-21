@@ -32,7 +32,7 @@ int attentivityindex = 0;
 int framecounter = 0;
 
 ```
-### Initialise Height and Width of a frame
+### Define Frame height and width
 - Replace #TODO: Age and Gender detection 2
 - Paste the following lines
 ```
@@ -40,7 +40,7 @@ const size_t width = (size_t)cap.get(cv::CAP_PROP_FRAME_WIDTH);
 const size_t height = (size_t)cap.get(cv::CAP_PROP_FRAME_HEIGHT);
 ```
 
-### Include CPU as Plugin Device
+### Select CPU as Plugin Device
 
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
 
@@ -57,7 +57,7 @@ pluginsForDevices["CPU"] = plugin;
 
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
 
-We need CPU as plugin device for inferencing Age and Gender and load pre-retained model for Age and Gender Detection on CPU
+In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 
 - Replace #TODO: Age and Gender Detection 4
 - Paste the following lines
@@ -71,7 +71,8 @@ ageGenderDetector.load(pluginsForDevices["CPU"]);
 
 ```
 
-### Submit Inference Request
+### Start Inferencing
+Till now Required Frame height and width is defined, CPU has been selected for plugin device and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
 - Replace #TODO: Age and Gender Detection 5
 - Paste the following lines
 
@@ -83,7 +84,8 @@ ageGenderDetector.wait();
 
 ```
 
-### Use identified Face for Age and Gender Detection
+### Process Face detection Inference Results
+At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 Clip the identified Faces and send inference request for identifying Age and Gender
 - Replace #TODO: Age and Gender Detection 6
 - Paste the following lines
@@ -107,7 +109,7 @@ attentivityindex = 0;
 
  ```
 
-### Customize the Result for Display
+### Process Age and Gender detection Results for display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
 - Replace #TODO: Age and Gender Detection 7
 - Paste the following lines
@@ -137,7 +139,7 @@ For complete solution click on following link [age_gender_detection](./solutions
 - Open command prompt and type this command
 
 ```
-C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_sample.exe
+C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
 
  ```
 - On successful execution, Face, Age and Gender will get detected.

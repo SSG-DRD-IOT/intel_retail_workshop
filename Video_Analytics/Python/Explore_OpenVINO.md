@@ -12,7 +12,7 @@ The Intel® Distribution of OpenVINO™ toolkit is a comprehensive toolkit for q
   - Only the CPU, Intel® HD Graphics, and Intel® Movidius™ Neural Compute Stick options are supported for the Windows* installation. Linux* is required for using the FPGA or Intel® Movidius™. Myriad™ 2 VPU options.
 * **Processors**
   - 6th – 8th Generation Intel® Core™ processor
-  - Intel® Xeon® processor family v5 or v6 
+  - Intel® Xeon® processor family v5 or v6
 * **Operating System**
   - Ubuntu* 16.04.3 long-term support (LTS), 64-bit
   - CentOS* 7.4, 64-bit
@@ -49,55 +49,33 @@ For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 - libiomp5md.dll is a runtime library used for developing application using OpenMP.
 
 ### Running the Sample Programs
-* **Security Barrier Camera Sample**                            
+* **Object Detection Demo**                            
 **Description**                           
-Showcase Vehicle Detection, followed by Vehicle Attributes and License Plate Recognition are applied on top of Vehicle Detection. The vehicle attributes execution barrier reports the general vehicle attributes, like the vehicle type and colour, whether the type is something like car, van, or bus.
-The application reads command line parameters and loads the specified models. The Vehicle/License-Plate Detection model is required, and the others are optional.
-* **Build and Run Sample with CPU**
-- Go to C:\Intel\computer_vision_sdk\deployment_tools\demo
+This demonstrates how to run the Object Detection demo application, which does inference using object detection networks like Faster R-CNN on Intel® Processors and Intel® HD Graphics.
+Upon the start-up, the demo application reads command line parameters and loads a network and an image to the Inference Engine plugin. When inference is done, the application creates an output image and outputs data to the standard output stream.
 
-- run demo_security_barrier_camera.bat
+- Navigate to: C:\Intel\computer_vision_sdk\inference_engine\samples\python_samples
 
-![](images/run_demo.jpg)
-![](images/run_demo_result.jpg)
-
-- **Output and Performance**
-The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
-
-
-- **Manually Build Example**
-
-- Navigate to: C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017
-- Open the samples.sln file and build the security_barrier_camera_demo.cpp sample.
-
-Upon successful build, a security_barrier_camera_demo.exe file is available inside the intel64\Debug folder.
-
-Running the application with –h option results with the following information:
-
-![](images/help.png)
-For this document, we are not using all parameters. Participants are expected to explore multiple options.
 
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```
-C:\Users\Intel\Documents\OpenVINO\inference_engine_samples_2017\intel64\Debug\security_barrier_camera_demo.exe  -i  C:\Intel\computer_vision_sdk\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0106\FP32\vehicle-license-plate-detection-barrier-0106.xml -m_va C:\Intel\computer_vision_sdk\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0039\FP32\vehicle-attributes-recognition-barrier-0039.xml -d CPU
+python object_detection_demo_ssd_async.py -i cam -m C:\Intel\computer_vision_sdk_2018.5.445\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll -d CPU
 
 ```
 
 
 Next, we repeat the exercise with **GPU** and observe the performance.
 
-![](images/cpu.png)
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
-C:\Users\Intel\Documents\OpenVINO\inference_engine_samples_2017\intel64\Debug\security_barrier_camera_demo.exe  -i  C:\Intel\computer_vision_sdk\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0106\FP32\vehicle-license-plate-detection-barrier-0106.xml -m_va C:\Intel\computer_vision_sdk\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0039\FP32\vehicle-attributes-recognition-barrier-0039.xml -d GPU
+python object_detection_demo_ssd_async.py -i cam -m C:\Intel\computer_vision_sdk_2018.5.445\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -d GPU
 
 ```
 - **Output and Performance**
-The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
+The output uses OpenCV* to display the resulting frame with detections rendered as bounding boxes and labels, if provided. In default mode, the demo reports: Detection time, OpenCV* time.
 
-![](images/GPU.PNG)
 - Press escape button to terminate
 
 ### Lessons Learned
