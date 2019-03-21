@@ -45,7 +45,7 @@ if(framesCounter==10):
     id = 1234
     count = {"facecount":prevFaceCount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex, "timestamp":time.strftime('%H:%M:%S')}
     query = 'id=' + str(id) + '&value=' + str(prevFaceCount) +'&malecount=' + str(malecount) +'&femalecount=' + str(femalecount);
-    with open('C:\\Users\\Intel\\Desktop\\Retail\\OpenVINO\\sAttentivityData.json', 'w') as file:
+    with open('C:\\Users\\Intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json', 'w') as file:
         file.write(json.dumps(count))
     resp = requests.get('http://192.168.1.100:9002/analytics/face?'+ query);
     if resp.status_code != 201:
@@ -61,7 +61,7 @@ if(framesCounter==10):
 ```
 ### Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
-- Run local server by using below command
+- Run local server by using below command in other command prompt
 - Go to C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer
 
 ```
@@ -87,7 +87,7 @@ cd C:\Users\Intel\Desktop\Retail\OpenVINO
 
 python main.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -m_ag C:\Intel\computer_vision_sdk\deployment_tools\intel_models\age-gender-recognition-retail-0013\FP32\age-gender-recognition-retail-0013.xml -m_hp C:\Intel\computer_vision_sdk\deployment_tools\intel_models\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll
  ```
-- On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\OpenVINO\.***
+- On successful execution, face will get detected and AttentivityData.json will be created at ***C:\Users\Intel\Desktop\Retail\OpenVINO\.***
 ### Lesson Learnt
 Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizing data on cloud.
 

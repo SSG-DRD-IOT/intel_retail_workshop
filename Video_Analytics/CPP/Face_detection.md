@@ -14,7 +14,7 @@ In our next three Labs, we will develop a complete interactive face detection ap
 - click on interactive_face_detection_sample > src > main.cpp in visualstudio.
 - The main.cpp file will be available here
 
-For simplicity, we have created a main.cpp, which includes required header files and TODOs that to be replaced.
+For simplicity, we have created a main.cpp template [here](./solutions/main.cpp.md), which includes required header files and TODOs that to be replaced.
 - TODO is small unit of module for code simplification.
 - Replace all TODOs with corresponding code snippets provide.
 - keep all other TODOs as it is. We will  use these in our next labs

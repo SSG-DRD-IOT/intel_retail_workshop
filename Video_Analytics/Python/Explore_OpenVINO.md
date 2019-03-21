@@ -30,7 +30,7 @@ By the end of this module, the participant is expected to understand the Intel®
 * **OIntel® Distribution of OpenVINO™ toolkit installer**                                                 
  Intel® Distribution of OpenVINO™ toolkit by default installs at C:\Intel\computer_vision_sdk\
 * **Intel® Distribution of OpenVINO™ toolkit sample applications showing various capabilities**
-Intel® Distribution of OpenVINO™ toolkit samples are made available in C:\Intel\computer_vision_sdk                      \deployment_tools\inferenceengine\samples\build\samples.sln
+Intel® Distribution of OpenVINO™ toolkit samples are made available in C:\Intel\computer_vision_sdk                      \deployment_tools\inferenceengine\samples\python_samples
 * **Intel® Distribution of OpenVINO™ toolkit Documentation directory**
 C:\Intel\computer_vision_sdk\deployment_tools\documentation
 * **Intel® Distribution of OpenVINO™ toolkit pre-trained models**
@@ -42,7 +42,7 @@ Go to C:\Intel\computer_vision_sdk\deployment_tools\inferenceengine to understan
 ![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for OpenVINO™ toolkit samples
 For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
-- **doc** folder has documentation for the Intel® Distribution of OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
+- **Samples** folder has  Intel® Distribution of OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
 - **include** folder has several header files required for developing application using the Intel® Distribution of OpenVINO™ toolkit.
 - **lib** folder has 64-bit plugin library like inference engine and libiomp5md are useful for video applications.
 -  Inferenceengine.dll is the software library for loading inference engine plugins for CPU, GPU and so on.
@@ -60,7 +60,7 @@ Upon the start-up, the demo application reads command line parameters and loads 
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```
-python object_detection_demo_ssd_async.py -i cam -m C:\Intel\computer_vision_sdk_2018.5.445\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll -d CPU
+python object_detection_demo_ssd_async.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll -d CPU
 
 ```
 
@@ -70,7 +70,7 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
-python object_detection_demo_ssd_async.py -i cam -m C:\Intel\computer_vision_sdk_2018.5.445\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -d GPU
+python object_detection_demo_ssd_async.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -d GPU
 
 ```
 - **Output and Performance**

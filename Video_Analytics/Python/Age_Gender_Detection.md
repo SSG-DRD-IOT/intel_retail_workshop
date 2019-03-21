@@ -17,9 +17,8 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 ![](images/AgeGender_flowchart.png)
 
 
-### Defining the command line arguments
-
-We define the command line arguments.
+### Parsing  command line arguments
+Setting up command line arguments and providing description to each argument.
 - Replace #TODO Age_Gender command line arguments
 - Paste the following lines
 

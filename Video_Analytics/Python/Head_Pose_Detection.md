@@ -18,9 +18,8 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 ![](images/Headpose_flowchart.PNG)
 
 
-### Defining the command line arguments
-
-We define the command line arguments.
+### Parsing command line arguments
+Setting up command line arguments and providing description to each argument.
 - Replace #TODO Head_Pose command line arguments
 - Paste the following lines
 
