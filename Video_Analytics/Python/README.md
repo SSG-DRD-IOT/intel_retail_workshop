@@ -29,4 +29,4 @@ The links below will guide the workshop attendee through slides and labs in the 
     - Lab - [Analyze Data on Cloud](./Analyse_face_data_on_cloud.md)
 ##  
 
-[Home](../README.md)    
+[Home](../../README.md)    
