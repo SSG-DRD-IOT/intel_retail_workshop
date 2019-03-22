@@ -19,7 +19,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 ### Parsing command line arguments
 
-We define the command line arguments.
+We define the command line arguments required for age and gender detection.
 - Replace #TODO Age_Gender command line arguments
 - Paste the following lines
 
@@ -32,7 +32,7 @@ parser.add_argument("-d_ag", "--device_ag",
   ```  
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
 
-We need CPU as plugin device for inferencing Age and Gender and load pre-retained model for Age and Gender Detection on CPU
+In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 - Replace #TODO Age_Gender_Detection 1
 - Paste the following lines
 
@@ -79,7 +79,7 @@ attentivityindex=0
 ```
 
 ### Process Face detection Inference Results
-Clip the identified Faces and send inference request for identifying Age and Gender.
+At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 
 - Replace #TODO Age_Gender_Detection 4
 - Paste the following lines
@@ -102,7 +102,7 @@ if age_enabled:
 
 ```
 
-### Customize the Result for Display
+### Process Age and Gender detection Results for display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
 - Replace #TODO Age_Gender_Detection 5
 - Paste the following lines
@@ -139,4 +139,4 @@ python3 main.py -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_
 In addition to Face, Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 ## Next Lab
-[HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Headpose_Detection.md)
+[HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Head_Pose_Detection.md)

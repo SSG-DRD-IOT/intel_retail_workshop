@@ -110,7 +110,7 @@ def drawAxes(pitch,yaw,roll,cpoint,frame):
 ```
 
 ### Load Pre-trained Optimized Model for HeadPose Inferencing
-We need CPU as plugin device for inferencing HeadPose and load pre-retained model for HeadPose Detection on CPU
+Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
 - Replace #TODO Head_Pose_Detection 2
 - Paste the following lines
 
@@ -129,7 +129,7 @@ if args.model and args.hp_model:
 ```
 
 ### Use Identified Face for HeadPose Detection
-Clip the identified Faces and send inference request for identifying HeadPose
+Clip the identified Faces and send inference request for detecting head pose
 - Replace #TODO Head_Pose_Detection 3
 - Paste the following lines
 
@@ -153,7 +153,7 @@ analytics_time = age_inf_time + hp_inf_time
 ```
 
 ### Calculate attentivity index
-Here attentivityindex will be calculated on the basis of Yaw angle.
+Now, the attentivityindex will be calculated using Yaw angle available from head pose inference result. 
 - Replace #TODO Head_Pose_Detection 4
 - Paste the following lines
 
