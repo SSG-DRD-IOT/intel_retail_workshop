@@ -12,8 +12,8 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Login to cloud and view charts showing the number of faces
 
 ### Declare the Device Id
-- Replace #TODO: Cloud Integration 1
-- Paste the following line and replace the device id “1234” with your device id written on your computer.
+- Replace #TODO: Cloud Integration 1 with the following lines of code
+- Replace the device id “1234” with your device id written on your computer.
 
 ```cpp
 std::string deviceId="1234";

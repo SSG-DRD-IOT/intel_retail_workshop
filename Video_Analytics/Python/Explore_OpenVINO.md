@@ -30,7 +30,7 @@ By the end of this module, the participant is expected to understand the Intel®
 * **OIntel® Distribution of OpenVINO™ toolkit installer**                                                 
  Intel® Distribution of OpenVINO™ toolkit by default installs at C:\Intel\computer_vision_sdk\
 * **Intel® Distribution of OpenVINO™ toolkit sample applications showing various capabilities**
-Intel® Distribution of OpenVINO™ toolkit samples are made available in C:\Intel\computer_vision_sdk                      \deployment_tools\inferenceengine\samples\python_samples
+Intel® Distribution of OpenVINO™ toolkit samples are made available in C:\Intel\computer_vision_sdk                      \deployment_tools\inference_engine\samples\python_samples
 * **Intel® Distribution of OpenVINO™ toolkit Documentation directory**
 C:\Intel\computer_vision_sdk\deployment_tools\documentation
 * **Intel® Distribution of OpenVINO™ toolkit pre-trained models**
@@ -39,7 +39,7 @@ C:\Intel\computer_vision_sdk\deployment_tools\intel_models
 ### Understanding the Packages
 Go to C:\Intel\computer_vision_sdk\deployment_tools\inferenceengine to understand the package contents.
 
-![](images/packages.png)
+![](images/packages.PNG)
 - **bin** folder has 64-bit runtime libraries for OpenVINO™ toolkit samples
 For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 - **Samples** folder has  Intel® Distribution of OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
@@ -80,7 +80,7 @@ The output uses OpenCV* to display the resulting frame with detections rendered 
 
 ### Lessons Learned
 - Intel® Distribution of OpenVINO™ toolkit, libraries, header and sample code files and available models
-- Performance difference in detection time, fps with CPU and GPU
+- Performance difference in detection time with CPU and GPU
 
 ## Next Lab
 [Face Detection using the Intel® Distribution of OpenVINO™ toolkit](./Face_detection.md)

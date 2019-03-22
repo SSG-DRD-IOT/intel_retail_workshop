@@ -10,7 +10,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 -	Load pre-trained data model for Age and Gender detection.
 - Initializing the parameters to process the output.
 - Resetting the parameters for each frame.
--	Once Face Detection result is available, submit inference request for Age and Gender Detection
+-	Once Face Detection result is available, submit inference request for Age and Gender Detection.
 -	Mark the identified faces inside rectangle and put text on it for Age and Gender.
 -	Observe Age and Gender Detection in addition to face.
 
@@ -19,8 +19,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 ### Parsing  command line arguments
 Setting up command line arguments and providing description to each argument.
-- Replace #TODO Age_Gender command line arguments
-- Paste the following lines
+- Replace #TODO Age_Gender command line arguments, with the following lines of code
 
 ```python
 parser.add_argument("-m_ag", "--ag_model", help="Path to an .xml file with a trained model.", default=None, type=str)
@@ -31,9 +30,8 @@ parser.add_argument("-d_ag", "--device_ag",
   ```  
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
 
-We need CPU as plugin device for inferencing Age and Gender and load pre-retained model for Age and Gender Detection on CPU
-- Replace #TODO Age_Gender_Detection 1
-- Paste the following lines
+In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
+- Replace #TODO Age_Gender_Detection 1 with the following lines of code
 
 ```python
 # age and gender   
@@ -52,8 +50,7 @@ We need CPU as plugin device for inferencing Age and Gender and load pre-retaine
 
 ### Initialize the parameters
 Here initialize the parameters which are required to process the output.
-- Replace #TODO Age_Gender_Detection 2
-- Paste the following lines
+- Replace #TODO Age_Gender_Detection 2 with the following lines of code
 
 ```python
 curFaceCount = 0
@@ -67,8 +64,7 @@ attentivityindex = 0
 ### Resetting the parameters for each frame
 The initialized parameters which are required to process the output are reset to zero.
 
-- Replace #TODO Age_Gender_Detection 3
-- Paste the following lines
+- Replace #TODO Age_Gender_Detection 3 with the following lines of code
 
 ```python
 curFaceCount = 0
@@ -77,11 +73,10 @@ femalecount = 0
 attentivityindex=0
 ```
 
-### Use identified Face for Age and Gender Detection
+### Process Face detection Inference Results
 Clip the identified Faces and send inference request for identifying Age and Gender.
 
-- Replace #TODO Age_Gender_Detection 4
-- Paste the following lines
+- Replace #TODO Age_Gender_Detection 4 with the following lines of code
 
 ```python
 #Age and Gender
@@ -101,10 +96,9 @@ if age_enabled:
 
 ```
 
-### Customize the Result for Display
-Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
-- Replace #TODO Age_Gender_Detection 5
-- Paste the following lines
+### Process Age and Gender detection Results for display
+At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
+- Replace #TODO Age_Gender_Detection 5 with the following lines of code
 
 ```python
 if age_enabled:
@@ -140,4 +134,4 @@ python main.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_mod
 In addition to Face, Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 ## Next Lab
-[HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Headpose_Detection.md)
+[HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit](./Head_Pose_Detection.md)

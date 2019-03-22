@@ -18,8 +18,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 ### Initialise the pararameters
 Here initialize the parameters which are required to process the output.
-- Replace #TODO: Age and Gender detection 1
-- Paste the following lines
+- Replace #TODO: Age and Gender detection 1 with the following lines of code
 
 ```cpp
 int faceCountThreshold = 100;
@@ -33,8 +32,7 @@ int framecounter = 0;
 
 ```
 ### Define Frame height and width
-- Replace #TODO: Age and Gender detection 2
-- Paste the following lines
+- Replace #TODO: Age and Gender detection 2 with the following lines of code
 ```
 const size_t width = (size_t)cap.get(cv::CAP_PROP_FRAME_WIDTH);
 const size_t height = (size_t)cap.get(cv::CAP_PROP_FRAME_HEIGHT);
@@ -59,8 +57,7 @@ pluginsForDevices["CPU"] = plugin;
 
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 
-- Replace #TODO: Age and Gender Detection 4
-- Paste the following lines
+- Replace #TODO: Age and Gender Detection 4 with the following lines of code
 
 ```cpp
 FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
@@ -73,8 +70,7 @@ ageGenderDetector.load(pluginsForDevices["CPU"]);
 
 ### Start Inferencing
 Till now Required Frame height and width is defined, CPU has been selected for plugin device and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
-- Replace #TODO: Age and Gender Detection 5
-- Paste the following lines
+- Replace #TODO: Age and Gender Detection 5 with the following lines of code
 
 ```cpp
 //Submit Inference Request for age and gender detection and wait for result
@@ -87,8 +83,7 @@ ageGenderDetector.wait();
 ### Process Face detection Inference Results
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 Clip the identified Faces and send inference request for identifying Age and Gender
-- Replace #TODO: Age and Gender Detection 6
-- Paste the following lines
+- Replace #TODO: Age and Gender Detection 6 with the following lines of code
 
 ```cpp
 //Clipped the identified face and send Inference Request for age and gender detection
@@ -111,8 +106,7 @@ attentivityindex = 0;
 
 ### Process Age and Gender detection Results for display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
-- Replace #TODO: Age and Gender Detection 7
-- Paste the following lines
+- Replace #TODO: Age and Gender Detection 7 with the following lines of code
 
 ```cpp
 out.str("");

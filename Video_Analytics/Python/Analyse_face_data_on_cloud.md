@@ -22,8 +22,8 @@ import json
 
 ### Declare the Device Id
 
-- Replace #TODO Cloud_Integration 2
-- Paste the following line and replace the device id “1234” with your device id written on your computer.
+- Replace #TODO Cloud_Integration 2 with the following lines of code
+- Replace the device id “1234” with your device id written on your computer.
 
 ```python
 deviceid="1234"
