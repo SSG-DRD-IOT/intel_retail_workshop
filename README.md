@@ -17,13 +17,13 @@ The links below will guide the workshop attendee through slides and labs in the 
 * **Video Performance**
 
   - Slide Deck - [Video Performance](./Presentations/VideoPerformance.pdf)
-  - CPP Lab - [Video Performance](./Video_Performance/README.md)
+  - Lab - [Video Performance](./Video_Performance/README.md)
 
 
 * **Remote Management**
 
   - Slide Deck - [Remote Management](./Presentations/RemoteManagement.pdf)
-  - CPP Lab - [Remote Management](./Remote_Management/README.md)
+  - Lab - [Remote Management](./Remote_Management/README.md)
 
 
 * **Enhanced Video Analytics on edge using deep learning and the Intel® Distribution of OpenVINO™ Toolkit**

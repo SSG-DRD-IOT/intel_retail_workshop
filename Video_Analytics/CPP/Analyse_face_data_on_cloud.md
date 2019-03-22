@@ -9,15 +9,15 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the face count,Male count and female count
 
-### Declare the device id
+### 1)Declare the device id
 - Replace **#TODO: Cloud Integration 1** with the following line of code.
 
 ```cpp
 std::string deviceId="1234";
 ```
 
-### Publish face count, male count and female count to cloud
-We counted the number of faces,number of males and number of females successfully. Now, we will publish it to cloud for analysis.	
+### 2)Publish face count, male count and female count to cloud
+We counted the number of faces,number of males and number of females successfully. Now, we will publish it to cloud for analysis.
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
 - The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > OpenVINO***
@@ -48,13 +48,13 @@ else:
 
 ```
 
-### Increment frame counter
+### 3)Increment frame counter
 - Replace #TODO: Cloud Integration 2 with below line of code
 
 ```
 	framecounter++;
 ```
-### Integrate cloud module
+### 4)Integrate cloud module
 
 - Replace #TODO: Cloud Integration 3 with below code snippet
 
@@ -77,7 +77,7 @@ else:
 	    framecounter = 0;
 	  }
 ```
-### Build the Solution and Observe the Output
+### 5)Build the Solution and Observe the Output
 - Go to ***~/Desktop/Retail/OpenVINO/samples/build***  directory
 - Do  make by following commands
 - Make sure environment variables set when you are doing in fresh terminal.
@@ -92,7 +92,7 @@ else:
 
 - On successful execution, face, age and gender will get detected file.json will be created at ***~/Desktop/Retail/OpenVINO***
 
-### Visualizing your Data on the Cloud
+### 6)Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 
@@ -114,7 +114,7 @@ node server.js
 
 ![](images/cloudAnalysis.png)
 
-###  Final Solution
+###  The Final Solution
 For complete solution click on following link [analyse_data_on_cloud](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using OpenVINO™ toolkit.
 
 ### Lesson Learnt

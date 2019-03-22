@@ -17,7 +17,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 
 
-### Declare and Initialize the required variables
+### 1)Declare and Initialize the required variables
 Here initialize the required variables.
 - Replace **#TODO: Age and Gender detection 1** with below lines of code
 
@@ -33,7 +33,7 @@ Here initialize the required variables.
 
 ```
 
-### Define Frame height and width
+### 2)Define Frame height and width
 - Replace **#TODO: Age and Gender detection 2** with below lines of code
 
 ```
@@ -42,7 +42,7 @@ const size_t height = (size_t)cap.get(cv::CAP_PROP_FRAME_HEIGHT);
 
 ```
 
-### Include CPU as Plugin Device
+### 3)Include CPU as Plugin Device
 
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
 We will use CPU as plugin device for inferencing Age and Gender
@@ -53,7 +53,7 @@ We will use CPU as plugin device for inferencing Age and Gender
 	pluginsForDevices["CPU"] = plugin;
 ```
 
-### Load Pre-trained Optimized Model for Age and Gender Inferencing
+### 4)Load Pre-trained Optimized Model for Age and Gender Inferencing
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 - Replace **#TODO: Age and Gender Detection 4** with the following lines of code
 
@@ -65,7 +65,7 @@ FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk/deployment_tools/intel_
 
 ```
 
-### Start Inferencing
+### 5)Start Inferencing
 Till now Required Frame height and width is defined, CPU has been selected for plugin device and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
 - Replace **#TODO: Age and Gender Detection 5** with the following lines of code
 
@@ -77,7 +77,7 @@ ageGenderDetector.wait();
 
 ```
 
-### Process Face detection Inference Results
+### 6)Process Face detection Inference Results
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 - Replace **#TODO: Age and Gender Detection 6** with the following lines of code
 
@@ -99,7 +99,7 @@ attentivityindex = 0;
 
  ```
 
-### Customize the Result for Display
+### 7)Customize the Result for Display
 
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
 
