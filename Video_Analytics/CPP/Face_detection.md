@@ -7,7 +7,7 @@ In our next three Labs, we will develop a complete interactive face detection ap
 - Age and Gender detection
 - Analyze Face, Gender and Age detection data on cloud
 
-For simplicity, we have created a main.cpp, which includes required header files and TODOs that to be replaced.
+For simplicity, we have created a main.cpp template [here](./solutions/main.cpp.md), which includes required header files and TODOs that to be replaced.
 - TODO is small unit of module for code simplification.
 - Replace all TODOs with corresponding code snippets provide.
 - keep all other TODOs as it is. We will  use these in our next labs
@@ -23,7 +23,6 @@ In this Lab, we will build a Face Detection application which will detect a face
 
 ### This lab will be laid out as follows:
 -	Include the required header files.
-- Define class and required methods for our application development.
 -	Capture video frames using OpenCV API.
 -	Load in inference engine plugins.
 -	Load in pre-trained optimized Face Detection model.
@@ -46,8 +45,8 @@ First, we will include required header files for inferencing with the Intel® Di
 
 
 
-### Capture Video Frames 
-we have defined all the required methods for our application development in detector.hpp and detector.cpp. Now we will start developing our face detection application. First, we need to capture video frames using OpenCV APIs
+### Capture Video Frames
+we have defined all the required methods for our application development in detector.hpp and detector.cpp. Now we will start developing our face detection application. First step is to capture video frames using OpenCV APIs
 
 - Replace **#TODO: Face Detection 2** with the following lines of code
 
@@ -58,7 +57,7 @@ we have defined all the required methods for our application development in dete
 	cap.open(0);
 	cv::Mat frame;
 	cap.read(frame);
-     //TODO: Age and Gender Detection 2 
+     //TODO: Age and Gender Detection 2
 ```
 
 ### Select GPU for Inferencing Face Detection
@@ -99,7 +98,7 @@ Here we are populating the face detection object for Inference request, and afte
 ```cpp
 // Main inference loop
 while (true) {
-#TODO: Cloud Integration 1
+//TODO: Cloud Integration 2
 //Grab the next frame from camera and populate Inference Request
 cap.grab();
 faceDetector.enqueue(frame);

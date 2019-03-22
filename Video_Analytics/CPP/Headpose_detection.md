@@ -5,7 +5,7 @@ We build upon our Face, Age and Gender detection code from previous labs to add 
 
 **Class diagram for Head Pose Detection**
 
-![](images/Headpose_class.png)
+![](images/Headpose_Class.png)
 
 ### Tasks TODO for Head Pose Detection:
 -	Select CPU as plugin device for head pose detection inference.
@@ -18,12 +18,11 @@ We build upon our Face, Age and Gender detection code from previous labs to add 
 
 
 
-### Include CPU as plugin device
-Till now, we have defined all the required methods required for head pose detection. Now we will extend our Face detection application with head pose detection.
-We will use CPU as plugin device for inferencing head pose which already selected for Age and Gender detection
+### Select CPU as plugin device
+In previous labs,  Face, Age and Gender detection is done. Now, the application will be extended with head pose detection. Here, the CPU will be used as plugin device for inferencing head pose detection. Which is already selected for Age and Gender detection in previous lab.
 
 ### Load pre-trained optimized model for head pose Inferencing
-We need CPU as plugin device for inferencing HeadPose and load pre-retained model for head pose detection on CPU
+:  Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
 - Replace **#TODO: HeadPose Detection 1** with the following lines of code
 
 ```cpp
@@ -34,7 +33,8 @@ FLAGS_m_hp = "/opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-
 
 ```
 
-### Submit Inference Request
+### Start Inferencing
+Till now Plugin device is selected, and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
 - Replace **#TODO: HeadPose Detection 2** with the following lines of code
 
 ```cpp
@@ -45,7 +45,7 @@ headPoseDetector.wait();
 ```
 
 ### Use identified face for head pose detection
-Clip the identified Faces and send inference request for identifying head pose
+Clip the identified Faces and send inference request for detecting head pose
 - Replace **#TODO: HeadPose Detection 3** with the following line of code
 
 ```cpp
@@ -54,7 +54,7 @@ headPoseDetector.enqueue(face1);
 ```
 
 ### Calculate attentivityindex
-Here attentivityindex will be calculated on the basis of Yaw angle.
+Now, the attentivityindex will be calculated using Yaw angle available from head pose inference result.
 - Replace **#TODO: HeadPose Detection 4** with the following lines of code
 
 ```cpp

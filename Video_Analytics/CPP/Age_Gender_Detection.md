@@ -33,7 +33,7 @@ Here initialize the required variables.
 
 ```
 
-### Declare width and height for frame
+### Define Frame height and width
 - Replace **#TODO: Age and Gender detection 2** with below lines of code
 
 ```
@@ -54,7 +54,7 @@ We will use CPU as plugin device for inferencing Age and Gender
 ```
 
 ### Load Pre-trained Optimized Model for Age and Gender Inferencing
-We need CPU as plugin device for inferencing Age and Gender and load pre-retained model for Age and Gender Detection on CPU
+In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 - Replace **#TODO: Age and Gender Detection 4** with the following lines of code
 
 ```cpp
@@ -65,7 +65,8 @@ FLAGS_Age_Gender_Model = "/opt/intel/computer_vision_sdk/deployment_tools/intel_
 
 ```
 
-### Submit Inference Request
+### Start Inferencing
+Till now Required Frame height and width is defined, CPU has been selected for plugin device and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
 - Replace **#TODO: Age and Gender Detection 5** with the following lines of code
 
 ```cpp
@@ -76,8 +77,8 @@ ageGenderDetector.wait();
 
 ```
 
-### Use identified Face for Age and Gender Detection
-Clip the identified Faces and send inference request for identifying Age and Gender
+### Process Face detection Inference Results
+At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 - Replace **#TODO: Age and Gender Detection 6** with the following lines of code
 
 ```cpp

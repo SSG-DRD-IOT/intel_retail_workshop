@@ -27,4 +27,4 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 
 
-[Home](../README.md)
+[Home](../../README.md)
