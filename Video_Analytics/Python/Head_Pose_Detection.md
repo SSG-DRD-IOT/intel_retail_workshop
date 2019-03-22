@@ -18,7 +18,7 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 ![](images/Headpose_flowchart.PNG)
 
 
-### Parsing command line arguments
+### 1)Parsing command line arguments
 Setting up command line arguments and providing description to each argument.
 - Replace #TODO Head_Pose command line arguments, with the following lines of code
 
@@ -31,7 +31,7 @@ parser.add_argument("-d_hp", "--device_hp",
 ```                    
 
 
-### Defining function for the Head pose axes
+### 2)Defining function for the Head pose axes
 We define the function to calculate and display axis for the face detected.
 - Replace #TODO Head_Pose_Detection 1 with the following lines of code
 
@@ -106,7 +106,7 @@ def drawAxes(pitch,yaw,roll,cpoint,frame):
 
 ```
 
-### Load Pre-trained Optimized Model for HeadPose Inferencing
+### 3)Load Pre-trained Optimized Model for HeadPose Inferencing
 Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
 - Replace #TODO Head_Pose_Detection 2 with the following lines of code
 
@@ -124,7 +124,7 @@ if args.model and args.hp_model:
 
 ```
 
-### Use Identified Face for HeadPose Detection
+### 4)Use Identified Face for HeadPose Detection
 Clip the identified Faces and send inference request for detecting head pose.
 - Replace #TODO Head_Pose_Detection 3 with the following lines of code
 
@@ -147,7 +147,7 @@ analytics_time = age_inf_time + hp_inf_time
 
 ```
 
-### Calculate attentivity index
+### 5)Calculate attentivity index
 Now, the attentivityindex will be calculated using Yaw angle available from head pose inference result.
 - Replace #TODO Head_Pose_Detection 4 with the following lines of code
 

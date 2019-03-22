@@ -16,11 +16,11 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 
 ![](images/Headpose_flowchart.PNG)
 
-### Select CPU as plugin device
+### 1)Select CPU as plugin device
 In previous labs,  Face, Age and Gender detection is done. Now, the application will be extended with head pose detection. Here, the CPU will be used as plugin device for inferencing head pose detection. Which is already selected for Age and Gender detection in previous lab.
 
 
-### Load Pre-trained Optimized Model for HeadPose Inferencing
+### 2)Load Pre-trained Optimized Model for HeadPose Inferencing
 Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
 - Replace #TODO: HeadPose Detection 1 with the following lines of code
 
@@ -31,7 +31,7 @@ headPoseDetector.load(pluginsForDevices["CPU"]);
 
 ```
 
-### Start Inferencing
+### 3)Start Inferencing
 Till now Plugin device is selected, and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
 - Replace #TODO: HeadPose Detection 2 with the following lines of code
 
@@ -43,7 +43,7 @@ headPoseDetector.wait();
 
 ```
 
-### Use identified Face for HeadPose Detection
+### 4)Use identified Face for HeadPose Detection
 Clip the identified Faces and send inference request for detecting head pose
 - Replace #TODO: HeadPose Detection 3 with the following lines of code
 
@@ -52,7 +52,7 @@ headPoseDetector.enqueue(face1);
 
 ```
 
-### Calculate attentivityindex
+### 5)Calculate attentivityindex
 Now, the attentivityindex will be calculated using Yaw angle available from head pose inference result.
 - Replace #TODO: HeadPose Detection 4 with the following lines of code
 

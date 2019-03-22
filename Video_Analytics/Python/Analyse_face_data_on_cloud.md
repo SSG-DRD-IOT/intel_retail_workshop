@@ -11,7 +11,7 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the number of faces
 
-### Importing Libraries for Cloud Analysis
+### 1)Importing required libraries for Cloud Analysis
 
 - Replace #TODO Import Cloud_Integration packages
 
@@ -20,7 +20,7 @@ import requests
 import json
 ```
 
-### Declare the Device Id
+### 2)Declare the Device Id
 
 - Replace #TODO Cloud_Integration 2 with the following lines of code
 - Replace the device id “1234” with your device id written on your computer.
@@ -29,7 +29,7 @@ import json
 deviceid="1234"
 ```
 
-### Publish Number of Faces to Cloud and Integrate Cloud module
+### 3)Publish Number of Faces to Cloud and Integrate Cloud module
 
 We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
 
@@ -59,7 +59,7 @@ if(framesCounter==10):
     print("---------------------------------------------")
     framesCounter=0
 ```
-### Visualizing your Data on the Cloud
+### 4)Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command in other command prompt
 - Go to C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer

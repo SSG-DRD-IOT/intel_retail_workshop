@@ -11,7 +11,7 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the number of faces
 
-### Declare the Device Id
+### 1)Declare the Device Id
 - Replace #TODO: Cloud Integration 1 with the following lines of code
 - Replace the device id “1234” with your device id written on your computer.
 
@@ -19,7 +19,7 @@ In this Lab, we will publish this data to local cloud for analysis.
 std::string deviceId="1234";
 ```
 
-### Publish Number of Faces to Cloud
+### 2)Publish Number of Faces to Cloud
 
 We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
 
@@ -54,14 +54,14 @@ else:
 **NOTE** : IP address to be updated with your NUC IP Address
 
 
-### Increment frame counter
+### 3)Increment frame counter
 - Replace #TODO: Cloud Integration 2 with below line of code
 
 ```cpp
 	framecounter++;
 ```
 
-### Integrate cloud module
+### 4)Integrate cloud module
 - Replace #TODO: Cloud Integration 3 with below code snippet
 
 ```cpp
@@ -82,7 +82,7 @@ else:
     framecounter = 0;
   }
 ```
-### Visualizing your Data on the Cloud
+### 5)Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 - Go to C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer
@@ -98,7 +98,7 @@ node server.js
 
 ![](images/cloudAnalysis.png)
 
-###  Final Solution
+###  The Final Solution
 
 For complete solution click on following link [analyse_data_on_cloud](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 
