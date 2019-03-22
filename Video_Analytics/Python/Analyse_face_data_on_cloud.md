@@ -75,7 +75,7 @@ node server.js
 
 ![](images/cloudAnalysis.png)
 
-###  Final Solution
+###  The Final Solution
 
 For complete solution click on following link [analyse_data_on_cloud](./solutions/cloud_analysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 

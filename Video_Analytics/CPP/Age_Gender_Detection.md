@@ -16,7 +16,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 ![](images/AgeGender_flowchart.png)
 
-### 1)Initialise the pararameters
+### 1)Initialise the parameters
 Here initialize the parameters which are required to process the output.
 - Replace #TODO: Age and Gender detection 1 with the following lines of code
 
