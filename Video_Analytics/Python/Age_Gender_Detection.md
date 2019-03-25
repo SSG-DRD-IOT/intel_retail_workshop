@@ -17,10 +17,10 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 ![](images/AgeGender_flowchart.png)
 
 
-### 1)Parsing command line arguments
+### 1. Parsing command line arguments
 
 We define the command line arguments required for age and gender detection.
-- Replace #TODO Age_Gender command line arguments
+- Replace **#TODO Age_Gender command line arguments**
 - Paste the following lines
 
 ```python
@@ -30,10 +30,10 @@ parser.add_argument("-d_ag", "--device_ag",
                     type=str)
 #TODO Head_Pose command line arguments
   ```  
-### 2)Load Pre-trained Optimized Model for Age and Gender Inferencing
+### 2. Load Pre-trained Optimized Model for Age and Gender Inferencing
 
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
-- Replace #TODO Age_Gender_Detection 1
+- Replace **#TODO Age_Gender_Detection 1**
 - Paste the following lines
 
 ```python
@@ -51,9 +51,9 @@ In previous step, CPU is selected as plugin device. Now, load pre-trained optimi
   #TODO Head_Pose_Detection 2
 ```
 
-### 3)Initialize the parameters
+### 3. Initialize the parameters
 Here initialize the parameters which are required to process the output.
-- Replace #TODO Age_Gender_Detection 2
+- Replace **#TODO Age_Gender_Detection 2**
 - Paste the following lines
 
 ```python
@@ -65,10 +65,10 @@ femalecount = 0
 attentivityindex = 0
 ```
 
-### 4)Resetting the parameters for each frame
+### 4. Resetting the parameters for each frame
 The initialized parameters which are required to process the output are reset to zero.
 
-- Replace #TODO Age_Gender_Detection 3
+- Replace **#TODO Age_Gender_Detection 3**
 - Paste the following lines
 
 ```python
@@ -78,10 +78,10 @@ femalecount = 0
 attentivityindex=0
 ```
 
-### 5)Process Face detection Inference Results
+### 5. Process Face detection Inference Results
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 
-- Replace #TODO Age_Gender_Detection 4
+- Replace **#TODO Age_Gender_Detection 4**
 - Paste the following lines
 
 ```python
@@ -102,9 +102,9 @@ if age_enabled:
 
 ```
 
-### 6)Process Age and Gender detection Results for display
+### 6. Process Age and Gender detection Results for display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
-- Replace #TODO Age_Gender_Detection 5
+- Replace **#TODO Age_Gender_Detection 5**
 - Paste the following lines
 
 ```python

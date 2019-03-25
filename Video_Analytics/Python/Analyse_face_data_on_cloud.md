@@ -11,32 +11,32 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the number of faces
 
-### 1)Importing Libraries for Cloud Analysis
+### 1. Importing Libraries for Cloud Analysis
 
-- Replace #TODO Import Cloud_Integration packages
+- Replace **#TODO Import Cloud_Integration packages**
 
 ```python
 import requests
 import json
 ```
 
-### 2)Declare the Device Id
+### 2. Declare the Device Id
 
-- Replace #TODO Cloud_Integration 2
+- Replace **#TODO Cloud_Integration 2**
 - Paste the following line and replace the device id “1234” with your device id written on your computer.
 
 ```python
 deviceid="1234"
 ```
 
-### 3)Publish Number of Faces to Cloud and Integrate Cloud module
+### 3. Publish Number of Faces to Cloud and Integrate Cloud module
 
 We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating the following code snippet.
 
 **NOTE** : IP address to be updated with your NUC IP Address
-- Replace #TODO Cloud_Integration 3 with below code snippet
+- Replace **#TODO Cloud_Integration 3** with below code snippet
 
 ```python
 #Cloud Analysis
@@ -59,7 +59,7 @@ if(framesCounter==10):
     print("---------------------------------------------")
     framesCounter=0
 ```
-### 4)Visualizing your Data on the Cloud
+### 4. Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 ```
@@ -74,7 +74,7 @@ node server.js
 
 ![](images/cloudAnalysis.png)
 
-### Thes Final Solution
+### The Final Solution
 
 For complete solution click on following link [analyse_data_on_cloud](./solutions/cloud_analysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
 
