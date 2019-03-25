@@ -10,7 +10,6 @@ Use steps described in the [install guide](https://software.intel.com/en-us/arti
 
 ## c) Install the required packages for System Analyzer Tool
 ``` bash
-sudo apt install ocl-icd-opencl-dev
 sudo apt-get install libva-dev
 ```
 
@@ -119,6 +118,7 @@ $ sudo apt install nodejs-legacy
 ## Additional Tools
 Run the below command to install some additional packages required to complete the tutorials:
 ``` bash
+sudo apt install ocl-icd-opencl-dev
 sudo apt install ffmpeg intel-gpu-tools htop
 pip install requests
 ```
