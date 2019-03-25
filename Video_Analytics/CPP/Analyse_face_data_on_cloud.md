@@ -1,4 +1,4 @@
-# Analyze face, age, gender detection data on Cloud
+# Analyze Face and Gender Data on Cloud
 ### Lab Overview
 We have done face, age, gender and headpose detection in our previous labs. Also, we have successfully counted number of faces so far.
 
