@@ -11,20 +11,20 @@ In this Lab, we will publish this data to local cloud for analysis.
 - Publish the number of faces after showing the face count
 - Login to cloud and view charts showing the number of faces
 
-### 1)Declare the Device Id
-- Replace #TODO: Cloud Integration 1 with the following lines of code
+### 1. Declare the Device Id
+- Replace **#TODO: Cloud Integration 1** with the following lines of code
 - Replace the device id “1234” with your device id written on your computer.
 
 ```cpp
 std::string deviceId="1234";
 ```
 
-### 2)Publish Number of Faces to Cloud
+### 2. Publish Number of Faces to Cloud
 
 We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
 
 **Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating a python script.
-- The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > 05-OpenVINO***
+- The following content should be present in a python script called as “cloud.py” and should be available in ***Desktop > Retail > OpenVINO***
 - If file is not present, create a "cloud.py" file and add the following code snippet into that file.
 
 
@@ -54,15 +54,15 @@ else:
 **NOTE** : IP address to be updated with your NUC IP Address
 
 
-### 3)Increment frame counter
-- Replace #TODO: Cloud Integration 2 with below line of code
+### 3. Increment frame counter
+- Replace **#TODO: Cloud Integration 2** with below line of code
 
 ```cpp
 	framecounter++;
 ```
 
-### 4)Integrate cloud module
-- Replace #TODO: Cloud Integration 3 with below code snippet
+### 4. Integrate cloud module
+- Replace **#TODO: Cloud Integration 3** with below code snippet
 
 ```cpp
 //Submit data to Intel Unite on framecounter basis
@@ -82,7 +82,7 @@ else:
     framecounter = 0;
   }
 ```
-### 5)Visualizing your Data on the Cloud
+### 5. Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command
 - Go to C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer

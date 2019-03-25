@@ -3,7 +3,7 @@
 We have done Face Detection in our previous module. Now, we identify Age and Gender for the identified faces.    
 We  build upon our Face Detection code and add Age, Gender identification code in this module.
 
-**Class diagram for AgeGender detection**
+**Class diagram for Age and Gender detection**
 
 ![](images/AgeGender_class.png)
 
@@ -16,9 +16,9 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 
 ![](images/AgeGender_flowchart.png)
 
-### 1)Initialise the parameters
+### 1. Initialise the parameters
 Here initialize the parameters which are required to process the output.
-- Replace #TODO: Age and Gender detection 1 with the following lines of code
+- Replace **#TODO: Age and Gender detection 1** with the following lines of code
 
 ```cpp
 int faceCountThreshold = 100;
@@ -31,19 +31,19 @@ int attentivityindex = 0;
 int framecounter = 0;
 
 ```
-### 2)Define Frame height and width
-- Replace #TODO: Age and Gender detection 2 with the following lines of code
+### 2. Define Frame height and width
+- Replace **#TODO: Age and Gender detection 2** with the following lines of code
 ```
 const size_t width = (size_t)cap.get(cv::CAP_PROP_FRAME_WIDTH);
 const size_t height = (size_t)cap.get(cv::CAP_PROP_FRAME_HEIGHT);
 ```
 
-### 3)Select CPU as Plugin Device
+### 3. Select CPU as Plugin Device
 
 Till now, we have defined all the required methods for Age and Gender detection. Now we will extend our Face detection application with Age and Gender detection.
 
 We will use CPU as plugin device for inferencing Age and Gender
-- Replace #TODO: Age and Gender detection 3
+- Replace **#TODO: Age and Gender detection 3**
 - Paste the following lines
 
 ```cpp
@@ -53,11 +53,11 @@ pluginsForDevices["CPU"] = plugin;
 
 ```
 
-### 4)Load Pre-trained Optimized Model for Age and Gender Inferencing
+### 4. Load Pre-trained Optimized Model for Age and Gender Inferencing
 
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 
-- Replace #TODO: Age and Gender Detection 4 with the following lines of code
+- Replace **#TODO: Age and Gender Detection 4** with the following lines of code
 
 ```cpp
 FLAGS_Age_Gender_Model = "C:\\Intel\\computer_vision_sdk\\deployment_tools\\intel_models\\age-gender-recognition-retail-0013\\FP32\\age-gender-recognition-retail-0013.xml";
@@ -68,9 +68,9 @@ ageGenderDetector.load(pluginsForDevices["CPU"]);
 
 ```
 
-### 5)Start Inferencing
+### 5. Start Inferencing
 Till now Required Frame height and width is defined, CPU has been selected for plugin device and loaded pre-trained optimized model for inferencing. Now it is time to start inferencing.
-- Replace #TODO: Age and Gender Detection 5 with the following lines of code
+- Replace **#TODO: Age and Gender Detection 5** with the following lines of code
 
 ```cpp
 //Submit Inference Request for age and gender detection and wait for result
@@ -80,10 +80,10 @@ ageGenderDetector.wait();
 
 ```
 
-### 6)Process Face detection Inference Results
+### 6. Process Face detection Inference Results
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 Clip the identified Faces and send inference request for identifying Age and Gender
-- Replace #TODO: Age and Gender Detection 6 with the following lines of code
+- Replace **#TODO: Age and Gender Detection 6** with the following lines of code
 
 ```cpp
 //Clipped the identified face and send Inference Request for age and gender detection
@@ -104,9 +104,9 @@ attentivityindex = 0;
 
  ```
 
-### 7)Process Age and Gender detection Results for display
+### 7. Process Age and Gender detection Results for display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
-- Replace #TODO: Age and Gender Detection 7 with the following lines of code
+- Replace **#TODO: Age and Gender Detection 7** with the following lines of code
 
 ```cpp
 out.str("");

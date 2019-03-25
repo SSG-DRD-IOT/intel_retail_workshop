@@ -17,9 +17,9 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 ![](images/AgeGender_flowchart.png)
 
 
-### 1)Parsing  command line arguments
+### 1. Parsing  command line arguments
 Setting up command line arguments and providing description to each argument.
-- Replace #TODO Age_Gender command line arguments, with the following lines of code
+- Replace **#TODO Age_Gender command line arguments**, with the following lines of code
 
 ```python
 parser.add_argument("-m_ag", "--ag_model", help="Path to an .xml file with a trained model.", default=None, type=str)
@@ -28,10 +28,10 @@ parser.add_argument("-d_ag", "--device_ag",
                     type=str)
 #TODO Head_Pose command line arguments
   ```  
-### 2)Load Pre-trained Optimized Model for Age and Gender Inferencing
+### 2. Load Pre-trained Optimized Model for Age and Gender Inferencing
 
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
-- Replace #TODO Age_Gender_Detection 1 with the following lines of code
+- Replace **#TODO Age_Gender_Detection 1** with the following lines of code
 
 ```python
 # age and gender   
@@ -48,9 +48,9 @@ In previous step, CPU is selected as plugin device. Now, load pre-trained optimi
   #TODO Head_Pose_Detection 2
 ```
 
-### 3)Initialize the parameters
+### 3. Initialize the parameters
 Here initialize the parameters which are required to process the output.
-- Replace #TODO Age_Gender_Detection 2 with the following lines of code
+- Replace **#TODO Age_Gender_Detection 2** with the following lines of code
 
 ```python
 curFaceCount = 0
@@ -61,10 +61,10 @@ femalecount = 0
 attentivityindex = 0
 ```
 
-### 4)Resetting the parameters for each frame
+### 4. Resetting the parameters for each frame
 The initialized parameters which are required to process the output are reset to zero.
 
-- Replace #TODO Age_Gender_Detection 3 with the following lines of code
+- Replace **#TODO Age_Gender_Detection 3** with the following lines of code
 
 ```python
 curFaceCount = 0
@@ -73,10 +73,10 @@ femalecount = 0
 attentivityindex=0
 ```
 
-### 5)Process Face detection Inference Results
+### 5. Process Face detection Inference Results
 Clip the identified Faces and send inference request for identifying Age and Gender.
 
-- Replace #TODO Age_Gender_Detection 4 with the following lines of code
+- Replace **#TODO Age_Gender_Detection 4** with the following lines of code
 
 ```python
 #Age and Gender
@@ -96,9 +96,9 @@ if age_enabled:
 
 ```
 
-### 6)Process Age and Gender detection Results for display
+### 6. Process Age and Gender detection Results for display
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
-- Replace #TODO Age_Gender_Detection 5 with the following lines of code
+- Replace **#TODO Age_Gender_Detection 5** with the following lines of code
 
 ```python
 if age_enabled:
