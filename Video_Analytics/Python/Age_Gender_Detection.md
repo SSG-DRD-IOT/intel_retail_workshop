@@ -117,7 +117,7 @@ if age_enabled:
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [age_gender_detection](./solutions/age_gender_detection.md)
+For complete solution click on following link [age_gender_detection](./solutions/agegenderdetection.md)
 
 
 - Open command prompt and type this command

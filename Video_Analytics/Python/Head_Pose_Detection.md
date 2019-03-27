@@ -166,7 +166,7 @@ if headPose_enabled:
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [headpose_detection](./solutions/head_pose_detection.md)
+For complete solution click on following link [headpose_detection](./solutions/Headposedetection.md)
 
 
 - Open command prompt and type this command
