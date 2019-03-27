@@ -21,7 +21,7 @@ The links below will guide the workshop attendee through slides and labs in the 
 
 * **HeadPose Detection using the Intel® Distribution of OpenVINO™ toolkit**
     <!--- Slide Deck --->
-    - Lab - [HeadPose Detection](./Head_pose_Detection.md)
+    - Lab - [HeadPose Detection](./Head_Pose_Detection.md)
 
 
 * **Analyze Data on Cloud**

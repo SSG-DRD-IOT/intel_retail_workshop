@@ -30,7 +30,7 @@ In this Lab, we will build a Face Detection application which will detect a face
 -	Request for inference on GPU.
 -	With the inference result, draw a rectangle marking the face.
 
-![](images/faceDetection_flowchart.png)
+![](images/faceDetection_flowchart.PNG)
 
 ### 1. Importing Required Packages
 

@@ -1,4 +1,4 @@
-```
+```CPP
 #include <gflags/gflags.h>
 #include <functional>
 #include <iostream>
@@ -25,7 +25,7 @@ using namespace InferenceEngine;
 int main(int argc, char *argv[]) {
 
 	//TODO: Cloud integration 1
-	
+
 	int faceCountThreshold = 100;
 	int curFaceCount = 0;
 	int prevFaceCount = 0;
