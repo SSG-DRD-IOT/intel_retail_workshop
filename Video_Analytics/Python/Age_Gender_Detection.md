@@ -14,7 +14,7 @@ We  build upon our Face Detection code and add Age, Gender identification code i
 -	Mark the identified faces inside rectangle and put text on it for Age and Gender.
 -	Observe Age and Gender Detection in addition to face.
 
-![](images/AgeGender_flowchart.png)
+![](images/AgeGender_flowchart.PNG)
 
 
 ### 1. Parsing  command line arguments
