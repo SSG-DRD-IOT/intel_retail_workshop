@@ -297,7 +297,7 @@ log.info("Execution successful")
 
 ### The Final Solution
 Keep the TODO as it is. We will re-use this program during Age and Gender detection.                 
-For complete solution, see [face_detection](./solutions/face_detection.md)
+For complete solution, see [face_detection](./solutions/facedetection.md)
 
 
 
