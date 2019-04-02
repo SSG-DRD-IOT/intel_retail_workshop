@@ -5,6 +5,7 @@
 from __future__ import print_function
 import requests
 import json
+import socket
 import sys
 import os
 from argparse import ArgumentParser
@@ -202,6 +203,9 @@ def main():
         labels_map = None
 
     cap = cv2.VideoCapture(input_stream)
+    if not cap.isOpened():
+        log.error("Cannot open input file")
+        sys.exit(1)
     cur_request_id = 0
     log.info("Starting inference ...")
     log.info("To stop the demo execution press Esc button")
@@ -360,9 +364,17 @@ def main():
             id = 1234
             count = {"facecount":prevFaceCount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex, "timestamp":time.strftime('%H:%M:%S')}
             query = 'id=' + str(id) + '&value=' + str(prevFaceCount) +'&malecount=' + str(malecount) +'&femalecount=' + str(femalecount);
+            def get_hostIP():
+	            try:   
+		            host_name = socket.gethostname()
+		            host_ip = socket.gethostbyname(host_name)
+		            print("IP ADDRESS:",host_ip)
+		            return str(host_ip).strip(" ")
+	            except:
+		            print("Unable to get Hostname and IP")
             with open('C:\\Users\\Intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json', 'w') as file:
                 file.write(json.dumps(count))
-            resp = requests.get('http://192.168.1.100:9002/analytics/face?'+ query);
+            resp = requests.get('http://'+get_hostIP()+':9002/analytics/face?'+ query);
             if resp.status_code != 201:
                 print("Unable to submit the data")
             else:
@@ -386,5 +398,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main() or 0)
-
-  ```
+```    
