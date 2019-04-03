@@ -40,11 +40,11 @@ Intel® Distribution of OpenVINO™ toolkit pre-trained models are made availabl
 Go to /opt/intel/computer_vision_sdk/deployment_tools/inference_engine to understand the package contents.
 
 ![](images/packages.png)
-- **bin** folder has 64-bit runtime libraries for Intel® Distribution of OpenVINO™ toolkit samples
+- **Inference_engine** folder contains 64-bit runtime libraries for Intel® Distribution of OpenVINO™ toolkit samples
 For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
-- **doc** folder has documentation for OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
+- **documentation** folder has documentation for OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
 - **include** folder has several header files required for developing application using the Intel® Distribution of OpenVINO™ toolkit.
-- **lib** folder has 64-bit plugin library like inference engine and libiomp5md are useful for video applications.
+- **model_optimizer** folder contains python scripts for integrating other models with Intel® Distribution of OpenVINO™ .
 -  Inferenceengine.dll is the software library for loading inference engine plugins for CPU, GPU and so on.
 - libiomp5md.dll is the runtime library used for developing application using OpenMP*.
 
@@ -85,7 +85,7 @@ $ sudo mkdir build
 
 ```bash
 # cd intel64/Release
-# ./security_barrier_camera_sample -h
+# ./security_barrier_camera_demo -h
 ```
 - Running the application with –h option results with the following information:
 
@@ -96,7 +96,7 @@ $ sudo mkdir build
 ```bash
 # cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d CPU
+# ./security_barrier_camera_demo  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d CPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
@@ -109,12 +109,12 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 ```bash
 # cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d GPU
+# ./security_barrier_camera_demo  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d GPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
 
-![](images/GPU.png)
+![](images/gpu.png)
 - Press escape button to terminate
 
 
