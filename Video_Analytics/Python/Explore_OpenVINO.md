@@ -65,7 +65,7 @@ cd /opt/intel/computer_vision_sdk/inference_engine/samples/python_samples
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```
-python3 object_detection_demo_ssd_async.py -i cam -m opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml -l opt/intel//computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d CPU
+python3 object_detection_demo_ssd_async.py -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml -l /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d CPU
 
 ```
 
@@ -75,7 +75,7 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
-python3 object_detection_demo_ssd_async.py -i cam -m opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml -d GPU
+python3 object_detection_demo_ssd_async.py -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml -l /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d GPU
 
 ```
 - **Output and Performance**

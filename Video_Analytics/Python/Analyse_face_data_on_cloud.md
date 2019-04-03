@@ -18,6 +18,7 @@ In this Lab, we will publish this data to local cloud for analysis.
 ```python
 import requests
 import json
+import socket
 ```
 
 ### 2. Declare the Device Id
@@ -45,9 +46,17 @@ if(framesCounter==10):
     id = 1234
     count = {"facecount":prevFaceCount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex, "timestamp":time.strftime('%H:%M:%S')}
     query = 'id=' + str(id) + '&value=' + str(prevFaceCount) +'&malecount=' + str(malecount) +'&femalecount=' + str(femalecount);
+    def get_hostIP():
+      try:   
+        host_name = socket.gethostname()
+        host_ip = socket.gethostbyname(host_name)
+        print("IP ADDRESS:",host_ip)
+        return str(host_ip).strip(" ")
+      except:
+        print("Unable to get Hostname and IP")
     with open('/home/intel/Desktop/Retail/OpenVINO/AttentivityData.json', 'w') as file:
         file.write(json.dumps(count))
-    resp = requests.get('http://192.168.1.100:9002/analytics/face?'+ query);
+    resp = requests.get('http://'+get_hostIP()+':9002/analytics/face?'+ query);
     if resp.status_code != 201:
         print("Unable to submit the data")
     else:
@@ -82,7 +91,7 @@ For complete solution click on following link [analyse_data_on_cloud](./solution
 - Open command prompt and type this command
 
 ```
-python3 main.py -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml -m_ag /opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -m_hp /opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml-l /opt/intel/computer_vision_sdk/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so
+python3 main.py -i cam -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/face-detection-adas-0001/FP32/face-detection-adas-0001.xml -m_ag /opt/intel/computer_vision_sdk/deployment_tools/intel_models/age-gender-recognition-retail-0013/FP32/age-gender-recognition-retail-0013.xml -m_hp /opt/intel/computer_vision_sdk/deployment_tools/intel_models/head-pose-estimation-adas-0001/FP32/head-pose-estimation-adas-0001.xml -l /opt/intel/computer_vision_sdk/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so
  ```
 - On successful execution, face will get detected and AttentivityData.json will be created at ***/home/intel/Desktop/Retail/OpenVINO.***
 ### Lesson Learnt
