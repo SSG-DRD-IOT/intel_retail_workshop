@@ -72,7 +72,7 @@ if(framesCounter==10):
 ### 4. Visualizing your Data on the Cloud
 Real time visualization of number of people, age and gender on local cloud
 - Run local server by using below command in other command prompt
-- Go to C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer
+- Go to C:\users\Intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer
 
 ```
 node server.js
@@ -93,9 +93,9 @@ For complete solution click on following link [analyse_data_on_cloud](./solution
 - Open command prompt and type this command
 
 ```
-cd C:\Users\Intel\Desktop\Retail\OpenVINO
-
-python main.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -m_ag C:\Intel\computer_vision_sdk\deployment_tools\intel_models\age-gender-recognition-retail-0013\FP32\age-gender-recognition-retail-0013.xml -m_hp C:\Intel\computer_vision_sdk\deployment_tools\intel_models\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll
+> C:\Intel\computer_vision_sdk\bin\setupvars.bat
+> cd C:\Users\Intel\Desktop\Retail\OpenVINO
+> python main.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -m_ag C:\Intel\computer_vision_sdk\deployment_tools\intel_models\age-gender-recognition-retail-0013\FP32\age-gender-recognition-retail-0013.xml -m_hp C:\Intel\computer_vision_sdk\deployment_tools\intel_models\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll
  ```
 - On successful execution, face will get detected and AttentivityData.json will be created at ***C:\Users\Intel\Desktop\Retail\OpenVINO\.***
 ### Lesson Learnt

@@ -166,15 +166,15 @@ if headPose_enabled:
 
 ### The Final Solution
 Keep the TODOs as it is. We will re-use this program during Cloud Integration.     
-For complete solution click on following link [headpose_detection](./solutions/Headposedetection.md)
+For complete solution click on following link [headpose_detection](./solutions/headpose.md)
 
 
 - Open command prompt and type this command
 
 ```
-cd C:\Users\Intel\Desktop\Retail\OpenVINO
-
-python main.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -m_ag C:\Intel\computer_vision_sdk\deployment_tools\intel_models\age-gender-recognition-retail-0013\FP32\age-gender-recognition-retail-0013.xml -m_hp C:\Intel\computer_vision_sdk\deployment_tools\intel_models\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll
+> C:\Intel\computer_vision_sdk\bin\setupvars.bat
+> cd C:\Users\Intel\Desktop\Retail\OpenVINO
+> python main.py -i cam -m C:\Intel\computer_vision_sdk\deployment_tools\intel_models\face-detection-adas-0001\FP32\face-detection-adas-0001.xml -m_ag C:\Intel\computer_vision_sdk\deployment_tools\intel_models\age-gender-recognition-retail-0013\FP32\age-gender-recognition-retail-0013.xml -m_hp C:\Intel\computer_vision_sdk\deployment_tools\intel_models\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001.xml -l C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_2017\intel64\Release\cpu_extension.dll
  ```
 
 - On successful execution, Face, Age  Gender and HeadPose will get detected.

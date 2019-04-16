@@ -54,6 +54,13 @@ For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 This demonstrates how to run the Object Detection demo application, which does inference using object detection networks like Faster R-CNN on Intel® Processors and Intel® HD Graphics.
 Upon the start-up, the demo application reads command line parameters and loads a network and an image to the Inference Engine plugin. When inference is done, the application creates an output image and outputs data to the standard output stream.
 
+* **Set Environment variables using below commands**
+```
+cd C:\Intel\computer_vision_sdk\bin
+setupvars.bat
+```
+
+
 - Navigate to: C:\Intel\computer_vision_sdk\inference_engine\samples\python_samples
 
 

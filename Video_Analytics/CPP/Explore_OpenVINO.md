@@ -53,6 +53,13 @@ For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 **Description**                           
 Showcase Vehicle Detection, followed by Vehicle Attributes and License Plate Recognition are applied on top of Vehicle Detection. The vehicle attributes execution barrier reports the general vehicle attributes, like the vehicle type and colour, whether the type is something like car, van, or bus.
 The application reads command line parameters and loads the specified models. The Vehicle/License-Plate Detection model is required, and the others are optional.
+
+* **Set Environment variables using below commands**
+```
+cd C:\Intel\computer_vision_sdk\bin
+setupvars.bat
+```
+
 * **Build and Run Sample with CPU**
 - Go to C:\Intel\computer_vision_sdk\deployment_tools\demo
 
