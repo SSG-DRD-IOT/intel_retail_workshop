@@ -79,10 +79,10 @@ NUC7i7DNHE (Dawson Canyon)
   
   - Open the command prompt. **tip**: Search for *command prompt* in the lower left windows search bar. 
   
-  - Navigate to the **Desktop > Retail > 03-MediaSDK >** folder:
+  - Navigate to the **Desktop > Retail > MediaSDK >** folder:
   
   ```
-  cd C:\Users\intel\Desktop\Retail\03-MediaSDK
+  cd C:\Users\intel\Desktop\Retail\MediaSDK
   ```
   
   -  Open the task manager to compare the CPU performance of the below two cases.
@@ -117,7 +117,7 @@ Output & Performance:
     \-f : change rendering frame rate  
     \-w and –h : changing the resolution
 
-*   From the **Desktop > Retail > 03-MediaSDK >** folder run the video wall sample with the following command: 
+*   From the **Desktop > Retail > MediaSDK >** folder run the video wall sample with the following command: 
 
 
 ```

@@ -30,7 +30,7 @@ By the end of this module, the participant is expected to understand the decodin
 
 Please open empty solution from
 
-**Desktop > Retail > 03-MediaSDK > lab\_exercise** folder
+**Desktop > Retail > MediaSDK > lab\_exercise** folder
 
 Open the **sample\_decode.sln** file located in sample\_decode folder
 
@@ -218,7 +218,7 @@ Continue following coding in the main function
 ## Complete Solution
 If you have problems in executing your code, you can see the complete Visual Studio solution in
 
-**Desktop > Retail > 03-MediaSDK >complete\_solution** folder
+**Desktop > Retail > MediaSDK >complete\_solution** folder
 
 We have done all the necessary library linking in this solution.
 ## Lesson learnt
