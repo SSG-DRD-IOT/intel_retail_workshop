@@ -151,7 +151,8 @@ For complete solution, see [face_detection](./solutions/facedetection.md)
 - Open command prompt and type this command
 
 ```
-C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
+> C:\Intel\computer_vision_sdk\bin\setupvars.bat
+> C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
  ```
  - On successful execution, face will get detected.
 
