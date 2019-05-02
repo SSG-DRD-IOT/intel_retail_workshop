@@ -14,7 +14,7 @@ We  build upon our Face Detection code and add Age ,Gender add HeadPose identifi
 -	Mark the identified faces inside rectangle and draw Raw, Yaw and Pitch axis.
 -	Observe HeadPose Detection in addition to face.
 
-![](images/Headpose_flowchart.png)
+![](images/Headpose_flowchart.PNG)
 
 ### 1. Select CPU as plugin device
 In previous labs,  Face, Age and Gender detection is done. Now, the application will be extended with head pose detection. Here, the CPU will be used as plugin device for inferencing head pose detection. Which is already selected for Age and Gender detection in previous lab.

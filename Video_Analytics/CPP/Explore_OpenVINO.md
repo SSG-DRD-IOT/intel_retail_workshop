@@ -39,7 +39,7 @@ C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\intel_models
 ### Understanding the Packages
 Go to C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\ to understand the package contents.
 
-![](images/packages.PNG)
+![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for OpenVINO™ toolkit samples
 For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 - **doc** folder has documentation for the Intel® Distribution of OpenVINO™ toolkit samples like classification, object detection, interactive_face_detection and so on.
@@ -81,7 +81,7 @@ Upon successful build, a security_barrier_camera_demo.exe file is available insi
 
 Running the application with –h option results with the following information:
 
-![](images/help.PNG)
+![](images/help.png)
 For this document, we are not using all parameters. Participants are expected to explore multiple options.
 
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
@@ -94,7 +94,7 @@ C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\inte
 
 Next, we repeat the exercise with **GPU** and observe the performance.
 
-![](images/cpu.PNG)
+![](images/cpu.png)
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
@@ -104,7 +104,7 @@ C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\inte
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
 
-![](images/gpu.PNG)
+![](images/gpu.png)
 - Press escape button to terminate
 
 ### Lessons Learned
