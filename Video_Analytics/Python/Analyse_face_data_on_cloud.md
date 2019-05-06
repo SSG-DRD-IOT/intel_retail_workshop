@@ -1,0 +1,103 @@
+# Analyze Face and Gender Data on Cloud
+### Lab Overview
+We have done Face, Age and Gender Detection in our previous modules. Also, we have successfully counted number of faces so far.
+
+In this Lab, we will publish this data to local cloud for analysis.
+
+### Tasks to do in this lab
+
+- Declare a device id that will be used for publishing the data to cloud
+- Integrate a Python script for publishing the data to cloud
+- Publish the number of faces after showing the face count
+- Login to cloud and view charts showing the number of faces
+
+### 1. Importing Libraries for Cloud Analysis
+
+- Replace **#TODO Import Cloud_Integration packages**
+
+```python
+import requests
+import json
+import socket
+```
+
+### 2. Declare the Device Id
+
+- Replace **#TODO Cloud_Integration 2**
+- Paste the following line and replace the device id “1234” with your device id written on your computer.
+
+```python
+deviceid="1234"
+```
+
+### 3. Publish Number of Faces to Cloud and Integrate Cloud module
+
+We counted the number of faces successfully. Now, we will publish it to cloud for analysis.       
+
+**Note:** We are not publishing video stream or pictures of the screen. We are only publishing the number of faces. For publishing the data to cloud we will be integrating the following code snippet.
+
+**NOTE** : IP address to be updated with your NUC IP Address
+- Replace **#TODO Cloud_Integration 3** with below code snippet
+
+```python
+#Cloud Analysis
+if(framesCounter==10):
+    prevFaceCount=curFaceCount
+    id = 1234
+    count = {"facecount":prevFaceCount, "malecount":malecount, "femalecount":femalecount, "attentivityindex":attentivityindex, "timestamp":time.strftime('%H:%M:%S')}
+    query = 'id=' + str(id) + '&value=' + str(prevFaceCount) +'&malecount=' + str(malecount) +'&femalecount=' + str(femalecount);
+    def get_hostIP():
+      try:   
+        host_name = socket.gethostname()
+        host_ip = socket.gethostbyname(host_name)
+        print("IP ADDRESS:",host_ip)
+        return str(host_ip).strip(" ")
+      except:
+        print("Unable to get Hostname and IP")
+    with open('/home/intel/Desktop/Retail/OpenVINO/AttentivityData.json', 'w') as file:
+        file.write(json.dumps(count))
+    resp = requests.get('http://'+get_hostIP()+':9002/analytics/face?'+ query);
+    if resp.status_code != 201:
+        print("Unable to submit the data")
+    else:
+        print("Data Submitted for analysis")
+    print("No. of faces in the frame are {}".format(curFaceCount))
+    print("male count is {}".format(malecount))
+    print("female count is {}".format(femalecount))
+    print("attentivity index is {}".format(attentivityindex))
+    print("---------------------------------------------")
+    framesCounter=0
+```
+### 4. Visualizing your Data on the Cloud
+Real time visualization of number of people, age and gender on local cloud
+- Run local server by using below command
+```
+cd /home/intel/Desktop/Retail/OpenVINO/CloudAnalyticsServer
+node server.js
+ ```
+- Go to http://localhost:9002
+- Example : 127.0.0.1:9002
+- Enter your device id
+- Click the plot
+- See the real time face count on cloud
+
+![](images/cloudAnalysis.png)
+
+### The Final Solution
+
+For complete solution click on following link [analyse_data_on_cloud](./solutions/cloudanalysis.md) which includes Face, Age and Gender detection using the Intel® Distribution of OpenVINO™ toolkit.
+
+
+- Open command prompt and type this command
+
+```
+# source /opt/intel/openvino/bin/setupvars.sh
+# python3 main.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -m_ag /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -m_hp /opt/intel/openvino/deployment_tools/tools/model_downloader/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001.xml -l /opt/intel/openvino/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so
+ ```
+- On successful execution, face will get detected and AttentivityData.json will be created at ***/home/intel/Desktop/Retail/OpenVINO.***
+### Lesson Learnt
+Interfacing Intel® Distribution of OpenVINO™ toolkit with cloud and visualizing data on cloud.
+
+##  
+
+[Video Analytics Home](./README.md)

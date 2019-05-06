@@ -28,16 +28,16 @@ Observe the folder structure available within the Intel® Distribution of OpenVI
 By the end of this module, the participant is expected to understand the Intel® Distribution of OpenVINO™ toolkit, installed folder structure and performance difference between **CPU** and **GPU**.
 ### To View the Packages installed on your Device
 * **Intel® Distribution of OpenVINO™ toolkit installer**                                                 
- Intel® Distribution of OpenVINO™ toolkit by default installs at /opt/intel/computer_vision_sdk
+ Intel® Distribution of OpenVINO™ toolkit by default installs at /opt/intel/openvino
 * **Intel® Distribution of OpenVINO™ toolkit sample applications showing various capabilities**
-Intel® Distribution of OpenVINO™ toolkit samples is made available in /opt/intel/computer_vision_sdk/deployment_tools/inferenceengine/samples/build/
+Intel® Distribution of OpenVINO™ toolkit samples is made available in /opt/intel/openvino/deployment_tools/inferenceengine/samples/build/
 * **Intel® Distribution of OpenVINO™ toolkit Documentation directory**
-Intel® Distribution of OpenVINO™ toolkit Documentation directory is made available in /opt/intel/computer_vision_sdk/deployment_tools/documentation/
+Intel® Distribution of OpenVINO™ toolkit Documentation directory is made available in /opt/intel/openvino/deployment_tools/documentation/
 * **Intel® Distribution of OpenVINO™ toolkit pre-trained models**
-Intel® Distribution of OpenVINO™ toolkit pre-trained models are made available in /opt/intel/computer_vision_sdk/deployment_tools/intel_models
+Intel® Distribution of OpenVINO™ toolkit pre-trained models are made available in /opt/intel/openvino/deployment_tools/intel_models
 
 ### Understanding the Packages
-Go to /opt/intel/computer_vision_sdk/deployment_tools/inference_engine to understand the package contents.
+Go to /opt/intel/openvino/deployment_tools/inference_engine to understand the package contents.
 
 ![](images/packages.png)
 - **bin** folder has 64-bit runtime libraries for Intel® Distribution of OpenVINO™ toolkit samples
@@ -57,7 +57,7 @@ The application reads command line parameters and loads the specified models. Th
 - Go to the samples directory using below command.
 
 ```bash
-$ cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples
+$ cd /opt/intel/openvino/deployment_tools/inference_engine/samples
 ```
 - create build directory using below command
 
@@ -69,7 +69,7 @@ $ sudo mkdir build
 ```bash
  $ sudo -s
 
- # source /opt/intel/computer_vision_sdk/bin/setupvars.sh
+ # source /opt/intel/openvino/bin/setupvars.sh
  ```
 - build samples using below commands
 
@@ -94,9 +94,9 @@ $ sudo mkdir build
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```bash
-# cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+# cd /opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d CPU
+# ./security_barrier_camera_demo  -i  /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Security/object_detection/barrier/0106/dldt/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/openvino/deployment_tools/tools/model_downloader/Security/object_attributes/vehicle/resnet10_update_1/dldt/vehicle-attributes-recognition-barrier-0039.xml -d CPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
@@ -107,9 +107,9 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```bash
-# cd /opt/intel/computer_vision_sdk/deployment_tools/inference_engine/samples/build/intel64/Release
+# cd /opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release
 
-# ./security_barrier_camera_sample  -i  /opt/intel/computer_vision_sdk/deployment_tools/demo/car_1.bmp -m /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-license-plate-detection-barrier-0106/FP32/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/computer_vision_sdk/deployment_tools/intel_models/vehicle-attributes-recognition-barrier-0039/FP32/vehicle-attributes-recognition-barrier-0039.xml -d GPU
+# ./security_barrier_camera_demo  -i  /opt/intel/openvino/deployment_tools/demo/car_1.bmp -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Security/object_detection/barrier/0106/dldt/vehicle-license-plate-detection-barrier-0106.xml -m_va /opt/intel/openvino/deployment_tools/tools/model_downloader/Security/object_attributes/vehicle/resnet10_update_1/dldt/vehicle-attributes-recognition-barrier-0039.xml -d GPU
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. Compared to CPU acceleration, GPU acceleration is better in terms of detection time and fps.
