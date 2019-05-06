@@ -16,8 +16,9 @@ sudo intel_gpu_top
 ```
 Terminal 3:
 ``` bash
-export MFX_HOME=/opt/intel/mediasdk
-cd ~/Desktop/Retail/MediaSDK/msdk_decode
+$ sudo -s
+# export MFX_HOME=/opt/intel/mediasdk
+# cd ~/Desktop/Retail/MediaSDK/msdk_decode
 ```
 
 ![Terminal Windows](images/msdk_global_l_01.png)
@@ -61,12 +62,12 @@ If software based decoders are available the Intel(R) Media SDK is able to selec
 
  - To build the code run the **make** command in the **msdk_decode** directory:
 ``` bash
-make
+# make
 ```
 > Make sure no errors are reported when running the **make** command
  - To run the application use the following command:
 ``` bash
-../build/msdk_decode
+# ../build/msdk_decode
 ```
  - While the decode process is running take a look at the CPU and GPU usage in the terminal windows you setup previously. You will notice some CPU usage as we are using system memory for our working surfaces but the decode process is taking place on the GPU which will be reflected in the GPU utilisation (use the **GAM** task as a reference).
 
@@ -170,4 +171,3 @@ ffplay ../jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
 
 ## Conclusion
 In this tutorial we looked at the Intel(R) Media SDK decoding pipeline and ways to optimise decoding performance on Intel platforms. We explored the performance and power advantages decoding using the GPU rather than the CPU particularly with complex codecs such as HEVC. We also looked at the advantages of using video memory for our working surfaces instead of system memory to avoid unnecessary memory transfers.
-

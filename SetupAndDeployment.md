@@ -1,12 +1,12 @@
 # Setup Development Environment with the Intel® NUC 7i7DNHE (Dawson Canyon)
 
 ## a) Install Ubuntu 16.04
-Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.19.x or higher**.
+Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.20.x or higher**.
 
 ## b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux) to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples.
 
-**Warning:** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (l_openvino_toolkit_p_2018.3.343)
+**Warning:** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version 2019 R1 (l_openvino_toolkit_p_2019.1.094)
 
 ## c) Install the required packages for System Analyzer Tool
 ``` bash
@@ -26,9 +26,11 @@ sudo apt-get install libva-dev
    $ sudo ./install_media.sh
 ```
 - You can check everything is working as expected by running the 'vainfo' utility which will give an output similar to below image.
+
   ```bash
     $ sudo -s
-    # /opt/intel/bin/vainfo
+    # apt-get install vainfo
+    # /opt/intel/mediasdk/bin/vainfo
   ```
   ![](./Video_Performance/images/vainfo.png)
 ## Mesh Commander Installation
@@ -49,6 +51,20 @@ pip install requests
 
 > **Secure Boot should be disabled in the BIOS in order for Intel GPU analysis tools to work.**
 
+## Downloading pretrained models
+- Navigate to /opt/intel/openvino/deployment_tools/tools/model_downloader directory and run downloader.py by using below Commands
+
+```bash
+$ sudo -s
+# cd /opt/intel/openvino/deployment_tools/tools/model_downloader
+# python downloader.py --name  'vehicle-license-plate-detection-barrier-0106'
+# python downloader.py --name  'vehicle-attributes-recognition-barrier-0039'
+# python downloader.py --name  'license-plate-recognition-barrier-0001.xml'
+# python downloader.py --name  'face-detection-adas-0001'
+# python downloader.py --name  'age-gender-recognition-retail-0013'
+# python downloader.py --name  'head-pose-estimation-adas-0001'
+
+```
 #	Troubleshooting section
 Here are some of the frequently occurring issues while setting up the Intel® Media SDK.
 - **Unsupported Feature/Library Load Error**

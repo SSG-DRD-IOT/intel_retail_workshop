@@ -38,7 +38,7 @@ By the end of this module, the participant would get basic understanding of Inte
 ## Commands:
 ```
 $ls /opt/intel/mediasdk/  
-$ls /opt/intel/mediasdk/samples/  
+$ls /opt/intel/mediasdk/share/mfx/samples/  
 $ls /opt/intel/mediasdk/doc/
 ```
 ## System Analyzer
@@ -54,9 +54,10 @@ System Analyzer tool reports back following information about CPU, GPU and Intel
 
 **Run** System Analyzer tool with below commands:
 ```
-$cd ~/Desktop/Retail/MediaSDK
+$ sudo -s
+$ cd ~/Desktop/Retail/MediaSDK
 
-$python sys_analyzer_linux.py
+$ python sys_analyzer_linux.py
 ```
 ## Performance Monitoring
 
@@ -78,7 +79,7 @@ Make sure to review the performance parameters while running these samples. Abov
 
 Open new terminal and change the directory
 ```
-$cd /opt/intel/mediasdk/samples/_bin/x64
+$cd /opt/intel/mediasdk/share/mfx/samples/_bin/
 ```
 <!--
 Case 1: Execute the below command for software implementation:
@@ -132,11 +133,11 @@ $sudo -s
 #export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
 #export LIBVA_DRIVER_NAME=iHD
 #export MFX_HOME=/opt/intel/mediasdk/
-#./sample_encode h264 -nv12 -i ../content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
+#./sample_encode h264 -nv12 -i /opt/intel/mediasdk/share/mfx/samples/_bin/content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
 ```
 To view the converted h264 file, run the decoding sample as follows:
 ```
-#./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw -r
+#./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
 ```
 ## Lessons learnt
 
