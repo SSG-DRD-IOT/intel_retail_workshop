@@ -115,8 +115,9 @@ C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\in
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. 
 
-![](images/GPU.PNG)
-- Press escape button to terminate
+![](images/gpu.png)
+
+2. **Press Esc to terminate**
 
 ### Lessons Learned
 - OpenVINO™ toolkit, libraries, header and sample code files and available models
