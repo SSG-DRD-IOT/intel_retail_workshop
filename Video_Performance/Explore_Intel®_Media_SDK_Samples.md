@@ -22,16 +22,15 @@ By the end of this module, the participant is expected to understand the Intel®
 
 -  **Media Sample applications**
 
-    Media SDK samples is made available in C:\Users\<user name>\Documents\Intel® Media SDK 2018 R2-Media Samples 8.4.27.378
-NUC7i7DNHE (Dawson Canyon)
+    Media SDK samples is made available in C:\Users\user_name\Documents\Intel® Media SDK 2018 R2-Media Samples 8.4.27.378
 - **Media SDK Documentation directory**
 
-    C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit\doc
+    C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development kit\doc
 
 ## Understand the packages
 
 1. **Click the File Explorer shortcut on the taskbar**
-2. **Navigate to to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit**
+2. **Navigate to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development kit**
 
 ![Media SDK directory contents](images/Packages.JPG)
 
@@ -57,19 +56,19 @@ NUC7i7DNHE (Dawson Canyon)
 
   This tool will capture the basic call information from Media SDK API functions. It will generate a full log of interaction between the application and the SDK library including per-frame processing.
 
-  **Note:** We are not running this tool in the workshop. For more infromation please refer to the readme-mediasdk-tracer document (C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit\tools\) to know the system requirements and limitations of the tool.
+  **Note:** We are not running this tool in the workshop. For more infromation please refer to the readme-mediasdk-tracer document (C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development Kit\tools\mediasdk_tracer) to know the system requirements and limitations of the tool.
 
 ## 2. MediaSDK System Analyzer:
 
   This tool utility analyzes the system and reports all Media SDK related capabilities, driver and components status. This tool can also be used to determine setup environment issues. This tool reports back installed graphics adapter, basic system information, installed Media SDK versions, installed DirectShow filters, Media foundation Transforms (MFT) and also tips for solutions in case either software or hardware implementations did not work.
 
-  - Navigate to the MediaSDK System Analyzer folder using the File Explorer:
-  **C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development Kit\tools\mediasdk_sys_analyzer**
-  - Double click **mediasdk_system_analyzer_64.exe**
+  1. **Navigate to the MediaSDK System Analyzer folder using the File Explorer:
+  C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development Kit\tools\mediasdk_sys_analyzer**
+  2. **Double click mediasdk_system_analyzer_64.exe**
 
   Usage:
 
-  This tool starts reporting system status immediately. The tool will show you informationa bout your system and what Media SDK packages are installed. When complete user can exit the tool by pressing any key.
+  This tool starts reporting system status immediately. The tool will show you information about your system and what Media SDK packages are installed. **When complete, a user can exit the tool by pressing ENTER key.**
 
   **Note:** For more information please refer to the document (readme-mediasdk-system-analyzer.rtf) to know the system requirements and limitations of the system analyzer.
 
@@ -78,61 +77,82 @@ NUC7i7DNHE (Dawson Canyon)
   ![](images/SystemAnalyzer.JPG)
   ## 1. Sample Decoder
   
-  - Open the command prompt. **tip**: Search for *command prompt* in the lower left windows search bar. 
-  
-  - Navigate to the **Desktop > Retail > 03-MediaSDK >** folder:
+  1. **Type *command prompt* in the search box on the taskbar.**
+  2. **Click the *Command Prompt* result**
+  3. **Navigate to the Desktop > Retail > 03-MediaSDK > folder in your command prompt window:**
   
   ```
   cd C:\Users\intel\Desktop\Retail\03-MediaSDK
   ```
   
-  -  Open the task manager to compare the CPU performance of the below two cases.
+  4. **Right click the taskbar and click Task Manager in the context menu**
+  5. **Click More details in the bottom left corner of the Task Manager window to access advanced mode**
+  6. **Click the Performance tab to compare the CPU performance of the below two cases.**
 
    **Note:** If you are running any other programs, their process will be added to the CPU & memory utilization. So try closing all other programs. Then observe the Sample_decode.exe process performance from task manager.
 
--  Case 1: Execute the below command for software implementation:  
+### Case 1: Software implementation:
+  1. **Execute the following command in the Command Prompt window**
 ```
 sample_decode.exe h264 -i input.h264 -sw
+```
 
- ```
-
-  Output & Performance:
+Output & Performance:
 
 ![](images/MSDK_SW.jpg)  
 
 
-*   Case 2: Execute the below command for hardware acceleration:  
+### Case 2: Hardware acceleration:
+1. **Execute the following command in the Command Prompt window**
 ```
-    sample_decode.exe h264 -i input.h264 -hw
+sample_decode.exe h264 -i input.h264 -hw
+```
 
-  ```
-
-    Output & Performance:
+Output & Performance:
 
 ![](images/MSDK_HW.jpg)  
 
 
-*   Just type sample_decode.exe and explore other command line switches:  
-    \-o : output to file in RAW formats  
-    \-r: Present  
-    \-f : change rendering frame rate  
-    \-w and –h : changing the resolution
+2. **Type *sample_decode.exe* in the Command Prompt window to view the command line arguments:**
+*Some of the available arguments*
+```
+...
+\-o : output to file in RAW formats  
+\-r: Present  
+\-f : change rendering frame rate  
+\-w and –h : changing the resolution
+...
+```
 
-*   From the **Desktop > Retail > 03-MediaSDK >** folder run the video wall sample with the following command: 
-
-
+3. **Execute the following command in the Command Prompt window to run the video wall sample application with the provided video file**
 ```
 sample_video_wall.bat input.h264
-
 ```
 
-*   Observe the video projected on the wall divided into channels as specified in the batch file
+4. **Observe the video projected on the video wall divided into multiple channels as specified in the batch file**
 
- **Note:**  Open the batch file from the Wordpad and observe the effect of changing the following parameters:
+5. **Type *wordpad* in the search box on the taskbar.**
+6. **Click the *WordPad* result**
+7. **Click File tab > Open**
+8. **Navigate to C:\Users\intel\Desktop\Retail\03-MediaSDK in the Open window**
+9. **Select *All Documents (\*.\*)* in the File type dropdown**
+10. **Select and Open sample_video_wall.bat**
+11. **Replace the VerticalCells and HorizontalCells lines to change the channel configuration of the video wall with the following lines:**
+```
+set VerticalCells=3
+set HorizontalCells=3
+```
+12. **Press the ENTER key to get the cursor back**
+13. **Execute the command below to view the new channel configuration**
+```
+sample_video_wall.bat input.h264
+```
 
-- No. of channels (i.e VerticalCells and HorizontalCells) can be edited in sample_video_wall.bat file.
+14. [Optional] **Replace the MediaSDKImplementation line with the following to execute the software implementation:**
+```
+set MediaSDKImplementation=-sw
+```
 
-- Change MediaSDKImplementation to sw and hw.
 ## Lessons learnt
 *   Intel® Media SDK's libraries, tools, header and sample code files.
 *   speed up in video playback, encoding, processing and media conversion.
