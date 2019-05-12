@@ -49,24 +49,32 @@ For example, cLDNN64.dll, cLDNNPlugin.dll and so on.
 - libiomp5md.dll is Intel® OMP runtime library is used for developing application using OpenMP.
 
 ### Running the Sample Programs
-* **Security Barrier Camera Sample**                            
+#### Security Barrier Camera Sample                         
 **Description**                           
 Showcase Vehicle Detection, followed by Vehicle Attributes and License Plate Recognition are applied on top of Vehicle Detection. The vehicle attributes execution barrier reports the general vehicle attributes, like the vehicle type and colour, whether the type is something like car, van, or bus.
 The application reads command line parameters and loads the specified models. The Vehicle/License-Plate Detection model is required, and the others are optional.
 
-* **Build and Run Sample with CPU**
-- Go to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\demo
+**Build and Run Sample with CPU**
+1. **Type *command prompt* in the search box on the taskbar.**
+2. **Click the *Command Prompt* result**
+3. **Navigate to the OpenVINO demo folder in your command prompt window:**
+```
+cd C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\demo
+```
+4. **Execute the following command to run the security barrier camera demo**
+```
+demo_security_barrier_camera.bat
+```
 
-- run demo_security_barrier_camera.bat
-
-![](images/run_demo.jpg)
-![](images/run_demo_result.jpg)
+![](images/run_demo.PNG)
+![](images/run_demo_result.PNG)
 
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
 
-* **Building All Samples**
-- Go to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build2017
+**Building All Samples**
+1. **Click the File Explorer shortcut on the taskbar**
+2. **Navigate to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build2017**
 
 
 - Open the samples.sln file and build the security_barrier_camera_sample.cpp sample.
@@ -105,5 +113,3 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 ### Lessons Learned
 - OpenVINO™ toolkit, libraries, header and sample code files and available models
 
-### Next Lab
-[Face Detection](Face_detection.md)
