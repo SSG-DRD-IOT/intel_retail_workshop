@@ -30,9 +30,10 @@ NUC7i7DNHE (Dawson Canyon)
 
 ## Understand the packages
 
-- Go to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit and understand the Package Contents
+1. **Click the File Explorer shortcut on the taskbar**
+2. **Navigate to to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit**
 
-![](images/Packages.JPG)
+![Media SDK directory contents](images/Packages.JPG)
 
 *   **bin** folder has 32-bit and 64-bit runtime libraries for audio and media function encode-decode software capabilities.
 
@@ -56,7 +57,7 @@ NUC7i7DNHE (Dawson Canyon)
 
   This tool will capture the basic call information from Media SDK API functions. It will generate a full log of interaction between the application and the SDK library including per-frame processing.
 
-  **Note:** We are not running this tool in the workshop. For more infromation please refer to the document (readme-mediasdk-tracer.rtf) to know the system requirements and limitations of the tool.
+  **Note:** We are not running this tool in the workshop. For more infromation please refer to the readme-mediasdk-tracer document (C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Develoment kit\tools\) to know the system requirements and limitations of the tool.
 
 ## 2. MediaSDK System Analyzer:
 
