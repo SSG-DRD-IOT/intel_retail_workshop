@@ -351,6 +351,8 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
  ```
  - On successful execution, a face will get detected.
 
+4. **Press Esc to terminate**
+
 ### Lesson Learnt
 Face Detection using  OpenVINO™ toolkit.
 

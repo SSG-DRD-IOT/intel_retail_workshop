@@ -289,6 +289,8 @@ C:\Users\Intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\int
  ```
 - On successful execution, a Face, Age and Gender will be detected.
 
+4. **Press Esc to terminate**
+
 ### Lesson Learnt
 In addition to Face, Age and Gender Detection using  OpenVINO™ toolkit.
 
