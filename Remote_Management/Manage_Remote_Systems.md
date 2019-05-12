@@ -27,34 +27,32 @@ MeshCommander is primarily used for 1:1 remote management of devices. Current su
 ## Launch the MeshCommander utility
 The MeshCommander utility is already installed on your device.
 
-*   Click the Start button in the Taskbar (in the lower left bottom corner of the screen) 
-*   Type **Mesh Commander**.
-*   Right click on the MeshCommander search result and select **Run as Administrator**.
+1.   **Click the Start button in the Taskbar** 
+1.   **Type *Mesh Commander***
+1.   **Right click on the MeshCommander search result and select *Run as Administrator***
 
 ![](images/launch.png)
 ## Add An Intel® AMT enabled Computer to MeshCommander
 The first step is to add a system to the Intel AMT MeshCommander configuration utility. 
 
-*   Click on **Add Computer...**.
+1.   **Click on *Add Computer...***
 
 ![](images/001-Add-AMT-Computer.jpg)
 
-*   Enter a **friendly name** for the device (ex. <ip_address>)<br/>
-    * Enter `cmd` in the Search box within the Taskbar. 
-    * Click the Command Prompt result and type `ipconfig` in the window to get your machine's IP address.<br/>
-*This is a string that allows you to easily identify the system.*
-*   (Optional) Type comma-separated string(s) to be used **tag(s)**<br/>
-*This allows you to put several systems together into recognizable categories.*
-*   Enter either the **host name** or **IP address** of the device in Hostname text field.
-*   Leave **authentication** as Digest / None.
-*   Enter **admin** as the username and **Intel@1234** as the password.
+2. **Enter a *friendly name* for the device (ex. <ip_address>)**
+2. **Enter `cmd` in the Search box within the Windows Taskbar.** 
+3. **Click the Command Prompt result and type `ipconfig` in the window to get your machine's IP address.**
+4. **Enter your *IP address* in the Hostname field.**
+5. **Leave Auth / Security as *Digest / None***
+6. **Enter *admin* as the username and *Intel@1234* as the password**
 
 ## Connect to your Intel® IoT Gateway
-Next to each computer that has been added to the system there is a button labeled connect.
+Next to each computer that has been added to the system there is a button labeled Connect.
 
 ![](images/003-Click-Connect.jpg)
 
-    Click the Connect button to begin communicating with your gateway.
+1. Click the Connect button to begin communicating with a machine.
+
 ## Click Remote Desktop
 After connecting to a system, you'll see the system information on the screen, such as the power state, the unique identifier and basic settings. Take a moment to browse around and see the different bits of information available to you.
 
@@ -63,8 +61,8 @@ After connecting to a system, you'll see the system information on the screen, s
 ## Click Connect Remote Desktop
 To view the screen of the remote computer system, do the following steps:
 
-*   Click on the **Remote Desktop** link in the left sidebar.
-*   Click the **Connect** button as shown in the image<br/>
+1.   Click on the **Remote Desktop** link in the left sidebar.
+2.   Click the **Connect** button as shown in the image<br/>
 
 **Note:** If you are prompted with the "Intel AMT Redirection port or KVM feature is disabled, click here to enable it." message, click it to enable.
 
@@ -74,14 +72,14 @@ To view the screen of the remote computer system, do the following steps:
 
 ![](images/amt_consent.jpg)
 
-* Enter this code into MeshCommander in order to connect to the remote machine. 
+3. **Enter the code displayed on the remote machine into your MeshCommander window** 
 
 ![](images/AMT_Password_Input.jpg)
 
 ## Out of band Remote Desktop
 You will now see the screen of the remote system.
 
-You will be able to see the screen of the remote system even if the remote computer is rebooting, in the BIOS or in a crashed state.
+The remote system's display is visble while during boot, in the BIOS or in a crashed state.
 
 ![](images/006-Out-of-band-Remote-Desktop.jpg)
 ## Power Actions Reset To BIOS
