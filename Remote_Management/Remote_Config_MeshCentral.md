@@ -10,33 +10,33 @@ In this module we will explore following
 -  How to explore file system on remote machine?
 -  How to login to command line?
 
-## Step1: Login to local mesh central server
+## Step1: Login to the local mesh central server
+1. **Open your web browser (ex. Google Chrome)**
+2. **Navigate to the local server's IP address provided during the workshop**
+    * **Note**: We will provide the server's IP at the start of this lab session
+3. **Type *workshop* as the User Name**
+4. **Type *Intel@123* as the Password**
 
-Url: **Will be given at start of Workshop**
-
-Username: workshop
-
-Password: Intel@123
 
 ![](images/mesh0.png)
 
 ## Step 2: Create Devices Group
 
-*   Click the My Devices icon
-*   Click the Add Devices Group button
-*   Enter a name for your group
+1.   **Click the My Devices icon**
+2.   **Click the Add Devices Group button**
+3.   **Enter a name for your group**
 
 ![](images/meshcentral_create_group.JPG)
 
 ## Step 3: Test & install the created Mesh Agent
 
-*   Click the Add Agent button
-*   Click Windows x64 (.exe)
-*   Click the Ok button
+1.   **Click the Add Agent button**
+1.   **Click Windows x64 (.exe)**
+1.   **Click the Ok button**
 
-*   Navigate to the file location of the downloaded Mesh Agent file
-*   Right Click the file > Run as administrator
-*   Click the Install/Update button
+1.   **Navigate to the file location of the downloaded Mesh Agent file**
+1.   **Right Click the file > Run as administrator**
+1.   **Click the Install/Update button**
 
 
 ![](images/meshcentral_mesh_agent.JPG)
@@ -44,7 +44,7 @@ Password: Intel@123
 
 ## Step 4: Web device refresh
 
-*   Navigate to the My Devices page
+1.   **Navigate to the My Devices page**
 	
 **Note**: The newly added device will be shown here within the test Device Group
 
@@ -52,11 +52,11 @@ Password: Intel@123
 
 ## Step 5: Explore file system
 
-*   Click the desired device
-*   Click the Files Tab
-*   Click the Connect button
+1.   Click the desired device
+1.   Click the Files Tab
+1.   Click the Connect button
 
-*   Explore the available file system
+1.   Browse the available file system
 
 ![](images/meshcentral_file_browser.JPG)
 
@@ -64,47 +64,33 @@ Password: Intel@123
 
 Supported commands can be ran within a terminal session on the remote device.
 
-*   Click the Terminal Tab
-*   Click the Connect button
+1.   Click the Terminal Tab
+1.   Click the Connect button
 
 **Note**: The terminal does not display the user's inputted text as they type.
 You will initially be in the C:\Programs Files\Mesh Agent directory.
 
-*   Type **dir**
-*   Press Enter to see the inputted command and its corresponding output
+1.   Type **dir**
+1.   Press Enter to see the inputted command and its corresponding output
 
 ![](images/meshcentral_terminal.JPG)
 
-## Step 7: Web Socket Desktop Loop
-
-This method accessess the client desktop by web sockets.
-
-It opens another web instance from desktop. This is repeated infinitely
-
-*   Click the Desktop Tab
-*   Click the Connect button
-
-![](images/meshcentral_regression.JPG)
-
 ## Other Actions
-*For this part, select another device other than your own.*
+*For this part, select another device other than yours.*
 
 ### Send a message to the device
-*   Click the Toast button
-*   Enter text in the text box
-*   Click the Ok button
+1.   Click the Toast button
+2.   Enter text in the text box
+3.   Click the Ok button
 
 ### View the current processes
-*   Click the Tools button
+1.   Click the Tools button
 
 **Notes**: You can stop a process by clicking the trash can.
 
 ### Send commands to the device
-*   Select an option in the drop down to left of the Send button
-*   Click the Send button
+1.   Select an option in the drop down to left of the Send button
+1.   Click the Send button
 
-You can also save a screenshot of the remote desktop and perform power cycle actions
-
-**Note**: This session allow you to interact with a remote device using your mouse or keyboard.<br/>
-If you connect to your own machine, you will not be able to be able to interact with it via the Desktop window.
+You can also save a screenshot of the remote desktop as well as perform power cycle actions and many more.
 
