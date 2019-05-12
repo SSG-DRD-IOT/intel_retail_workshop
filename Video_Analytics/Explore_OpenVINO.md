@@ -74,23 +74,28 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 
 **Building All Samples**
 1. **Click the File Explorer shortcut on the taskbar**
-2. **Navigate to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build2017**
+2. **Navigate to C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\samples\build_2017**
+3. **Double click the samples.sln file to open it in Visual Studio 2017**
+4. **Right click security_barrier_camera_sample > Build**
+- Upon successful build, a security_barrier_camera_sample.exe file is available inside the C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\intel64\Debug folder.
 
-
-- Open the samples.sln file and build the security_barrier_camera_sample.cpp sample.
-
-Upon successful build, a security_barrier_camera_sample.exe file is available inside the C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\intel64\Debug folder.
-
-Running the application with –h option results with the following information:
+5. **Navigate to the Debug folder in your Command Prompt window:**
+```
+cd C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\intel64\Debug
+```
+6. **Execute the following command to see the help menu**
+```
+security_barrier_camera_sample.exe -h
+```
 
 ![](images/help.png)
-For this document, we are not using all parameters. Participants are expected to explore multiple options.
 
-- **Case 1:** To run the sample application on **CPU**, execute the following commands:
+### Case 1: Run the sample application on CPU
+
+1. **Execute the following commands:**
 
 ```
 C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\intel64\Debug\security_barrier_camera_sample.exe  -i  C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0106\FP32\vehicle-license-plate-detection-barrier-0106.xml -m_va C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0039\FP32\vehicle-attributes-recognition-barrier-0039.xml -d CPU
-
 ```
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and frames per second (fps). The inference was done using a pre-trained model on **CPU**.
@@ -98,12 +103,15 @@ The output uses OpenCV to display the resulting frame with detections rendered a
 Next, we repeat the exercise with **GPU** and observe the performance.
 
 ![](images/cpu.png)
-- **case2:** To run the sample application on **GPU**, execute the following commands;
+
+### Case2: To run the sample application on GPU
+
+1. **Execute the following commands:**
 
 ```
 C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\inference_engine\bin\intel64\Debug\security_barrier_camera_sample.exe  -i  C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\demo\car_1.bmp -m C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\intel_models\vehicle-license-plate-detection-barrier-0106\FP16\vehicle-license-plate-detection-barrier-0106.xml -m_va C:\Intel\computer_vision_sdk_2018.3.343\deployment_tools\intel_models\vehicle-attributes-recognition-barrier-0039\FP32\vehicle-attributes-recognition-barrier-0039.xml -d GPU
-
 ```
+
 - **Output and Performance**
 The output uses OpenCV to display the resulting frame with detections rendered as bounding boxes and text with vehicle attributes, license plate, detection time and fps. 
 
