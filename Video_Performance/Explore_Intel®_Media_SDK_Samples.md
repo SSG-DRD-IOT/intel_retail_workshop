@@ -63,7 +63,7 @@ By the end of this module, the participant is expected to understand the Intel®
   This tool utility analyzes the system and reports all Media SDK related capabilities, driver and components status. This tool can also be used to determine setup environment issues. This tool reports back installed graphics adapter, basic system information, installed Media SDK versions, installed DirectShow filters, Media foundation Transforms (MFT) and also tips for solutions in case either software or hardware implementations did not work.
 
   1. **Navigate to the MediaSDK System Analyzer folder using the File Explorer:
-  C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development Kit\tools\mediasdk_sys_analyzer**
+  `C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development Kit\tools\mediasdk_sys_analyzer`**
   2. **Double click mediasdk_system_analyzer_64.exe**
 
   Usage:
