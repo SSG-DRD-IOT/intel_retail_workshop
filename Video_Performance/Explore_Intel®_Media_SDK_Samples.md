@@ -30,7 +30,7 @@ By the end of this module, the participant is expected to understand the Intel®
 ## Understand the packages
 
 1. **Click the File Explorer shortcut on the taskbar**
-2. **Navigate to C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development kit**
+2. **Navigate to `C:\Program Files (x86)\IntelSWTools\Intel(R) Media SDK 2018 R2\Software Development kit`**
 
 ![Media SDK directory contents](images/Packages.JPG)
 
