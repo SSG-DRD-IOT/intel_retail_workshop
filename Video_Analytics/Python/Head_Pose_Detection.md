@@ -105,6 +105,13 @@ def drawAxes(pitch,yaw,roll,cpoint,frame):
 
 
 ```
+### 3. Initialising Plugin for Myraid for Head Pose
+Loading Plugin for Myriad head Pose
+- Replace **#TODO Initialising Plugin for Myraid for Head Pose** with the following code.
+
+```python
+MYRIAD_plugin_hp = IEPlugin(args.device_hp.upper(),args.plugin_dir)
+```
 
 ### 3. Load Pre-trained Optimized Model for HeadPose Inferencing
 Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
@@ -115,12 +122,32 @@ Load pre-retained optimized model for head pose detection on CPU as CPU is alrea
 if args.model and args.hp_model:
     headPose_enabled = True
     #log.info("Loading network files for Head Pose Estimation")
-    plugin,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)
+    plugin,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp.upper(),args.plugin_dir,1,3,args.cpu_extension)
     hp_input_blob=next(iter(hp_net.inputs))
     hp_out_blob=next(iter(hp_net.outputs))
-    hp_exec_net=plugin.load(network=hp_net, num_requests=2)
+
+    if (args.device_hp.upper() == "MYRIAD" and not args.device.upper() =="MYRIAD" and not args.device_ag.upper() == "MYRIAD"):
+        hp_exec_net = MYRIAD_plugin_hp.load(network=hp_net, num_requests=2)
+
+    elif (args.device_hp.upper() == "MYRIAD"):
+        if (args.device_ag.upper() == "MYRIAD"):
+            if (args.device.upper() == "MYRIAD"):
+                hp_exec_net = MYRIAD_plugin.load(network=hp_net, num_requests=2)
+            else :
+                hp_exec_net = MYRIAD_plugin_ag.load(network=hp_net, num_requests=2)
+        elif (args.device.upper() == "MYRIAD"):
+            hp_exec_net = MYRIAD_plugin.load(network=hp_net, num_requests=2)
+        else :
+            hp_exec_net = MYRIAD_plugin_hp.load(network=hp_net, num_requests=2)
+
+    else :
+        hp_exec_net = plugin.load(network=hp_net, num_requests=2)
+
+
     hp_n, hp_c, hp_h, hp_w = hp_net.inputs[input_blob].shape
     del hp_net
+
+
 
 ```
 
@@ -174,7 +201,7 @@ For complete solution click on following link [headpose_detection](./solutions/h
 ```
 > C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat
 > cd C:\Users\Intel\Desktop\Retail\OpenVINO
-> python main.py -i cam -m "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_detection\face\pruned_mobilenet_reduced_ssd_shared_weights\dldt\face-detection-adas-0001.xml" -m_ag "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Retail\object_attributes\age_gender\dldt\age-gender-recognition-retail-0013.xml" -m_hp "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_attributes\headpose\vanilla_cnn\dldt\head-pose-estimation-adas-0001.xml" -l "C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll" 
+> python main.py -i cam -m "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_detection\face\pruned_mobilenet_reduced_ssd_shared_weights\dldt\face-detection-adas-0001.xml" -m_ag "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Retail\object_attributes\age_gender\dldt\age-gender-recognition-retail-0013.xml" -m_hp "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_attributes\headpose\vanilla_cnn\dldt\head-pose-estimation-adas-0001.xml" -l "C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll"
  ```
 
 - On successful execution, Face, Age  Gender and HeadPose will get detected.

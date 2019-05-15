@@ -53,6 +53,7 @@ def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_
         plugin.add_cpu_extension(cpu_extension)
     else:
         plugin.set_config({"PERF_COUNT":"YES"})
+
     net = IENetwork(model=model_xml, weights=model_bin)
 
     if plugin.device == "CPU":
@@ -60,14 +61,17 @@ def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_
         not_supported_layers = [l for l in net.layers.keys() if l not in supported_layers]
         if len(not_supported_layers) != 0:
             log.error("Following layers are not supported by the plugin for specified device {}:\n {}".
-                      format(plugin.device, ', '.join(not_supported_layers)))
+		  format(plugin.device, ', '.join(not_supported_layers)))
             log.error("Please try to specify cpu extensions library path in demo's command line parameters using -l "
-                      "or --cpu_extension command line argument")
+		  "or --cpu_extension command line argument")
+            sys.exit(1)
+
 
     log.info("Checking {} network inputs".format(feature))
     assert len(net.inputs.keys()) == input_key_length, "Demo supports only single input topologies"
     log.info("Checking {} network outputs".format(feature))
     assert len(net.outputs) == output_key_length, "Demo supports only single output topologies"
+
     return plugin,net
 
 
@@ -77,13 +81,26 @@ def main():
     age_enabled = False
     headPose_enabled = False
     #TODO Cloud_Integration 2
+
+
+    MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
+    #TODO Initialising Plugin for Myraid
+
+
+
     log.info("Reading IR...")
     # Face detection
     #log.info("Loading network files for Face Detection")
+
     plugin,net=load_model("Face Detection",args.model,args.device.upper(),args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
-    exec_net = plugin.load(network=net, num_requests=2)
+
+    if (args.device.upper() == "MYRIAD"):
+        exec_net = MYRIAD_plugin.load(network=net, num_requests=2)
+    else :
+        exec_net = plugin.load(network=net, num_requests=2)
+
     n, c, h, w = net.inputs[input_blob].shape
     del net
     #TODO Age_Gender_Detection 1
@@ -213,4 +230,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main() or 0)
-  ```
+```
