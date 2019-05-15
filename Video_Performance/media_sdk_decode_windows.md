@@ -4,7 +4,7 @@ In this tutorial you will learn the basic principles behind decoding a video str
 ## Getting Started
 
 1. **Click the File Explorer shortcut on the taskbar**
-2. **Navigate to the *C:\Users\intel\Desktop\Retail\03-MediaSDK\msdk_decode* folder**
+2. **Navigate to the `C:\Users\intel\Desktop\Retail\03-MediaSDK\msdk_decode` folder**
 3. **Double click the *mdk_decode.sln* file and select Visual Studio 2017 to open the file.** 
     - If presented with a security warning stating "You should only open projects from a trustworthy source. ...", uncheck Ask me for every project in this solution and click OK
     - If presented with a Personalization Account window, click Reenter your credentials
