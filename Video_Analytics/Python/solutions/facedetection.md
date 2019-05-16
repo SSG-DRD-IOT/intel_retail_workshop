@@ -84,7 +84,7 @@ def main():
 
 
     MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
-    #TODO Initialising Plugin for Myraid
+    #TODO Initializing Plugin for Myraid
 
 
 

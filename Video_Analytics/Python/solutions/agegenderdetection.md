@@ -89,7 +89,7 @@ def main():
 
     MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
     MYRIAD_plugin_ag = IEPlugin(args.device_ag.upper(),args.plugin_dir)
-    #TODO Initialising Plugin for Myraid for Head Pose
+    #TODO Initializing Plugin for Myraid for Head Pose
 
 
     log.info("Reading IR...")
