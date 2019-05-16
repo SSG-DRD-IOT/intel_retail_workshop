@@ -105,15 +105,15 @@ def drawAxes(pitch,yaw,roll,cpoint,frame):
 
 
 ```
-### 3. Initialising Plugin for Myraid for Head Pose
-Loading Plugin for Myriad head Pose
-- Replace **#TODO Initialising Plugin for Myraid for Head Pose** with the following code.
+### 3. Initialize Plugin for Myraid for Head Pose
+Initialize plugin for MYRIAD separately as it cannot be loaded simultaneously.
+- Replace **#TODO Initializing Plugin for Myraid for Head Pose** with the following code.
 
 ```python
 MYRIAD_plugin_hp = IEPlugin(args.device_hp.upper(),args.plugin_dir)
 ```
 
-### 3. Load Pre-trained Optimized Model for HeadPose Inferencing
+### 4. Load Pre-trained Optimized Model for HeadPose Inferencing
 Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
 - Replace **#TODO Head_Pose_Detection 2** with the following lines of code
 
@@ -151,7 +151,7 @@ if args.model and args.hp_model:
 
 ```
 
-### 4. Use Identified Face for HeadPose Detection
+### 5. Use Identified Face for HeadPose Detection
 Clip the identified Faces and send inference request for detecting head pose.
 - Replace **#TODO Head_Pose_Detection 3** with the following lines of code
 
@@ -174,7 +174,7 @@ analytics_time = age_inf_time + hp_inf_time
 
 ```
 
-### 5. Calculate attentivity index
+### 6. Calculate attentivity index
 Now, the attentivity index will be calculated using Yaw angle available from head pose inference result.
 - Replace **#TODO Head_Pose_Detection 4** with the following lines of code
 

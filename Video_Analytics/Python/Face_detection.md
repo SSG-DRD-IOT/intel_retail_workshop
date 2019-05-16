@@ -140,7 +140,7 @@ log.basicConfig(format="[ %(levelname)s ] %(message)s", level=log.INFO, stream=s
 
 
     MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
-    #TODO Initialising Plugin for Myraid for Age and Gender
+    #TODO Initializing Plugin for Myraid for Age and Gender
 
 
     log.info("Reading IR...")

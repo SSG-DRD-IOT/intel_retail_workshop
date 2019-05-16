@@ -28,13 +28,13 @@ parser.add_argument("-d_ag", "--device_ag",
                     type=str)
 #TODO Head_Pose command line arguments
   ```  
-### 2. Initialising Plugin for Myraid for Age and Gender
-Loading plugin for MYRIAD
-- Replace **#TODO Initialising Plugin for Myraid for Age and Gender** with the following code.
+### 2. Initializing Plugin for Myraid for Age and Gender
+Initialize plugin for MYRIAD separately as it can not be loaded  simultaneously.
+- Replace **#TODO Initializing Plugin for Myraid for Age and Gender** with the following code.
 
 ```python
 MYRIAD_plugin_ag = IEPlugin(args.device_ag.upper(),args.plugin_dir)
-#TODO Initialising Plugin for Myraid for Head Pose
+#TODO Initializing Plugin for Myraid for Head Pose
 ```
 
 ### 3. Load Pre-trained Optimized Model for Age and Gender Inferencing
