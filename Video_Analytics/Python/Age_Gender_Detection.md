@@ -29,29 +29,48 @@ parser.add_argument("-d_ag", "--device_ag",
                     help="Target device for Age/Gender Recognition network (CPU, GPU, FPGA, or MYRIAD). The demo will look for a suitable plugin for a specified device. (CPU by default)", default="CPU",
                     type=str)
 #TODO Head_Pose command line arguments
-  ```  
-### 2. Load Pre-trained Optimized Model for Age and Gender Inferencing
+  ```
+### 2. Inializing Plugin for Myriad for Age amd Gender
+Initialize Plugin for Myriad for Age and Gender since it cannot be loaded twice.
+
+```python
+      MYRIAD_plugin_ag = IEPlugin(args.device_ag.upper(),args.plugin_dir)
+      #TODO Initializing Plugin for Myriad for Head Pose
+```
+
+### 3. Load Pre-trained Optimized Model for Age and Gender Inferencing
 
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
 - Replace **#TODO Age_Gender_Detection 1**
 - Paste the following lines
 
 ```python
-# age and gender   
-   if args.model and args.ag_model:
-      age_enabled =True
-      #log.info("Loading network files for Age/Gender Recognition")
-      plugin,ag_net = load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2,args.cpu_extension)
-      age_input_blob=next(iter(ag_net.inputs))
-      age_out_blob=next(iter(ag_net.outputs))
-      age_exec_net=plugin.load(network=ag_net, num_requests=2)
-      ag_n, ag_c, ag_h, ag_w = ag_net.inputs[input_blob].shape
-      del ag_net
+    # age and gender   
+    if args.model and args.ag_model:
 
-  #TODO Head_Pose_Detection 2
+       age_enabled =True
+       #log.info("Loading network files for Age/Gender Recognition")
+       plugin,ag_net=load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2,args.cpu_extension)
+       age_input_blob=next(iter(ag_net.inputs))
+       age_out_blob=next(iter(ag_net.outputs))
+
+
+       if ((args.device_ag.upper() == "MYRIAD") and (not args.device.upper() == "MYRIAD")):
+           age_exec_net = MYRIAD_plugin_ag.load(network=ag_net, num_requests=2)
+       elif (args.device_ag == "MYRIAD"):
+           age_exec_net = MYRIAD_plugin.load(network=ag_net, num_requests=2)
+       else :
+           age_exec_net = plugin.load(network=ag_net, num_requests=2)      
+
+
+       ag_n, ag_c, ag_h, ag_w = ag_net.inputs[input_blob].shape
+       del ag_net
+
+   #TODO Head_Pose_Detection 2
+
 ```
 
-### 3. Initialize the parameters
+### 4. Initialize the parameters
 Here initialize the parameters which are required to process the output.
 - Replace **#TODO Age_Gender_Detection 2**
 - Paste the following lines
@@ -65,7 +84,7 @@ femalecount = 0
 attentivityindex = 0
 ```
 
-### 4. Resetting the parameters for each frame
+### 5. Resetting the parameters for each frame
 The initialized parameters which are required to process the output are reset to zero.
 
 - Replace **#TODO Age_Gender_Detection 3**
@@ -78,7 +97,7 @@ femalecount = 0
 attentivityindex=0
 ```
 
-### 5. Process Face detection Inference Results
+### 6. Process Face detection Inference Results
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
 
 - Replace **#TODO Age_Gender_Detection 4**
@@ -102,7 +121,7 @@ if age_enabled:
 
 ```
 
-### 6. Process Age and Gender detection Results for display
+### 7. Process Age and Gender detection Results for display
 Now we got result for Face, Age and Gender detection. We can customize the output and display this on the screen
 - Replace **#TODO Age_Gender_Detection 5**
 - Paste the following lines

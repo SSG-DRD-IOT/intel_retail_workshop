@@ -15,24 +15,116 @@ sudo apt-get install libva-dev
 ```
 
 ## d) Install Intel® Media SDK
-- Download the MediaStack.tar.gz file [here](https://github.com/Intel-Media-SDK/MediaSDK/releases/tag/intel-mediasdk-19.1.0).
-- Extract the MediaStack.tar.gz by using below command.
-    `$ tar -xvzf MediaStack.tar.gz`
-- After extraction navigate to folder and install_media.sh by using below commands.
+There are several components which need to be installed in order to use the Media SDK on Linux:
+ - [libVA API](https://github.com/intel/libva)
+ - [Intel® Graphics Memory Management Library](https://github.com/intel/gmmlib)
+ - [Intel® Media Driver for VAAPI](https://github.com/intel/media-driver)
+ - [Intel® Media SDK](https://github.com/Intel-Media-SDK/MediaSDK)
 
-   ```bash
-   $ cd MediaStack
-
-   $ sudo ./install_media.sh
+## Install Dependencies
+Run the command below to install the required dependencies:
+``` bash
+sudo apt-get -y install git libssl-dev dh-autoreconf cmake libgl1-mesa-dev libpciaccess-dev
 ```
-- You can check everything is working as expected by running the 'vainfo' utility which will give an output similar to below image.
+Create a working directory and export the path:
+``` bash
+mkdir -p $HOME/build-media-sdk
+export WORKDIR=$HOME/build-media-sdk
+```
 
-  ```bash
-    $ sudo -s
-    # apt-get install vainfo
-    # /opt/intel/mediasdk/bin/vainfo
-  ```
-  ![](./Video_Performance/images/vainfo.png)
+## libVA
+- Download the libva-2.4.1.tar.gz from [here](https://github.com/intel/libva/releases/tag/2.4.1)
+- Navigate to downloads folder and extract the tar file using below commands
+```bash
+cd ~/Downloads
+tar xvzf libva-2.4.1.tar.gz
+cp -r libva-2.4.1 ~/build-media-sdk/libva
+```
+- Run the following commands to build and install the libVA library:
+```bash
+cd $WORKDIR/libva
+./autogen.sh
+make -j4
+sudo make install
+```
+## libVA Utils
+Run the following commands to build and install libVA utils:
+``` bash
+cd $WORKDIR
+git clone https://github.com/intel/libva-utils.git
+cd libva-utils
+git checkout 2.2.0
+./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
+make -j4
+sudo make install
+```
+## Intel® Media Driver for VAAPI
+- Run the following commands to build the Media Driver for VAAPI
+
+```bash
+cd $WORKDIR
+git clone https://github.com/intel/gmmlib.git
+git clone https://github.com/intel/media-driver.git
+cd $WORKDIR/gmmlib
+git checkout 5ff84b923ec2ba1572c464dc8def73348571b440
+cd $WORKDIR/media-driver
+git checkout intel-media-18.2.0
+mkdir -p $WORKDIR/build
+cd $WORKDIR/build
+
+cmake ../media-driver -DMEDIA_VERSION="2.0.0" \
+-DBUILD_ALONG_WITH_CMRTLIB=1 \
+-DBS_DIR_GMMLIB=`pwd`/../gmmlib/Source/GmmLib/ \
+-DBS_DIR_COMMON=`pwd`/../gmmlib/Source/Common/ \
+-DBS_DIR_INC=`pwd`/../gmmlib/Source/inc/ \
+-DBS_DIR_MEDIA=`pwd`/../media-driver \
+-DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu \
+-DINSTALL_DRIVERS_SYSCONF=OFF \
+-DLIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+
+make -j8
+sudo make install
+
+export LIBVA_DRIVER_NAME=iHD
+export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+
+```
+## Media SDK
+- Download the Mediasdk [Source code(tar.gz)](https://github.com/Intel-Media-SDK/MediaSDK/releases/tag/intel-mediasdk-19.1.0).
+- Navigate to downloads folder and extract the tar file using below commands.
+```bash
+cd ~/Downloads
+tar xvzf MediaSDK-intel-mediasdk-19.1.0.tar.gz
+cp -r MediaSDK-intel-mediasdk-19.1.0 ~/build-media-sdk/MediaSDK
+```
+- Run the following commands to build and install the Media SDK:
+```bash
+cd $WORKDIR/MediaSDK
+sudo mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+- Export environmental variables before running vainfo
+```bash
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
+export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+export LIBVA_DRIVER_NAME=iHD
+export MFX_HOME=/opt/intel/mediasdk/
+```
+You can check everything is working as expected by running the 'vainfo' utility which will give an output similar to below in a working environment:
+``` bash
+libva info: VA-API version 1.1.0
+libva info: va_getDriverName() returns 0
+libva info: User requested driver 'iHD'
+libva info: Trying to open /usr/lib/x86_64-linux-gnu/dri/iHD_drv_video.so
+libva info: Found init function __vaDriverInit_1_1
+libva info: va_openDriver() returns 0
+vainfo: VA-API version: 1.1 (libva 2.1.1.pre1)
+vainfo: Driver version: Intel iHD driver - 2.0.0
+```
 ## Mesh Commander Installation
 
 ```bash
@@ -84,10 +176,3 @@ Here are some of the frequently occurring issues while setting up the Intel® Me
   In case facing below libva error, Make sure required paths are exported as below.
 
   ![libva error](./Video_Performance/images/libva-error.png)
-
-```bash
-export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
-export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
-export LIBVA_DRIVER_NAME=iHD
-export MFX_HOME=/opt/intel/mediasdk/
-```
