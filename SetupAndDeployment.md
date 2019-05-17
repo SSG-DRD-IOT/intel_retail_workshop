@@ -83,6 +83,67 @@ C:\Program Files (x86)\IntelSWTools\openvino_2019.1.087\deployment_tools\model_o
 
 14\. To validate Visual Retail workshop contents. Please refer step by step procedure from [here](https://github.com/SSG-DRD-IOT/intel_retail_workshop)
 
+15\. Intel Unite Hub installation
+
+- Run Intel Unite® Hub.mui.msi from [here](1.	Run Intel Unite® Hub.mui.msi from here).We are using 3.3.153 version for Unite. Follow the steps shown in installer.
+- Select the enterprise mode and click Next.
+
+![](./images/unite1.jpg)
+
+- Click Specify Server.
+    - Enter the IP address of the Intel Unite® server (Any IP address/local IP for place holder).
+    - Do not check I know the certificate public key
+    - Click Next
+
+      ![](./images/unite2.jpg)
+
+    - Browse the destination folder and select the checkbox for creating desktop icon.
+    - Install location should be C:\Program Files (x86)\Intel\Intel Unite\Hub
+    - Create a desktop Icon
+    - Click Next
+
+      ![](./images/unite3.jpg)
+
+    - Click Install to continue and finish the installation process
+    - Create a folder on Desktop. Name it Unite HUB, move the Unite hub shortcut to this folder
+16\. Skip certificate check in Registry
+- Run REGEDIT and Follow this steps to skip the certificate check and add the registry in the machine. Open Registry editor and change the following.
+- Go to Run and type regedit and Enter
+
+![](./images/unite4.jpg)
+
+- HKEY_LOCAL_MACHINE\software\Intel\Unite\ DisableCheckCertificateChain (DWORD) -> Set to 1
+
+![](./images/unite5.jpg)
+- HKEY_LOCAL_MACHINE\software\Intel\Unite\AllowInsecureCertificates (DWORD) -> Set to 1
+
+![](./images/unite6.jpg)
+
+- *Note:* If the above are not present, create them in the paths specified above.
+17\. Intel Unite Client     
+- Copy the client installer Intel Unite® Client.mui.msi from [here](https://drive.google.com/drive/folders/1PeGkLO9Ai9b8BU05O4U42o3ILXJ6tjAL)  and paste it in Documents folder. Installation is not needed and will be done during workshop.   
+
+## Download pretrained xml files using below commands.
+
+```bash
+cd   C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader
+
+// Security Barrier demo
+python downloader.py --name  'vehicle-license-plate-detection-barrier-0106'
+
+python downloader.py --name  'vehicle-attributes-recognition-barrier-0039'
+
+python downloader.py --name  'license-plate-recognition-barrier-0001.xml'
+
+// Interactive face detection
+python downloader.py --name  'face-detection-adas-0001'
+
+python downloader.py --name  'age-gender-recognition-retail-0013'
+
+python downloader.py --name  'head-pose-estimation-adas-0001'
+```
+
+
 
 
 ## Read about the next lab
