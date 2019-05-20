@@ -1,12 +1,12 @@
 # Setup Development Environment with the Intel® NUC 7i7DNHE (Dawson Canyon)
 
 ## a) Install Ubuntu 16.04
-Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.14.x or higher**.
+Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.20.x or higher**.
 
 ## b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux) to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples.
 
-**Warning:** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version R3 (l_openvino_toolkit_p_2018.3.343)
+**Warning:** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version 2019 R1 (l_openvino_toolkit_p_2019.1.094)
 
 ## c) Install the required packages for System Analyzer Tool
 ``` bash
@@ -33,13 +33,17 @@ export WORKDIR=$HOME/build-media-sdk
 ```
 
 ## libVA
-Run the following commands to build and install the libVA library:
-``` bash
-cd $WORKDIR
-git clone https://github.com/intel/libva.git
-cd libva
-git checkout 2.2.0
-./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
+- Download the libva-2.4.1.tar.gz from [here](https://github.com/intel/libva/releases/tag/2.4.1)
+- Navigate to downloads folder and extract the tar file using below commands
+```bash
+cd ~/Downloads
+tar xvzf libva-2.4.1.tar.gz
+cp -r libva-2.4.1 ~/build-media-sdk/libva
+```
+- Run the following commands to build and install the libVA library:
+```bash
+cd $WORKDIR/libva
+./autogen.sh
 make -j4
 sudo make install
 ```
@@ -55,8 +59,9 @@ make -j4
 sudo make install
 ```
 ## Intel® Media Driver for VAAPI
-Run the following commands to build the Media Driver for VAAPI:
-``` bash
+- Run the following commands to build the Media Driver for VAAPI
+
+```bash
 cd $WORKDIR
 git clone https://github.com/intel/gmmlib.git
 git clone https://github.com/intel/media-driver.git
@@ -83,19 +88,31 @@ sudo make install
 
 export LIBVA_DRIVER_NAME=iHD
 export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
+
 ```
 ## Media SDK
-Run the following commands to build and install the Media SDK:
-``` bash
-cd $WORKDIR
-git clone https://github.com/Intel-Media-SDK/MediaSDK.git
-cd MediaSDK
-git checkout 3cfe1e06e89aa32102160b621938bbb5bf9a1e53
-export MFX_HOME=`pwd`
-perl tools/builder/build_mfx.pl --cmake=intel64.make.release
-make -C __cmake/intel64.make.release/ -j4
-cd __cmake/intel64.make.release
+- Download the Mediasdk [Source code(tar.gz)](https://github.com/Intel-Media-SDK/MediaSDK/releases/tag/intel-mediasdk-19.1.0).
+- Navigate to downloads folder and extract the tar file using below commands.
+```bash
+cd ~/Downloads
+tar xvzf MediaSDK-intel-mediasdk-19.1.0.tar.gz
+cp -r MediaSDK-intel-mediasdk-19.1.0 ~/build-media-sdk/MediaSDK
+```
+- Run the following commands to build and install the Media SDK:
+```bash
+cd $WORKDIR/MediaSDK
+sudo mkdir build
+cd build
+cmake ..
+make
 sudo make install
+```
+- Export environmental variables before running vainfo
+```bash
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
+export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+export LIBVA_DRIVER_NAME=iHD
+export MFX_HOME=/opt/intel/mediasdk/
 ```
 You can check everything is working as expected by running the 'vainfo' utility which will give an output similar to below in a working environment:
 ``` bash
@@ -126,6 +143,20 @@ pip install requests
 
 > **Secure Boot should be disabled in the BIOS in order for Intel GPU analysis tools to work.**
 
+## Downloading pretrained models
+- Navigate to /opt/intel/openvino/deployment_tools/tools/model_downloader directory and run downloader.py by using below Commands
+
+```bash
+$ sudo -s
+# cd /opt/intel/openvino/deployment_tools/tools/model_downloader
+# python downloader.py --name  'vehicle-license-plate-detection-barrier-0106'
+# python downloader.py --name  'vehicle-attributes-recognition-barrier-0039'
+# python downloader.py --name  'license-plate-recognition-barrier-0001.xml'
+# python downloader.py --name  'face-detection-adas-0001'
+# python downloader.py --name  'age-gender-recognition-retail-0013'
+# python downloader.py --name  'head-pose-estimation-adas-0001'
+
+```
 #	Troubleshooting section
 Here are some of the frequently occurring issues while setting up the Intel® Media SDK.
 - **Unsupported Feature/Library Load Error**
@@ -145,10 +176,3 @@ Here are some of the frequently occurring issues while setting up the Intel® Me
   In case facing below libva error, Make sure required paths are exported as below.
 
   ![libva error](./Video_Performance/images/libva-error.png)
-
-```bash
-export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
-export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
-export LIBVA_DRIVER_NAME=iHD
-export MFX_HOME=/opt/intel/mediasdk/
-```
