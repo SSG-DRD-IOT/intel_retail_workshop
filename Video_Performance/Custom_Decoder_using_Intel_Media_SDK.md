@@ -16,9 +16,11 @@ sudo intel_gpu_top
 ```
 Terminal 3:
 ``` bash
-$ sudo -s
-# export MFX_HOME=/opt/intel/mediasdk
-# cd ~/Desktop/Retail/MediaSDK/msdk_decode
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
+export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+export LIBVA_DRIVER_NAME=iHD
+export MFX_HOME=/opt/intel/mediasdk/
+ cd ~/Desktop/Retail/MediaSDK/msdk_decode
 ```
 
 ![Terminal Windows](images/msdk_global_l_01.png)
@@ -62,12 +64,13 @@ If software based decoders are available the Intel(R) Media SDK is able to selec
 
  - To build the code run the **make** command in the **msdk_decode** directory:
 ``` bash
-# make
+ make
 ```
 > Make sure no errors are reported when running the **make** command
  - To run the application use the following command:
 ``` bash
-# ../build/msdk_decode
+cd ../build
+./msdk_decode
 ```
  - While the decode process is running take a look at the CPU and GPU usage in the terminal windows you setup previously. You will notice some CPU usage as we are using system memory for our working surfaces but the decode process is taking place on the GPU which will be reflected in the GPU utilisation (use the **GAM** task as a reference).
 

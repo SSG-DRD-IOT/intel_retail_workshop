@@ -54,10 +54,13 @@ System Analyzer tool reports back following information about CPU, GPU and Intel
 
 **Run** System Analyzer tool with below commands:
 ```
-$ sudo -s
-$ cd ~/Desktop/Retail/MediaSDK
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
+export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+export LIBVA_DRIVER_NAME=iHD
+export MFX_HOME=/opt/intel/mediasdk/
 
-$ python sys_analyzer_linux.py
+cd ~/Desktop/Retail/MediaSDK
+python sys_analyzer_linux.py
 ```
 ## Performance Monitoring
 
@@ -78,8 +81,9 @@ Intel® Media Server Studio ships with few basic samples to try various functina
 Make sure to review the performance parameters while running these samples. Above said tools can help to understand the difference between software and hardware acceleration modes.
 
 Open new terminal and change the directory
+
 ```
-$cd /opt/intel/mediasdk/share/mfx/samples/_bin/
+$ cd /opt/intel/mediasdk/share/mfx/samples/_bin/
 ```
 <!--
 Case 1: Execute the below command for software implementation:
@@ -96,7 +100,7 @@ Execute the below command for hardware acceleration:
 
 In this example, we are instructing the application to use vaapi memory type. If you dont specify, then it will take system memory by default. -hw stands for hardware Acceleration.
 ```
-$./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/input.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
+$ ./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/input.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
 ```
 ![](images/MSDK_HW.png)
 
@@ -110,9 +114,16 @@ For example:
 ## Encode raw video frames
 
 sample\_encode is another console application which performs encoding of raw video frames into elementary compressed stream
+- Export the environment variables before running commands.
+```bash
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
+export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
+export LIBVA_DRIVER_NAME=iHD
+export MFX_HOME=/opt/intel/mediasdk/
+```
 
 <!--
-Case 1: Execute the below command for software implementation:
+Execute the below command for software implementation:
 
 We are passing an input raw video stream and converting it to h264 formatted elementary stream.
 
@@ -120,7 +131,6 @@ We specify width, height and framerate for this conversion. You can review all t
 ```
 $./sample\_decode h264 -i '/home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/input.h264' -nv12 -o '/home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/input.yuv' -vaapi -hw
 
-$./sample\_encode h264 -nv12 -i '/home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/input.yuv' -o '/home/intel\[machine id\]/Documents/workshop/msdk\_samples/samples/sw\_out.h264' -w 1920 -h 1080 -f 60 -sw
 ```
 Observe the CPU utilization from System Monitor as described before
 
@@ -129,15 +139,11 @@ Case 2: Execute the below command for hardware acceleration:
 Execute the below command for hardware acceleration:
 
 ```
-$sudo -s
-#export LIBVA_DRIVERS_PATH=/opt/intel/mediasdk/lib64/
-#export LIBVA_DRIVER_NAME=iHD
-#export MFX_HOME=/opt/intel/mediasdk/
-#./sample_encode h264 -nv12 -i /opt/intel/mediasdk/share/mfx/samples/_bin/content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
+./sample_encode h264 -nv12 -i /opt/intel/mediasdk/share/mfx/samples/_bin/content/test_stream_176x96.yuv -o ~/Desktop/Retail/MediaSDK/_out.h264 -w 720 -h 480 -b 10000 -f 30 -u quality
 ```
 To view the converted h264 file, run the decoding sample as follows:
 ```
-#./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
+./sample_decode h264 -i ~/Desktop/Retail/MediaSDK/_out.h264 -nv12 -o ~/Desktop/Retail/MediaSDK/input.yuv -vaapi -hw
 ```
 ## Lessons learnt
 

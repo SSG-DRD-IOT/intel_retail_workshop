@@ -1,20 +1,14 @@
 # Setup Development Environment with the Intel® NUC 7i7DNHE (Dawson Canyon)
 
 ## a) Install Ubuntu 16.04
-Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.20.x or higher**.
+Install a fresh and fully updated installation of Ubuntu 16.04 using the HWE rolling kernel. make sure the kernel is **4.15.x or higher**.
 
 ## b) Install the Intel® Distribution of OpenVINO™ toolkit for Linux*
 Use steps described in the [install guide](https://software.intel.com/en-us/articles/OpenVINO-Install-Linux) to install the Intel® Distribution of OpenVINO™ toolkit, build sample demos, build inference engine samples.
 
 **Warning:** This workshop content has been validated with Intel® Distribution of OpenVINO™ toolkit version 2019 R1 (l_openvino_toolkit_p_2019.1.094)
 
-## c) Install the required packages for System Analyzer Tool
-``` bash
-sudo apt install ocl-icd-opencl-dev
-sudo apt-get install libva-dev
-```
-
-## d) Install Intel® Media SDK
+## c) Install Intel® Media SDK
 There are several components which need to be installed in order to use the Media SDK on Linux:
  - [libVA API](https://github.com/intel/libva)
  - [Intel® Graphics Memory Management Library](https://github.com/intel/gmmlib)
@@ -46,6 +40,9 @@ cd $WORKDIR/libva
 ./autogen.sh
 make -j4
 sudo make install
+./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
+make -j4
+sudo make install
 ```
 ## libVA Utils
 Run the following commands to build and install libVA utils:
@@ -53,7 +50,7 @@ Run the following commands to build and install libVA utils:
 cd $WORKDIR
 git clone https://github.com/intel/libva-utils.git
 cd libva-utils
-git checkout 2.2.0
+git checkout 2.4.1
 ./autogen.sh --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu
 make -j4
 sudo make install
@@ -91,22 +88,21 @@ export LIBVA_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
 
 ```
 ## Media SDK
-- Download the Mediasdk [Source code(tar.gz)](https://github.com/Intel-Media-SDK/MediaSDK/releases/tag/intel-mediasdk-19.1.0).
-- Navigate to downloads folder and extract the tar file using below commands.
-```bash
-cd ~/Downloads
-tar xvzf MediaSDK-intel-mediasdk-19.1.0.tar.gz
-cp -r MediaSDK-intel-mediasdk-19.1.0 ~/build-media-sdk/MediaSDK
-```
 - Run the following commands to build and install the Media SDK:
+
 ```bash
-cd $WORKDIR/MediaSDK
-sudo mkdir build
-cd build
-cmake ..
-make
+cd $WORKDIR
+git clone https://github.com/Intel-Media-SDK/MediaSDK.git
+cd MediaSDK
+git checkout 3cfe1e06e89aa32102160b621938bbb5bf9a1e53
+export MFX_HOME=`pwd`
+perl tools/builder/build_mfx.pl --cmake=intel64.make.release
+make -C __cmake/intel64.make.release/ -j4
+cd __cmake/intel64.make.release
 sudo make install
+
 ```
+
 - Export environmental variables before running vainfo
 ```bash
 export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib64"
@@ -115,15 +111,11 @@ export LIBVA_DRIVER_NAME=iHD
 export MFX_HOME=/opt/intel/mediasdk/
 ```
 You can check everything is working as expected by running the 'vainfo' utility which will give an output similar to below in a working environment:
+![](./Video_Performance/images/vainfo_output_final.png)
+## Install the required package for System Analyzer Tool
 ``` bash
-libva info: VA-API version 1.1.0
-libva info: va_getDriverName() returns 0
-libva info: User requested driver 'iHD'
-libva info: Trying to open /usr/lib/x86_64-linux-gnu/dri/iHD_drv_video.so
-libva info: Found init function __vaDriverInit_1_1
-libva info: va_openDriver() returns 0
-vainfo: VA-API version: 1.1 (libva 2.1.1.pre1)
-vainfo: Driver version: Intel iHD driver - 2.0.0
+sudo apt install ocl-icd-opencl-dev
+
 ```
 ## Mesh Commander Installation
 
@@ -171,8 +163,5 @@ Here are some of the frequently occurring issues while setting up the Intel® Me
 
   ![Fatal error](./Video_Performance/images/fatal_error.png)
 
-- **libva error**
 
-  In case facing below libva error, Make sure required paths are exported as below.
-
-  ![libva error](./Video_Performance/images/libva-error.png)
+  - Make sure to export the environment variables if you are running in fresh terminal.
