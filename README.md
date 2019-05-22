@@ -8,7 +8,7 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore Intel�
  
 [Visual Solutions Roadmap](./Presentations/Day1/Visual_Solutions_Workshop_NY_Roadmap_Overview_May2019_.pdf)
 
-[Intel® Products Roadmap]()
+[Intel® Products Roadmap](./Presentations/Day1/Workshop-SDM-OPS-MARS-VDD-PP-Non-NDA_-_Copy.pdf)
 
 **Intel® Distribution of OpenVINO™ toolkit**
 - [Aaeon](./Presentations/Day1/0130p_AAEON_AI_Edge_Intel_Workshop_20190425.pptx_5-13-19_(002).pdf)
@@ -26,9 +26,9 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore Intel�
 
 [Visual Trends and Updates in Information Vertical](./Presentations/Day2/Visual_Information_Presentation_rev_2.pdf)
 
-[Visual Trends and Updates in Commerce Vertical](./Presentations/Day2/)
+[Visual Trends and Updates in Commerce Vertical](./Presentations/Day2/commerce_presentation_for_workshop)
 
-[Visual Trends and Updates in Education and Corporate Collaboration Vertical](./Presentations/Day2/)
+[Visual Trends and Updates in Education and Corporate Collaboration Vertical](./Presentations/Day2/New_York_Visual_Solutions_Workshop.pdf)
 
 
 ### Hands-On Lab
