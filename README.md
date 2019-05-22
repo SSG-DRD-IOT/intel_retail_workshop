@@ -11,8 +11,8 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore Intel�
 [Intel® Products Roadmap]()
 
 **Intel® Distribution of OpenVINO™ toolkit**
-- [Aaeon](0130p_AAEON_AI_Edge_Intel_Workshop_20190425.pptx_5-13-19_(002).pdf)
-- [Nexcom](0130p_NEXCOM_Smart_Self-Checkout_Kiosk_Solution_PPT_050919.pdf)
+- [Aaeon](./Presentations/Day1/0130p_AAEON_AI_Edge_Intel_Workshop_20190425.pptx_5-13-19_(002).pdf)
+- [Nexcom](./Presentations/Day1/0130p_NEXCOM_Smart_Self-Checkout_Kiosk_Solution_PPT_050919.pdf)
 
 [Edge Computing](./Presentations/Day1/Shuttle-Intel_technology_partner.pdf)
 
