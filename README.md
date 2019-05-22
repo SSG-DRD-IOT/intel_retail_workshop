@@ -26,7 +26,7 @@ Welcome to the IntelÂ® Retail Workshop. In this workshop, we will explore IntelÂ
 
 [Visual Trends and Updates in Information Vertical](./Presentations/Day2/Visual_Information_Presentation_rev_2.pdf)
 
-[Visual Trends and Updates in Commerce Vertical](./Presentations/Day2/commerce_presentation_for_workshop)
+[Visual Trends and Updates in Commerce Vertical](./Presentations/Day2/commerce_presentation_for_workshop.pdf)
 
 [Visual Trends and Updates in Education and Corporate Collaboration Vertical](./Presentations/Day2/New_York_Visual_Solutions_Workshop.pdf)
 
