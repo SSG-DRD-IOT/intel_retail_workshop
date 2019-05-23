@@ -121,6 +121,7 @@ sudo apt install ocl-icd-opencl-dev
 
 ```bash
 $ sudo apt install npm
+$ sudo apt install python3-pip
 $ npm install meshcommander
 $ sudo apt install nodejs-legacy
 ```
@@ -128,8 +129,10 @@ $ sudo apt install nodejs-legacy
 ## Additional Tools
 Run the below command to install some additional packages required to complete the tutorials:
 ``` bash
+sudo apt install python-pip
 sudo apt install ffmpeg intel-gpu-tools htop
 pip install requests
+sudo pip3 install pyyaml
 ```
 > You will also need to install your preferred **text editor** (e.g. Brackets, vim)
 
@@ -141,12 +144,12 @@ pip install requests
 ```bash
 $ sudo -s
 # cd /opt/intel/openvino/deployment_tools/tools/model_downloader
-# python downloader.py --name  'vehicle-license-plate-detection-barrier-0106'
-# python downloader.py --name  'vehicle-attributes-recognition-barrier-0039'
-# python downloader.py --name  'license-plate-recognition-barrier-0001.xml'
-# python downloader.py --name  'face-detection-adas-0001'
-# python downloader.py --name  'age-gender-recognition-retail-0013'
-# python downloader.py --name  'head-pose-estimation-adas-0001'
+# python3 downloader.py --name  'vehicle-license-plate-detection-barrier-0106'
+# python3 downloader.py --name  'vehicle-attributes-recognition-barrier-0039'
+# python3 downloader.py --name  'license-plate-recognition-barrier-0001'
+# python3 downloader.py --name  'face-detection-retail-0004'
+# python3 downloader.py --name  'age-gender-recognition-retail-0013'
+# python3 downloader.py --name  'head-pose-estimation-adas-0001'
 
 ```
 #	Troubleshooting section
