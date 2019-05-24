@@ -133,7 +133,7 @@ For complete solution click on following link [age_gender_detection](./solutions
 - Open command prompt and type this command
 
 ```
-> C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat
+> C:\"Program Files (x86)"\IntelSWTools\openvino\bin\setupvars.bat
 > C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
 
  ```

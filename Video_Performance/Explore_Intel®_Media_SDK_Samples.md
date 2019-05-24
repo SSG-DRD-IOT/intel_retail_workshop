@@ -76,15 +76,15 @@ NUC7i7DNHE (Dawson Canyon)
 
   ![](images/SystemAnalyzer.JPG)
   ## 1. Sample Decoder
-  
-  - Open the command prompt. **tip**: Search for *command prompt* in the lower left windows search bar. 
-  
-  - Navigate to the **Desktop > Retail > 03-MediaSDK >** folder:
-  
+
+  - Open the command prompt. **tip**: Search for *command prompt* in the lower left windows search bar.
+
+  - Navigate to the **Desktop > Retail > MediaSDK >** folder:
+
   ```
-  cd C:\Users\intel\Desktop\Retail\03-MediaSDK
+  cd C:\Users\intel\Desktop\Retail\MediaSDK
   ```
-  
+
   -  Open the task manager to compare the CPU performance of the below two cases.
 
    **Note:** If you are running any other programs, their process will be added to the CPU & memory utilization. So try closing all other programs. Then observe the Sample_decode.exe process performance from task manager.
@@ -117,7 +117,7 @@ Output & Performance:
     \-f : change rendering frame rate  
     \-w and –h : changing the resolution
 
-*   From the **Desktop > Retail > 03-MediaSDK >** folder run the video wall sample with the following command: 
+*   From the **Desktop > Retail > MediaSDK >** folder run the video wall sample with the following command:
 
 
 ```
@@ -137,6 +137,6 @@ sample_video_wall.bat input.h264
 *   Speed up in video playback, encoding, processing and media conversion.
 *   Performance monitoring
 
-## Next Lab 
+## Next Lab
 [Decoding a video stream using Intel® Media SDK](media_sdk_decode_windows.md)
 

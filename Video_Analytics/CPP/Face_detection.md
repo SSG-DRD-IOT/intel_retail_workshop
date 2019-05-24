@@ -151,7 +151,7 @@ For complete solution, see [face_detection](./solutions/facedetection.md)
 - Open command prompt and type this command
 
 ```
-> C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat
+> C:\"Program Files (x86)"\IntelSWTools\openvino\bin\setupvars.bat
 > C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
  ```
  - On successful execution, face will get detected.
@@ -161,3 +161,5 @@ Face Detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 ## Next Lab
 [Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit](./Age_Gender_Detection.md)
+
+- [Running Face Detection with Intel Graphics and Intel® Myriad™ VPU (optional)](./face_detection_srware.md)

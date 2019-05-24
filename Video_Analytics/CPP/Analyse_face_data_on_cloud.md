@@ -108,8 +108,8 @@ For complete solution click on following link [analyse_data_on_cloud](./solution
 - Open command prompt and type this command
 
 ```
-> C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat
-> C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
+> C:\"Program Files (x86)"\IntelSWTools\openvino\bin\setupvars.bat
+>cd C:\Users\Intel\Desktop\Retail\OpenVINO C:\Users\Intel\Desktop\Retail\OpenVINO\deployment_tools\inference_engine\samples\build\intel64\Debug\interactive_face_detection_demo.exe
  ```
 - On successful execution, face will get detected and file.json will be created at ***C:\Users\Intel\Desktop\Retail\OpenVINO\.***
 ### Lesson Learnt
