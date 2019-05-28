@@ -203,6 +203,7 @@ For complete solution click on following link [headpose_detection](./solutions/H
 
 ```
 # source /opt/intel/openvino/bin/setupvars.sh
+# cd ~/Desktop/Retail/OpenVINO
 # python3 main.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -m_ag /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_attributes/age_gender/dldt/age-gender-recognition-retail-0013.xml -m_hp /opt/intel/openvino/deployment_tools/tools/model_downloader/Transportation/object_attributes/headpose/vanilla_cnn/dldt/head-pose-estimation-adas-0001.xml -l /opt/intel/openvino/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so
  ```
 

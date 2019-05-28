@@ -325,6 +325,7 @@ For complete solution, see [face_detection](./solutions/facedetection.md)
 
 ```
 # source /opt/intel/openvino/bin/setupvars.sh
+# cd ~/Desktop/Retail/OpenVINO
 # python3 main.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -l /opt/intel/openvino/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so
 
  ```
