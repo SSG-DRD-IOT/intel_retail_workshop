@@ -28,7 +28,7 @@ The plugin can be customized using various options provided in the Intel Unite®
 const string LAUNCHAPP = "00000000-0000-0000-0000-000000000009";
 const string CLOSEAPP = "00000000-0000-0000-0000-000000000010";
 String str = null;
-String filepath = @"C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json";
+String filepath = @"C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\UniteData.json";
 Process p = null;
 ```
 - Replace #TODO: Add UI elements for advanced plugin
@@ -74,15 +74,15 @@ The external widget solution that is being developed will fetch data from the tw
 - On the hub, Run local server by using below command
 
 ```c
-cd C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer
-C:\users\intel\Desktop\Retail\05-OpenVINO\CloudAnalyticsServer> node server.js
+cd C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer
+C:\users\intel\Desktop\Retail\OpenVINO\CloudAnalyticsServer> node server.js
 ```
 
 - In order to run the interactive_face_detection_sample.exe for the Advanced Plugin, open the command prompt and perform the following.
 
 ```c
-cd C:\users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug\
-C:\users\intel\Desktop\Retail\05-OpenVINO\inference_engine\bin\intel64\Debug>interactive_face_detection_sample.exe
+cd C:\users\intel\Desktop\Retail\OpenVINO\inference_engine\bin\intel64\Debug\
+C:\users\intel\Desktop\Retail\OpenVINO\inference_engine\bin\intel64\Debug>interactive_face_detection_sample.exe
 ```
 
 For simplicity, an external python application, Widget.pyw is already created at the path ***C:\Users\intel\Desktop\Retail\"Intel Unite"***.
@@ -134,9 +134,9 @@ class Handler(FileSystemEventHandler):
         global unite_flag,ov_flag
         print("Inside  change");
         print(event.src_path);
-        if(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json"):
+        if(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json"):
                  self.jsonRead_OVData(event.src_path)
-        elif(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json"):
+        elif(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\UniteData.json"):
                  self.jsonRead_uniteData(event.src_path)
         if unite_flag==True or ov_flag==True:
             unite_flag=False
@@ -179,17 +179,17 @@ class MyThread(Thread):
     def run(self):
         print("in run")
         event_handler=Handler()
-        event_handler.jsonRead_OVData("C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json")
-        event_handler.jsonRead_uniteData("C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json")
+        event_handler.jsonRead_OVData("C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json")
+        event_handler.jsonRead_uniteData("C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\UniteData.json")
         observer = Observer()
-        observer.schedule(event_handler, "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO", recursive=False)
+        observer.schedule(event_handler, "C:\\Users\\intel\\Desktop\\Retail\\OpenVINO", recursive=False)
         observer.start()
         observer.join()
         print("leaving run")
 
 
 def plotGraph():
-    global counter    
+    global counter
     if(len(malecount) and len(femalecount) and len(attentivecount)):
         malemean = math.ceil(sum(malecount)/len(malecount))
         femalemean = math.ceil(sum(femalecount)/len(femalecount))
@@ -201,7 +201,7 @@ def plotGraph():
 
     average_males.append(malemean)
     average_females.append(femalemean)
-    average_attentivity.append(attentivityindex)    
+    average_attentivity.append(attentivityindex) 
     del malecount[:]
     del femalecount[:]
     del attentivecount[:]

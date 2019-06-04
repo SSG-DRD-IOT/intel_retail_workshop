@@ -77,7 +77,7 @@ namespace AttendeeAnalyticsPlugin
                     }
                     else
                     {
-                        this.p = Process.Start("C:\\Users\\intel\\Desktop\\Retail\\"Intel Unite"\\Widget.pyw");
+                        this.p = Process.Start("C:\\Users\\intel\\Desktop\\Retail\\Intel Unite\\Widget.pyw");
                     }
                     break;
                 case RAISEHAND:

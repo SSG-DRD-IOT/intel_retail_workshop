@@ -61,7 +61,7 @@ setupvars.bat
 ```
 
 
-- Navigate to: C:\Program Files (x86)\IntelSWTools\openvino\inference_engine\samples\python_samples\object_detection_demo_async
+- Navigate to: C:\Program Files (x86)\IntelSWTools\openvino\inference_engine\samples\python_samples\object_detection_demo_ssd_async
 
 
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:

@@ -144,7 +144,7 @@ For complete solution click on following link [age_gender_detection](./solutions
 ```
 > C:\"Program Files (x86)""\IntelSWTools\openvino\bin\setupvars.bat
 > cd C:\Users\Intel\Desktop\Retail\OpenVINO
-> >python main.py -i cam -m "C:\\Program Files (x86)\\IntelSWTools\\openvino\\deployment_tools\\tools\\model_downloader\\Transportation\\object_detection\\face\\pruned_mobilenet_reduced_ssd_shared_weights\\dldt\\face-detection-adas-0001.xml" -m_ag "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Retail\object_attributes\age_gender\dldt\age-gender-recognition-retail-0013.xml" -l "C:\Users\intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll"
+> python main.py -i cam -m "C:\\Program Files (x86)\\IntelSWTools\\openvino\\deployment_tools\\tools\\model_downloader\\Transportation\\object_detection\\face\\pruned_mobilenet_reduced_ssd_shared_weights\\dldt\\face-detection-adas-0001.xml" -m_ag "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Retail\object_attributes\age_gender\dldt\age-gender-recognition-retail-0013.xml" -l "C:\Users\intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll"
 
  ```
 - On successful execution, Face, Age and Gender will get detected.

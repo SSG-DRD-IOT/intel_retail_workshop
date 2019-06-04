@@ -9,7 +9,7 @@ In our next three Labs, we will develop a complete interactive face detection ap
 - Analyze Face, Age & Gender and Head Pose detection data on cloud
 
 ###  Creating main.py
-- Navigate to C:\Intel\Desktop\Retail\OpenVINO
+- Navigate to C:\Users\Intel\Desktop\Retail\OpenVINO
 - create main.py for python solution.
 - For simplicity , we have created a main.py template [here](./solutions/template.md), which includes TODOs that have to be replaced.
 - Replace empty main.py with above template code.

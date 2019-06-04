@@ -133,7 +133,7 @@ python downloader.py --name  vehicle-license-plate-detection-barrier-0106
 
 python downloader.py --name  vehicle-attributes-recognition-barrier-0039
 
-python downloader.py --name  license-plate-recognition-barrier-0001.xml
+python downloader.py --name  license-plate-recognition-barrier-0001
 
 // Interactive face detection
 python downloader.py --name  face-detection-adas-0001
