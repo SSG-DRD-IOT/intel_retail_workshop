@@ -9,7 +9,7 @@ In our next three Labs, we will develop a complete interactive face detection ap
 - Analyze Face, Age & Gender and Head Pose detection data on cloud
 
 ###  Creating main.py
-- Navigate to C:\Intel\Desktop\Retail\OpenVINO
+- Navigate to C:\Users\Intel\Desktop\Retail\OpenVINO
 - create main.py for python solution.
 - For simplicity , we have created a main.py template [here](./solutions/template.md), which includes TODOs that have to be replaced.
 - Replace empty main.py with above template code.
@@ -316,7 +316,7 @@ For complete solution, see [face_detection](./solutions/facedetection.md)
 - Open command prompt and type this command
 
 ```
-> C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat
+> C:\"Program Files (x86)"\IntelSWTools\openvino\bin\setupvars.bat
 > cd C:\Users\Intel\Desktop\Retail\OpenVINO
 > python main.py -i cam -m "C:\\Program Files (x86)\\IntelSWTools\\openvino\\deployment_tools\\tools\\model_downloader\\Transportation\\object_detection\\face\\pruned_mobilenet_reduced_ssd_shared_weights\\dldt\\face-detection-adas-0001.xml" -l "C:\Users\intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll"
  ```

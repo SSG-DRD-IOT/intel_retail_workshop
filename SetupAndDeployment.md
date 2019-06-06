@@ -129,18 +129,24 @@ C:\Program Files (x86)\IntelSWTools\openvino_2019.1.087\deployment_tools\model_o
 cd   C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader
 
 // Security Barrier demo
-python downloader.py --name  'vehicle-license-plate-detection-barrier-0106'
+python downloader.py --name  vehicle-license-plate-detection-barrier-0106
 
-python downloader.py --name  'vehicle-attributes-recognition-barrier-0039'
+python downloader.py --name  vehicle-attributes-recognition-barrier-0039
 
-python downloader.py --name  'license-plate-recognition-barrier-0001.xml'
+python downloader.py --name  license-plate-recognition-barrier-0001
 
 // Interactive face detection
-python downloader.py --name  'face-detection-adas-0001'
+python downloader.py --name  face-detection-adas-0001
 
-python downloader.py --name  'age-gender-recognition-retail-0013'
+python downloader.py --name face-detection-retail-0004
 
-python downloader.py --name  'head-pose-estimation-adas-0001'
+python downloader.py --name  age-gender-recognition-retail-0013
+
+python downloader.py --name  head-pose-estimation-adas-0001
+
+python downloader.py --name  face-detection-retail-0004-fp16
+
+
 ```
 
 

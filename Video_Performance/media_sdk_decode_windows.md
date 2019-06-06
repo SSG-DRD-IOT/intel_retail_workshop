@@ -5,9 +5,9 @@ In this tutorial you will learn the basic principles behind decoding a video str
 ## Getting Started
 
 
-- Open the **'msdk_decode'** Microsoft Visual Studio* solution file in Visual Studio 2017 
-  - In your File Explorer, Navigate to **"C:\Users\intel\Desktop\Retail\03-MediaSDK\msdk_decode\msdk_decode.sln"**. 
-  - Double click the **smdk_decode.sln** file and select Visual Studio 2017 to open. 
+- Open the **'msdk_decode'** Microsoft Visual Studio* solution file in Visual Studio 2017
+  - In your File Explorer, Navigate to **"C:\Users\intel\Desktop\Retail\MediaSDK\msdk_decode\msdk_decode.sln"**.
+  - Double click the **smdk_decode.sln** file and select Visual Studio 2017 to open.
 
 - If presented with a security question, click OK
 
@@ -48,7 +48,7 @@ If it doesn't contain similar messages as seen below, Rebuild the solution: **Bu
 ![Check Build](images/msdk_decode_3.jpg)
  - Run the application using the **Performance Profiler**:
      - Select **Debug->Performance Profiler...**
-     - Check the **CPU Usage** and **GPU Usage** boxes 
+     - Check the **CPU Usage** and **GPU Usage** boxes
      - Click **Start** to begin profiling.
 
 ![Performance Profiler](images/msdk_decode_4.jpg)
@@ -66,20 +66,20 @@ If it doesn't contain similar messages as seen below, Rebuild the solution: **Bu
 Where possible we want to use hardware based decoding for improved efficiency and speed. The Intel® Media SDK is able to select the best decode implementation based on the platform capabilities, first checking to see if hardware can be used and falling back to software if not.
 
  - Change the Intel® Media SDK implementation from software to hardware:
- 
+
  Replace **line 36** in msdk_decode.cpp from :
- 
+
  ``` cpp
      mfxIMPL impl = MFX_IMPL_SOFTWARE
  ```
 
-with 
+with
 
 ``` cpp
     mfxIMPL impl = MFX_IMPL_AUTO_ANY;
 ```
 
- - Build the project and run the **Performance Profiler** as before. 
+ - Build the project and run the **Performance Profiler** as before.
  - Note the **execution time**. In this scenario, the **GPU** utilisation is high while **CPU** usage is low (depending on what else is happening on the system).
  - Close the console window.
  <!--
@@ -102,34 +102,34 @@ First we need to modify the preprocessor definitions to tell the build system we
 
 ![Properties](images/msdk_decode_10.jpg)
 
- - Navigate to **Configuration Properties -> C/C++ -> Preprocessor** and select **Preprocessor Definitions**. Once highlighted an arrow will appear at the end of the input box. 
+ - Navigate to **Configuration Properties -> C/C++ -> Preprocessor** and select **Preprocessor Definitions**. Once highlighted an arrow will appear at the end of the input box.
  - Click on the arrow and select **<Edit...>** from the options that appear.
 
 ![Preprocessor Edit](images/msdk_decode_11.jpg)
 
 ![Modify Definitions](images/msdk_decode_12.jpg)
 
- - Type **DX_D3D** into the list of definitions and click **OK** to close the window. 
+ - Type **DX_D3D** into the list of definitions and click **OK** to close the window.
  - Click **Apply** and finally **OK** to close the **Properties** window.
 
 
 Create a variable for the external allocator and pass this into our existing **Initialize** function.
- 
+
  - Replace the following line in **Section 2. Initiazlize Intel Media SDK session**:
- 
+
  ``` cpp
      sts = Initialize(impl, ver, &session, NULL);
 ```
  with
- 
+
 ``` cpp
     mfxFrameAllocator mfxAllocator;
     sts = Initialize(impl, ver, &session, &mfxAllocator);
 ```
  - Update the IO pattern specified in the video parameters to tell the decoder we are using video memory instead of system memory.
- 
+
   Change the following line:
- 
+
  ``` cpp
      mfxVideoParams.IOPattern = MFX_IOPATTERN_OUT_SYSTEM_MEMORY;
  ```
@@ -137,8 +137,8 @@ Create a variable for the external allocator and pass this into our existing **I
 ``` cpp
     mfxVideoParams.IOPattern = MFX_IOPATTERN_OUT_VIDEO_MEMORY;
 ```
- - Leverage our new allocator when allocating surface memory for our decoder. 
- 
+ - Leverage our new allocator when allocating surface memory for our decoder.
+
  Replace **Section 5** with the code below.
 ```
     //5. Allocate surfaces for decoder
@@ -156,7 +156,7 @@ Create a variable for the external allocator and pass this into our existing **I
         pmfxSurfaces[i]->Data.MemId = mfxResponse.mids[i];      // MID (memory id) represents one video NV12 surface
     }
 ```
-Destroy our allocator once decoding is completed. 
+Destroy our allocator once decoding is completed.
  - Add the following line of code after the surface deletion *for loop* in **Section 8**:
 ```
     mfxAllocator.Free(mfxAllocator.pthis, &mfxResponse);
@@ -165,7 +165,7 @@ Destroy our allocator once decoding is completed.
 ```
     MSDK_SAFE_DELETE_ARRAY(surfaceBuffers);
 ```
- - **Build** the project and run the **Performance Profiler** as before. 
+ - **Build** the project and run the **Performance Profiler** as before.
  - Note the **execution time** before closing the console window which should now be significantly improved.
  - Note the **GPU** is now **fully utilized** whilst the application is running as it is no longer having to wait for frames to be copied from system memory.
 
@@ -181,9 +181,9 @@ Destroy our allocator once decoding is completed.
 "What about the latest 4K 10-bit HEVC video streams" I hear you ask? Support for both decode and encode of such streams was introduced with 7th Gen Intel® Core™ processor family and the Intel® Media SDK has full support for both. We will now make the small code modifications necessary to decode a sample 4K 10-bit HEVC stream.
 
 First we need to update our input source to the 4K 10-bit HEVC sample. This sample has an average bitrate of over 40Mbps, similar to that of a 4K Ultra HD Blu-ray.
- 
+
  - Change the input file in **Section 1. Open input file**
- 
+
 from:
 
 ```cpp
@@ -196,21 +196,21 @@ to:
     char path[] = "..\\jellyfish-60-mbps-4k-uhd-hevc-10bit.h265";
 ```
  - Update the codec in our decode video parameters from **MFX_CODEC_AVC** to **MFX_CODEC_HEVC**.:
- 
+
  Change the codec ID in section *3. Set Required video paramaters for decode*
- 
+
  from:
- 
+
  ``` cpp
      mfxVideoParams.mfx.CodecId = MFX_CODEC_AVC;
  ```
- 
+
  to:
- 
+
 ``` cpp
     mfxVideoParams.mfx.CodecId = MFX_CODEC_HEVC;
 ```
-HEVC support is provided as a plugin to the Intel® Media SDK which needs to be manually loaded at runtime. 
+HEVC support is provided as a plugin to the Intel® Media SDK which needs to be manually loaded at runtime.
  - Add the following code to **Section 3** to load the HEVC plugin.
 ``` cpp
     // Load the HEVC plugin
@@ -234,8 +234,8 @@ HEVC support is provided as a plugin to the Intel® Media SDK which needs to be 
         }
     }
 ```
-Before we proceed to test the code, let's play the sample using the **ffplay** utility leveraging only the CPU. Since this utilty uses the CPU alone, You will notice that it struggles to decode the high bitrate stream fast enough to render at a smooth 30fps. 
-- Open a **Command Prompt** window and **'cd'** to the **C:\Users\intel\Desktop\Retail\03-MediaSDK** directory.
+Before we proceed to test the code, let's play the sample using the **ffplay** utility leveraging only the CPU. Since this utilty uses the CPU alone, You will notice that it struggles to decode the high bitrate stream fast enough to render at a smooth 30fps.
+- Open a **Command Prompt** window and **'cd'** to the **C:\Users\intel\Desktop\Retail\MediaSDK** directory.
 - Run the following command:
 ```
 ffplay.exe jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
@@ -243,9 +243,9 @@ ffplay.exe jellyfish-60-mbps-4k-uhd-hevc-10bit.h265
 > Use the **Esc** key to stop playback at any time.
 
 ### CPU and GPU utilization
- - In **Visual Studio**, **Build** the solution ensuring there are no errors. 
- - Use the **Performance Profiler** to run the code. 
- - Note the **execution time** before closing the console window 
+ - In **Visual Studio**, **Build** the solution ensuring there are no errors.
+ - Use the **Performance Profiler** to run the code.
+ - Note the **execution time** before closing the console window
  - Check that the GPU was indeed used to decode the stream by checking the **CPU** and **GPU** utilization graphs. As you can see the GPU decoding performance comfortably fulfills the 30fps requirement for smooth playback.
 
 > If you missed some steps or didn't have time to finish the tutorial the completed code is available in the **msdk_decode_final** directory.

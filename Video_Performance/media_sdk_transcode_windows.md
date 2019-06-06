@@ -6,7 +6,7 @@ In this tutorial we will look at a simple transcode (decode + encode) pipeline u
 
 Open the **'msdk_transcode'** Visual Studio* solution file with Visual Studio 2017
 
-- Open the File Explorer and navigate to **"C:\users\intel\Desktop\Retail\03-MediaSDK\msdk_transcode\msdk_transcode.sln"**
+- Open the File Explorer and navigate to **"C:\users\intel\Desktop\Retail\MediaSDK\msdk_transcode\msdk_transcode.sln"**
 
 - Double click the **mdk_decode.sln** file and select Visual Studio 2017 to open the file.
 
@@ -47,7 +47,7 @@ The basic flow is outlined below:
 ```
  - Run the application using the **Performance Profiler**:
      - Select **Debug->Performance Profiler...**
-     - Check the **CPU Usage** and **GPU Usage** checkboxes 
+     - Check the **CPU Usage** and **GPU Usage** checkboxes
      - Click **Start** to begin profiling.
 
 ![Performance Profiler](images/msdk_transcode_2.jpg)
@@ -56,14 +56,14 @@ A console window will load running the application whilst the profiling tool rec
 
 ![Application Running](images/msdk_transcode_3.jpg)
 
- - Take note of the **execution time** printed in the console window. 
+ - Take note of the **execution time** printed in the console window.
  - Press the **'Enter'** to close the command window and stop the profiling session.
 ```
 Frame number: 1800
 Execution time: 32.84 s (54.81 fps)
 Press ENTER to exit...
 ```
- - Review the **GPU Utilization** and **CPU** graphs in Visual Studio. 
+ - Review the **GPU Utilization** and **CPU** graphs in Visual Studio.
 
 The CPU usage is low (assuming no other program is consuming processor resources on your system) while the GPU utilization is higher indicating that the transcode process is taking place on the GPU as expected.
 
@@ -131,28 +131,28 @@ The creation of **mfxExtOpaqueSurfaceAlloc** structures are needed to hold a ref
     MSDK_SAFE_DELETE_ARRAY(surfaceBuffers);
 ```
 
- - **Build** the solution 
- - Run the **Performance Profiler** on the application. 
- - Take note of the **execution time** before closing the console window. 
+ - **Build** the solution
+ - Run the **Performance Profiler** on the application.
+ - Take note of the **execution time** before closing the console window.
 
 Th execution time should be slightly improved since implementing opaque memory allocation. If you now look at the **GPU Utilization** graph in the performance profiler you will see the GPU remains underutilized.
 
 ## Asynchronous Transcoding
 To better utilize the GPU we can make our transcode pipeline asynchronous so more than one decode and encode operation can run at once. This means for each execution of our transcode loop we submit multiple "tasks" before synchronizing the pipeline.
 
- - Add a parameter to the decoder parameters in **Section 3** to tell the decoder how many tasks we want to execute asynchronously. 
+ - Add a parameter to the decoder parameters in **Section 3** to tell the decoder how many tasks we want to execute asynchronously.
  - Set this parameter to **1** to mimic synchronous operation. We will increase this to see the effect it has on performance and GPU utilization in the future.
 ``` cpp
     mfxDecParams.AsyncDepth = 1;
 ```
- - Set the `AsyncDepth` for the encode parameters to the same value as the decode parameters in **Section 5**. 
- 
+ - Set the `AsyncDepth` for the encode parameters to the same value as the decode parameters in **Section 5**.
+
  This is done to keep things aligned.
 ``` cpp
     mfxEncParams.AsyncDepth = mfxDecParams.AsyncDepth;
 ```
- - Create a task pool for the encoding operations. 
- Rather than having a single bit stream buffer for the encoder output, each "task" has it's own 
+ - Create a task pool for the encoding operations.
+ Rather than having a single bit stream buffer for the encoder output, each "task" has it's own
  - Replace the code in **Section 8** with the following:
 ``` cpp
     //8. Create task pool to improve asynchronous performance
@@ -171,7 +171,7 @@ To better utilize the GPU we can make our transcode pipeline asynchronous so mor
     int nFirstSyncTask = 0;
     int nTaskIdx = 0;
 ```
- - Modify the transcoding loops to first execute multiple tasks asynchronously and once the task pool is full synchronise the pipeline. 
+ - Modify the transcoding loops to first execute multiple tasks asynchronously and once the task pool is full synchronise the pipeline.
 
 The main transcoding loop **(Stage 1)** should now look like this:
 ``` cpp
@@ -245,8 +245,8 @@ The main transcoding loop **(Stage 1)** should now look like this:
     MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, sts);
 ```
 
-**Stage 2** should be the same as **stage 1** with the exception that we pass **NULL** to the **DecodeFrameAsync** call in order to drain the decoding pipeline. 
- - Replace **stage 2** code with the code above 
+**Stage 2** should be the same as **stage 1** with the exception that we pass **NULL** to the **DecodeFrameAsync** call in order to drain the decoding pipeline.
+ - Replace **stage 2** code with the code above
  - Replace the variable initialization `sts = mfxDEC.DecodeFrameAsync(&mfxBS, pSurfaces[nIndex], &pmfxOutSurface, &syncpD);` with:
 ``` cpp
 sts = mfxDEC.DecodeFrameAsync(NULL, pSurfaces[nIndex], &pmfxOutSurface, &syncpD);
@@ -327,9 +327,9 @@ with this:
     MSDK_SAFE_DELETE_ARRAY(pTasks);
 ```
 
- - **Build** the solution and run the code using the **Performance Profiler** as before. 
- 
- The number of asynchronous tasks were set to 1 initially as a benchmark before increasing the task pool size. 
+ - **Build** the solution and run the code using the **Performance Profiler** as before.
+
+ The number of asynchronous tasks were set to 1 initially as a benchmark before increasing the task pool size.
  - Take note of the **execution time** before closing the console window
  - Review the **GPU Utilization** graph.
 
@@ -338,10 +338,10 @@ with this:
     mfxDecParams.AsyncDepth = 4;
 ```
 
- - **Build** the solution and run the **Performance Profiler**. 
- - Take note of the **execution time** 
- - Review the **GPU Utilization** graph. 
- 
+ - **Build** the solution and run the **Performance Profiler**.
+ - Take note of the **execution time**
+ - Review the **GPU Utilization** graph.
+
  You will notice that the performance increased and the GPU is better utilised now we are performing more asynchronous operations.
 
 ## Video Post Processing (VPP)
@@ -351,7 +351,7 @@ Often the reason for transcoding is because you want to change the input source 
 ``` cpp
     MFXVideoVPP mfxVPP(session);
 ```
- - Set VPP parameters to tell the SDK what the expected input and desired output of the VPP module should be. 
+ - Set VPP parameters to tell the SDK what the expected input and desired output of the VPP module should be.
  - Add the following code to the top of **section 5**:
 ``` cpp
     mfxVideoParam VPPParams;
@@ -427,10 +427,10 @@ Currently we use a single array of frame surfaces shared between the decoder and
     extOpaqueAllocVPP.Header.BufferSz = sizeof(mfxExtOpaqueSurfaceAlloc);
     mfxExtBuffer* pExtParamsVPP = (mfxExtBuffer*)& extOpaqueAllocVPP;
 ```
- - Attach the surface structures we have created to the relevant parts of our transcode pipeline. 
- 
+ - Attach the surface structures we have created to the relevant parts of our transcode pipeline.
+
  That means **pSurfaces** needs to be attached to the **decoder** and **VPP In**
- **pSurfaces2** needs to be attached to **VPP Out** and the **encoder**. 
+ **pSurfaces2** needs to be attached to **VPP Out** and the **encoder**.
  - Replace the current surface attachment code with the following:
 ``` cpp
     //Attached the surfaces to the decoder output and the VPP input
@@ -461,7 +461,7 @@ Currently we use a single array of frame surfaces shared between the decoder and
     MSDK_CHECK_RESULT(sts, MFX_ERR_NONE, sts);
 ```
 
-We are now ready to modify our main transcoding loops to incorporate VPP. 
+We are now ready to modify our main transcoding loops to incorporate VPP.
 - Add another **mfxSyncPoint** for VPP in **section 9**:
 ``` cpp
     mfxSyncPoint syncpD, syncpE, syncpV;
@@ -472,7 +472,7 @@ We are now ready to modify our main transcoding loops to incorporate VPP.
     int nIndex2 = 0;
 ```
 
-We will now look at **stage 1** which is our main transcoding loop. The first section which fills our task pool remains unchanged. We only need to insert the VPP processing loop after decoding and modify the encoding process to ensure it is using surfaces from the correct surface pool and is encoding the output from VPP, not the decoder. 
+We will now look at **stage 1** which is our main transcoding loop. The first section which fills our task pool remains unchanged. We only need to insert the VPP processing loop after decoding and modify the encoding process to ensure it is using surfaces from the correct surface pool and is encoding the output from VPP, not the decoder.
 - Update the current implementation with the code below:
 ``` cpp
             if (MFX_ERR_NONE == sts) {
@@ -523,10 +523,10 @@ We will now look at **stage 1** which is our main transcoding loop. The first se
             }
 ```
 
-In **stage 2**, the decoder pipeline is drained. 
+In **stage 2**, the decoder pipeline is drained.
 - Update the code in **stage 2** with the code above so that the VPP and encode sections are the same as **stage 1**
 
-As we have added VPP to our pipeline we need to add a new stage to our transcoding process to drain the VPP pipeline in the same way we do for the decoder in **stage 2** and the encoder in **stage 3**. 
+As we have added VPP to our pipeline we need to add a new stage to our transcoding process to drain the VPP pipeline in the same way we do for the decoder in **stage 2** and the encoder in **stage 3**.
  - Add the following code in between **stage 2** and **stage 3**:
 ``` cpp
     //
@@ -613,14 +613,14 @@ As we have added VPP to our pipeline we need to add a new stage to our transcodi
     MSDK_SAFE_DELETE_ARRAY(pSurfaces2);
 ```
 
- - **Build** the solution and use the **Performance Profiler** to run the application. 
- - Note the **execution time** before closing the console window. 
- - Review the **GPU Utilization** graph verifying that the GPU is slightly more utilized due to the additional processing taking place to scale the video frames. 
- 
+ - **Build** the solution and use the **Performance Profiler** to run the application.
+ - Note the **execution time** before closing the console window.
+ - Review the **GPU Utilization** graph verifying that the GPU is slightly more utilized due to the additional processing taking place to scale the video frames.
+
  You should also see that overall execution time is much faster as we are now encoding a 1080p stream instead of 4K.
 
-To view the encoded output you can use the provided **ffplay** utility. 
-- Open a **Command Prompt** window and **'cd'** to the **Desktop\Retail\03-MediaSDK** directory. From there run the following command:
+To view the encoded output you can use the provided **ffplay** utility.
+- Open a **Command Prompt** window and **'cd'** to the **Desktop\Retail\MediaSDK** directory. From there run the following command:
 ```
 ffplay.exe out.h264
 ```
@@ -633,18 +633,18 @@ So far we have been working with H.264 video streams but if we want to transcode
 ``` cpp
     char oPath[] = "..\\out.h265";
 ```
-We can also reduce the target encode bitrate for HEVC. 
+We can also reduce the target encode bitrate for HEVC.
  - Set the bitrate variable to half of what we used for H.264.
 ``` cpp
     // Bitrate for encoder
     mfxU16 bitrate = 4000;
 ```
-Next we need to update our encoder parameters to use HEVC. We are only working with 8-bit streams and not 10-bit (usually referred to as High Dynamic Range or HDR) 
+Next we need to update our encoder parameters to use HEVC. We are only working with 8-bit streams and not 10-bit (usually referred to as High Dynamic Range or HDR)
 - Update the **CodecId** parameter.
 ``` cpp
     mfxEncParams.mfx.CodecId = MFX_CODEC_HEVC;
 ```
- HEVC support is provided as a plugin to the Intel® Media SDK which needs to be manually loaded at runtime. 
+ HEVC support is provided as a plugin to the Intel® Media SDK which needs to be manually loaded at runtime.
  - Add the following code to load the HEVC plugin after the code to populate the encoder parameters.
 ``` cpp
     // Load the HEVC plugin
@@ -667,13 +667,13 @@ Next we need to update our encoder parameters to use HEVC. We are only working w
         }
     }
 ```
- - **Build** the solution and use the **Performance Profiler** to run the code. 
+ - **Build** the solution and use the **Performance Profiler** to run the code.
  - Take note that the **execution time** is longer and **GPU Utilization** is higher when encoding with the more complex HEVC codec.
- - Open **File Explorer** and navigate to the **Desktop\Retail\03-MediaSDK** directory. Note the size of the **out.h264** and **out.h265** files. You will notice that the file encoded using HEVC is less than half the size of the H.264 encoded file.
+ - Open **File Explorer** and navigate to the **Desktop\Retail\MediaSDK** directory. Note the size of the **out.h264** and **out.h265** files. You will notice that the file encoded using HEVC is less than half the size of the H.264 encoded file.
 
 ![HEVC](images/msdk_transcode_5.jpg)
 
- - You can use the **ffplay** utility as you did before to play both files and compare the output. 
+ - You can use the **ffplay** utility as you did before to play both files and compare the output.
 
 > Use the **Esc** key to stop playback at any time.
 ```

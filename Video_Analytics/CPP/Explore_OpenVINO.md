@@ -56,12 +56,12 @@ The application reads command line parameters and loads the specified models. Th
 
 * **Set Environment variables using below commands**
 ```
-cd C:\Program Files (x86)\IntelSWTools\openvino_2019.1.087\deployment_tools\demo
+cd C:\"Program Files (x86)"\IntelSWTools\openvino\bin
 setupvars.bat
 ```
 
 * **Build and Run Sample with CPU**
-- Go to C:\Program Files (x86)\IntelSWTools\openvino_2019.1.087\deployment_tools\demo
+- Go to C:\"Program Files (x86)"\IntelSWTools\openvino_2019.1.087\deployment_tools\demo
 
 - run demo_security_barrier_camera.bat
 

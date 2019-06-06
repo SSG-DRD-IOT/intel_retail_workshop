@@ -45,9 +45,9 @@ class Handler(FileSystemEventHandler):
         global unite_flag,ov_flag
         print("Inside  change");
         print(event.src_path);
-        if(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json"):
+        if(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json"):
                  self.jsonRead_OVData(event.src_path)
-        elif(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json"):
+        elif(event.src_path=="C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\UniteData.json"):
                  self.jsonRead_uniteData(event.src_path)
         if unite_flag==True or ov_flag==True:
             unite_flag=False
@@ -90,10 +90,10 @@ class MyThread(Thread):
     def run(self):
         print("in run")
         event_handler=Handler()
-        event_handler.jsonRead_OVData("C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\AttentivityData.json")
-        event_handler.jsonRead_uniteData("C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json")
+        event_handler.jsonRead_OVData("C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\AttentivityData.json")
+        event_handler.jsonRead_uniteData("C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\UniteData.json")
         observer = Observer()
-        observer.schedule(event_handler, "C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO", recursive=False)
+        observer.schedule(event_handler, "C:\\Users\\intel\\Desktop\\Retail\\OpenVINO", recursive=False)
         observer.start()
         observer.join()
         print("leaving run")

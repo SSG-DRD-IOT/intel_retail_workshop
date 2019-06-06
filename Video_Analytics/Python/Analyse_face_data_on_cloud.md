@@ -93,9 +93,9 @@ For complete solution click on following link [analyse_data_on_cloud](./solution
 - Open command prompt and type this command
 
 ```
-> C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat
+> C:\"Program Files (x86)"\IntelSWTools\openvino\bin\setupvars.bat
 > cd C:\Users\Intel\Desktop\Retail\OpenVINO
-> python main.py -i cam -m "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_detection\face\pruned_mobilenet_reduced_ssd_shared_weights\dldt\face-detection-adas-0001.xml" -m_ag "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\\Retail\object_attributes\age_gender\dldt\age-gender-recognition-retail-0013.xml" -m_hp "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_attributes\headpose\vanilla_cnn\dldt\head-pose-estimation-adas-0001.xml" -l "C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll" 
+> python main.py -i cam -m "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_detection\face\pruned_mobilenet_reduced_ssd_shared_weights\dldt\face-detection-adas-0001.xml" -m_ag "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\\Retail\object_attributes\age_gender\dldt\age-gender-recognition-retail-0013.xml" -m_hp "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\Transportation\object_attributes\headpose\vanilla_cnn\dldt\head-pose-estimation-adas-0001.xml" -l "C:\Users\Intel\Documents\Intel\OpenVINO\inference_engine_samples_build_2017\intel64\Release\cpu_extension.dll"
  ```
 - On successful execution, face will get detected and AttentivityData.json will be created at ***C:\Users\Intel\Desktop\Retail\OpenVINO\.***
 ### Lesson Learnt

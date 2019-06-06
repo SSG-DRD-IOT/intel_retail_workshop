@@ -25,7 +25,7 @@ namespace AttendeeAnalyticsPlugin
         const string LAUNCHAPP = "00000000-0000-0000-0000-000000000009";
         const string CLOSEAPP = "00000000-0000-0000-0000-000000000010";
         String str = null;
-        String filepath = @"C:\\Users\\intel\\Desktop\\Retail\\05-OpenVINO\\UniteData.json";
+        String filepath = @"C:\\Users\\intel\\Desktop\\Retail\\OpenVINO\\UniteData.json";
         Process p = null;
 
         public void SimpleToastPlugin()
@@ -77,7 +77,7 @@ namespace AttendeeAnalyticsPlugin
                     }
                     else
                     {
-                        this.p = Process.Start("C:\\Users\\intel\\Desktop\\Retail\\06-IWB\\Widget.pyw");
+                        this.p = Process.Start("C:\\Users\\intel\\Desktop\\Retail\\Intel Unite\\Widget.pyw");
                     }
                     break;
                 case RAISEHAND:

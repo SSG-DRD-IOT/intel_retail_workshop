@@ -3,7 +3,7 @@
 ## Lab Overview
 In this lab, a sample plugin on Intel Unite® software is created and deployed to display toast messages on the hub.
 
-For simplicity, AttendeeAnalyticsPlugin.sln is already created at ***C:\intel\Desktop\Retail\06-IWB\AttendeeAnalyticsPlugin***, which includes required header files and TODOs that are to be replaced. The template for the plugin is available [here](./solutions/PluginTemplate.md)
+For simplicity, AttendeeAnalyticsPlugin.sln is already created at ***C:\intel\Desktop\Retail\"Intel Unite"\AttendeeAnalyticsPlugin***, which includes required header files and TODOs that are to be replaced. The template for the plugin is available [here](./solutions/PluginTemplate.md)
 - TODO is a small unit of module for code simplification.
 - Replace all the TODOs with corresponding code snippets provided here.
 - Keep all the other TODOs untouched. These will be discussed in the next lab.
@@ -217,7 +217,7 @@ When Intel Unite® software is closed, each plugin will first receive this notif
 
 ```c
 public override void UnLoad()
-{ 
+{
   //TODO: Unload the Widget
   LogMessage("Plugin Unloaded", null);
 }
