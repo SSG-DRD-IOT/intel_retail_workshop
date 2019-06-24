@@ -383,7 +383,7 @@ with this in case of CPU:
 
 
 
-
+ - For complete solution, see [Face detection VPU and Async](./solutions/face_detection_VPU_Async.md)
 
  - **Build the solution** and make sure the code compiled successfully by checking the **Output** log in the bottom left pane.
 
