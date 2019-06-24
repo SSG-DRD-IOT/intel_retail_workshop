@@ -1,6 +1,20 @@
 ```python
 #!/usr/bin/env python
+"""
+ Copyright (c) 2019 Intel Corporation
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+"""
 
 from __future__ import print_function
 #TODO Import Cloud_Integration packages
@@ -64,11 +78,10 @@ def load_model(feature,model_xml,device,plugin_dirs,input_key_length,output_key_
         not_supported_layers = [l for l in net.layers.keys() if l not in supported_layers]
         if len(not_supported_layers) != 0:
             log.error("Following layers are not supported by the plugin for specified device {}:\n {}".
-		  format(plugin.device, ', '.join(not_supported_layers)))
+                      format(plugin.device, ', '.join(not_supported_layers)))
             log.error("Please try to specify cpu extensions library path in demo's command line parameters using -l "
-		  "or --cpu_extension command line argument")
+                      "or --cpu_extension command line argument")
             sys.exit(1)
-
 
     log.info("Checking {} network inputs".format(feature))
     assert len(net.inputs.keys()) == input_key_length, "Demo supports only single input topologies"
@@ -85,26 +98,20 @@ def main():
     headPose_enabled = False
     #TODO Cloud_Integration 2
 
+    #Make sure only one IEPlugin is created for one type of device
+    plugin,net = load_model("Face Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)    
 
-
-    MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
-    MYRIAD_plugin_ag = IEPlugin(args.device_ag.upper(),args.plugin_dir)
-    #TODO Initializing Plugin for Myraid for Head Pose
-
+    if args.model and args.ag_model:
+        plugin_ag,ag_net = load_model("Age/Gender Recognition",args.ag_model,args.device_ag,args.plugin_dir,1,2,args.cpu_extension)
+        if args.device == args.device_ag:
+            plugin_ag = plugin
+            #TODO Head_Pose_Detection 2
 
     log.info("Reading IR...")
     # Face detection
-    #log.info("Loading network files for Face Detection")
-
-    plugin,net=load_model("Face Detection",args.model,args.device.upper(),args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
-
-    if (args.device.upper() == "MYRIAD"):
-        exec_net = MYRIAD_plugin.load(network=net, num_requests=2)
-    else :
-        exec_net = plugin.load(network=net, num_requests=2)
-
+    exec_net = plugin.load(network=net, num_requests=2)
     n, c, h, w = net.inputs[input_blob].shape
     del net
 
@@ -112,24 +119,13 @@ def main():
     if args.model and args.ag_model:
 
        age_enabled =True
-       #log.info("Loading network files for Age/Gender Recognition")
-       plugin,ag_net=load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2,args.cpu_extension)
        age_input_blob=next(iter(ag_net.inputs))
        age_out_blob=next(iter(ag_net.outputs))
-
-
-       if ((args.device_ag.upper() == "MYRIAD") and (not args.device.upper() == "MYRIAD")):
-           age_exec_net = MYRIAD_plugin_ag.load(network=ag_net, num_requests=2)
-       elif (args.device_ag == "MYRIAD"):
-           age_exec_net = MYRIAD_plugin.load(network=ag_net, num_requests=2)
-       else :
-           age_exec_net = plugin.load(network=ag_net, num_requests=2)      
-
-
+       age_exec_net = plugin.load(network=ag_net, num_requests=2)      
        ag_n, ag_c, ag_h, ag_w = ag_net.inputs[input_blob].shape
        del ag_net
 
-   #TODO Head_Pose_Detection 2
+   #TODO Head_Pose_Detection 3
     total_start = time.time()
 
     if args.input == 'cam':
@@ -226,7 +222,7 @@ def main():
                         if age_exec_net.requests[cur_request_id].wait(-1) == 0:
                             age_inf_end = time.time()
                             age_inf_time=age_inf_end - age_inf_start
-                    #TODO Head_Pose_Detection 3               
+                    #TODO Head_Pose_Detection 4             
 
 
                     visual_start = time.time()                                   
@@ -248,7 +244,7 @@ def main():
                         color = (min(class_id * 12.5, 255), min(class_id * 7, 255), min(class_id * 5, 255))
                         cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (255,10,10), 2)
                         det_label = labels_map[class_id] if labels_map else str(class_id)
-                        #TODO Head_Pose_Detection 4
+                        #TODO Head_Pose_Detection 5
 
                         render_time_message = "OpenCV cap/rendering time: {:.2f} ms".format(render_time * 1000)
                         inf_time_message = "Face Detection time: {:.2f} ms ({:.2f} fps)".format((det_time * 1000),1/(det_time))           

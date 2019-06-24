@@ -1,6 +1,20 @@
 ```python
 #!/usr/bin/env python
+"""
+ Copyright (c) 2019 Intel Corporation
 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+"""
 
 from __future__ import print_function
 import requests
@@ -162,75 +176,58 @@ def main():
     headPose_enabled = False
     deviceid="1234"
 
+    #Make sure only one IEPlugin was created for one type of device
+    plugin,net = load_model("Face Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)    
 
-    MYRIAD_plugin = IEPlugin(args.device.upper(),args.plugin_dir)
-    MYRIAD_plugin_ag = IEPlugin(args.device_ag.upper(),args.plugin_dir)
-    MYRIAD_plugin_hp = IEPlugin(args.device_hp.upper(),args.plugin_dir)
+    if args.model and args.ag_model:
+        plugin_ag,ag_net = load_model("Age/Gender Recognition",args.ag_model,args.device_ag,args.plugin_dir,1,2,args.cpu_extension)
+        if args.device == args.device_ag:
+            plugin_ag = plugin
+            if args.model and args.hp_model:
+                plugin_hp,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)
+                if args.device == args.device_hp:                    
+                    plugin_hp = plugin
+
+        else :
+            if args.model and args.hp_model:
+                plugin_hp,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)
+                if args.device_ag == args.device_hp:
+                    plugin_hp = plugin_ag
+                elif args.device == args.device_hp:
+                    plugin_hp = plugin
+
+
+    else :
+        if args.model and args.hp_model:
+            plugin_hp,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)    
+            if args.device == args.device_hp:                    
+                plugin_hp = plugin                        
+
 
 
     log.info("Reading IR...")
     # Face detection
-    #log.info("Loading network files for Face Detection")
-
-    plugin,net=load_model("Face Detection",args.model,args.device.upper(),args.plugin_dir,1,1,args.cpu_extension)
     input_blob = next(iter(net.inputs))
     out_blob = next(iter(net.outputs))
-
-    if (args.device.upper() == "MYRIAD"):
-        exec_net = MYRIAD_plugin.load(network=net, num_requests=2)
-    else :
-        exec_net = plugin.load(network=net, num_requests=2)
-
+    exec_net = plugin.load(network=net, num_requests=2)
     n, c, h, w = net.inputs[input_blob].shape
     del net
 
     # age and gender   
     if args.model and args.ag_model:
-
        age_enabled =True
-       #log.info("Loading network files for Age/Gender Recognition")
-       plugin,ag_net=load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2,args.cpu_extension)
        age_input_blob=next(iter(ag_net.inputs))
        age_out_blob=next(iter(ag_net.outputs))
-
-
-       if ((args.device_ag.upper() == "MYRIAD") and (not args.device.upper() == "MYRIAD")):
-           age_exec_net = MYRIAD_plugin_ag.load(network=ag_net, num_requests=2)
-       elif (args.device_ag == "MYRIAD"):
-           age_exec_net = MYRIAD_plugin.load(network=ag_net, num_requests=2)
-       else :
-           age_exec_net = plugin.load(network=ag_net, num_requests=2)      
-
-
+       age_exec_net=plugin_ag.load(network=ag_net, num_requests=2)
        ag_n, ag_c, ag_h, ag_w = ag_net.inputs[input_blob].shape
        del ag_net
 
     # Head Pose  
     if args.model and args.hp_model:
         headPose_enabled = True
-        #log.info("Loading network files for Head Pose Estimation")
-        plugin,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp.upper(),args.plugin_dir,1,3,args.cpu_extension)
         hp_input_blob=next(iter(hp_net.inputs))
         hp_out_blob=next(iter(hp_net.outputs))
-
-        if (args.device_hp.upper() == "MYRIAD" and not args.device.upper() =="MYRIAD" and not args.device_ag.upper() == "MYRIAD"):
-            hp_exec_net = MYRIAD_plugin_hp.load(network=hp_net, num_requests=2)
-
-        elif (args.device_hp.upper() == "MYRIAD"):
-            if (args.device_ag.upper() == "MYRIAD"):
-                if (args.device.upper() == "MYRIAD"):
-                    hp_exec_net = MYRIAD_plugin.load(network=hp_net, num_requests=2)
-                else :
-                    hp_exec_net = MYRIAD_plugin_ag.load(network=hp_net, num_requests=2)
-            elif (args.device.upper() == "MYRIAD"):
-                hp_exec_net = MYRIAD_plugin.load(network=hp_net, num_requests=2)
-            else :
-                hp_exec_net = MYRIAD_plugin_hp.load(network=hp_net, num_requests=2)
-
-        else :
-            hp_exec_net = plugin.load(network=hp_net, num_requests=2)
-
-
+        hp_exec_net=plugin_hp.load(network=hp_net, num_requests=2)
         hp_n, hp_c, hp_h, hp_w = hp_net.inputs[input_blob].shape
         del hp_net
 
@@ -444,5 +441,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main() or 0)
-
 ```
