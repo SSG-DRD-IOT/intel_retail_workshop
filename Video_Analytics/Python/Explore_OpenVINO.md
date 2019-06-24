@@ -66,7 +66,7 @@ Upon the start-up, the demo application reads command line parameters and loads 
 - **Case 1:** To run the sample application on **CPU**, execute the following commands:
 
 ```
-python3 object_detection_demo_ssd_async/object_detection_demo_ssd_async.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -l/opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d CPU
+python3 object_detection_demo_ssd_async/object_detection_demo_ssd_async.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -l /opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d CPU
 
 ```
 
@@ -76,7 +76,7 @@ Next, we repeat the exercise with **GPU** and observe the performance.
 - **case2:** To run the sample application on **GPU**, execute the following commands;
 
 ```
-python3 object_detection_demo_ssd_async/object_detection_demo_ssd_async.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -l/opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d GPU
+python3 object_detection_demo_ssd_async/object_detection_demo_ssd_async.py -i cam -m /opt/intel/openvino/deployment_tools/tools/model_downloader/Retail/object_detection/face/sqnet1.0modif-ssd/0004/dldt/face-detection-retail-0004.xml -l /opt/intel/openvino/deployment_tools/inference_engine/samples/build/intel64/Release/lib/libcpu_extension.so -d GPU
 
 ```
 - **Output and Performance**
