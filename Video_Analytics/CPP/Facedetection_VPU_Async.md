@@ -256,7 +256,7 @@ with this, in case of MYRIAD:
 
 ### The Final Solution
 
-For complete solution, see [openvino face detection with accelerators](./face_detection_VPU_Async.md)
+For complete solution, see [openvino face detection with accelerators](./solutions/face_detection_VPU_Async.md)
 
 
 - Build the solution in visual studio
