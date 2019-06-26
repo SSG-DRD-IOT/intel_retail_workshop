@@ -10,7 +10,7 @@ In this section we will modify our code to execute asynchronously and see how th
 
 ### 1. Select Plugin for inference engine
 Select CPU as plugin device to load Face Detection pre trained optimized model
--Replace the following lines of code
+- Replace the following lines of code
 ```cpp
 
 	//Select plugins for inference engine
@@ -57,7 +57,7 @@ with this:
 
 ### 2. Add OpenCV objects to store additional camera frames
 We need to add two OpenCV **Mat** objects to store an additional camera frame so we are able to work with two frames at once. Clone the current frame and read the next frame. Start the timer to calculate the throughput.
-- Replace **//TODO: Async_Infer_Requests 1**  with the following lines of code.
+- Replace **//TODO: Async Infer Requests 1**  with the following lines of code.
 
 ``` cpp
 
@@ -131,7 +131,7 @@ We now need to make some modification to the **Main Loop**. We no longer want to
 ### 4. Format the output for Display
 
 - Display the throughput in fps on the camera console window.
-- Replace **//TODO: Async_Infer_Requests 2**  with the following lines of code.
+- Replace **//TODO: Async Infer Requests 2**  with the following lines of code.
 
 ```cpp
 		std::ostringstream out;
@@ -142,14 +142,14 @@ We now need to make some modification to the **Main Loop**. We no longer want to
 			<< 1000.f / (timer["total"].getSmoothedDuration()) << " fps";
 		cv::putText(next_frame, out.str(), cv::Point2f(10, 20), cv::FONT_HERSHEY_TRIPLEX, 0.6,
 			cv::Scalar(255, 0, 0));
-		//TODO: Async_Infer_Requests 3
+		//TODO: Async Infer Requests 3
 
 ```
 
 ### 5. Make input ready for next iteration.
  - Finally, instead of grabbing the next frame from the camera at the end of the **Main Loop** we need to swap the **previous** and **next** requests before the loop starts it's next iteration and close the timer.
 
-- Replace **//TODO: Async_Infer_Requests 3**  with the following lines of code.
+- Replace **//TODO: Async Infer Requests 3**  with the following lines of code.
 
 ``` cpp
 	prev_frame = frame;
@@ -256,7 +256,7 @@ with this, in case of MYRIAD:
 
 ### The Final Solution
 
-For complete solution, see [openvino face detection with accelerators](./openvino_VPU_async.md)
+For complete solution, see [openvino face detection with accelerators](./face_detection_VPU_Async.md)
 
 
 - Build the solution in visual studio

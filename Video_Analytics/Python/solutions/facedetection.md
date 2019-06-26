@@ -194,7 +194,7 @@ def main():
                         color = (min(class_id * 12.5, 255), min(class_id * 7, 255), min(class_id * 5, 255))
                         cv2.rectangle(frame, (xmin, ymin), (xmax, ymax), (255,10,10), 2)
                         det_label = labels_map[class_id] if labels_map else str(class_id)
-                        #TODO Head_Pose_Detection 4
+                        #TODO Head_Pose_Detection 5
 
                         render_time_message = "OpenCV cap/rendering time: {:.2f} ms".format(render_time * 1000)
                         inf_time_message = "Face Detection time: {:.2f} ms ({:.2f} fps)".format((det_time * 1000),1/(det_time))           
@@ -205,7 +205,7 @@ def main():
 
                         cv2.putText(frame, render_time_message, (15, 15), cv2.FONT_HERSHEY_COMPLEX, 0.5, (255, 10, 10), 1)
                         cv2.putText(frame, inf_time_message, (15, 30), cv2.FONT_HERSHEY_COMPLEX, 0.5, (255, 10, 10), 1)
-                        #if age_enabled or headPose_enabled or emotions_enabled or landmarks_enabled:
+                        #if age_enabled or headPose_enabled :
                         if age_enabled or headPose_enabled:
                             cv2.putText(frame, Face_analytics_time_message, (15,45), cv2.FONT_HERSHEY_COMPLEX, 0.5, (255, 10, 10), 1)
 
