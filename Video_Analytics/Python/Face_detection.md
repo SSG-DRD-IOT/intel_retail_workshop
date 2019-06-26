@@ -184,7 +184,7 @@ log.info("Starting inference ...")
 log.info("To stop the demo execution press Esc button")
 is_async_mode = True
 render_time = 0
-#TODO Age_Gender_Detection 2
+#TODO Age_Gender_Detection 3
 decode_time = 0
 visual_time = 0
 framesCounter = 0
@@ -201,7 +201,7 @@ decode_prev_time = decode_prev_finish - decode_prev_start
 
 ```python
 while cap.isOpened():
-    #TODO Age_Gender_Detection 3
+    #TODO Age_Gender_Detection 4
     analytics_time = 0
     decode_next_start = time.time()
     ret, frame = cap.read()
@@ -244,10 +244,10 @@ while cap.isOpened():
                 height = ymax - ymin
                 width = xmax -xmin  
 
-                #TODO Age_Gender_Detection 4
+                #TODO Age_Gender_Detection 5
                 visual_start = time.time()                                   
                 if args.no_show==False:    
-                    #TODO Age_Gender_Detection 5
+                    #TODO Age_Gender_Detection 6
                     class_id = int(obj[1])                                     
                     # Draw box and label\class_id
                     color = (min(class_id * 12.5, 255), min(class_id * 7, 255), min(class_id * 5, 255))
