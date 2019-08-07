@@ -105,55 +105,56 @@ def drawAxes(pitch,yaw,roll,cpoint,frame):
 
 
 ```
-### 3. Initialize Plugin for Myraid for Head Pose
+### 3. Initialize Plugin for  Head Pose
 Initialize plugin for MYRIAD separately as it cannot be loaded simultaneously.
-- Replace **#TODO Initializing Plugin for Myraid for Head Pose** with the following code.
+- Replace **#TODO Head_Pose_Detection 2** with the following code.
 
 ```python
-MYRIAD_plugin_hp = IEPlugin(args.device_hp.upper(),args.plugin_dir)
+
+
+            if args.model and args.hp_model:
+                plugin_hp,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)
+                if args.device == args.device_hp:                    
+                    plugin_hp = plugin
+
+        else :
+            if args.model and args.hp_model:
+                plugin_hp,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)
+                if args.device_ag == args.device_hp:
+                    plugin_hp = plugin_ag
+                elif args.device == args.device_hp:
+                    plugin_hp = plugin         
+
+    else :
+        if args.model and args.hp_model:
+            plugin_hp,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp,args.plugin_dir,1,3,args.cpu_extension)    
+            if args.device == args.device_hp:                    
+                plugin_hp = plugin                        
+
+
 ```
 
 ### 4. Load Pre-trained Optimized Model for HeadPose Inferencing
 Load pre-retained optimized model for head pose detection on CPU as CPU is already selected as plugin device previously.
-- Replace **#TODO Head_Pose_Detection 2** with the following lines of code
+- Replace **#TODO Head_Pose_Detection 3** with the following lines of code
 
 ```python
+
 # Head Pose  
 if args.model and args.hp_model:
     headPose_enabled = True
-    #log.info("Loading network files for Head Pose Estimation")
-    plugin,hp_net=load_model("Head Pose Estimation",args.hp_model,args.device_hp.upper(),args.plugin_dir,1,3,args.cpu_extension)
     hp_input_blob=next(iter(hp_net.inputs))
     hp_out_blob=next(iter(hp_net.outputs))
-
-    if (args.device_hp.upper() == "MYRIAD" and not args.device.upper() =="MYRIAD" and not args.device_ag.upper() == "MYRIAD"):
-        hp_exec_net = MYRIAD_plugin_hp.load(network=hp_net, num_requests=2)
-
-    elif (args.device_hp.upper() == "MYRIAD"):
-        if (args.device_ag.upper() == "MYRIAD"):
-            if (args.device.upper() == "MYRIAD"):
-                hp_exec_net = MYRIAD_plugin.load(network=hp_net, num_requests=2)
-            else :
-                hp_exec_net = MYRIAD_plugin_ag.load(network=hp_net, num_requests=2)
-        elif (args.device.upper() == "MYRIAD"):
-            hp_exec_net = MYRIAD_plugin.load(network=hp_net, num_requests=2)
-        else :
-            hp_exec_net = MYRIAD_plugin_hp.load(network=hp_net, num_requests=2)
-
-    else :
-        hp_exec_net = plugin.load(network=hp_net, num_requests=2)
-
-
+    hp_exec_net=plugin_hp.load(network=hp_net, num_requests=2)
     hp_n, hp_c, hp_h, hp_w = hp_net.inputs[input_blob].shape
     del hp_net
-
 
 
 ```
 
 ### 5. Use Identified Face for HeadPose Detection
 Clip the identified Faces and send inference request for detecting head pose.
-- Replace **#TODO Head_Pose_Detection 3** with the following lines of code
+- Replace **#TODO Head_Pose_Detection 4** with the following lines of code
 
 ```python
 #Heapose
@@ -176,7 +177,7 @@ analytics_time = age_inf_time + hp_inf_time
 
 ### 6. Calculate attentivity index
 Now, the attentivity index will be calculated using Yaw angle available from head pose inference result.
-- Replace **#TODO Head_Pose_Detection 4** with the following lines of code
+- Replace **#TODO Head_Pose_Detection 5** with the following lines of code
 
 ```python
 if headPose_enabled:

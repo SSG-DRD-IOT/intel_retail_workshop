@@ -28,48 +28,43 @@ parser.add_argument("-d_ag", "--device_ag",
                     type=str)
 #TODO Head_Pose command line arguments
   ```  
-### 2. Initializing Plugin for Myraid for Age and Gender
-Initialize plugin for MYRIAD separately as it can not be loaded  simultaneously.
-- Replace **#TODO Initializing Plugin for Myraid for Age and Gender** with the following code.
+### 2. Initializing Plugin for Age and Gender
+Initialize plugin for Age and gender.
+- Replace **#TODO Age_Gender_Detection 1** with the following code.
 
 ```python
-MYRIAD_plugin_ag = IEPlugin(args.device_ag.upper(),args.plugin_dir)
-#TODO Initializing Plugin for Myraid for Head Pose
+#Make sure only one IEPlugin is created for one type of device
+plugin,net = load_model("Face Detection",args.model,args.device,args.plugin_dir,1,1,args.cpu_extension)    
+
+if args.model and args.ag_model:
+    plugin_ag,ag_net = load_model("Age/Gender Recognition",args.ag_model,args.device_ag,args.plugin_dir,1,2,args.cpu_extension)
+    if args.device == args.device_ag:
+        plugin_ag = plugin
+        #TODO Head_Pose_Detection 2
 ```
 
 ### 3. Load Pre-trained Optimized Model for Age and Gender Inferencing
 
 In previous step, CPU is selected as plugin device. Now, load pre-trained optimized model for age and gender detection inferencing on CPU.
-- Replace **#TODO Age_Gender_Detection 1** with the following lines of code
+- Replace **#TODO Age_Gender_Detection 2** with the following lines of code
 
 ```python
 # age and gender   
-    if args.model and args.ag_model:
+if args.model and args.ag_model:
 
-       age_enabled =True
-       #log.info("Loading network files for Age/Gender Recognition")
-       plugin,ag_net=load_model("Age/Gender Recognition",args.ag_model,args.device_ag.upper(),args.plugin_dir,1,2,args.cpu_extension)
-       age_input_blob=next(iter(ag_net.inputs))
-       age_out_blob=next(iter(ag_net.outputs))
+   age_enabled =True
+   age_input_blob=next(iter(ag_net.inputs))
+   age_out_blob=next(iter(ag_net.outputs))
+   age_exec_net = plugin.load(network=ag_net, num_requests=2)      
+   ag_n, ag_c, ag_h, ag_w = ag_net.inputs[input_blob].shape
+   del ag_net
 
-
-       if ((args.device_ag.upper() == "MYRIAD") and (not args.device.upper() == "MYRIAD")):
-           age_exec_net = MYRIAD_plugin_ag.load(network=ag_net, num_requests=2)
-       elif (args.device_ag == "MYRIAD"):
-           age_exec_net = MYRIAD_plugin.load(network=ag_net, num_requests=2)
-       else :
-           age_exec_net = plugin.load(network=ag_net, num_requests=2)      
-
-
-       ag_n, ag_c, ag_h, ag_w = ag_net.inputs[input_blob].shape
-       del ag_net
-
-   #TODO Head_Pose_Detection 2
+#TODO Head_Pose_Detection 3
 ```
 
 ### 4. Initialize the parameters
 Here initialize the parameters which are required to process the output.
-- Replace **#TODO Age_Gender_Detection 2** with the following lines of code
+- Replace **#TODO Age_Gender_Detection 3** with the following lines of code
 
 ```python
 curFaceCount = 0
@@ -83,7 +78,7 @@ attentivityindex = 0
 ### 5. Resetting the parameters for each frame
 The initialized parameters which are required to process the output are reset to zero.
 
-- Replace **#TODO Age_Gender_Detection 3** with the following lines of code
+- Replace **#TODO Age_Gender_Detection 4** with the following lines of code
 
 ```python
 curFaceCount = 0
@@ -95,7 +90,7 @@ attentivityindex=0
 ### 6. Process Face detection Inference Results
 Clip the identified Faces and send inference request for identifying Age and Gender.
 
-- Replace **#TODO Age_Gender_Detection 4** with the following lines of code
+- Replace **#TODO Age_Gender_Detection 5** with the following lines of code
 
 ```python
 #Age and Gender
@@ -111,13 +106,13 @@ if age_enabled:
     if age_exec_net.requests[cur_request_id].wait(-1) == 0:
         age_inf_end = time.time()
         age_inf_time=age_inf_end - age_inf_start
-#TODO Head_Pose_Detection 3          
+#TODO Head_Pose_Detection 4         
 
 ```
 
 ### 7. Process Age and Gender detection Results for display
 At this stage face detection Inference results will be available for further processing. Here, identified face will be clipped off and will be used for identifying age and gender in next request for inferencing.
-- Replace **#TODO Age_Gender_Detection 5** with the following lines of code
+- Replace **#TODO Age_Gender_Detection 6** with the following lines of code
 
 ```python
 if age_enabled:

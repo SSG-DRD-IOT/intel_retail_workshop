@@ -160,6 +160,6 @@ For complete solution, see [face_detection](./solutions/facedetection.md)
 Face Detection using the Intel® Distribution of OpenVINO™ toolkit.
 
 ## Next Lab
-[Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit](./Age_Gender_Detection.md)
+- [Face Detection using VPU and Async(Optional)](./Facedetection_VPU_Async.md)
 
-
+- [Age and Gender Detection using the Intel® Distribution of OpenVINO™ toolkit](./Age_Gender_Detection.md)

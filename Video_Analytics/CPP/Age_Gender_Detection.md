@@ -3,6 +3,8 @@
 We have done Face Detection in our previous module. Now, we identify Age and Gender for the identified faces.    
 We  build upon our Face Detection code and add Age, Gender identification code in this module.
 
+Replace the contents of the main.cpp file with the face detection final solution from [here](./solutions/facedetection.md)
+
 **Class diagram for Age and Gender detection**
 
 ![](images/AgeGender_class.png)
