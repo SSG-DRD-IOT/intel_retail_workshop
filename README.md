@@ -1,4 +1,5 @@
-# Visual Solutions Partner Summit - Chicago 09/2019 (Intel® Retail Workshop)
+# Visual Solutions Partner Summit - Chicago 09/2019 
+(Intel® Retail Workshop)
 Welcome to the Intel® Retail Workshop. In this workshop, we will explore video performance, hardware remote management and video analytics technologies developed by Intel® and our partners through presentations, demos and labs. By the end of the workshop, you should have an understanding of Intel® Media SDK, AMT & OpenVINO™ toolkit.
 ## Day 1
 ### Presentations
@@ -8,17 +9,17 @@ Welcome to the Intel® Retail Workshop. In this workshop, we will explore video 
 
 [Intel Building Blocks for Solution Enabling](./Presentations/Day1/2019_09_12_1015_Intel_Building_Blocks_for_Solution_Enabling.pdf)
 
-[Visual Solutions Panel](./Presentations/Day1/2019_09_12_1045_Visual_Solutions_Panel.pdf.pdf)
+[Visual Solutions Panel](./Presentations/Day1/2019_09_12_1045_Visual_Solutions_Panel.pdf)
 
 [Intel® Partnership Benefits](./Presentations/Day1/2019_09_12_1230_Intel_Partnership_Benefits.pdf)
 
 [Intel® SDM Integrated Displays Panel](./Presentations/Day1/2019_09_12_1300_Intel_SDM_Integrated_Displays_Panel.pdf)
 
-[Reimagine End to End architecture with Edge Computing](2019_09_12_1400_Reimagine_End_to_End_architecture_with_Edge_Computing./Presentations/Day1/.pdf)
+[Reimagine End to End architecture with Edge Computing](./Presentations/Day1/2019_09_12_1400_Reimagine_End_to_End_architecture_with_Edge_Computing.pdf)
 
-[Interactive Digital Content Creation]()
+Interactive Digital Content Creation
 
-[The Power of Machine Learning and Computer Vision at the Edge](./Presentations/Day1/2019_09_12_1500_Power_Of_MachineLearning_ComputerVision.pdf.pdf)
+[The Power of Machine Learning and Computer Vision at the Edge](./Presentations/Day1/2019_09_12_1500_Power_Of_MachineLearning_ComputerVision.pdf)
 
 ## Day 2
 ### Presentations
